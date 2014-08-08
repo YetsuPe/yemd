@@ -1,0 +1,13 @@
+/*** text ***/
+$base-font             : 16px; 
+$color-primary         : #3f51b5; //indigo
+$color-secondary       : #ff4081; //pink
+// grey text, icons, and dividers
+$color-black           : #000;
+$color-white           : #fff;
+$color-divider         : rgba($color-black,0.12);
+$color-hint-text       : rgba($color-black,0.26);
+$color-text            : rgba($color-black,0.87);
+$color-text-white      : $color-white           ;
+$color-secondary-text  : rgba($color-black,0.54);
+$color-icon            : rgba($color-black,0.54);

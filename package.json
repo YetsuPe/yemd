@@ -1,0 +1,12 @@
+{
+  "name": "Consama",
+  "version": "0.0.2",
+  "description": "software consama",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-sass": "^0.7.3"
+  }
+}

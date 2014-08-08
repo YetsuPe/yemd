@@ -1,0 +1,30 @@
+.sidenav { 
+	position: fixed;
+	@include calc( "width", " 100% - 56px " );
+	top:0;
+	height:100%;
+}
+.sidenav__head {
+	background: url("../sample/images/cover.jpg") no-repeat ;
+	background-size: cover;
+	position: relative;
+	padding:0 16px;
+}
+.sidenav__head__logo {
+	display:block;
+	position: relative;
+	top: 16px;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+}
+.sidenav__head__title {
+	position: absolute;
+	bottom:0;
+	left:0;
+	padding-left:16px;
+	height:48px;
+	width:100%;
+	font-size:16px;
+	line-height:3;
+}
