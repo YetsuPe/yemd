@@ -403,6 +403,10 @@ th {
   box-sizing: border-box; }
 
 /* line 4, ../scss/_reset.scss */
+main {
+  display: block; }
+
+/* line 7, ../scss/_reset.scss */
 h1,
 h2,
 h3,
@@ -412,7 +416,7 @@ h6,
 figure {
   margin: 0; }
 
-/* line 13, ../scss/_reset.scss */
+/* line 16, ../scss/_reset.scss */
 a {
   text-decoration: none; }
 
@@ -430,7 +434,7 @@ body {
 
 /* line 1, ../scss/_overlay.scss */
 .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.25);
   position: fixed;
   top: 0;
   width: 100%;
@@ -438,14 +442,14 @@ body {
   display: none; }
   /* line 8, ../scss/_overlay.scss */
   .overlay.show {
-    -webkit-animation: fadeIn 1s ease forwards;
-    -moz-animation: fadeIn 1s ease forwards;
-    animation: fadeIn 1s ease forwards; }
+    -webkit-animation: fadeIn 0.75s ease forwards;
+    -moz-animation: fadeIn 0.75s ease forwards;
+    animation: fadeIn 0.75s ease forwards; }
   /* line 11, ../scss/_overlay.scss */
   .overlay.hide {
-    -webkit-animation: fadeOut 1s ease forwards;
-    -moz-animation: fadeOut 1s ease forwards;
-    animation: fadeOut 1s ease forwards; }
+    -webkit-animation: fadeOut 0.75s ease forwards;
+    -moz-animation: fadeOut 0.75s ease forwards;
+    animation: fadeOut 0.75s ease forwards; }
   /* line 14, ../scss/_overlay.scss */
   .overlay.showD {
     display: block; }
@@ -502,9 +506,14 @@ body {
 .appbar {
   position: relative;
   height: 56px;
-  background-color: #3f51b5; }
+  background-color: #3f51b5;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12); }
 
-/* line 7, ../scss/_appbar.scss */
+/* line 8, ../scss/_appbar.scss */
 .appbar__title {
   display: block;
   font-size: 18px;
@@ -512,7 +521,7 @@ body {
   margin-left: 72px;
   color: white; }
 
-/* line 14, ../scss/_appbar.scss */
+/* line 15, ../scss/_appbar.scss */
 .appbar__icon {
   display: block;
   position: absolute;
@@ -521,7 +530,7 @@ body {
   width: 48px;
   height: 48px;
   padding: 12px; }
-  /* line 22, ../scss/_appbar.scss */
+  /* line 23, ../scss/_appbar.scss */
   .appbar__icon [stroke] {
     stroke: white; }
 
@@ -536,21 +545,26 @@ body {
   top: 0;
   height: 100%;
   background: white;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  transition: all 1s ease; }
-  /* line 10, ../scss/_sidenav.scss */
+  -webkit-transition: left 0.75s ease;
+  -moz-transition: left 0.75s ease;
+  transition: left 0.75s ease;
+  -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
+  /* line 11, ../scss/_sidenav.scss */
   .sidenav.enter {
     left: 0; }
 
-/* line 14, ../scss/_sidenav.scss */
+/* line 15, ../scss/_sidenav.scss */
 .sidenav__head {
   background: url("../sample/images/cover.jpg") no-repeat;
   background-size: cover;
   position: relative;
   padding: 0 16px; }
 
-/* line 20, ../scss/_sidenav.scss */
+/* line 21, ../scss/_sidenav.scss */
 .sidenav__head__logo {
   display: block;
   position: relative;
@@ -559,7 +573,7 @@ body {
   height: 64px;
   border-radius: 50%; }
 
-/* line 28, ../scss/_sidenav.scss */
+/* line 29, ../scss/_sidenav.scss */
 .sidenav__head__title {
   position: absolute;
   bottom: 0;
@@ -570,34 +584,70 @@ body {
   font-size: 16px;
   line-height: 3; }
 
-/* line 38, ../scss/_sidenav.scss */
-.sidenav__body__link {
+/* line 41, ../scss/_sidenav.scss */
+.sidenav__body__links {
   display: block;
   width: 100%;
   height: 48px;
   padding: 0 16px; }
   /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .sidenav__body__link:after {
+  .sidenav__body__links:after {
     content: "";
     display: table;
     clear: both; }
-  /* line 44, ../scss/_sidenav.scss */
-  .sidenav__body__link a {
+  /* line 47, ../scss/_sidenav.scss */
+  .sidenav__body__links a {
     float: left;
     width: -webkit-calc( 100% - 24px );
     width: calc( 100% - 24px );
     padding-left: 32px;
     line-height: 3; }
-  /* line 50, ../scss/_sidenav.scss */
-  .sidenav__body__link svg {
+  /* line 53, ../scss/_sidenav.scss */
+  .sidenav__body__links svg {
     float: left;
     position: relative;
     width: 24px;
     height: 24px;
     top: 12px; }
+    /* line 59, ../scss/_sidenav.scss */
+    .sidenav__body__links svg path {
+      fill: rgba(0, 0, 0, 0.54); }
+
+/* line 64, ../scss/_sidenav.scss */
+.sidenav__body__plus-links {
+  display: block;
+  border-top: 1px solid rgba(0, 0, 0, 0.54);
+  padding: 0 16px; }
+  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
+  .sidenav__body__plus-links:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 69, ../scss/_sidenav.scss */
+  .sidenav__body__plus-links a {
+    float: left;
+    width: -webkit-calc( 100% - 24px );
+    width: calc( 100% - 24px );
+    line-height: 3; }
 
 @media only screen and (min-width: 1024px) {
-  /* line 60, ../scss/_sidenav.scss */
+  /* line 77, ../scss/_sidenav.scss */
   .sidenav {
     max-width: 400px;
     width: 20%; } }
+/* line 1, ../scss/_canvas.scss */
+.canvas {
+  padding: 0 16px; }
+  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
+  .canvas:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 1, ../scss/_sub-title.scss */
+.sub-title {
+  height: 48px;
+  font-size: 16px;
+  line-height: 3;
+  color: rgba(0, 0, 0, 0.54);
+  display: block; }

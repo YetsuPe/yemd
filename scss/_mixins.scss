@@ -1,0 +1,18 @@
+
+@mixin zDepth($z_depth:1){
+    @if  $z_depth==1{
+     @include box-shadow( 0 1px 1px rgba(0,0,0,0.24) ,0 1px 1.5px rgba(0,0,0,0.12) );
+    }
+    @if  $z_depth==2{
+     @include box-shadow( 0 3px 3px rgba(0,0,0,0.23) ,0 3px 3px rgba(0,0,0,0.16) );
+    }
+    @if  $z_depth==3{
+     @include box-shadow( 0 6px 3px rgba(0,0,0,0.23) ,0 10px 10px rgba(0,0,0,0.19) );
+    }
+    @if  $z_depth==4{
+     @include box-shadow( 0 10px 5px rgba(0,0,0,0.22) ,0 14px 14px rgba(0,0,0,0.25) );
+    }
+    @if  $z_depth==5{
+     @include box-shadow( 0 15px 6px rgba(0,0,0,0.22) ,0 19px 19px rgba(0,0,0,0.30) );
+    }
+}

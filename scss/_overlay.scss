@@ -1,15 +1,15 @@
 .overlay {
-	background:$color-bg-black ;
+	background:$bg-overlay ;
 	position: fixed; 
 	top:0;
 	width:100%;
 	height:100%;
 	display:none; 
 	&.show{ 
-		@include animation( fadeIn 1s ease forwards); 
+		@include animation( fadeIn $time-animation ease forwards); 
 	}
 	&.hide{ 
-		@include animation( fadeOut 1s ease forwards);
+		@include animation( fadeOut $time-animation ease forwards);
 	}
 	&.showD{
 		display: block;

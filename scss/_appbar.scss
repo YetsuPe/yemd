@@ -3,6 +3,7 @@
   position: relative;
   height: 56px;// 56dp portrait 48dp landscape 64px table/desktop
   background-color: $color-primary;
+  @include zDepth($z_depth:1);
 }
 .appbar__title {
 	display:block;

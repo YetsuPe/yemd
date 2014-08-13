@@ -25,7 +25,7 @@
             $animate.addClass($element,'hide');
             $timeout(function(){
               $animate.removeClass($element,'showD');
-            }, 1000);
+            }, 750);
           }
         });  
         $element.on('click',function(){

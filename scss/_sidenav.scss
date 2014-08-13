@@ -6,7 +6,8 @@
 	top:0;
 	height:100%;
 	background:$bg-sidenav;
-	@include transition ( all 1s ease );
+	@include transition ( left $time-animation ease );
+	@include zDepth($z_depth:5);
 	&.enter {
   	left:0;
   }
@@ -35,12 +36,14 @@
 	font-size:16px;
 	line-height:3;
 } 
-.sidenav__body__link {
+.sidenav__body {
+}
+.sidenav__body__links {
 	@include clearfix;
 	display: block;
 	width:100%; 
-	height:48px;
-	padding: 0 16px;
+	height:48px; 
+	padding:0 16px;
 	a {
 		float: left;
 		@include calc( "width", " 100% - 24px " ) ;
@@ -53,6 +56,20 @@
 		width : 24px;
 		height: 24px; 
 		top: 12px; 
+		path {
+			fill: $color-icon;
+		}
+	}
+}
+.sidenav__body__plus-links{
+	@include clearfix;
+	display: block;
+	border-top:1px solid $color-divider;
+	padding:0 16px;
+	a {
+		float: left;
+		@include calc( "width", " 100% - 24px " ) ; 
+		line-height:3 ;
 	}
 }
 //<!--desktop-->
