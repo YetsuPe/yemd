@@ -1,8 +1,4 @@
 <header class="appbar">
-	<svg version="1.0" class="appbar__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="2" y1="12" x2="22" y2="12"/>
-		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="2" y1="6" x2="22" y2="6"/>
-		<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="2" y1="18" x2="22" y2="18"/>
-	</svg>
-  <h1 class="appbar__title"> {{ title || "Yemd" }} </h1>
+	<icon class="appbar__icon" data-action="menu"><span data-src="icons/Very_Basic/menu.svg"></span></icon>
+  <h1   class="appbar__title"> {{$root.hello}} {{ title || "Yemd" }} </h1> 
 </header>

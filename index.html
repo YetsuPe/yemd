@@ -10,16 +10,35 @@
 	<link rel="stylesheet" href="css/yemd.css" /> 
 </head>
 
-<body>
-  
-  <yemd-appbar title=""></yemd-appbar>
+<body>  
+
+	<header class="appbar"> 
+		<icon class="appbar__icon" data-action="menu"> <img data-src="icons/Very_Basic/menu.svg"></icon>
+  	<h1 class="appbar__title">  Yemd </h1> 
+	</header>
+
+	<nav class="sidenav">
+		<figure class="sidenav__head">
+			<img class="sidenav__head__logo" src="sample/images/logo.png" alt="Logo Yetsu" class="sidenav__logo">
+			<h4 class="sidenav__head__title">hola@yetsu.com</h4>
+		</figure>
+		<div class="sidenav__body">
+			<div class="sidenav__body__link"> 
+				<icon data-action="link"> <img data-src="icons/Very_Basic/home.svg"></icon>
+				<a href="#">Home </a> 
+			</div>
+		</div>
+	</nav>  
+	<!--
+  <yemd-appbar></yemd-appbar>
   <yemd-sidenav></yemd-sidenav>
   <yemd-rightnav></yemd-rightnav>
   <yemd-contentArea></yemd-contentArea>
   <yemd-bottom-bar></yemd-bottom-bar>
+	-->
+<script src="vendor/angular/angular.js"></script> 
+<script src="vendor/svg-injector/svg-injector.js"></script>
 
-<script src="vendor/angular/angular.js"></script>
-<script src="vendor/angular-animate/angular-animate.js"></script>
 <script src="js/yemd.js"></script>
 
 </body>

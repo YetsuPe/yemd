@@ -1,4 +1,5 @@
 /*** text ***/
+/**** components ****/
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -411,6 +412,10 @@ h6,
 figure {
   margin: 0; }
 
+/* line 13, ../scss/_reset.scss */
+a {
+  text-decoration: none; }
+
 /* line 1, ../scss/_base.scss */
 html {
   height: 100%; }
@@ -423,6 +428,76 @@ body {
   font-weight: 400;
   color: rgba(0, 0, 0, 0.87); }
 
+/* line 1, ../scss/_overlay.scss */
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none; }
+  /* line 8, ../scss/_overlay.scss */
+  .overlay.show {
+    -webkit-animation: fadeIn 1s ease forwards;
+    -moz-animation: fadeIn 1s ease forwards;
+    animation: fadeIn 1s ease forwards; }
+  /* line 11, ../scss/_overlay.scss */
+  .overlay.hide {
+    -webkit-animation: fadeOut 1s ease forwards;
+    -moz-animation: fadeOut 1s ease forwards;
+    animation: fadeOut 1s ease forwards; }
+  /* line 14, ../scss/_overlay.scss */
+  .overlay.showD {
+    display: block; }
+
+@-webkit-keyframes fadeIn {
+  /* line 19, ../scss/_overlay.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 20, ../scss/_overlay.scss */
+  100% {
+    opacity: 1; } }
+@-moz-keyframes fadeIn {
+  /* line 19, ../scss/_overlay.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 20, ../scss/_overlay.scss */
+  100% {
+    opacity: 1; } }
+@keyframes fadeIn {
+  /* line 19, ../scss/_overlay.scss */
+  0% {
+    opacity: 0; }
+
+  /* line 20, ../scss/_overlay.scss */
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes fadeOut {
+  /* line 23, ../scss/_overlay.scss */
+  0% {
+    opacity: 1; }
+
+  /* line 24, ../scss/_overlay.scss */
+  100% {
+    opacity: 0; } }
+@-moz-keyframes fadeOut {
+  /* line 23, ../scss/_overlay.scss */
+  0% {
+    opacity: 1; }
+
+  /* line 24, ../scss/_overlay.scss */
+  100% {
+    opacity: 0; } }
+@keyframes fadeOut {
+  /* line 23, ../scss/_overlay.scss */
+  0% {
+    opacity: 1; }
+
+  /* line 24, ../scss/_overlay.scss */
+  100% {
+    opacity: 0; } }
 /* line 2, ../scss/_appbar.scss */
 .appbar {
   position: relative;
@@ -453,19 +528,29 @@ body {
 /* line 1, ../scss/_sidenav.scss */
 .sidenav {
   position: fixed;
+  z-index: 2;
   width: -webkit-calc( 100% - 56px );
   width: calc( 100% - 56px );
+  left: -webkit-calc(  -1 * ( 100% - 56px ) );
+  left: calc(  -1 * ( 100% - 56px ) );
   top: 0;
-  height: 100%; }
+  height: 100%;
+  background: white;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  transition: all 1s ease; }
+  /* line 10, ../scss/_sidenav.scss */
+  .sidenav.enter {
+    left: 0; }
 
-/* line 7, ../scss/_sidenav.scss */
+/* line 14, ../scss/_sidenav.scss */
 .sidenav__head {
   background: url("../sample/images/cover.jpg") no-repeat;
   background-size: cover;
   position: relative;
   padding: 0 16px; }
 
-/* line 13, ../scss/_sidenav.scss */
+/* line 20, ../scss/_sidenav.scss */
 .sidenav__head__logo {
   display: block;
   position: relative;
@@ -474,7 +559,7 @@ body {
   height: 64px;
   border-radius: 50%; }
 
-/* line 21, ../scss/_sidenav.scss */
+/* line 28, ../scss/_sidenav.scss */
 .sidenav__head__title {
   position: absolute;
   bottom: 0;
@@ -484,3 +569,35 @@ body {
   width: 100%;
   font-size: 16px;
   line-height: 3; }
+
+/* line 38, ../scss/_sidenav.scss */
+.sidenav__body__link {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px; }
+  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
+  .sidenav__body__link:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 44, ../scss/_sidenav.scss */
+  .sidenav__body__link a {
+    float: left;
+    width: -webkit-calc( 100% - 24px );
+    width: calc( 100% - 24px );
+    padding-left: 32px;
+    line-height: 3; }
+  /* line 50, ../scss/_sidenav.scss */
+  .sidenav__body__link svg {
+    float: left;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    top: 12px; }
+
+@media only screen and (min-width: 1024px) {
+  /* line 60, ../scss/_sidenav.scss */
+  .sidenav {
+    max-width: 400px;
+    width: 20%; } }
