@@ -1,4 +1,7 @@
-.canvas {
-	//padding:0 16px;
+.canvas { 
 	@include clearfix;
+	padding: 0 16px;
+ .card ~ .canvas {
+ 	padding: 0;
+ }
 }
