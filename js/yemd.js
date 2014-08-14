@@ -8,7 +8,8 @@
     $rootScope.yemd= {
       pristine: true,
       toggleSidenav:false,
-      toggleOverlay: false
+      toggleOverlay: false,
+      folderIcons: 'icons/' //default
     };  
   })
   .directive('input', ['$rootScope','$animate', function($rootScope,$animate){
@@ -125,20 +126,27 @@
       restrict: 'EC',
       scope: {
         url:'@name',
-        color: '@'
+        color: '@',
+        icon: '@'
       },
       controller: function($scope , $element, $attrs,$rootScope){  
+        $scope.folderIcons = ( $scope.icon === '' || typeof($scope.icon) === 'undefined' )? $rootScope.yemd.folderIcons : "folder of Icons to set for the user" ;
         $element.on('click',function(){ 
           if ( $attrs.action==="menu" ) {   
             $scope.$apply(function () { 
-                $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
-                $rootScope.yemd.pristine = false ;
+              $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
+              $rootScope.yemd.pristine = false ;
             });  
           }
         });
       },
       link: function  ($scope, element, attrs){ 
-        element.html( svg(element.find('img')) ); 
+        //element.find('img').attr('src', $scope.icon );
+        console.log($scope.folderIcons);
+        var iconHtml= "<img />";
+        var icon = ( typeof( jQuery )==="undefined" )? element.append(angular.element(iconHtml)) : element.append($(iconHtml)) ;
+        ( $scope.icon !== '' || typeof($scope.icon) === 'undefined'  )? element.html( svg(element.find('img').attr('src', $scope.icon)) )  : element.html( svg(element.find('img').attr('src',$scope.folderIcons+'/Very_Basic/link.svg') ) ) ;
+        //element.html( svg(element.find('img')) ); 
       }
     };
   }])
