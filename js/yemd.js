@@ -10,7 +10,80 @@
       toggleSidenav:false,
       toggleOverlay: false
     }; 
+    // Sample
+    $rootScope.app={
+      form:{
+        //usuario:'Skeiter9'
+      }
+    };
   })
+  .directive('input', ['$rootScope','$animate', function($rootScope,$animate){
+    // Runs during compile
+    return {
+      // name: '',
+      // priority: 1,
+      // terminal: true,
+      scope: {}, // {} = isolate, true = child, false/undefined = no change
+      controller: function($scope, $element, $attrs, $rootScope) {
+
+      },
+      require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+      restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+      // template: '',
+      // templateUrl: '',
+      // replace: true,
+      // transclude: true,
+      // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+      link: function($scope, element, attrs, model) {
+
+        var input= element,
+            label= angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
+            error=angular.element("<label class='invalid'>error</label>"),
+            fieldset=angular.element("<fieldset></fieldset>"),
+            placeholder=attrs.placeholder;
+ 
+        element.wrap(fieldset);  
+ 
+        element.on('keyup',function(){
+          console.log( model );  
+          if ( model.$dirty && model.$valid && model.$viewValue !=="" ) {
+            fieldset.addClass('focus'); 
+          }; 
+          if ( model.$dirty && model.$valid && model.$viewValue ==="" ) {  
+            fieldset.removeClass('focus');
+          };  
+
+          if( model.$valid ){ 
+            /** remove label invalid **/
+            error.removeClass('show'); 
+            error.addClass('hide'); 
+            setTimeout(function(){ 
+              error.removeClass('showD hide'); //attrs.placeholder
+              element.attr('placeholder',placeholder);
+            }, 750);
+            //show valid
+            fieldset.prepend( label );
+            label.removeClass('hide'); 
+            label.addClass('showD show'); 
+          }else{ 
+            /** remove label valid **/
+            label.removeClass('show'); 
+            label.addClass('hide'); 
+            setTimeout(function(){ 
+              label.removeClass('showD hide'); //attrs.placeholder
+              element.attr('placeholder',placeholder);
+            }, 750);
+            //show error
+            error.removeClass('hide'); 
+            error.addClass('showD show');
+            fieldset.append( error );
+              
+          };
+        }); 
+
+      }
+    };
+  }])
   .directive('overlay',['$rootScope','$animate','$timeout',function($rootScope,$animate,$timeout){
     return {
       restrict: 'EAC',
@@ -104,7 +177,6 @@
         //toggleSidenav: $rootScope.yemd.toggleSidenav
       },  
       controller: function($scope , $element, $attrs, $animate, $rootScope,$timeout){
-        console.log($rootScope.yemd.toggleSidenav);
         $rootScope.$watch('yemd.toggleSidenav', function() {
           if (!$rootScope.yemd.pristine && $rootScope.yemd.toggleSidenav ) {
             $animate.addClass($element,'enter');   

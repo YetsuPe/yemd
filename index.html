@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Yemd by @YetsuPe" />
 	<meta name="author" content="@YetsuPe" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="css/yemd.css" /> 
 </head>
 
@@ -35,6 +34,10 @@
 
 	<main class="canvas">
 		<h2 class="sub-title"> Login  </h2>
+		<form>
+			<input type="text" placeholder="usuario" ng-model="app.form.usuario" required/>
+			<input type="password" placeholder="password" ng-model="app.form.password" required/>
+		</form>
 	</main>
 
 <script src="vendor/angular/angular.js"></script> 

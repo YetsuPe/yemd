@@ -1,0 +1,94 @@
+form{
+	@include clearfix;
+}
+
+input {
+	display:block;
+	width:100%;
+	padding: 0 0 8px 0;
+  line-height: 1;
+  background:transparent;
+  font-size: 16px;
+  height: 24px;
+  border-bottom:1px solid $color-divider;
+  @include transition ( border $time-animation ease );
+  &:focus {
+    outline-color: transparent;  
+    border-bottom-color:$color-primary ;
+    border-bottom-width:2px;
+  }
+  &.ng-dirty.ng-valid {
+    border-bottom-color:$color-success;
+    border-bottom-width:2px;
+  }
+  &.ng-dirty.ng-invalid {
+    border-bottom-color:$color-error;
+    border-bottom-width:2px;
+  }
+  //placeholder
+  &::-webkit-input-placeholder {
+  	color:$color-secondary-text;
+  	opacity: 0;
+		@include animation( fadeIn $time-animation ease forwards); 
+  }
+	&:-moz-placeholder {
+		color:$color-secondary-text;
+  	opacity: 0;
+		@include animation( fadeIn $time-animation ease forwards); 
+	}
+}
+
+
+label {
+	color:$color-secondary-text;
+	font-size:12px;
+	position: relative;
+	display:none;
+	line-height:1.333;
+	height:16px; 
+	&.valid{
+		margin-bottom:8px;
+		&.show{  
+			@include animation( fadeIn $time-animation ease forwards, enterLabel $time-animation ease forwards);  
+			& ~ input {
+				@include animation( enterLabel $time-animation ease); 
+			}
+		}
+		&.hide{ 
+			@include animation( fadeOut $time-animation ease forwards, leaveLabel $time-animation ease forwards);
+			& ~ input {
+				@include animation( leaveLabel $time-animation ease); 
+			}
+		}
+	}
+	&.invalid{
+		//margin-top:8px;
+		color:$color-error; 
+		&.show{ 
+			@include animation( fadeIn $time-animation ease forwards, enterLabelInvalid $time-animation ease); 
+			& ~ input {
+				@include animation( enterLabelInvalid $time-animation ease ); 
+			}
+		}
+		&.hide{ 
+			@include animation( fadeOut $time-animation ease forwards, leaveLabelInvalid $time-animation ease forwards);
+			& ~ input {
+				@include animation( leaveLabelInvalid $time-animation ease); 
+			}
+		}
+	}
+	
+	&.showD{
+		display: block;
+	}
+}
+
+fieldset {
+	height:48px; 
+	overflow-y:hidden;
+	padding:16px 0;  
+	@include transition ( height $time-animation ease );
+	&.focus {
+		height: 72px;
+	}
+}
