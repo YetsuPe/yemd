@@ -688,15 +688,15 @@ body {
   background: white;
   -webkit-transition: left 0.75s ease;
   -moz-transition: left 0.75s ease;
-  transition: left 0.75s ease;
-  -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-  -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
-  /* line 11, ../scss/_sidenav.scss */
+  transition: left 0.75s ease; }
+  /* line 10, ../scss/_sidenav.scss */
   .sidenav.enter {
-    left: 0; }
+    left: 0;
+    -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
 
 /* line 15, ../scss/_sidenav.scss */
 .sidenav__head {

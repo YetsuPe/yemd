@@ -34,9 +34,21 @@
 
 	<main class="canvas">
 		<h2 class="sub-title"> Login  </h2>
-		<form>
-			<input type="text" placeholder="usuario" ng-model="app.form.usuario" required/>
-			<input type="password" placeholder="password" ng-model="app.form.password" required/>
+		<form name="form">
+			<input type="text" placeholder="usuario" ng-model="app.form.usuario" data-icon="user" required autofocus/>
+			<input type="password" placeholder="password" ng-model="app.form.password" data-icon="lock" required/>
+			
+			<input type="number" placeholder="number" ng-model="app.form.number" data-icon="user" required/>
+			<input type="datetime" placeholder="datetime" ng-model="app.form.datetime" data-icon="user" required/>
+			<input type="date" placeholder="datetime" ng-model="app.form.datetime" data-icon="user" required/>
+			<input type="datetime-local" placeholder="datetime-local" ng-model="app.form.datetimeLocal" data-icon="user" required/>
+			<input type="time" placeholder="time" ng-model="app.form.time" data-icon="user" required/>
+			<input type="tel" placeholder="tel" ng-model="app.form.tel" data-icon="user" required/>
+			<input type="url" placeholder="url" ng-model="app.form.url" data-icon="user" required/>
+			<input type="range" placeholder="range" ng-model="app.form.range" data-icon="user" required/>
+			<input type="color" placeholder="color" ng-model="app.form.color" data-icon="user" required/>
+			<input type="email" placeholder="email" ng-model="app.form.email" data-icon="user" required/>
+
 		</form>
 	</main>
 

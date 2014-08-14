@@ -46,7 +46,7 @@
  
         element.on('keyup',function(){
           console.log( model );  
-          if ( model.$dirty && model.$valid && model.$viewValue !=="" ) {
+          if ( model.$dirty ) {
             fieldset.addClass('focus'); 
           }; 
           if ( model.$dirty && model.$valid && model.$viewValue ==="" ) {  
@@ -115,7 +115,7 @@
   }])
   .directive('icon',['$rootScope',function($rootScope){
     return {
-      restrict: 'EA',
+      restrict: 'EC',
       scope: {
         url:'@name',
         color: '@'

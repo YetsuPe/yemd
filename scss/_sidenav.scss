@@ -7,9 +7,9 @@
 	height:100%;
 	background:$bg-sidenav;
 	@include transition ( left $time-animation ease );
-	@include zDepth($z_depth:5);
 	&.enter {
   	left:0;
+  	@include zDepth($z_depth:5);
   }
 }
 .sidenav__head {
