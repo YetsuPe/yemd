@@ -9,13 +9,7 @@
       pristine: true,
       toggleSidenav:false,
       toggleOverlay: false
-    }; 
-    // Sample
-    $rootScope.app={
-      form:{
-        //usuario:'Skeiter9'
-      }
-    };
+    };  
   })
   .directive('input', ['$rootScope','$animate', function($rootScope,$animate){
     // Runs during compile
@@ -35,25 +29,28 @@
       // transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
       link: function($scope, element, attrs, model) {
+        //console.log( jQuery );
+        var labelHtml="<label class='valid'>"+attrs.placeholder+"</label>",
+            errorHtml="<label class='invalid'>error</label>",
+            fieldsetHtml="<fieldset></fieldset>";
 
-        var input= element,
-            label= angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
-            error=angular.element("<label class='invalid'>error</label>"),
-            fieldset=angular.element("<fieldset></fieldset>"),
-            placeholder=attrs.placeholder;
- 
+        var label=    ( typeof( jQuery )==="undefined" )? angular.element(labelHtml) : $(labelHtml) ,
+            error=    ( typeof( jQuery )==="undefined" )? angular.element(errorHtml) : $(errorHtml) ,
+            fieldset= ( typeof( jQuery )==="undefined" )? angular.element(fieldsetHtml) : $(fieldsetHtml) ,
+            placeholder=attrs.placeholder; 
+
         element.wrap(fieldset);  
- 
+        var auxShow=true;
         element.on('keyup',function(){
-          console.log( model );  
-          if ( model.$dirty  ) {
-            fieldset.addClass('focus'); 
+          //console.log( model );  
+          if ( model.$dirty  ) {  
+            element.parent('fieldset').addClass("focus"); 
           }; 
           if ( model.$dirty && model.$valid && model.$viewValue ==="" ) {  
-            fieldset.removeClass('focus');
+            element.parent('fieldset').removeClass('focus');
           };  
 
-          if( model.$valid ){ 
+          if( model.$valid && auxShow ){ 
             /** remove label invalid **/
             error.removeClass('show'); 
             error.addClass('hide'); 
@@ -62,10 +59,12 @@
               element.attr('placeholder',placeholder);
             }, 750);
             //show valid
-            fieldset.prepend( label );
+            element.parent('fieldset').prepend( label );
             label.removeClass('hide'); 
-            label.addClass('showD show'); 
-          }else{ 
+            label.addClass('showD show');
+            auxShow=false; 
+          };
+          if( !model.$valid && !auxShow){ 
             /** remove label valid **/
             label.removeClass('show'); 
             label.addClass('hide'); 
@@ -76,17 +75,16 @@
             //show error
             error.removeClass('hide'); 
             error.addClass('showD show');
-            fieldset.append( error );
-            
+            element.parent('fieldset').append( error );
+            auxShow=true; 
           };
-        }); 
-        console.log(element);
+        });  
         if ( attrs.type==="date" || attrs.type==="time"|| attrs.type==="datetime-local" || element[0].tagName==="SELECT" ) {
           
-          fieldset.addClass('focus'); 
-          fieldset.prepend( label );
+          element.parent('fieldset').addClass('focus'); 
+          element.parent('fieldset').prepend( label );
           label.addClass('showD show');
-          fieldset.append( error );
+          element.parent('fieldset').append( error );
         };
       }
     };

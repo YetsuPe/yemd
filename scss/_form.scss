@@ -43,6 +43,15 @@ input,select {
 select,input[type="number"] {
 	padding:0;
 }
+input[type="submit"]{
+	background: $color-primary ;
+	height: 32px;
+	min-width: 88px;
+  line-height: 2; 
+  text-transform: uppercase;
+  color:$color-text-white ;
+  @include zDepth($z_depth:1);
+}
 label {
 	color:$color-secondary-text;
 	font-size:12px;
