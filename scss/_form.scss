@@ -44,13 +44,16 @@ select,input[type="number"] {
 	padding:0;
 }
 input[type="submit"]{
+	display:block;
 	background: $color-primary ;
 	height: 32px;
 	min-width: 88px;
+	width: auto;
   line-height: 2; 
   text-transform: uppercase;
   color:$color-text-white ;
-  @include zDepth($z_depth:1);
+  @include zDepth($z_depth:1); 
+  border-bottom: 0; 
 }
 label {
 	color:$color-secondary-text;
@@ -104,4 +107,8 @@ fieldset {
 	&.focus {
 		height: 72px;
 	}
+	&.submit {
+		padding:0;
+		margin-top: 16px;
+  }
 }

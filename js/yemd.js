@@ -86,6 +86,9 @@
           label.addClass('showD show');
           element.parent('fieldset').append( error );
         };
+        if ( attrs.type==="submit" || element[0].tagName==="button" ) {
+          element.parent('fieldset').addClass('submit'); 
+        }
       }
     };
   }])
@@ -106,8 +109,7 @@
             }, 750);
           }
         });  
-        $element.on('click',function(){
-          console.log("click overlay");
+        $element.on('click',function(){ 
           $scope.$apply(function () { 
             $rootScope.yemd.toggleSidenav = false ;//all components 
             $rootScope.yemd.toggleOverlay = false ; 
@@ -185,10 +187,8 @@
         $rootScope.$watch('yemd.toggleSidenav', function() {
           if (!$rootScope.yemd.pristine && $rootScope.yemd.toggleSidenav ) {
             $animate.addClass($element,'enter');   
-            $rootScope.yemd.toggleOverlay = ($rootScope.yemd.toggleOverlay)? false: true ;
-            console.log($rootScope.yemd.toggleOverlay);
-          }else if( !$rootScope.yemd.pristine && !$rootScope.yemd.toggleSidenav ) {
-            console.log($rootScope.yemd.pristine);
+            $rootScope.yemd.toggleOverlay = ($rootScope.yemd.toggleOverlay)? false: true ; 
+          }else if( !$rootScope.yemd.pristine && !$rootScope.yemd.toggleSidenav ) { 
             $animate.removeClass($element,'enter') ;
             $rootScope.yemd.toggleOverlay = false ;   
           } 
