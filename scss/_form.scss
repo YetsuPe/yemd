@@ -2,7 +2,7 @@ form{
 	@include clearfix;
 }
 
-input {
+input,select {
 	display:block;
 	width:100%;
 	padding: 0 0 8px 0;
@@ -37,7 +37,9 @@ input {
 		@include animation( fadeIn $time-animation ease forwards); 
 	}
 }
-
+select {
+	border:0;
+}
 
 label {
 	color:$color-secondary-text;

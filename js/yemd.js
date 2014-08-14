@@ -28,7 +28,7 @@
 
       },
       require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-      restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+      restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '',
       // templateUrl: '',
       // replace: true,
@@ -46,7 +46,7 @@
  
         element.on('keyup',function(){
           console.log( model );  
-          if ( model.$dirty ) {
+          if ( model.$dirty  ) {
             fieldset.addClass('focus'); 
           }; 
           if ( model.$dirty && model.$valid && model.$viewValue ==="" ) {  
@@ -77,10 +77,17 @@
             error.removeClass('hide'); 
             error.addClass('showD show');
             fieldset.append( error );
-              
+            
           };
         }); 
-
+        console.log(element);
+        if ( attrs.type==="date" || attrs.type==="time"|| attrs.type==="datetime-local" || element[0].tagName==="SELECT" ) {
+          
+          fieldset.addClass('focus'); 
+          fieldset.prepend( label );
+          label.addClass('showD show');
+          fieldset.append( error );
+        };
       }
     };
   }])
