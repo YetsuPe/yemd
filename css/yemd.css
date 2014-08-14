@@ -809,30 +809,33 @@ input, select {
   font-size: 16px;
   height: 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.54);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   -webkit-transition: border 0.75s ease;
   -moz-transition: border 0.75s ease;
   transition: border 0.75s ease; }
-  /* line 15, ../scss/_form.scss */
+  /* line 18, ../scss/_form.scss */
   input:focus, select:focus {
     outline-color: transparent;
     border-bottom-color: #3f51b5;
     border-bottom-width: 2px; }
-  /* line 20, ../scss/_form.scss */
+  /* line 23, ../scss/_form.scss */
   input.ng-dirty.ng-valid, select.ng-dirty.ng-valid {
     border-bottom-color: #72c69d;
     border-bottom-width: 2px; }
-  /* line 24, ../scss/_form.scss */
+  /* line 27, ../scss/_form.scss */
   input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
     border-bottom-color: #f44336;
     border-bottom-width: 2px; }
-  /* line 29, ../scss/_form.scss */
+  /* line 32, ../scss/_form.scss */
   input::-webkit-input-placeholder, select::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.54);
     opacity: 0;
     -webkit-animation: fadeIn 0.75s ease forwards;
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
-  /* line 34, ../scss/_form.scss */
+  /* line 37, ../scss/_form.scss */
   input:-moz-placeholder, select:-moz-placeholder {
     color: rgba(0, 0, 0, 0.54);
     opacity: 0;
@@ -840,11 +843,11 @@ input, select {
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
 
-/* line 40, ../scss/_form.scss */
-select {
-  border: 0; }
+/* line 43, ../scss/_form.scss */
+select, input[type="number"] {
+  padding: 0; }
 
-/* line 44, ../scss/_form.scss */
+/* line 46, ../scss/_form.scss */
 label {
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
@@ -852,57 +855,57 @@ label {
   display: none;
   line-height: 1.333;
   height: 16px; }
-  /* line 51, ../scss/_form.scss */
+  /* line 53, ../scss/_form.scss */
   label.valid {
     margin-bottom: 8px; }
-    /* line 53, ../scss/_form.scss */
+    /* line 55, ../scss/_form.scss */
     label.valid.show {
       -webkit-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
       -moz-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
       animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards; }
-      /* line 55, ../scss/_form.scss */
+      /* line 57, ../scss/_form.scss */
       label.valid.show ~ input {
         -webkit-animation: enterLabel 0.75s ease;
         -moz-animation: enterLabel 0.75s ease;
         animation: enterLabel 0.75s ease; }
-    /* line 59, ../scss/_form.scss */
+    /* line 61, ../scss/_form.scss */
     label.valid.hide {
       -webkit-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
       -moz-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
       animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards; }
-      /* line 61, ../scss/_form.scss */
+      /* line 63, ../scss/_form.scss */
       label.valid.hide ~ input {
         -webkit-animation: leaveLabel 0.75s ease;
         -moz-animation: leaveLabel 0.75s ease;
         animation: leaveLabel 0.75s ease; }
-  /* line 66, ../scss/_form.scss */
+  /* line 68, ../scss/_form.scss */
   label.invalid {
     color: #f44336; }
-    /* line 69, ../scss/_form.scss */
+    /* line 71, ../scss/_form.scss */
     label.invalid.show {
       -webkit-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
       -moz-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
       animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease; }
-      /* line 71, ../scss/_form.scss */
+      /* line 73, ../scss/_form.scss */
       label.invalid.show ~ input {
         -webkit-animation: enterLabelInvalid 0.75s ease;
         -moz-animation: enterLabelInvalid 0.75s ease;
         animation: enterLabelInvalid 0.75s ease; }
-    /* line 75, ../scss/_form.scss */
+    /* line 77, ../scss/_form.scss */
     label.invalid.hide {
       -webkit-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
       -moz-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
       animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease; }
-      /* line 77, ../scss/_form.scss */
+      /* line 79, ../scss/_form.scss */
       label.invalid.hide ~ input {
         -webkit-animation: leaveLabelInvalid 0.75s ease;
         -moz-animation: leaveLabelInvalid 0.75s ease;
         animation: leaveLabelInvalid 0.75s ease; }
-  /* line 83, ../scss/_form.scss */
+  /* line 85, ../scss/_form.scss */
   label.showD {
     display: block; }
 
-/* line 88, ../scss/_form.scss */
+/* line 90, ../scss/_form.scss */
 fieldset {
   height: 48px;
   overflow-y: hidden;
@@ -910,6 +913,6 @@ fieldset {
   -webkit-transition: height 0.75s ease;
   -moz-transition: height 0.75s ease;
   transition: height 0.75s ease; }
-  /* line 93, ../scss/_form.scss */
+  /* line 95, ../scss/_form.scss */
   fieldset.focus {
     height: 72px; }
