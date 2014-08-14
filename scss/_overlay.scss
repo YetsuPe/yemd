@@ -26,11 +26,11 @@
 }
 // new blocks (enter)
 //label valid
-@include keyframes( enterLabel ) {from {@include transform(translateY( -16px )); } to {@include transform(translateY( 0 ));}}
+@include keyframes( enterLabel ) {from {@include transform(translateY( -24px )); } to {@include transform(translateY( 0 ));}}
 @include keyframes( leaveLabel ) {from {@include transform(translateY( 0 ));} to {@include transform(translateY( -24px ));}}
 //label error
-@include keyframes( enterLabelInvalid ) {from {@include transform(translateY( 4px ));} to {@include transform(translateY( -24px ));}}
-@include keyframes( leaveLabelInvalid ) {from {@include transform(translateY( -24px ));} to {@include transform(translateY( 4px ));}}
+@include keyframes( enterLabelInvalid ) {from {@include transform(translateY( 8px ));} to {@include transform(translateY( -24px ));}}
+@include keyframes( leaveLabelInvalid ) {from {@include transform(translateY( -24px ));} to {@include transform(translateY( 8px ));}} 
 
 //move Elements
 //@include keyframes( moveInput ) {from {@include transform(translateY( -14px ));} to {@include transform(translateY( 0 ));}}

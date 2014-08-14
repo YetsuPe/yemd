@@ -518,7 +518,7 @@ body {
 @-webkit-keyframes enterLabel {
   /* line 29, ../scss/_overlay.scss */
   from {
-    -webkit-transform: translateY(-16px); }
+    -webkit-transform: translateY(-24px); }
 
   /* line 29, ../scss/_overlay.scss */
   to {
@@ -526,7 +526,7 @@ body {
 @-moz-keyframes enterLabel {
   /* line 29, ../scss/_overlay.scss */
   from {
-    -moz-transform: translateY(-16px); }
+    -moz-transform: translateY(-24px); }
 
   /* line 29, ../scss/_overlay.scss */
   to {
@@ -534,11 +534,11 @@ body {
 @keyframes enterLabel {
   /* line 29, ../scss/_overlay.scss */
   from {
-    -webkit-transform: translateY(-16px);
-    -moz-transform: translateY(-16px);
-    -ms-transform: translateY(-16px);
-    -o-transform: translateY(-16px);
-    transform: translateY(-16px); }
+    -webkit-transform: translateY(-24px);
+    -moz-transform: translateY(-24px);
+    -ms-transform: translateY(-24px);
+    -o-transform: translateY(-24px);
+    transform: translateY(-24px); }
 
   /* line 29, ../scss/_overlay.scss */
   to {
@@ -582,7 +582,7 @@ body {
 @-webkit-keyframes enterLabelInvalid {
   /* line 32, ../scss/_overlay.scss */
   from {
-    -webkit-transform: translateY(4px); }
+    -webkit-transform: translateY(8px); }
 
   /* line 32, ../scss/_overlay.scss */
   to {
@@ -590,7 +590,7 @@ body {
 @-moz-keyframes enterLabelInvalid {
   /* line 32, ../scss/_overlay.scss */
   from {
-    -moz-transform: translateY(4px); }
+    -moz-transform: translateY(8px); }
 
   /* line 32, ../scss/_overlay.scss */
   to {
@@ -598,11 +598,11 @@ body {
 @keyframes enterLabelInvalid {
   /* line 32, ../scss/_overlay.scss */
   from {
-    -webkit-transform: translateY(4px);
-    -moz-transform: translateY(4px);
-    -ms-transform: translateY(4px);
-    -o-transform: translateY(4px);
-    transform: translateY(4px); }
+    -webkit-transform: translateY(8px);
+    -moz-transform: translateY(8px);
+    -ms-transform: translateY(8px);
+    -o-transform: translateY(8px);
+    transform: translateY(8px); }
 
   /* line 32, ../scss/_overlay.scss */
   to {
@@ -618,7 +618,7 @@ body {
 
   /* line 33, ../scss/_overlay.scss */
   to {
-    -webkit-transform: translateY(4px); } }
+    -webkit-transform: translateY(8px); } }
 @-moz-keyframes leaveLabelInvalid {
   /* line 33, ../scss/_overlay.scss */
   from {
@@ -626,7 +626,7 @@ body {
 
   /* line 33, ../scss/_overlay.scss */
   to {
-    -moz-transform: translateY(4px); } }
+    -moz-transform: translateY(8px); } }
 @keyframes leaveLabelInvalid {
   /* line 33, ../scss/_overlay.scss */
   from {
@@ -638,11 +638,11 @@ body {
 
   /* line 33, ../scss/_overlay.scss */
   to {
-    -webkit-transform: translateY(4px);
-    -moz-transform: translateY(4px);
-    -ms-transform: translateY(4px);
-    -o-transform: translateY(4px);
-    transform: translateY(4px); } }
+    -webkit-transform: translateY(8px);
+    -moz-transform: translateY(8px);
+    -ms-transform: translateY(8px);
+    -o-transform: translateY(8px);
+    transform: translateY(8px); } }
 /* line 2, ../scss/_appbar.scss */
 .appbar {
   position: relative;
@@ -886,9 +886,9 @@ label {
         animation: enterLabelInvalid 0.75s ease; }
     /* line 73, ../scss/_form.scss */
     label.invalid.hide {
-      -webkit-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease forwards;
-      -moz-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease forwards;
-      animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease forwards; }
+      -webkit-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
+      -moz-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
+      animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease; }
       /* line 75, ../scss/_form.scss */
       label.invalid.hide ~ input {
         -webkit-animation: leaveLabelInvalid 0.75s ease;

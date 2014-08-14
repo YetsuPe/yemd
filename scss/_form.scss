@@ -71,7 +71,7 @@ label {
 			}
 		}
 		&.hide{ 
-			@include animation( fadeOut $time-animation ease forwards, leaveLabelInvalid $time-animation ease forwards);
+			@include animation( fadeOut $time-animation ease forwards, leaveLabelInvalid $time-animation ease);
 			& ~ input {
 				@include animation( leaveLabelInvalid $time-animation ease); 
 			}
