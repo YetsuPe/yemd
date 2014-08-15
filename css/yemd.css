@@ -682,8 +682,10 @@ body {
 .sidenav {
   position: fixed;
   z-index: 2;
+  overflow-x: hidden;
   width: -webkit-calc( 100% - 56px );
   width: calc( 100% - 56px );
+  max-width: 400px;
   left: -webkit-calc(  -1 * ( 100% - 56px ) );
   left: calc(  -1 * ( 100% - 56px ) );
   top: 0;
@@ -692,7 +694,7 @@ body {
   -webkit-transition: left 0.75s ease;
   -moz-transition: left 0.75s ease;
   transition: left 0.75s ease; }
-  /* line 10, ../scss/_sidenav.scss */
+  /* line 13, ../scss/_sidenav.scss */
   .sidenav.enter {
     left: 0;
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
@@ -701,14 +703,14 @@ body {
     -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
 
-/* line 15, ../scss/_sidenav.scss */
+/* line 18, ../scss/_sidenav.scss */
 .sidenav__head {
   background: url("../sample/images/cover.jpg") no-repeat;
   background-size: cover;
   position: relative;
   padding: 0 16px; }
 
-/* line 21, ../scss/_sidenav.scss */
+/* line 24, ../scss/_sidenav.scss */
 .sidenav__head__logo {
   display: block;
   position: relative;
@@ -717,7 +719,7 @@ body {
   height: 64px;
   border-radius: 50%; }
 
-/* line 29, ../scss/_sidenav.scss */
+/* line 32, ../scss/_sidenav.scss */
 .sidenav__head__title {
   position: absolute;
   bottom: 0;
@@ -726,9 +728,12 @@ body {
   height: 48px;
   width: 100%;
   font-size: 16px;
-  line-height: 3; }
+  line-height: 3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden; }
 
-/* line 41, ../scss/_sidenav.scss */
+/* line 45, ../scss/_sidenav.scss */
 .sidenav__body__links {
   display: block;
   width: 100%;
@@ -739,25 +744,28 @@ body {
     content: "";
     display: table;
     clear: both; }
-  /* line 47, ../scss/_sidenav.scss */
+  /* line 51, ../scss/_sidenav.scss */
   .sidenav__body__links a {
     float: left;
     width: -webkit-calc( 100% - 24px );
     width: calc( 100% - 24px );
     padding-left: 32px;
-    line-height: 3; }
-  /* line 53, ../scss/_sidenav.scss */
+    line-height: 3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden; }
+  /* line 58, ../scss/_sidenav.scss */
   .sidenav__body__links svg {
     float: left;
     position: relative;
     width: 24px;
     height: 24px;
     top: 12px; }
-    /* line 59, ../scss/_sidenav.scss */
+    /* line 64, ../scss/_sidenav.scss */
     .sidenav__body__links svg path {
       fill: rgba(0, 0, 0, 0.54); }
 
-/* line 64, ../scss/_sidenav.scss */
+/* line 69, ../scss/_sidenav.scss */
 .sidenav__body__plus-links {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.54);
@@ -767,17 +775,17 @@ body {
     content: "";
     display: table;
     clear: both; }
-  /* line 69, ../scss/_sidenav.scss */
+  /* line 74, ../scss/_sidenav.scss */
   .sidenav__body__plus-links a {
     float: left;
     width: -webkit-calc( 100% - 24px );
     width: calc( 100% - 24px );
     line-height: 3; }
 
-@media only screen and (min-width: 1024px) {
-  /* line 77, ../scss/_sidenav.scss */
+@media only screen and (min-width: 320px) {
+  /* line 82, ../scss/_sidenav.scss */
   .sidenav {
-    max-width: 400px;
+    min-width: 264px;
     width: 20%; } }
 /* line 15, ../scss/bourbon/addons/_clearfix.scss */
 .canvas:after {

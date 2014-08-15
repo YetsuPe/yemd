@@ -1,7 +1,10 @@
 .sidenav { 
 	position: fixed;
 	z-index: 2;
+	overflow-x:hidden;
+	//min-width: 264px;
 	@include calc( "width", " 100% - 56px " );
+	max-width:400px;
 	@include calc( "left", "  -1 * ( 100% - 56px ) " );
 	top:0;
 	height:100%;
@@ -35,6 +38,7 @@
 	width:100%;
 	font-size:16px;
 	line-height:3;
+	@include text-wrapper()
 } 
 .sidenav__body {
 }
@@ -49,6 +53,7 @@
 		@include calc( "width", " 100% - 24px " ) ;
 		padding-left: 32px;
 		line-height:3 ;
+		@include text-wrapper();
 	}
 	svg {
 		float: left;
@@ -73,9 +78,9 @@
 	}
 }
 //<!--desktop-->
+@media only screen and ( min-width: 320px ) {
+	.sidenav { min-width: 264px; width: 20%; }
+}
 @media only screen and ( min-width: 1024px ) {
-  .sidenav {
-    max-width: 400px;
-    width: 20%;
-  }
+  //.sidenav { width: 20%; }
 }
