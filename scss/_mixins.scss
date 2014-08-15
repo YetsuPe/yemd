@@ -21,3 +21,9 @@
   white-space: nowrap;
   overflow-x:hidden; 
 }
+@mixin fix_sidenav_width(){ 
+  @each $prefix in webkit moz ms o {
+    -#{$prefix}-transform: translateX( calc( -1 * ( 100% ) ) );
+  }
+  transform: translateX( calc( -1 * ( 100% ) ) );
+}

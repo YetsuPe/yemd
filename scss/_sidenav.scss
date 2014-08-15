@@ -5,13 +5,14 @@
 	//min-width: 264px;
 	@include calc( "width", " 100% - 56px " );
 	max-width:400px;
-	@include calc( "left", "  -1 * ( 100% - 56px ) " );
+	//@include calc( "left", "  -1 * ( 100% - 56px ) " );
+	@include fix_sidenav_width();
 	top:0;
 	height:100%;
 	background:$bg-sidenav;
-	@include transition ( left $time-animation ease );
+	@include transition ( transform $time-animation ease );
 	&.enter {
-  	left:0;
+  	@include transform( translateX(0) );
   	@include zDepth($z_depth:5);
   }
 }

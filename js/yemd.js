@@ -275,7 +275,7 @@
         });
       },
       link: function (scope, elem, attrs) {
-        var h = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var h = jQuery( '.sidenav' ).width() || Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         elem.find('figure').css( 'height',h*(9/16)+"px" ); 
       }
     };

@@ -686,31 +686,38 @@ body {
   width: -webkit-calc( 100% - 56px );
   width: calc( 100% - 56px );
   max-width: 400px;
-  left: -webkit-calc(  -1 * ( 100% - 56px ) );
-  left: calc(  -1 * ( 100% - 56px ) );
+  -webkit-transform: translateX(calc(-1 * ( 100% ) ));
+  -moz-transform: translateX(calc(-1 * ( 100% ) ));
+  -ms-transform: translateX(calc(-1 * ( 100% ) ));
+  -o-transform: translateX(calc(-1 * ( 100% ) ));
+  transform: translateX(calc(-1 * ( 100% ) ));
   top: 0;
   height: 100%;
   background: white;
-  -webkit-transition: left 0.75s ease;
-  -moz-transition: left 0.75s ease;
-  transition: left 0.75s ease; }
-  /* line 13, ../scss/_sidenav.scss */
+  -webkit-transition: -webkit-transform 0.75s ease;
+  -moz-transition: -moz-transform 0.75s ease;
+  transition: transform 0.75s ease; }
+  /* line 14, ../scss/_sidenav.scss */
   .sidenav.enter {
-    left: 0;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
 
-/* line 18, ../scss/_sidenav.scss */
+/* line 19, ../scss/_sidenav.scss */
 .sidenav__head {
   background: url("../sample/images/cover.jpg") no-repeat;
   background-size: cover;
   position: relative;
   padding: 0 16px; }
 
-/* line 24, ../scss/_sidenav.scss */
+/* line 25, ../scss/_sidenav.scss */
 .sidenav__head__logo {
   display: block;
   position: relative;
@@ -719,7 +726,7 @@ body {
   height: 64px;
   border-radius: 50%; }
 
-/* line 32, ../scss/_sidenav.scss */
+/* line 33, ../scss/_sidenav.scss */
 .sidenav__head__title {
   position: absolute;
   bottom: 0;
@@ -733,7 +740,7 @@ body {
   white-space: nowrap;
   overflow-x: hidden; }
 
-/* line 45, ../scss/_sidenav.scss */
+/* line 46, ../scss/_sidenav.scss */
 .sidenav__body__links {
   display: block;
   width: 100%;
@@ -744,7 +751,7 @@ body {
     content: "";
     display: table;
     clear: both; }
-  /* line 51, ../scss/_sidenav.scss */
+  /* line 52, ../scss/_sidenav.scss */
   .sidenav__body__links a {
     float: left;
     width: -webkit-calc( 100% - 24px );
@@ -754,18 +761,18 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow-x: hidden; }
-  /* line 58, ../scss/_sidenav.scss */
+  /* line 59, ../scss/_sidenav.scss */
   .sidenav__body__links svg {
     float: left;
     position: relative;
     width: 24px;
     height: 24px;
     top: 12px; }
-    /* line 64, ../scss/_sidenav.scss */
+    /* line 65, ../scss/_sidenav.scss */
     .sidenav__body__links svg path {
       fill: rgba(0, 0, 0, 0.54); }
 
-/* line 69, ../scss/_sidenav.scss */
+/* line 70, ../scss/_sidenav.scss */
 .sidenav__body__plus-links {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.54);
@@ -775,7 +782,7 @@ body {
     content: "";
     display: table;
     clear: both; }
-  /* line 74, ../scss/_sidenav.scss */
+  /* line 75, ../scss/_sidenav.scss */
   .sidenav__body__plus-links a {
     float: left;
     width: -webkit-calc( 100% - 24px );
@@ -783,7 +790,7 @@ body {
     line-height: 3; }
 
 @media only screen and (min-width: 320px) {
-  /* line 82, ../scss/_sidenav.scss */
+  /* line 83, ../scss/_sidenav.scss */
   .sidenav {
     min-width: 264px;
     width: 20%; } }
