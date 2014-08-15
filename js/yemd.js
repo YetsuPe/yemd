@@ -12,6 +12,11 @@
     //config
     $rootScope.yemd= {
       pristine: true,
+      //appbar 
+      appbar: {
+        title: 'Yemd Title',
+        type:'normal'// 'normal','extend'
+      },
       toggleSidenav:false,
       toggleOverlay: false,
       toggleSnackbar: {
@@ -210,14 +215,50 @@
         }
       };
   }])
-  .directive('appbar',[function(){
+  .directive('appbar',['$rootScope', function($rootScope){
     return {
       restrict: 'EAC',
       scope:{
-        title: "="
+        title: "=",
+        type: '='
       },  
       //templateUrl:'_components/_appbar.html', 
-      link: function ($scope, iElm, iAttrs ) {   
+      controller: function($scope , $element, $attrs, $rootScope){ 
+        /***** type  *****/
+        var typePristine= true ;
+        $scope.typeR= (typeof($scope.type) !== 'undefined')? $scope.type : 'normal' ;
+        //console.log($scope.typeR);
+        //$element.hasClass('extend') ? $element.removeClass('extend') : $element.addClass('extend') ;
+
+        /***** title *****/
+        var title = $element.find('h1').text() ;
+        //console.log($scope.title,$scope.type);
+        if ( typeof($scope.title) !== 'undefined'  ) {
+          $scope.titleR= $scope.title; //dinamic
+        } else if( title !==""){
+          $scope.titleR = title;
+        }else{
+          $scope.titleR= $rootScope.yemd.appbar.title; //default
+        }; 
+        $element.find('h1').text( $scope.titleR ); //non dinamic
+
+
+        /***** whatchers ***/
+        $scope.$watch('title', function() { //dinamic Title
+          $element.find('h1').text( $scope.title );
+        });
+        $scope.$watch('type', function() { //dinamic Type of appbar
+          if ( !typePristine ) {
+            $element.hasClass('extend') ? $element.removeClass('extend') : $element.addClass('extend') ;
+          }else{
+            typePristine=false;
+          };
+          
+        });
+      },
+      link: function ($scope, element, iAttrs ) {   
+        //var title = (element.find('h1') );
+        //title.text( (title.text()!=="")? title.text() : $scope.title );
       }
     };
   }])
@@ -251,10 +292,11 @@
   .directive('sidenav',['$animate','$rootScope','$timeout',function($animate,$rootScope,$timeout){
     return {
       restrict: 'EAC',
+      require: '?ngRepeat',
       scope:{
         //toggleSidenav: $rootScope.yemd.toggleSidenav
       },  
-      controller: function($scope , $element, $attrs, $animate, $rootScope,$timeout){
+      controller: function($scope , $element, $attrs, $animate, $rootScope,$timeout){ 
         $rootScope.$watch('yemd.toggleSidenav', function() {
           if (!$rootScope.yemd.pristine && $rootScope.yemd.toggleSidenav ) {
             $animate.addClass($element,'enter');   
@@ -270,13 +312,12 @@
           $scope.$apply(function () {
             $rootScope.yemd.toggleSidenav = false ;
             $rootScope.yemd.toggleOverlay = false ;  
-          });  
-          
+          });   
         });
       },
-      link: function (scope, elem, attrs) {
+      link: function (scope, elem, attrs) { 
         var h = jQuery( '.sidenav' ).width() || Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        elem.find('figure').css( 'height',h*(9/16)+"px" ); 
+        elem.find('figure').css( 'height',h*(9/16)+"px" );
       }
     };
   }]);

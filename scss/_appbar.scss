@@ -4,13 +4,24 @@
   height: 56px;// 56dp portrait 48dp landscape 64px table/desktop
   background-color: $color-primary;
   @include zDepth($z_depth:1);
+  @include transition ( height $time-animation $mode-animation );
+  &.extend {
+  	height: 128px;
+  	.appbar__title {
+  		font-size: 20px;   
+			@include transform( translateY(82px) );
+  	}
+  }
 }
 .appbar__title {
+	position: relative; 
+	@include transform( translateY(20px) );
 	display:block;
-	font-size:18px;
-	line-height:3.111;
+	font-size:16px;
+	line-height:1;
 	margin-left: 72px;
 	color:$color-text-white; 
+	@include transition ( all $time-animation $mode-animation );
 }
 .appbar__icon{
 	display:block;

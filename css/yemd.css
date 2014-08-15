@@ -655,17 +655,40 @@ body {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -webkit-transition: height 0.75s ease;
+  -moz-transition: height 0.75s ease;
+  transition: height 0.75s ease; }
+  /* line 8, ../scss/_appbar.scss */
+  .appbar.extend {
+    height: 128px; }
+    /* line 10, ../scss/_appbar.scss */
+    .appbar.extend .appbar__title {
+      font-size: 20px;
+      -webkit-transform: translateY(82px);
+      -moz-transform: translateY(82px);
+      -ms-transform: translateY(82px);
+      -o-transform: translateY(82px);
+      transform: translateY(82px); }
 
-/* line 8, ../scss/_appbar.scss */
+/* line 16, ../scss/_appbar.scss */
 .appbar__title {
+  position: relative;
+  -webkit-transform: translateY(20px);
+  -moz-transform: translateY(20px);
+  -ms-transform: translateY(20px);
+  -o-transform: translateY(20px);
+  transform: translateY(20px);
   display: block;
-  font-size: 18px;
-  line-height: 3.111;
+  font-size: 16px;
+  line-height: 1;
   margin-left: 72px;
-  color: white; }
+  color: white;
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  transition: all 0.75s ease; }
 
-/* line 15, ../scss/_appbar.scss */
+/* line 26, ../scss/_appbar.scss */
 .appbar__icon {
   display: block;
   position: absolute;
@@ -674,7 +697,7 @@ body {
   width: 48px;
   height: 48px;
   padding: 12px; }
-  /* line 23, ../scss/_appbar.scss */
+  /* line 34, ../scss/_appbar.scss */
   .appbar__icon [stroke] {
     stroke: white; }
 
@@ -1039,12 +1062,13 @@ fieldset {
 .list__fields__box__field {
   display: none;
   float: left;
-  width: 100%; }
-  /* line 25, ../scss/_list.scss */
+  width: 100%;
+  padding-right: 16px; }
+  /* line 26, ../scss/_list.scss */
   .list__fields__box__field:first-child {
     display: block; }
 
-/* line 29, ../scss/_list.scss */
+/* line 30, ../scss/_list.scss */
 .list__fields__box__field__value {
   position: relative;
   font-size: 14px;
@@ -1055,7 +1079,7 @@ fieldset {
   white-space: nowrap;
   overflow-x: hidden; }
 
-/* line 40, ../scss/_list.scss */
+/* line 41, ../scss/_list.scss */
 .list__item {
   height: 56px; }
   /* line 15, ../scss/bourbon/addons/_clearfix.scss */
@@ -1064,19 +1088,19 @@ fieldset {
     display: table;
     clear: both; }
 
-/* line 47, ../scss/_list.scss */
+/* line 48, ../scss/_list.scss */
 .list__item__img {
   padding: 8px 16px;
   width: 72px;
   float: left; }
-  /* line 51, ../scss/_list.scss */
+  /* line 52, ../scss/_list.scss */
   .list__item__img img {
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%; }
 
-/* line 58, ../scss/_list.scss */
+/* line 59, ../scss/_list.scss */
 .list__item__head {
   width: -webkit-calc(100% - 72px);
   width: calc(100% - 72px);
@@ -1091,7 +1115,7 @@ fieldset {
     display: table;
     clear: both; }
 
-/* line 67, ../scss/_list.scss */
+/* line 68, ../scss/_list.scss */
 .list__item__head__text {
   float: left;
   width: -webkit-calc(100% - 40px);
@@ -1102,7 +1126,7 @@ fieldset {
     display: table;
     clear: both; }
 
-/* line 72, ../scss/_list.scss */
+/* line 73, ../scss/_list.scss */
 .list__item__head__secondary-action {
   position: absolute;
   top: 8px;
@@ -1110,7 +1134,7 @@ fieldset {
   width: 40px;
   height: 40px;
   display: block; }
-  /* line 79, ../scss/_list.scss */
+  /* line 80, ../scss/_list.scss */
   .list__item__head__secondary-action .fa {
     font-size: 16px;
     line-height: 2.5;
@@ -1118,17 +1142,18 @@ fieldset {
     color: rgba(0, 0, 0, 0.54);
     display: block; }
 
-/* line 87, ../scss/_list.scss */
+/* line 88, ../scss/_list.scss */
 .list__item__head__text__primary-Text {
   position: relative;
   display: none;
   float: left;
-  width: 100%; }
-  /* line 92, ../scss/_list.scss */
+  width: 100%;
+  padding-right: 16px; }
+  /* line 94, ../scss/_list.scss */
   .list__item__head__text__primary-Text:first-child {
     display: block; }
 
-/* line 96, ../scss/_list.scss */
+/* line 98, ../scss/_list.scss */
 .list__item__head__text__primary-Text__value {
   font-size: 16px;
   font-weight: 300;
@@ -1137,65 +1162,65 @@ fieldset {
   white-space: nowrap;
   overflow-x: hidden; }
 
-/* line 102, ../scss/_list.scss */
+/* line 104, ../scss/_list.scss */
 .list__item__head__text__secondary-text {
   font-size: 14px;
   font-weight: 300; }
 
 @media only screen and (min-width: 400px) {
-  /* line 109, ../scss/_list.scss */
+  /* line 111, ../scss/_list.scss */
   .list__fields__box__field {
     width: 50%; }
-    /* line 109, ../scss/_list.scss */
+    /* line 111, ../scss/_list.scss */
     .list__fields__box__field:nth-child(2) {
       display: block; }
 
-  /* line 110, ../scss/_list.scss */
+  /* line 112, ../scss/_list.scss */
   .list__item__head__text__primary-Text {
     width: 50%; }
-    /* line 110, ../scss/_list.scss */
+    /* line 112, ../scss/_list.scss */
     .list__item__head__text__primary-Text:nth-child(2) {
       display: block; } }
 @media only screen and (min-width: 600px) {
-  /* line 113, ../scss/_list.scss */
+  /* line 115, ../scss/_list.scss */
   .list__fields__box__field {
     width: 33.33%; }
-    /* line 113, ../scss/_list.scss */
+    /* line 115, ../scss/_list.scss */
     .list__fields__box__field:nth-child(3) {
       display: block; }
 
-  /* line 114, ../scss/_list.scss */
+  /* line 116, ../scss/_list.scss */
   .list__item__head__text__primary-Text {
     width: 33.33%; }
-    /* line 114, ../scss/_list.scss */
+    /* line 116, ../scss/_list.scss */
     .list__item__head__text__primary-Text:nth-child(3) {
       display: block; } }
 @media only screen and (min-width: 800px) {
-  /* line 117, ../scss/_list.scss */
+  /* line 119, ../scss/_list.scss */
   .list__fields__box__field {
     width: 25%; }
-    /* line 117, ../scss/_list.scss */
+    /* line 119, ../scss/_list.scss */
     .list__fields__box__field:nth-child(4) {
       display: block; }
 
-  /* line 118, ../scss/_list.scss */
+  /* line 120, ../scss/_list.scss */
   .list__item__head__text__primary-Text {
     width: 25%; }
-    /* line 118, ../scss/_list.scss */
+    /* line 120, ../scss/_list.scss */
     .list__item__head__text__primary-Text:nth-child(4) {
       display: block; } }
 @media only screen and (min-width: 1000px) {
-  /* line 121, ../scss/_list.scss */
+  /* line 123, ../scss/_list.scss */
   .list__fields__box__field {
     width: 20%; }
-    /* line 121, ../scss/_list.scss */
+    /* line 123, ../scss/_list.scss */
     .list__fields__box__field:nth-child(5) {
       display: block; }
 
-  /* line 122, ../scss/_list.scss */
+  /* line 124, ../scss/_list.scss */
   .list__item__head__text__primary-Text {
     width: 20%; }
-    /* line 122, ../scss/_list.scss */
+    /* line 124, ../scss/_list.scss */
     .list__item__head__text__primary-Text:nth-child(5) {
       display: block; } }
 /* line 1, ../scss/_tooltip.scss */
