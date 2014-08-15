@@ -1,0 +1,23 @@
+.snackbar {
+  background-color: $bg-snackbar;
+  padding: 18px 24px;
+  color: white;
+  height: 56px;
+  line-height: 1;
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  @include transform( translateY(56px) );
+  @include transition ( transform $time-animation ease );
+  p{
+    font-weight: 300;
+    font-size: 14px;
+    line-height:1.42; 
+  }
+  &.show{ 
+		@include transform( translateY(0) );
+	}
+	&.hide{ 
+		@include transform( translateY(56px) );
+	} 
+}

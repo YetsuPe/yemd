@@ -17,7 +17,12 @@ $color-divider         : rgba($color-black,0.54);
 
 $time-animation: 0.75s;
 /**** components ****/
+//overlay
 $bg-overlay:rgba(0,0,0,.25);
+//snackbar
+$bg-snackbar:rgba(0,0,0,.5);
+//tooltip
+$bg-tooltip:rgba(0,0,0,.9);
 //sidenav
 $bg-sidenav:$color-white ;
 //form 

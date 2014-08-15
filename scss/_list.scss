@@ -1,0 +1,128 @@
+//*** List
+.list {
+  position: relative;
+  //margin-top: 20px;
+  display: block;
+} 
+.list__fields {
+  position: relative;  
+  padding-left:72px;
+  height: 48px;
+}
+.list__fields__box{
+  display: block; 
+  text-align: left;
+  line-height: 3; 
+  border-bottom: 2px solid $color-divider;
+  @include clearfix;//clean floats
+  overflow: hidden;//clean floats
+  padding-right: 56px;
+}
+.list__fields__box__field {//please refactor soon (1)
+  display: none;
+  float: left;
+  width: 100%;
+  &:first-child {
+    display: block;
+  } 
+}
+.list__fields__box__field__value {//please refactor soon (2)
+  position: relative;
+  font-size: 14px; //change
+  font-weight: 400;//change
+  display: block;
+  color: $color-secondary-text; //change
+  @include text-wrapper;
+}
+.list__fields__action{
+  //@include button('action_sub_header');
+}
+.list__item {
+  @include clearfix;
+  height: 56px;
+  &:first-child {
+    //margin-top: 8px;
+  }
+}
+.list__item__img {
+  padding: 8px 16px;
+  width: 72px;
+  float: left;
+  img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+.list__item__head {
+  @include calc('width',"100% - 72px" );
+  padding:0 16px 0 0;
+  float: left;
+  font-size: 16px;
+  line-height: 3; //one line
+  position: relative;
+  @include clearfix;
+}
+.list__item__head__text {
+  float: left;
+  @include calc('width',"100% - 40px" ); 
+  @include clearfix;
+}
+.list__item__head__secondary-action {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  .fa {
+    font-size: 16px;
+    line-height: 2.5;
+    text-align: center;
+    color:$color-icon;
+    display: block;
+  }
+}
+.list__item__head__text__primary-Text { //please refactor soon (1)
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  &:first-child {
+    display: block;
+  } 
+}
+.list__item__head__text__primary-Text__value {//please refactor soon (2)
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+  @include text-wrapper;
+}
+.list__item__head__text__secondary-text {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+// Desktop
+@media only screen and ( min-width: 400px ) {
+  .list__fields__box__field            {width:50%; &:nth-child(2) { display: block; }}
+  .list__item__head__text__primary-Text{width:50%; &:nth-child(2) { display: block; }}
+}
+@media only screen and ( min-width: 600px ) {
+  .list__fields__box__field            {width:33.33%; &:nth-child(3) { display: block; }}
+  .list__item__head__text__primary-Text{width:33.33%; &:nth-child(3) { display: block; }}
+}
+@media only screen and ( min-width: 800px ) {
+  .list__fields__box__field            {width:25%; &:nth-child(4) { display: block; }}
+  .list__item__head__text__primary-Text{width:25%; &:nth-child(4) { display: block; }}
+}
+@media only screen and ( min-width: 1000px ) {
+  .list__fields__box__field            {width:20%; &:nth-child(5) { display: block; }}
+  .list__item__head__text__primary-Text{width:20%; &:nth-child(5) { display: block; }}
+}
+@media only screen and ( min-width: 1024px ) {
+
+}
+
+  

@@ -2,13 +2,22 @@
   'use strict';
   angular.module('yemd',[])  
   .run(function ($rootScope) { 
-    var body = angular.element( document.getElementsByTagName('body') ) ; 
-    var overlay = angular.element("<div class='overlay'></div>"); 
-    body.append( overlay );
+    // components 
+    var body     = angular.element( document.getElementsByTagName('body') ),
+        snackbar = angular.element("<div class='snackbar'></div>"),
+        overlay  = angular.element("<div class='overlay'></div>"); 
+
+    body.append( [overlay, snackbar] );
+
+    //config
     $rootScope.yemd= {
       pristine: true,
       toggleSidenav:false,
       toggleOverlay: false,
+      toggleSnackbar: {
+        status:false,
+        message: ''
+      },
       folderIcons: 'icons/' //default
     };  
   })
@@ -121,6 +130,35 @@
       }
     };
   }])
+  .directive('snackbar',['$rootScope','$animate','$timeout',function($rootScope,$animate,$timeout){
+    return {
+      restrict: 'AC',
+      scope:{},
+      controller: function($scope , $element, $attrs, $rootScope,$animate,$timeout){ 
+        $rootScope.$watch('yemd.toggleSnackbar.status', function() {
+          if ( $rootScope.yemd.toggleSnackbar.status ) {
+            $element.text($rootScope.yemd.toggleSnackbar.message); // message
+            $animate.removeClass($element,'hide');
+            $animate.addClass($element,'show');
+
+            $timeout(function(){
+              $animate.removeClass($element,'show');
+              $scope.$apply(function () { 
+                $rootScope.yemd.toggleSnackbar={ status:false, message: '' };
+              });   
+            }, 1500); //time snackbar show
+          }/*else{ 
+            $element.text(""); // message
+            $animate.removeClass($element,'show');
+            $animate.addClass($element,'hide'); 
+          }*/;
+        });  
+      },
+      link:function(scope,element,attrs){
+
+      }
+    };
+  }])
   .directive('icon',['$rootScope',function($rootScope){
     return {
       restrict: 'EC',
@@ -155,15 +193,15 @@
         // priority: 1,
         // terminal: true,
         scope: {
-          items: "="
+          items: "=",
+          fields:'='
         }, // {} = isolate, true = child, false/undefined = no change
         controller: function($scope, $element, $attrs, $transclude) {
 
         },
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-        restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
-        // template: '',
-        templateUrl: '_components/_list.html',
+        restrict: 'EAC', // E = Element, A = Attribute, C = Class, M = Comment
+        // template: '', 
         // replace: true,
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
@@ -180,6 +218,33 @@
       },  
       //templateUrl:'_components/_appbar.html', 
       link: function ($scope, iElm, iAttrs ) {   
+      }
+    };
+  }])
+  .directive('tooltip',[function(){
+    return {
+      restrict: 'A',
+      scope:{
+        title: "@"
+      },  
+      //template:'<div class="tooltip"></div>', 
+      link: function ($scope, element, iAttrs ) {   
+        var contentHtml= "<div class='tooltip'>"+$scope.title+"</div>",
+        tooltip= jQuery(contentHtml ) || angular.element(contentHtml);
+        element.append( tooltip );
+
+        element
+        .on('mouseenter',function(){ 
+            element.find('div').eq(-1).removeClass('hide'); 
+            element.find('div').eq(-1).addClass('showD show');  
+        })
+        .on('mouseleave',function(){ 
+            element.find('div').eq(-1).removeClass('show'); 
+            element.find('div').eq(-1).addClass('hide'); 
+            setTimeout(function(){ 
+              element.find('div').eq(-1).removeClass('showD hide'); 
+            }, 750); 
+        });
       }
     };
   }])
@@ -201,6 +266,7 @@
         });
         $element.find('a').on('click',function(e){
           e.preventDefault(); 
+          console.log("click XD");
           $scope.$apply(function () {
             $rootScope.yemd.toggleSidenav = false ;
             $rootScope.yemd.toggleOverlay = false ;  
