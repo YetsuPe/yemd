@@ -431,7 +431,9 @@ main {
 /* line 26, ../scss/_reset.scss */
 fieldset,
 input {
-  border: 0; }
+  border: 0;
+  box-shadow: none;
+  border-radius: 0; }
 
 /* line 2, ../scss/_base.scss */
 html {

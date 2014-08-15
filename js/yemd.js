@@ -140,9 +140,7 @@
           }
         });
       },
-      link: function  ($scope, element, attrs){ 
-        //element.find('img').attr('src', $scope.icon );
-        console.log($scope.folderIcons);
+      link: function  ($scope, element, attrs){  
         var iconHtml= "<img />";
         var icon = ( typeof( jQuery )==="undefined" )? element.append(angular.element(iconHtml)) : element.append($(iconHtml)) ;
         ( $scope.icon !== '' || typeof($scope.icon) === 'undefined'  )? element.html( svg(element.find('img').attr('src', $scope.icon)) )  : element.html( svg(element.find('img').attr('src',$scope.folderIcons+'/Very_Basic/link.svg') ) ) ;

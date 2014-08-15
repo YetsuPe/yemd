@@ -26,5 +26,7 @@ main {
 fieldset, 
 input {
 	border:0;
-	//margin:0;
+	box-shadow: none; // firefox browser and OS */
+	border-radius: 0; // firefox browser and OS */
 }
+
