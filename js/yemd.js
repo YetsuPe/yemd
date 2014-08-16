@@ -17,6 +17,11 @@
         title: 'Yemd Title',
         type:'normal'// 'normal','extend'
       },
+      //action
+      action:{
+        type:'float',
+        icon:'plus'
+      },
       toggleSidenav:false,
       toggleOverlay: false,
       toggleSnackbar: {
@@ -37,7 +42,7 @@
 
       },
       require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-      restrict: 'EA', // E = Element, A = Attribute, C = Class, M = Comment
+      restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '',
       // templateUrl: '',
       // replace: true,
@@ -106,7 +111,7 @@
         }
       }
     };
-  }])
+  }])//E
   .directive('overlay',['$rootScope','$animate','$timeout',function($rootScope,$animate,$timeout){
     return {
       restrict: 'EAC',
@@ -190,7 +195,7 @@
         //element.html( svg(element.find('img')) ); 
       }
     };
-  }])
+  }])//EC
   .directive('yemdList', [function(){
       // Runs during compile
       return {
@@ -220,15 +225,12 @@
       restrict: 'EAC',
       scope:{
         title: "=",
-        type: '='
+        type: '=',
+        action: '='
       },  
       //templateUrl:'_components/_appbar.html', 
       controller: function($scope , $element, $attrs, $rootScope){ 
-        /***** type  *****/
-        var typePristine= true ;
-        $scope.typeR= (typeof($scope.type) !== 'undefined')? $scope.type : 'normal' ;
-        //console.log($scope.typeR);
-        //$element.hasClass('extend') ? $element.removeClass('extend') : $element.addClass('extend') ;
+        
 
         /***** title *****/
         var title = $element.find('h1').text() ;
@@ -241,7 +243,10 @@
           $scope.titleR= $rootScope.yemd.appbar.title; //default
         }; 
         $element.find('h1').text( $scope.titleR ); //non dinamic
-
+ 
+        /***** type  *****/
+        var typePristine= true ;
+        $scope.typeR= (typeof($scope.type) !== 'undefined')? $scope.type : 'normal' ; 
 
         /***** whatchers ***/
         $scope.$watch('title', function() { //dinamic Title
@@ -253,10 +258,66 @@
           }else{
             typePristine=false;
           };
-          
         });
       },
       link: function ($scope, element, iAttrs ) {   
+        //var title = (element.find('h1') );
+        //title.text( (title.text()!=="")? title.text() : $scope.title );
+      }
+    };
+  }])
+  .directive('action',['$rootScope', function($rootScope){
+    return {
+      restrict: 'EC',
+      scope:{ 
+        type: '@',
+        typeBind: '=',
+        icon: '@',
+        iconBind: '=',
+        action: '&'
+      },  
+      //templateUrl:'_components/_appbar.html', 
+      controller: function($scope , $element, $attrs, $rootScope){   
+        //type
+        //console.log($scope.typeBind)
+        if ( typeof($scope.typeBind)!=='undefined' ) {
+          console.log("Binding type of action"); 
+          //$element.addClass($scope.typeBind);
+          }else if( typeof($scope.type)!=='undefined' ){
+          $element.addClass($scope.type);
+          }else{
+            console.log("default type of action"); 
+          //$element.addClass($rootScope.yemd.action.type);
+        };
+        //icon
+        var pathIcon='';
+        if ( typeof($scope.iconBind)!=='undefined' ) {
+          pathIcon= $rootScope.yemd.folderIcons+ $scope.iconBind;
+          }else if( typeof($scope.icon)!=='undefined' ){
+          pathIcon= $rootScope.yemd.folderIcons+ $scope.icon;
+          }else{
+          pathIcon= $rootScope.yemd.folderIcons+ $rootScope.yemd.action.icon;
+        };
+
+        var actionHtml= "<img src='"+ pathIcon +".svg'>" ,
+            actionIcon= jQuery(actionHtml) || angular.element(actionHtml);
+ 
+        $element.append(actionIcon);
+        $element.html( svg(actionIcon) );
+        
+        /***** Dinamic  *****/
+        var typePristine= true ;  //what detect like change the initializer 
+        $scope.$watch('typeBind', function() { //dinamic Type of appbar
+          if ( !typePristine ) {
+            console.log('change type',$scope.typeBind,$rootScope.yemd.action.type); 
+            $element.attr('class','').addClass("action " + $scope.typeBind);//     addClass();
+          }else{
+            typePristine=false;
+          };  
+        });
+      },
+      link: function ($scope, element, iAttrs ) {   
+        element.addClass($scope.type);
         //var title = (element.find('h1') );
         //title.text( (title.text()!=="")? title.text() : $scope.title );
       }

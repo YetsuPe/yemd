@@ -6,7 +6,6 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,100,300,500");
 /* line 9, ../scss/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -1249,3 +1248,63 @@ fieldset {
   /* line 19, ../scss/_tooltip.scss */
   .tooltip.showD {
     display: block; }
+
+/* line 1, ../scss/_action.scss */
+.action {
+  display: block;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: #03a9f4;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: -webkit-transform 0.75s ease;
+  -moz-transition: -moz-transform 0.75s ease;
+  transition: transform 0.75s ease; }
+  /* line 14, ../scss/_action.scss */
+  .action.embed {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    position: absolute;
+    bottom: -20px;
+    left: 16px;
+    padding: 8px;
+    width: 40px;
+    height: 40px; }
+  /* line 25, ../scss/_action.scss */
+  .action.float {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 2;
+    padding: 16px;
+    width: 56px;
+    height: 56px; }
+  /* line 37, ../scss/_action.scss */
+  .action svg {
+    position: relative; }
+    /* line 39, ../scss/_action.scss */
+    .action svg line {
+      fill: white;
+      stroke: white; }

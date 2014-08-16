@@ -1,0 +1,44 @@
+.action{
+	display: block;
+  
+  @include border-top-radius(50%);
+  @include border-bottom-radius(50%);
+  @include border-left-radius(50%);
+  @include border-right-radius(50%);
+  
+  background-color: $color-secondary ;
+  @include zDepth($z_depth:2);
+  //opacity: 0;
+  @include transform( scale(0) );
+  @include transition (transform $time-animation $mode-animation);
+  &.embed { 
+  	//opacity: 1;
+  	@include transform( scale(1) );
+  	position: absolute;
+		bottom: -20px;
+		left: 16px;
+
+  	padding: 8px;
+  	width : 40px;
+  	height: 40px ; 
+  }
+  &.float {
+  	//opacity: 1;
+  	@include transform( scale(1) );
+  	position: fixed;
+		bottom: 16px;
+		right: 16px;
+		z-index: 2;
+
+  	padding: 16px;
+  	width : 56px;
+  	height: 56px ; 
+  }
+  svg { 
+  	position: relative;  
+		line {
+			fill: $color-white;
+			stroke: $color-white;
+		}
+	}
+}
