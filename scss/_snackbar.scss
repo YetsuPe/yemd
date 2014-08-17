@@ -8,7 +8,7 @@
   bottom:0;
   width: 100%;
   @include transform( translateY(56px) );
-  @include transition ( transform $time-animation ease );
+  @include transition ( transform $time-animation $mode-animation-enter-leave-canvas );
   p{
     font-weight: 300;
     font-size: 14px;

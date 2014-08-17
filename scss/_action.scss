@@ -35,7 +35,8 @@
   	height: 56px ; 
   }
   svg { 
-  	position: relative;  
+  	position: relative; 
+  	width: 100%; 
 		line {
 			fill: $color-white;
 			stroke: $color-white;

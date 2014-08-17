@@ -1,5 +1,78 @@
  (function(angular,svg){
   'use strict';
+/**
+ * Helper function, that allows to attach multiple events to selected objects
+ * @param {[object]}   elements       [selected element or elements]
+ * @param {[type]}   events   [DOM object events like click or touch]
+ * @param {Function} callback [Callback method]
+ */
+ /*
+var addMulitListener = function(elements, events, callback) {
+  // Split all events to array
+    var eventsArray = events.split(' ');
+  
+    // Loop trough all elements
+    Array.prototype.forEach.call(elements, function(element, i) {
+      // Loop trought all events and add event listeners to each
+      Array.prototype.forEach.call(eventsArray, function(event, i) {
+        element.addEventListener(event, callback, false);
+      });  
+    });
+};
+*/
+/**
+ * This function is adding ripple effect to elements
+ * @param  {[object]} e [DOM objects, that should apply ripple effect]
+ * @return {[null]}   [description]
+ */
+/*
+addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart', function(e) { 
+  
+    var ripple = this.querySelector('.ripple');
+    //console.log(ripple);
+    var eventType = e.type;
+    //**  Ripple /
+    if(ripple === null) {
+      // Create ripple
+      ripple = document.createElement('span'); 
+      ripple.classList.add('ripple');
+      
+      // Prepend ripple to element
+      this.insertBefore(ripple, this.firstChild);
+
+      // Set ripple size
+      if(!ripple.offsetHeight && !ripple.offsetWidth) { 
+        console.log(e,e.target.tagName); 
+        var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
+        ripple.style.width = size + 'px';
+        ripple.style.height = size + 'px';
+      }
+
+    }
+
+    // Remove animation effect
+    ripple.classList.remove('animate');
+
+    // get click coordinates by event type
+    if(eventType === 'click'  ) {
+      var x = e.pageX;
+      var y = e.pageY;
+    } else if(eventType == 'touchstart') {
+      var x = e.changedTouches[0].pageX;
+      var y = e.changedTouches[0].pageY;
+    }
+    x = x - this.offsetLeft - ripple.offsetWidth / 2;
+    y = y - this.offsetTop - ripple.offsetHeight / 2;
+
+    // set new ripple position by click or touch position
+    ripple.style.top = y + 'px';
+    ripple.style.left = x + 'px';
+    ripple.classList.add('animate');
+}); 
+*/
+
+
+
   angular.module('yemd',[])  
   .run(function ($rootScope) { 
     // components 
@@ -31,6 +104,57 @@
       folderIcons: 'icons/' //default
     };  
   })
+  .factory('$ripple',[function(){
+    var ripple={};
+    ripple.apply=function(e,type){//type: surface, response, radial
+      //element.addEventListener('click', callback, false);
+//      element.on('click',function(e){
+        var ripple = this.querySelector('.ripple');
+        //console.log(ripple);
+        var eventType = e.type;
+        /**
+         * Ripple
+         */
+        if(ripple === null) {
+          // Create ripple
+          ripple = document.createElement('span'); 
+          ripple.classList.add('ripple');
+          
+          // Prepend ripple to element
+          this.insertBefore(ripple, this.firstChild);
+
+          // Set ripple size
+          if(!ripple.offsetHeight && !ripple.offsetWidth) { 
+            console.log(e,e.target.tagName); 
+            var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
+            ripple.style.width = size + 'px';
+            ripple.style.height = size + 'px';
+          }
+
+        }
+
+        // Remove animation effect
+        ripple.classList.remove('animate');
+
+        // get click coordinates by event type
+        if(eventType === 'click'  ) {
+          var x = e.pageX;
+          var y = e.pageY;
+        } else if(eventType == 'touchstart') {
+          var x = e.changedTouches[0].pageX;
+          var y = e.changedTouches[0].pageY;
+        }
+        x = x - this.offsetLeft - ripple.offsetWidth / 2;
+        y = y - this.offsetTop - ripple.offsetHeight / 2;
+
+        // set new ripple position by click or touch position
+        ripple.style.top = y + 'px';
+        ripple.style.left = x + 'px';
+        ripple.classList.add('animate');
+//      });
+    };
+    return ripple;
+  }])
   .directive('input', ['$rootScope','$animate', function($rootScope,$animate){
     // Runs during compile
     return {
@@ -39,17 +163,20 @@
       // terminal: true,
       scope: {}, // {} = isolate, true = child, false/undefined = no change
       controller: function($scope, $element, $attrs, $rootScope) {
-
+        
       },
-      require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+      require: ['ngModel'], // Array = multiple requires, ? = optional, ^ = check parent elements
       restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '',
       // templateUrl: '',
       // replace: true,
       // transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-      link: function($scope, element, attrs, model) {
-        //console.log( jQuery );
+      link: function($scope, element, attrs,model  ) {
+        if (attrs.action==='mainsearch') {
+          console.log("main search initialized");
+        };
+        //console.log( element,attrs );
         var labelHtml="<label class='valid'>"+attrs.placeholder+"</label>",
             errorHtml="<label class='invalid'>error</label>",
             fieldsetHtml="<fieldset></fieldset>";
@@ -71,7 +198,7 @@
           };  
 
           if( model.$valid && auxShow ){ 
-            /** remove label invalid **/
+            //** remove label invalid **
             error.removeClass('show'); 
             error.addClass('hide'); 
             setTimeout(function(){ 
@@ -85,7 +212,7 @@
             auxShow=false; 
           };
           if( !model.$valid && !auxShow){ 
-            /** remove label valid **/
+            //** remove label valid **
             label.removeClass('show'); 
             label.addClass('hide'); 
             setTimeout(function(){ 
@@ -109,6 +236,7 @@
         if ( attrs.type==="submit" || element[0].tagName==="button" ) {
           element.parent('fieldset').addClass('submit'); 
         }
+        /**/
       }
     };
   }])//E
@@ -168,49 +296,146 @@
 
       }
     };
-  }])
-  .directive('icon',['$rootScope',function($rootScope){
+  }]) 
+  .directive('icon',['$rootScope','$compile','$rootElement','$state','$ripple',function($rootScope,$compile,$rootElement,$state,$ripple){
     return {
       restrict: 'EC',
       scope: {
-        url:'@name',
-        color: '@',
-        icon: '@'
-      },
-      controller: function($scope , $element, $attrs,$rootScope){  
-        $scope.folderIcons = ( $scope.icon === '' || typeof($scope.icon) === 'undefined' )? $rootScope.yemd.folderIcons : "folder of Icons to set for the user" ;
-        $element.on('click',function(){ 
+        //url:'@name',
+        //color: '@',
+        icon: '@',
+        action:'@',
+        search: '=' 
+      }, 
+    //require: 'appbar',
+      controller: function($scope , $element, $attrs, $rootScope,$compile,$rootElement,$state){  
+        //$scope.folderIcons = ( $scope.icon === '' || typeof($scope.icon) === 'undefined' )? $rootScope.yemd.folderIcons : "folder of Icons to set for the user" ;
+        var vm = this;
+        vm.path= $rootScope.yemd.folderIcons + $scope.icon+'.svg';
+
+        $scope.changeAction=function(icon){
+          console.log("change icon");
+          angular.forEach($rootElement.find('icon'),function(nodeIcon,index){
+            nodeIcon= $(nodeIcon) || nodeIcon;
+            var nodeIconAction= nodeIcon.data('action') ;
+            //console.log(menu);
+            if ( nodeIconAction === icon.action ) {
+              console.log("slect",nodeIcon);
+              if ( typeof(icon.newIcon)!=='undefined') {
+                var iconHtml= "<img src='"+ $rootScope.yemd.folderIcons+ icon.newIcon +".svg' />",
+                newIcon= jQuery(iconHtml) || angular.element(iconHtml); 
+                nodeIcon.html(newIcon);
+                nodeIcon.html( svg( nodeIcon.find('img') ) );  
+              };
+
+            };
+ 
+          });
+        }; /*
+        $element.on('click',function(e){
+          var rippleHtml = "<span class='ripple'></span>",
+             ripple =   $(rippleHtml) || angular.element(rippleHtml);
+             //console.log($element.find('span').length,typeof($element.find('span')) );
+              $element.html(ripple);
+
+            if(!ripple.offsetHeight && !ripple.offsetWidth) { 
+                //console.log(e,e.target.tagName); 
+                var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
+                ripple.css('width' , size + 'px');  //ripple.style.width = size + 'px';
+                ripple.css('height', size + 'px');  //ripple.style.height = size + 'px';
+            }
+            ripple.removeClass('animate');
+            var x = e.pageX;
+            var y = e.pageY;
+            x = x - this.offsetLeft - ripple.offsetWidth / 2;
+            y = y - this.offsetTop - ripple.offsetHeight / 2;
+ 
+            ripple.css({ 'width': x + 'px', 'height': y + 'px' });
+            ripple.addClass('animate');
+            //console.log(ripple);
+        });*/
+        this.touchClick=function(event){  
+          /** riple radial**/
+          var element = $(this) || this, ripple = element.find('span');
+          ripple.addClass('show');
+          setTimeout(function(){
+            ripple.removeClass('show');
+          } ,750);
+          //type
+          var action= $scope.action ;
+          if (  action ==="menu" ) {   
+            $scope.$apply(function () { 
+              $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
+              $rootScope.yemd.pristine = false ;
+            });  
+          }else if( action ==="search"){
+            console.log($scope.search);
+            var formHtml= "<form name='search' class='form-search'></form>",
+                search  ="<input type='search' name='searchAppbar' placeholder='Buscar...' ng-model='search' data-action='mainsearch' />",
+                form= jQuery(formHtml) || angular.element(formHtml); 
+            //inject ng-model value
+            var linkFn = $compile(search);//2
+            var element= linkFn($scope);//3
+            form.append(element);
+            $element.after(form);
+            $scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
+          }else if( action ==="refresh"){
+            $state.reload();
+            console.log("reload");
+          };
+
+        };
+        /*
+        $element.on('click',function(){  
           if ( $attrs.action==="menu" ) {   
             $scope.$apply(function () { 
               $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
               $rootScope.yemd.pristine = false ;
             });  
-          }
+          }else if($attrs.action==="search"){
+            console.log($scope.search);
+            var formHtml= "<form name='search' class='form-search'></form>",
+                search  ="<input type='search' name='searchAppbar' placeholder='Buscar...' ng-model='search' data-action='mainsearch' />",
+                form= jQuery(formHtml) || angular.element(formHtml); 
+            //inject ng-model value
+            var linkFn = $compile(search);//2
+            var element= linkFn($scope);//3
+            form.append(element);
+            $element.after(form);
+            $scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
+          }else if($attrs.action==="refresh"){
+            $state.reload();
+            console.log("reload");
+          };
         });
+        */
       },
-      link: function  ($scope, element, attrs){  
-        var iconHtml= "<img />";
-        var icon = ( typeof( jQuery )==="undefined" )? element.append(angular.element(iconHtml)) : element.append($(iconHtml)) ;
-        ( $scope.icon !== '' || typeof($scope.icon) === 'undefined'  )? element.html( svg(element.find('img').attr('src', $scope.icon)) )  : element.html( svg(element.find('img').attr('src',$scope.folderIcons+'/Very_Basic/link.svg') ) ) ;
-        //element.html( svg(element.find('img')) ); 
+      controllerAs:'vm',
+      link: function  ($scope, element, attrs,vm){   
+        var iconHtml= "<img src='"+ vm.path +"' />",
+            rippleHtml= "<span class='ripple--radial'></span>",
+            icon= jQuery(iconHtml) || angular.element(iconHtml); 
+        element.html(icon);
+        element.html( svg( element.find('img') ) );  
+        element.prepend( $(rippleHtml) || angular.element(rippleHtml)  );
+        //ripple effect
+        element.on('click'     ,vm.touchClick );
+        element.on('touchstart',vm.touchClick );
       }
     };
   }])//EC
-  .directive('yemdList', [function(){
+  .directive('list', [function(){
       // Runs during compile
       return {
         // name: '',
         // priority: 1,
         // terminal: true,
-        scope: {
-          items: "=",
-          fields:'='
-        }, // {} = isolate, true = child, false/undefined = no change
+        scope: {}, // {} = isolate, true = child, false/undefined = no change
         controller: function($scope, $element, $attrs, $transclude) {
 
         },
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-        restrict: 'EAC', // E = Element, A = Attribute, C = Class, M = Comment
+        restrict: 'EC', // E = Element, A = Attribute, C = Class, M = Comment
         // template: '', 
         // replace: true,
         // transclude: true,
@@ -227,11 +452,8 @@
         title: "=",
         type: '=',
         action: '='
-      },  
-      //templateUrl:'_components/_appbar.html', 
-      controller: function($scope , $element, $attrs, $rootScope){ 
-        
-
+      },   
+      controller: function appbar ($scope , $element, $attrs, $rootScope){ 
         /***** title *****/
         var title = $element.find('h1').text() ;
         //console.log($scope.title,$scope.type);
@@ -263,7 +485,8 @@
       link: function ($scope, element, iAttrs ) {   
         //var title = (element.find('h1') );
         //title.text( (title.text()!=="")? title.text() : $scope.title );
-      }
+      },
+      controllerAs:'appbar'
     };
   }])
   .directive('action',['$rootScope', function($rootScope){

@@ -1,38 +1,68 @@
 //appbar === primary toolbar
 .appbar {
   position: relative;
-  height: 56px;// 56dp portrait 48dp landscape 64px table/desktop
+  height: em(56);// 56dp portrait 48dp landscape 64px table/desktop
   background-color: $color-primary;
   @include zDepth($z_depth:1);
   @include transition ( height $time-animation $mode-animation );
   &.extend {
-  	height: 128px;
+  	height: em(128);
   	.appbar__title {
-  		font-size: 20px;   
-			@include transform( translateY(82px) );
+  		font-size: em(20);   
+			@include transform( translateY( em(82,20) ) );
   	}
   }
 }
 .appbar__title {
 	position: relative; 
-	@include transform( translateY(20px) );
+	@include transform( translateY( em(20) ) );
 	display:block;
-	font-size:16px;
+	font-size:em(16);
 	line-height:1;
-	margin-left: 72px;
+	margin-left: em(72);
 	color:$color-text-white; 
 	@include transition ( all $time-animation $mode-animation );
 }
 .appbar__icon{
 	display:block;
 	position: absolute; 
-	top:4px;
-	left:4px;
-	width:48px;
-	height:48px;
-	padding:12px;
-	[stroke] { //for svg
-		stroke: $color-text-white  ;
+	top:em(4); 
+	width:em(48);
+	height:em(48);
+	padding:em(12);
+	.ripple--radial {
+		background-color:rgba(255,255,255,0.75);
+	}
+	svg { //for svg 
+		fill:white;
+		[stroke] {
+			stroke: $color-text-white  ;
+		}
+	}
+	
+	&:nth-last-of-type(1){
+		left:auto;
+		right: em(4);
+	}
+	&:nth-last-of-type(2){
+		left:auto;
+		right: em(56);
+	}
+	&:nth-last-of-type(3){
+		left:auto;
+		right: em(108);
+	}
+	&:nth-last-of-type(4){
+		left:auto;
+		right: em(160);
+	}
+	&:nth-last-of-type(5){
+		left:auto;
+		right: em(212);
+	}//+52
+	&:first-child {
+		left:em(4);
+		right:auto;
 	}
 }
 

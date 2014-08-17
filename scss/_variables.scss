@@ -16,7 +16,8 @@ $color-icon            : rgba($color-black,0.54);
 $color-divider         : rgba($color-black,0.54);
 
 $time-animation: 0.75s;
-$mode-animation: ease;
+$mode-animation: ease ;//ease;
+$mode-animation-enter-leave-canvas: ease ;//ease;
 /**** components ****/
 //overlay
 $bg-overlay:rgba(0,0,0,.25);
@@ -29,3 +30,5 @@ $bg-sidenav:$color-white ;
 //form 
 $color-success: #72C69D;
 $color-error: #f44336;
+//media querys
+$media-md:768px;

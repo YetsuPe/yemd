@@ -3,9 +3,28 @@
 	0% { opacity:0;  } 
 	100% { opacity:1 ;}
 }
+@include keyframes( enterIcon ) {
+	0% { 
+		opacity:0;  
+		//@include transform( scale(0)  );  
+	} 
+	100% { 
+		opacity:1 ;
+		//@include transform( scale(1) );  
+	}
+}
 @include keyframes( fadeOut ) {
 	0% { opacity:1;  } 
 	100% { opacity:0; }
+}
+/*  search **/
+@include keyframes( enterX ) {
+	0% { width:0;  } 
+	100% { width:100%; }
+}/*  search **/
+@include keyframes( leaveX ) {
+	0% { width:100%;  } 
+	100% { width:0; }
 }
 // new blocks (enter)
 //label valid

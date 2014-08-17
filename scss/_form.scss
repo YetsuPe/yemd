@@ -16,6 +16,7 @@ input,select {
   border-left:0;
   border-right:0;
   @include transition ( border $time-animation ease );
+  //@include zDepth($z_depth:1);
   &:focus {
     outline-color: transparent;  
     border-bottom-color:$color-primary ;
@@ -104,7 +105,7 @@ fieldset {
 	height:48px; 
 	overflow-y:hidden;
 	padding:16px 0;  
-	@include transition ( height $time-animation ease );
+	@include transition ( height $time-animation $mode-animation );
 	&.focus {
 		height: 72px;
 	}
@@ -112,4 +113,30 @@ fieldset {
 		padding:0;
 		margin-top: 16px;
   }
+}
+
+/*** search ***/
+.form-search {
+	position: absolute;
+	top:16px;
+	right: 0; 
+	@include animation( enterX $time-animation $mode-animation forwards);
+	input {   
+		border-bottom:0 ;
+		padding: 0 0 0 56px;
+		@include box-sizing( border-box );
+		color:$color-text-white;
+		//@include transition ( width $time-animation $mode-animation );
+		//placeholder
+	  &::-webkit-input-placeholder {
+	  	color:$color-text-white;
+	  	opacity: 0;
+			@include animation( fadeIn $time-animation ease forwards); 
+	  }
+		&:-moz-placeholder {
+			color:$color-text-white;
+	  	opacity: 0;
+			@include animation( fadeIn $time-animation ease forwards); 
+		}
+	}
 }

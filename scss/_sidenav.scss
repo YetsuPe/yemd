@@ -10,7 +10,7 @@
 	top:0;
 	height:100%;
 	background:$bg-sidenav;
-	@include transition ( transform $time-animation ease );
+	@include transition ( transform $time-animation $mode-animation-enter-leave-canvas );
 	&.enter {
   	@include transform( translateX(0) );
   	@include zDepth($z_depth:5);

@@ -6,10 +6,10 @@
 	height:100%;
 	display:none; 
 	&.show{ 
-		@include animation( fadeIn $time-animation ease forwards); 
+		@include animation( fadeIn $time-animation $mode-animation forwards); 
 	}
 	&.hide{ 
-		@include animation( fadeOut $time-animation ease forwards);
+		@include animation( fadeOut $time-animation $mode-animation forwards);
 	}
 	&.showD{
 		display: block;
