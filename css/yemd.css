@@ -557,24 +557,56 @@ input {
   /* line 27, ../scss/_animations.scss */
   100% {
     width: 0; } }
-@-webkit-keyframes enterLabel {
+@-webkit-keyframes enterNewIcon {
   /* line 31, ../scss/_animations.scss */
+  0% {
+    -webkit-transform: rotateZ(90deg); }
+
+  /* line 32, ../scss/_animations.scss */
+  100% {
+    -webkit-transform: rotateZ(0deg); } }
+@-moz-keyframes enterNewIcon {
+  /* line 31, ../scss/_animations.scss */
+  0% {
+    -moz-transform: rotateZ(90deg); }
+
+  /* line 32, ../scss/_animations.scss */
+  100% {
+    -moz-transform: rotateZ(0deg); } }
+@keyframes enterNewIcon {
+  /* line 31, ../scss/_animations.scss */
+  0% {
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+    transform: rotateZ(90deg); }
+
+  /* line 32, ../scss/_animations.scss */
+  100% {
+    -webkit-transform: rotateZ(0deg);
+    -moz-transform: rotateZ(0deg);
+    -ms-transform: rotateZ(0deg);
+    -o-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); } }
+@-webkit-keyframes enterLabel {
+  /* line 36, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(-24px); }
 
-  /* line 31, ../scss/_animations.scss */
+  /* line 36, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(0); } }
 @-moz-keyframes enterLabel {
-  /* line 31, ../scss/_animations.scss */
+  /* line 36, ../scss/_animations.scss */
   from {
     -moz-transform: translateY(-24px); }
 
-  /* line 31, ../scss/_animations.scss */
+  /* line 36, ../scss/_animations.scss */
   to {
     -moz-transform: translateY(0); } }
 @keyframes enterLabel {
-  /* line 31, ../scss/_animations.scss */
+  /* line 36, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(-24px);
     -moz-transform: translateY(-24px);
@@ -582,7 +614,7 @@ input {
     -o-transform: translateY(-24px);
     transform: translateY(-24px); }
 
-  /* line 31, ../scss/_animations.scss */
+  /* line 36, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
@@ -590,23 +622,23 @@ input {
     -o-transform: translateY(0);
     transform: translateY(0); } }
 @-webkit-keyframes leaveLabel {
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(0); }
 
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(-24px); } }
 @-moz-keyframes leaveLabel {
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   from {
     -moz-transform: translateY(0); }
 
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   to {
     -moz-transform: translateY(-24px); } }
 @keyframes leaveLabel {
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
@@ -614,7 +646,7 @@ input {
     -o-transform: translateY(0);
     transform: translateY(0); }
 
-  /* line 32, ../scss/_animations.scss */
+  /* line 37, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(-24px);
     -moz-transform: translateY(-24px);
@@ -622,23 +654,23 @@ input {
     -o-transform: translateY(-24px);
     transform: translateY(-24px); } }
 @-webkit-keyframes enterLabelInvalid {
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(8px); }
 
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(-24px); } }
 @-moz-keyframes enterLabelInvalid {
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   from {
     -moz-transform: translateY(8px); }
 
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   to {
     -moz-transform: translateY(-24px); } }
 @keyframes enterLabelInvalid {
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(8px);
     -moz-transform: translateY(8px);
@@ -646,7 +678,7 @@ input {
     -o-transform: translateY(8px);
     transform: translateY(8px); }
 
-  /* line 34, ../scss/_animations.scss */
+  /* line 39, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(-24px);
     -moz-transform: translateY(-24px);
@@ -654,23 +686,23 @@ input {
     -o-transform: translateY(-24px);
     transform: translateY(-24px); } }
 @-webkit-keyframes leaveLabelInvalid {
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(-24px); }
 
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(8px); } }
 @-moz-keyframes leaveLabelInvalid {
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   from {
     -moz-transform: translateY(-24px); }
 
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   to {
     -moz-transform: translateY(8px); } }
 @keyframes leaveLabelInvalid {
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   from {
     -webkit-transform: translateY(-24px);
     -moz-transform: translateY(-24px);
@@ -678,13 +710,21 @@ input {
     -o-transform: translateY(-24px);
     transform: translateY(-24px); }
 
-  /* line 35, ../scss/_animations.scss */
+  /* line 40, ../scss/_animations.scss */
   to {
     -webkit-transform: translateY(8px);
     -moz-transform: translateY(8px);
     -ms-transform: translateY(8px);
     -o-transform: translateY(8px);
     transform: translateY(8px); } }
+/* line 45, ../scss/_animations.scss */
+.show {
+  display: block !important; }
+
+/* line 48, ../scss/_animations.scss */
+.hide {
+  display: none !important; }
+
 /*
 [material] { height:70px; position: relative; overflow: hidden;  text-align: center; border: none; background: none; }
 [material][disabled] { background: rgb(234, 234, 234); }
@@ -758,19 +798,29 @@ body {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.87); }
 
-/* line 4, ../scss/_icon.scss */
-icon .ripple,
-.icon .ripple {
-  background-color: rgba(255, 255, 255, 0.75); }
-/* line 8, ../scss/_icon.scss */
-icon svg [stroke], icon svg path, icon svg polygon, icon svg rect,
-.icon svg [stroke],
-.icon svg path,
-.icon svg polygon,
-.icon svg rect {
-  -webkit-animation: enterIcon 0.75s ease;
-  -moz-animation: enterIcon 0.75s ease;
-  animation: enterIcon 0.75s ease; }
+/* line 1, ../scss/_icon.scss */
+.appbar__icon {
+  display: block;
+  width: 3em;
+  height: 3em;
+  padding: 0.75em; }
+  /* line 6, ../scss/_icon.scss */
+  .appbar__icon .ripple {
+    background-color: rgba(255, 255, 255, 0.75); }
+  /* line 9, ../scss/_icon.scss */
+  .appbar__icon svg {
+    fill: white; }
+    /* line 11, ../scss/_icon.scss */
+    .appbar__icon svg [stroke], .appbar__icon svg path, .appbar__icon svg polygon, .appbar__icon svg rect {
+      stroke: white;
+      -webkit-animation: enterIcon 0.75s ease;
+      -moz-animation: enterIcon 0.75s ease;
+      animation: enterIcon 0.75s ease; }
+  /* line 17, ../scss/_icon.scss */
+  .enterNewIcon.appbar__icon {
+    -webkit-animation: enterNewIcon 0.75s ease;
+    -moz-animation: enterNewIcon 0.75s ease;
+    animation: enterNewIcon 0.75s ease; }
 
 /* line 1, ../scss/_overlay.scss */
 .overlay {
@@ -817,9 +867,10 @@ icon svg [stroke], icon svg path, icon svg polygon, icon svg rect,
       -moz-transform: translateY(4.1em);
       -ms-transform: translateY(4.1em);
       -o-transform: translateY(4.1em);
-      transform: translateY(4.1em); }
+      transform: translateY(4.1em);
+      margin-left: 3.6em; }
 
-/* line 16, ../scss/_appbar.scss */
+/* line 17, ../scss/_appbar.scss */
 .appbar__title {
   position: relative;
   -webkit-transform: translateY(1.25em);
@@ -836,47 +887,43 @@ icon svg [stroke], icon svg path, icon svg polygon, icon svg rect,
   -moz-transition: all 0.75s ease;
   transition: all 0.75s ease; }
 
-/* line 26, ../scss/_appbar.scss */
+/* line 27, ../scss/_appbar.scss */
 .appbar__icon {
-  display: block;
   position: absolute;
   top: 0.25em;
-  width: 3em;
-  height: 3em;
-  padding: 0.75em; }
-  /* line 33, ../scss/_appbar.scss */
+  -webkit-transition: left, right 0.75s ease;
+  -moz-transition: left, right 0.75s ease;
+  transition: left, right 0.75s ease; }
+  /* line 32, ../scss/_appbar.scss */
   .appbar__icon .ripple--radial {
     background-color: rgba(255, 255, 255, 0.75); }
-  /* line 36, ../scss/_appbar.scss */
-  .appbar__icon svg {
-    fill: white; }
-    /* line 38, ../scss/_appbar.scss */
-    .appbar__icon svg [stroke] {
-      stroke: white; }
-  /* line 43, ../scss/_appbar.scss */
+  /* line 35, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(1) {
     left: auto;
     right: 0.25em; }
-  /* line 47, ../scss/_appbar.scss */
+  /* line 39, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(2) {
     left: auto;
     right: 3.5em; }
-  /* line 51, ../scss/_appbar.scss */
+  /* line 43, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(3) {
     left: auto;
     right: 6.75em; }
-  /* line 55, ../scss/_appbar.scss */
+  /* line 47, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(4) {
     left: auto;
     right: 10em; }
-  /* line 59, ../scss/_appbar.scss */
+  /* line 51, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(5) {
     left: auto;
     right: 13.25em; }
-  /* line 63, ../scss/_appbar.scss */
-  .appbar__icon:first-child {
+  /* line 55, ../scss/_appbar.scss */
+  .appbar__icon:first-of-type {
     left: 0.25em;
     right: auto; }
+  /* line 59, ../scss/_appbar.scss */
+  .appbar__icon.searchActiveEnter {
+    right: 0.25em; }
 
 /* line 1, ../scss/_sidenav.scss */
 .sidenav {
@@ -1022,11 +1069,11 @@ form {
 input, select {
   display: block;
   width: 100%;
-  padding: 0 0 8px 0;
+  padding: 0 0 0.5em 0;
   line-height: 1;
   background: transparent;
-  font-size: 16px;
-  height: 24px;
+  font-size: 1em;
+  height: 1.5em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.54);
   border-top: 0;
   border-left: 0;
@@ -1038,15 +1085,15 @@ input, select {
   input:focus, select:focus {
     outline-color: transparent;
     border-bottom-color: #259b24;
-    border-bottom-width: 2px; }
+    border-bottom-width: 0.125em; }
   /* line 25, ../scss/_form.scss */
   input.ng-dirty.ng-valid, select.ng-dirty.ng-valid {
     border-bottom-color: #72c69d;
-    border-bottom-width: 2px; }
+    border-bottom-width: 0.125em; }
   /* line 29, ../scss/_form.scss */
   input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
     border-bottom-color: #f44336;
-    border-bottom-width: 2px; }
+    border-bottom-width: 0.125em; }
   /* line 34, ../scss/_form.scss */
   input::-webkit-input-placeholder, select::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.54);
@@ -1070,8 +1117,8 @@ select, input[type="number"] {
 input[type="submit"] {
   display: block;
   background: #259b24;
-  height: 32px;
-  min-width: 88px;
+  height: 2em;
+  min-width: 5.5em;
   width: auto;
   line-height: 2;
   text-transform: uppercase;
@@ -1090,10 +1137,10 @@ label {
   position: relative;
   display: none;
   line-height: 1.333;
-  height: 16px; }
+  height: 1.33333em; }
   /* line 67, ../scss/_form.scss */
   label.valid {
-    margin-bottom: 8px; }
+    margin-bottom: 0.66667em; }
     /* line 69, ../scss/_form.scss */
     label.valid.show {
       -webkit-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
@@ -1117,31 +1164,31 @@ label {
   /* line 82, ../scss/_form.scss */
   label.invalid {
     color: #f44336; }
-    /* line 85, ../scss/_form.scss */
+    /* line 84, ../scss/_form.scss */
     label.invalid.show {
       -webkit-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
       -moz-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
       animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease; }
-      /* line 87, ../scss/_form.scss */
+      /* line 86, ../scss/_form.scss */
       label.invalid.show ~ input {
         -webkit-animation: enterLabelInvalid 0.75s ease;
         -moz-animation: enterLabelInvalid 0.75s ease;
         animation: enterLabelInvalid 0.75s ease; }
-    /* line 91, ../scss/_form.scss */
+    /* line 90, ../scss/_form.scss */
     label.invalid.hide {
       -webkit-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
       -moz-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
       animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease; }
-      /* line 93, ../scss/_form.scss */
+      /* line 92, ../scss/_form.scss */
       label.invalid.hide ~ input {
         -webkit-animation: leaveLabelInvalid 0.75s ease;
         -moz-animation: leaveLabelInvalid 0.75s ease;
         animation: leaveLabelInvalid 0.75s ease; }
-  /* line 99, ../scss/_form.scss */
+  /* line 98, ../scss/_form.scss */
   label.showD {
     display: block; }
 
-/* line 104, ../scss/_form.scss */
+/* line 103, ../scss/_form.scss */
 fieldset {
   height: 48px;
   overflow-y: hidden;
@@ -1149,39 +1196,40 @@ fieldset {
   -webkit-transition: height 0.75s ease;
   -moz-transition: height 0.75s ease;
   transition: height 0.75s ease; }
-  /* line 109, ../scss/_form.scss */
+  /* line 108, ../scss/_form.scss */
   fieldset.focus {
     height: 72px; }
-  /* line 112, ../scss/_form.scss */
+  /* line 111, ../scss/_form.scss */
   fieldset.submit {
     padding: 0;
     margin-top: 16px; }
 
 /*** search ***/
-/* line 119, ../scss/_form.scss */
+/* line 118, ../scss/_form.scss */
 .form-search {
+  display: none;
   position: absolute;
-  top: 16px;
+  top: 1em;
   right: 0;
   -webkit-animation: enterX 0.75s ease forwards;
   -moz-animation: enterX 0.75s ease forwards;
   animation: enterX 0.75s ease forwards; }
-  /* line 124, ../scss/_form.scss */
+  /* line 125, ../scss/_form.scss */
   .form-search input {
     border-bottom: 0;
-    padding: 0 0 0 56px;
+    padding: 0 0 0 3.5em;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: white; }
-    /* line 131, ../scss/_form.scss */
+    /* line 132, ../scss/_form.scss */
     .form-search input::-webkit-input-placeholder {
       color: white;
       opacity: 0;
       -webkit-animation: fadeIn 0.75s ease forwards;
       -moz-animation: fadeIn 0.75s ease forwards;
       animation: fadeIn 0.75s ease forwards; }
-    /* line 136, ../scss/_form.scss */
+    /* line 137, ../scss/_form.scss */
     .form-search input:-moz-placeholder {
       color: white;
       opacity: 0;
@@ -1521,6 +1569,6 @@ fieldset {
       stroke: white; }
 
 @media only screen and (min-width: 768px) {
-  /* line 2, ../scss/_responsive.scss */
+  /* line 3, ../scss/_responsive.scss */
   body {
     font-size: 18.5px; } }

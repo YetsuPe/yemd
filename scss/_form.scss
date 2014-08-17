@@ -6,11 +6,11 @@ form{
 input,select {
 	display:block;
 	width:100%;
-	padding: 0 0 8px 0;
+	padding: 0 0 em(8) 0;
   line-height: 1;
   background:transparent;
-  font-size: 16px;
-  height: 24px;
+  font-size: 1em;
+  height: em(24);
   border-bottom:1px solid $color-divider;
   border-top:0;
   border-left:0;
@@ -20,15 +20,15 @@ input,select {
   &:focus {
     outline-color: transparent;  
     border-bottom-color:$color-primary ;
-    border-bottom-width:2px;
+    border-bottom-width:em(2);
   }
   &.ng-dirty.ng-valid {
     border-bottom-color:$color-success;
-    border-bottom-width:2px;
+    border-bottom-width:em(2);
   }
   &.ng-dirty.ng-invalid {
     border-bottom-color:$color-error;
-    border-bottom-width:2px;
+    border-bottom-width:em(2);
   }
   //placeholder
   &::-webkit-input-placeholder {
@@ -48,8 +48,8 @@ select,input[type="number"] {
 input[type="submit"]{
 	display:block;
 	background: $color-primary ;
-	height: 32px;
-	min-width: 88px;
+	height: em(32);
+	min-width: em(88);
 	width: auto;
   line-height: 2; 
   text-transform: uppercase;
@@ -63,9 +63,9 @@ label {
 	position: relative;
 	display:none;
 	line-height:1.333;
-	height:16px; 
+	height:em(16,12); 
 	&.valid{
-		margin-bottom:8px;
+		margin-bottom:em(8,12);
 		&.show{  
 			@include animation( fadeIn $time-animation ease forwards, enterLabel $time-animation ease forwards);  
 			& ~ input {
@@ -79,8 +79,7 @@ label {
 			}
 		}
 	}
-	&.invalid{
-		//margin-top:8px;
+	&.invalid{ 
 		color:$color-error; 
 		&.show{ 
 			@include animation( fadeIn $time-animation ease forwards, enterLabelInvalid $time-animation ease); 
@@ -117,13 +116,15 @@ fieldset {
 
 /*** search ***/
 .form-search {
+	display:none;
 	position: absolute;
-	top:16px;
+	top:em(16);
 	right: 0; 
+
 	@include animation( enterX $time-animation $mode-animation forwards);
 	input {   
 		border-bottom:0 ;
-		padding: 0 0 0 56px;
+		padding: 0 0 0 em(56); 
 		@include box-sizing( border-box );
 		color:$color-text-white;
 		//@include transition ( width $time-animation $mode-animation );

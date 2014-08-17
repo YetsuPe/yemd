@@ -10,6 +10,7 @@
   	.appbar__title {
   		font-size: em(20);   
 			@include transform( translateY( em(82,20) ) );
+			margin-left: em(72,20);
   	}
   }
 }
@@ -23,23 +24,14 @@
 	color:$color-text-white; 
 	@include transition ( all $time-animation $mode-animation );
 }
-.appbar__icon{
-	display:block;
+.appbar__icon{ 
+	@extend %icon;
 	position: absolute; 
-	top:em(4); 
-	width:em(48);
-	height:em(48);
-	padding:em(12);
+	top:em(4);  
+	@include transition ( left , right $time-animation $mode-animation );
 	.ripple--radial {
 		background-color:rgba(255,255,255,0.75);
-	}
-	svg { //for svg 
-		fill:white;
-		[stroke] {
-			stroke: $color-text-white  ;
-		}
-	}
-	
+	} 
 	&:nth-last-of-type(1){
 		left:auto;
 		right: em(4);
@@ -60,9 +52,12 @@
 		left:auto;
 		right: em(212);
 	}//+52
-	&:first-child {
+	&:first-of-type {
 		left:em(4);
 		right:auto;
+	}
+	&.searchActiveEnter{ 
+		right:em(4);
 	}
 }
 

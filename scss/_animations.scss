@@ -20,11 +20,16 @@
 /*  search **/
 @include keyframes( enterX ) {
 	0% { width:0;  } 
-	100% { width:100%; }
+	100% { width:100%;  }
 }/*  search **/
 @include keyframes( leaveX ) {
 	0% { width:100%;  } 
 	100% { width:0; }
+}
+//enter new Icon
+@include keyframes( enterNewIcon ) {
+	0% {   @include transform( rotateZ(90deg) );  } 
+	100% { @include transform( rotateZ(0deg) ); }
 }
 // new blocks (enter)
 //label valid
@@ -36,3 +41,10 @@
 
 //move Elements
 //@include keyframes( moveInput ) {from {@include transform(translateY( -14px ));} to {@include transform(translateY( 0 ));}}
+
+.show{
+	display: block !important ;
+}
+.hide{
+	display: none !important;
+}

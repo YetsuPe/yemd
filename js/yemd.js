@@ -1,77 +1,5 @@
  (function(angular,svg){
-  'use strict';
-/**
- * Helper function, that allows to attach multiple events to selected objects
- * @param {[object]}   elements       [selected element or elements]
- * @param {[type]}   events   [DOM object events like click or touch]
- * @param {Function} callback [Callback method]
- */
- /*
-var addMulitListener = function(elements, events, callback) {
-  // Split all events to array
-    var eventsArray = events.split(' ');
-  
-    // Loop trough all elements
-    Array.prototype.forEach.call(elements, function(element, i) {
-      // Loop trought all events and add event listeners to each
-      Array.prototype.forEach.call(eventsArray, function(event, i) {
-        element.addEventListener(event, callback, false);
-      });  
-    });
-};
-*/
-/**
- * This function is adding ripple effect to elements
- * @param  {[object]} e [DOM objects, that should apply ripple effect]
- * @return {[null]}   [description]
- */
-/*
-addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart', function(e) { 
-  
-    var ripple = this.querySelector('.ripple');
-    //console.log(ripple);
-    var eventType = e.type;
-    //**  Ripple /
-    if(ripple === null) {
-      // Create ripple
-      ripple = document.createElement('span'); 
-      ripple.classList.add('ripple');
-      
-      // Prepend ripple to element
-      this.insertBefore(ripple, this.firstChild);
-
-      // Set ripple size
-      if(!ripple.offsetHeight && !ripple.offsetWidth) { 
-        console.log(e,e.target.tagName); 
-        var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
-        ripple.style.width = size + 'px';
-        ripple.style.height = size + 'px';
-      }
-
-    }
-
-    // Remove animation effect
-    ripple.classList.remove('animate');
-
-    // get click coordinates by event type
-    if(eventType === 'click'  ) {
-      var x = e.pageX;
-      var y = e.pageY;
-    } else if(eventType == 'touchstart') {
-      var x = e.changedTouches[0].pageX;
-      var y = e.changedTouches[0].pageY;
-    }
-    x = x - this.offsetLeft - ripple.offsetWidth / 2;
-    y = y - this.offsetTop - ripple.offsetHeight / 2;
-
-    // set new ripple position by click or touch position
-    ripple.style.top = y + 'px';
-    ripple.style.left = x + 'px';
-    ripple.classList.add('animate');
-}); 
-*/
-
-
+  'use strict'; 
 
   angular.module('yemd',[])  
   .run(function ($rootScope) { 
@@ -85,6 +13,9 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
     //config
     $rootScope.yemd= {
       pristine: true,
+      search:{
+        value:'Buscar ................'
+      },
       //appbar 
       appbar: {
         title: 'Yemd Title',
@@ -103,58 +34,7 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
       },
       folderIcons: 'icons/' //default
     };  
-  })
-  .factory('$ripple',[function(){
-    var ripple={};
-    ripple.apply=function(e,type){//type: surface, response, radial
-      //element.addEventListener('click', callback, false);
-//      element.on('click',function(e){
-        var ripple = this.querySelector('.ripple');
-        //console.log(ripple);
-        var eventType = e.type;
-        /**
-         * Ripple
-         */
-        if(ripple === null) {
-          // Create ripple
-          ripple = document.createElement('span'); 
-          ripple.classList.add('ripple');
-          
-          // Prepend ripple to element
-          this.insertBefore(ripple, this.firstChild);
-
-          // Set ripple size
-          if(!ripple.offsetHeight && !ripple.offsetWidth) { 
-            console.log(e,e.target.tagName); 
-            var size = Math.max(e.target.offsetWidth, e.target.offsetHeight);
-            ripple.style.width = size + 'px';
-            ripple.style.height = size + 'px';
-          }
-
-        }
-
-        // Remove animation effect
-        ripple.classList.remove('animate');
-
-        // get click coordinates by event type
-        if(eventType === 'click'  ) {
-          var x = e.pageX;
-          var y = e.pageY;
-        } else if(eventType == 'touchstart') {
-          var x = e.changedTouches[0].pageX;
-          var y = e.changedTouches[0].pageY;
-        }
-        x = x - this.offsetLeft - ripple.offsetWidth / 2;
-        y = y - this.offsetTop - ripple.offsetHeight / 2;
-
-        // set new ripple position by click or touch position
-        ripple.style.top = y + 'px';
-        ripple.style.left = x + 'px';
-        ripple.classList.add('animate');
-//      });
-    };
-    return ripple;
-  }])
+  }) 
   .directive('input', ['$rootScope','$animate', function($rootScope,$animate){
     // Runs during compile
     return {
@@ -174,7 +54,7 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
       link: function($scope, element, attrs,model  ) {
         if (attrs.action==='mainsearch') {
-          console.log("main search initialized");
+          console.log("main search initialized",model);
         };
         //console.log( element,attrs );
         var labelHtml="<label class='valid'>"+attrs.placeholder+"</label>",
@@ -297,40 +177,87 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
       }
     };
   }]) 
-  .directive('icon',['$rootScope','$compile','$rootElement','$state','$ripple',function($rootScope,$compile,$rootElement,$state,$ripple){
+  .directive('icon',['$rootScope','$compile','$rootElement','$state',function($rootScope,$compile,$rootElement,$state){
     return {
       restrict: 'EC',
       scope: {
         //url:'@name',
         //color: '@',
-        icon: '@',
-        action:'@',
-        search: '=' 
+        icon: '@'//,
+        //action:'@'
       }, 
     //require: 'appbar',
       controller: function($scope , $element, $attrs, $rootScope,$compile,$rootElement,$state){  
         //$scope.folderIcons = ( $scope.icon === '' || typeof($scope.icon) === 'undefined' )? $rootScope.yemd.folderIcons : "folder of Icons to set for the user" ;
         var vm = this;
         vm.path= $rootScope.yemd.folderIcons + $scope.icon+'.svg';
+ 
+         
+        //create the search input
+        if($element.data('action')==='search'){ 
+          //$scope.ngModelSearch= $rootScope.yemd.search.value;
+          $scope.searchMode="FFFF";
+          var formHtml= "<form name='searchMain' class='form-search'></form>",
+              search  = "<input type='search' name='searchAppbar' placeholder='Buscar...' ng-model='searchModel' data-action='mainsearch' />",
+              form= jQuery(formHtml) || angular.element(formHtml); 
 
-        $scope.changeAction=function(icon){
-          console.log("change icon");
-          angular.forEach($rootElement.find('icon'),function(nodeIcon,index){
+          //inject ng-model value
+          var linkFn = $compile(search);//2
+          var elementL= linkFn($scope);//3
+          form.html(elementL); 
+          $rootElement.find('header').prepend(form);
+        }
+
+
+
+
+        $scope.changeAction=function(elements, icon){
+          angular.forEach(elements, function(nodeIcon,index){
             nodeIcon= $(nodeIcon) || nodeIcon;
             var nodeIconAction= nodeIcon.data('action') ;
             //console.log(menu);
-            if ( nodeIconAction === icon.action ) {
-              console.log("slect",nodeIcon);
+            if ( nodeIconAction === icon.action ) { 
               if ( typeof(icon.newIcon)!=='undefined') {
                 var iconHtml= "<img src='"+ $rootScope.yemd.folderIcons+ icon.newIcon +".svg' />",
                 newIcon= jQuery(iconHtml) || angular.element(iconHtml); 
-                nodeIcon.html(newIcon);
-                nodeIcon.html( svg( nodeIcon.find('img') ) );  
-              };
 
+                nodeIcon.append(newIcon); //apend img 
+                
+
+                nodeIcon.addClass('enterNewIcon');
+                nodeIcon.find('span').addClass('show'); //ripple effect
+                nodeIcon.find('svg').replaceWith( svg( nodeIcon.find('img') ) );  
+                setTimeout(function(){
+                  nodeIcon.removeClass('enterNewIcon');
+                  nodeIcon.find('span').removeClass('show'); //ripple effect
+                },750);
+
+                nodeIcon.data('action', icon.newAction);  
+              };
             };
- 
           });
+        };
+        $scope.pattern=function(namePattern){
+          //console.log("change icon");
+          if ( namePattern==='AppbarSearch') {
+            var appbar= $rootElement.find('header'), 
+                iconsInAppbar = appbar.find('icon');
+
+            angular.forEach(iconsInAppbar,function(nodeIcon,index){
+              nodeIcon= $(nodeIcon) || nodeIcon;
+              if ( nodeIcon.data('action')==='menu' ||  nodeIcon.data('action')==='search' ) {
+                if ( nodeIcon.data('action')==='menu' ) { $scope.changeAction(iconsInAppbar,{action:'menu',newIcon:'arrow-left',newAction:'back'}); };
+                if ( nodeIcon.data('action')==='search' ) { 
+                  nodeIcon.addClass('searchActiveEnter');
+                  $scope.changeAction(iconsInAppbar,{action:'search',newIcon:'search',newAction:'searchActive'}); 
+                };
+                appbar.find('form').addClass('show');
+              }else{
+                nodeIcon.addClass('hide');
+              };
+            });
+          };
+          
         }; /*
         $element.on('click',function(e){
           var rippleHtml = "<span class='ripple'></span>",
@@ -356,59 +283,31 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
         });*/
         this.touchClick=function(event){  
           /** riple radial**/
-          var element = $(this) || this, ripple = element.find('span');
+          var element = jQuery(this) || this, ripple = element.find('span');
           ripple.addClass('show');
           setTimeout(function(){
             ripple.removeClass('show');
           } ,750);
           //type
-          var action= $scope.action ;
+          var action= $element.data('action') ;
           if (  action ==="menu" ) {   
             $scope.$apply(function () { 
               $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
               $rootScope.yemd.pristine = false ;
             });  
-          }else if( action ==="search"){
-            console.log($scope.search);
-            var formHtml= "<form name='search' class='form-search'></form>",
-                search  ="<input type='search' name='searchAppbar' placeholder='Buscar...' ng-model='search' data-action='mainsearch' />",
-                form= jQuery(formHtml) || angular.element(formHtml); 
-            //inject ng-model value
-            var linkFn = $compile(search);//2
-            var element= linkFn($scope);//3
-            form.append(element);
-            $element.after(form);
-            $scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
-          }else if( action ==="refresh"){
-            $state.reload();
+          }else if( action ==="back"){
+            console.log("back");
+          }else if( action ==="searchActive"){
+            console.log("search Active");
+          }else if( action ==="search"){ 
+            $scope.pattern('AppbarSearch');
+          }
+          else if( action ==="refresh"){
+            $state.reload(); /////////////////////////// caution 
             console.log("reload");
           };
 
-        };
-        /*
-        $element.on('click',function(){  
-          if ( $attrs.action==="menu" ) {   
-            $scope.$apply(function () { 
-              $rootScope.yemd.toggleSidenav = ($rootScope.yemd.toggleSidenav)?false: true ;
-              $rootScope.yemd.pristine = false ;
-            });  
-          }else if($attrs.action==="search"){
-            console.log($scope.search);
-            var formHtml= "<form name='search' class='form-search'></form>",
-                search  ="<input type='search' name='searchAppbar' placeholder='Buscar...' ng-model='search' data-action='mainsearch' />",
-                form= jQuery(formHtml) || angular.element(formHtml); 
-            //inject ng-model value
-            var linkFn = $compile(search);//2
-            var element= linkFn($scope);//3
-            form.append(element);
-            $element.after(form);
-            $scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
-          }else if($attrs.action==="refresh"){
-            $state.reload();
-            console.log("reload");
-          };
-        });
-        */
+        }; 
       },
       controllerAs:'vm',
       link: function  ($scope, element, attrs,vm){   
@@ -424,15 +323,38 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
       }
     };
   }])//EC
-  .directive('list', [function(){
+  .directive('list', ['$rootScope','$rootElement','$compile',function($rootScope,$rootElement,$compile){
       // Runs during compile
       return {
         // name: '',
         // priority: 1,
         // terminal: true,
         scope: {}, // {} = isolate, true = child, false/undefined = no change
-        controller: function($scope, $element, $attrs, $transclude) {
+        controller: function($scope, $element, $attrs, $rootScope,$rootElement,$compile) {
+          /***** search input **/
+          /*
+          var formHtml= "<form name='searchMain' class='form-search'></form>",
+              search  = "<input type='search' name='searchAppbar' placeholder='RRBuscar...' ng-model='search.value' data-action='mainsearch' />",
+              form= jQuery(formHtml) || angular.element(formHtml); 
+          //inject ng-model value
+          var linkFn = $compile(search);//2
+          var elementL= linkFn($rootScope);//3
+          form.append(elementL); 
+          $rootElement.find('header').append('form');
+          /*** icon ***/
+          //$scope.search="search";
+          //$scope.yemd.search= $rootScope.yemd.search;
+          var iconHtml = "<icon class='appbar__icon' data-action='search' data-icon='search'> </icon>" ,
+              //svgHtml= "<img src='"+ $rootScope.yemd.folderIcons + $scope.icon+".svg' />", 
+              icon= jQuery(iconHtml) || angular.element(iconHtml); 
 
+          //icon.html( jQuery( svgHtml) || angular.element( svgHtml) );
+          //icon.html 
+          icon = $compile(icon);
+          icon= icon($scope);
+          $rootElement.find('h1').after(icon);
+          //$rootElement.find('header').html( svg( element.find('img') ) ); 
+          //$scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
         },
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'EC', // E = Element, A = Attribute, C = Class, M = Comment
@@ -440,7 +362,7 @@ addMulitListener( document.querySelectorAll('article, icon') , 'click touchstart
         // replace: true,
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-        link: function($scope, iElm, iAttrs, controller) {
+        link: function($scope, iElm, iAttrs, vm) {
           
         }
       };
