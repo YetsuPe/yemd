@@ -870,7 +870,7 @@ body {
       transform: translateY(4.1em);
       margin-left: 3.6em; }
 
-/* line 17, ../scss/_appbar.scss */
+/* line 18, ../scss/_appbar.scss */
 .appbar__title {
   position: relative;
   -webkit-transform: translateY(1.25em);
@@ -887,41 +887,41 @@ body {
   -moz-transition: all 0.75s ease;
   transition: all 0.75s ease; }
 
-/* line 27, ../scss/_appbar.scss */
+/* line 29, ../scss/_appbar.scss */
 .appbar__icon {
   position: absolute;
   top: 0.25em;
   -webkit-transition: left, right 0.75s ease;
   -moz-transition: left, right 0.75s ease;
   transition: left, right 0.75s ease; }
-  /* line 32, ../scss/_appbar.scss */
+  /* line 34, ../scss/_appbar.scss */
   .appbar__icon .ripple--radial {
     background-color: rgba(255, 255, 255, 0.75); }
-  /* line 35, ../scss/_appbar.scss */
+  /* line 38, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(1) {
     left: auto;
     right: 0.25em; }
-  /* line 39, ../scss/_appbar.scss */
+  /* line 42, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(2) {
     left: auto;
     right: 3.5em; }
-  /* line 43, ../scss/_appbar.scss */
+  /* line 46, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(3) {
     left: auto;
     right: 6.75em; }
-  /* line 47, ../scss/_appbar.scss */
+  /* line 50, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(4) {
     left: auto;
     right: 10em; }
-  /* line 51, ../scss/_appbar.scss */
+  /* line 54, ../scss/_appbar.scss */
   .appbar__icon:nth-last-of-type(5) {
     left: auto;
     right: 13.25em; }
-  /* line 55, ../scss/_appbar.scss */
+  /* line 58, ../scss/_appbar.scss */
   .appbar__icon:first-of-type {
     left: 0.25em;
     right: auto; }
-  /* line 59, ../scss/_appbar.scss */
+  /* line 62, ../scss/_appbar.scss */
   .appbar__icon.searchActiveEnter {
     right: 0.25em; }
 
