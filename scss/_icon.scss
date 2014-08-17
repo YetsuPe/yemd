@@ -1,0 +1,12 @@
+icon,
+.icon{
+	//overflow:hidden;
+	.ripple {
+		background-color:rgba(255,255,255,.75);
+	}
+	svg{
+		[stroke], path, polygon, rect {
+			@include animation( enterIcon $time-animation $mode-animation );
+		}
+	}
+}
