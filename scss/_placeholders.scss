@@ -7,31 +7,29 @@
 	  clear: both;
 	}
 }
-%display-block { display: block; }
-%float-left    { float: left ;}
+%display-block     { display: block; }
+//color
+%color-white { color: $color-white  } 
+//padding
+%width-100percent { width:100%;  }
+//Position type
+%position-relative { position: relative; }
+%position-absolute { position: absolute; }
+%position-fixed 	 { position: fixed; } 
+//Position location
+%position-top-0	 { top: 0; } 
+%position-bottom-0	 { bottom: 0; } 
+%position-left-0	 { left: 0; } 
+//text wrapper
+%text-ellipsis     { @include text-wrapper;}
+%line-height-1     { line-height:1; }
+%line-height-3     { line-height:3; }
+%text-color-white  { color:$color-text-white; }
+%bg-primary        { background-color: $color-primary; }
+%float-left        { float: left ;}
 %border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
-//icon
-%icon{
-	display:block; 
-	width:em(48);
-	height:em(48);
-	padding:em(12);
-	z-index: 2;
-	.ripple {
-		background-color:rgba(255,255,255,.75);
-	} 
-	svg{
-		fill:white;
-		[stroke], path, polygon, rect { 
-			stroke:$color-white;
-			@include animation( enterIcon $time-animation $mode-animation );
-		}
-	}
-	// animations
-	&.enterNewIcon {
-		@include animation( enterNewIcon $time-animation $mode-animation ); 
-	} 
-}
+
+
 // z Depth
 %zDepth-1 { @include zDepth($z_depth:1); }
 %zDepth-2 { @include zDepth($z_depth:2); }
@@ -39,3 +37,8 @@
 %zDepth-4 { @include zDepth($z_depth:4); }
 %zDepth-5 { @include zDepth($z_depth:5); } 
 
+
+//overflow
+%overflow { overflow:hidden; }
+%overflow-x { overflow-x:hidden; }
+%overflow-y { overflow-y:hidden; }
