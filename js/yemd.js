@@ -354,11 +354,23 @@
           vm.view= $rootScope.yemd.view;  
 
           //create the icon search 
-          var iconHtml = "<icon class='appbar__icon' data-action='search' data-icon='search'> </icon>" , 
-              icon= jQuery(iconHtml) || angular.element(iconHtml), 
-              linkIcon = $compile(icon);
-
-          vm.iconSearch= linkIcon($scope);
+          vm.createIconSearch=function(){
+            var iconHtml = "<icon class='appbar__icon' data-action='search' data-icon='search'> </icon>" , 
+            icon= jQuery(iconHtml) || angular.element(iconHtml), 
+            linkIcon = $compile(icon); 
+            return linkIcon($scope);
+          };
+          //create datelist
+          vm.createDatalist=function(){
+            var  dataListHtml="<ul class='datalist'></ul>",
+                 datalist= jQuery(dataListHtml) || angular.element(dataListHtml) ; 
+            angular.forEach(vm.datalist, function(row,index){
+              var optionHtml="<li class='datalist__item'>"+row.value+"</li>",
+              option= jQuery(optionHtml) || angular.element(optionHtml) ; 
+              this.append(option);  
+            }, datalist); 
+            return datalist;
+          };
            
         },
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
@@ -369,20 +381,8 @@
         compile: function(tElement, tAttrs,vm){ 
           return {
             pre : function  (scope, iElm, iAttrs, vm){
-              iElm.closest('body').find('header').find('h1').after(vm.iconSearch); //Add icon search
-              if ( vm.datalist ){   
-                var  dataListHtml="<ul class='datalist'></ul>",
-                    datalist= jQuery(dataListHtml) || angular.element(dataListHtml) ; 
-                angular.forEach(vm.datalist, function(row,index){
-                  var optionHtml="<li class='datalist__item'>"+row.value+"</li>",
-                      option= jQuery(optionHtml) || angular.element(optionHtml) ; 
-                  this.append(option);  
-                }, datalist);
-                //vm.datalist=datalist;
-                iElm.closest('body').find('header').find('form').after(datalist);
-              }else{
-                console.log("not set datalist");
-              };    
+              iElm.closest('body').find('header').find('h1').after( vm.createIconSearch() ); //Add icon search 
+              vm.datalist ? iElm.closest('body').find('header').find('form').after( vm.createDatalist() ) :console.log("not set datalist Dinamic");
             } ,
             post: function   (scope, iElm, iAttrs, vm){
 
