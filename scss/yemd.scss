@@ -1,18 +1,25 @@
 @import "bourbon/bourbon";
 
 @import "variables";
-@import "placeholders";
-
 @import "prefix";
 @import "mixins";
-@import "normalize";
+
+
+
+@import "placeholders";
+//@import "normalize";
 @import "reset";
+@import "base";
+//components
+@import "components/appbar";
+@import "components/icon";
+@import "components/sidenav";
+/*
 @import "animations";
 @import "ripple";
-@import "base";
-@import "icon";
+ 
 @import "overlay";
-@import "appbar";
+
 @import "sidenav";
 @import "canvas";
 @import "sub-title";
@@ -24,3 +31,4 @@
 @import "action";
 @import "card";
 @import "responsive";
+*/
