@@ -7,14 +7,35 @@
 	  clear: both;
 	}
 }
-//card
-%card{
-	font-size:16px;
-	background-color: $bg-card ;
-	padding: em(8) 0;
+%display-block { display: block; }
+%float-left    { float: left ;}
+%border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
+//icon
+%icon{
+	display:block; 
+	width:em(48);
+	height:em(48);
+	padding:em(12);
+	z-index: 2;
+	.ripple {
+		background-color:rgba(255,255,255,.75);
+	} 
+	svg{
+		fill:white;
+		[stroke], path, polygon, rect { 
+			stroke:$color-white;
+			@include animation( enterIcon $time-animation $mode-animation );
+		}
+	}
+	// animations
+	&.enterNewIcon {
+		@include animation( enterNewIcon $time-animation $mode-animation ); 
+	} 
 }
-%card--single-line{ 
-	height: em(48);
-	padding: em(16);
-	line-height:3;//center text
-}
+// z Depth
+%zDepth-1 { @include zDepth($z_depth:1); }
+%zDepth-2 { @include zDepth($z_depth:2); }
+%zDepth-3 { @include zDepth($z_depth:3); }
+%zDepth-4 { @include zDepth($z_depth:4); }
+%zDepth-5 { @include zDepth($z_depth:5); } 
+

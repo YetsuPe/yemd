@@ -360,7 +360,6 @@
             linkIcon = $compile(icon); 
             return linkIcon($scope);
           };
-          //create datelist
           vm.createDatalist=function(){
             var  dataListHtml="<ul class='datalist'></ul>",
                  datalist= jQuery(dataListHtml) || angular.element(dataListHtml) ; 
