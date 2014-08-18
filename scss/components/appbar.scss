@@ -1,0 +1,69 @@
+%toolbar {
+	@extend %display-block;
+	@extend %position-relative;
+	@extend %zDepth-1;
+	@extend %bg-primary ;
+	@include transition ( height $time-animation $mode-animation );
+	icon,
+	.icon { 
+		position: absolute; 
+		top:em(4); 
+		&:nth-last-of-type(1){
+			left:auto;
+			right: em(4);
+		}
+		&:nth-last-of-type(2){
+			left:auto;
+			right: em(56);
+		}
+		&:nth-last-of-type(3){
+			left:auto;
+			right: em(108);
+		}
+		&:nth-last-of-type(4){
+			left:auto;
+			right: em(160);
+		}
+		&:nth-last-of-type(5){
+			left:auto;
+			right: em(212);
+		}//+52
+		&:first-of-type {
+			left:em(4);
+			right:auto;
+		}
+	}
+}
+%toolbar__title {
+	@extend %position-relative;
+	@extend %line-height-1;
+	@extend %text-color-white;
+	@include transition ( all $time-animation $mode-animation );
+}
+
+.toolbar--default {
+	@extend %toolbar;
+	height: em(56); 
+	h1{ 
+		@extend %toolbar__title;
+		@extend %text-ellipsis ; 
+		overflow: hidden;
+		@include transform( translateY( em(20) ) );
+		@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
+		font-size:em(16);  
+		margin-left: em(72);
+	}
+}
+.toolbar--extend {
+	@extend %toolbar;
+	height: em(128);
+	h1 {
+		@extend %toolbar__title;
+
+		@include transform( translateY( em(82,20) ) );
+
+		font-size: em(20);
+		margin-left: em(72,20);
+	}
+}
+
