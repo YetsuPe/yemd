@@ -3,13 +3,13 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		watch:{ 
 			scripts:{
-        files:['./*.html','_components/*.html','js/*.js','css/*.css'],
+        files:['./*.html','_components/*.html','js/*.js','js/directives/*.js','css/*.css'],
         options: {
          	livereload: 1337
         }
       },
 			sass:{
-				files:['scss/*.scss'],
+				files:['scss/*.scss', 'scss/components/*.scss'],
 				tasks:['sass']
 			}
 		},
