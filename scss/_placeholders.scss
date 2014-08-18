@@ -42,3 +42,8 @@
 %overflow { overflow:hidden; }
 %overflow-x { overflow-x:hidden; }
 %overflow-y { overflow-y:hidden; }
+
+/*** animations ***/
+%animation-scaleIn { @include animation( scaleIn $time-animation $mode-animation forwards );}
+%animation-scaleOut{ @include animation( scaleOut $time-animation $mode-animation forwards );}
+
