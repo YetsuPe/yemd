@@ -45,6 +45,7 @@
       controller: function($scope, $element, $attrs, $rootScope) {
         
       },
+      controllerAs:'vm',
       require: ['ngModel'], // Array = multiple requires, ? = optional, ^ = check parent elements
       restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
       // template: '',
@@ -53,23 +54,26 @@
       // transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
       link: function($scope, element, attrs,model  ) {
-        if (attrs.action==='mainsearch') {
-          console.log("main search initialized",model);
-        };
-        //console.log( element,attrs );
+         
         var labelHtml="<label class='valid'>"+attrs.placeholder+"</label>",
             errorHtml="<label class='invalid'>error</label>",
             fieldsetHtml="<fieldset></fieldset>";
 
-        var label=    ( typeof( jQuery )==="undefined" )? angular.element(labelHtml) : $(labelHtml) ,
-            error=    ( typeof( jQuery )==="undefined" )? angular.element(errorHtml) : $(errorHtml) ,
-            fieldset= ( typeof( jQuery )==="undefined" )? angular.element(fieldsetHtml) : $(fieldsetHtml) ,
-            placeholder=attrs.placeholder; 
+        var label      = $(labelHtml)    || angular.element(labelHtml)   ,
+            error      = $(errorHtml)    || angular.element(errorHtml)   ,
+            fieldset   = $(fieldsetHtml) || angular.element(fieldsetHtml)  ,
+            placeholder= attrs.placeholder; 
 
         element.wrap(fieldset);  
+
         var auxShow=true;
         element.on('keyup',function(){
-          //console.log( model );  
+          if (attrs.action==='mainsearch') { 
+            $scope.model = model.$dirty ;
+            console.log($scope.model);
+          };
+          console.log(model.$dirty);
+          /*
           if ( model.$dirty  ) {  
             element.parent('fieldset').addClass("focus"); 
           }; 
@@ -105,6 +109,7 @@
             element.parent('fieldset').append( error );
             auxShow=true; 
           };
+          */
         });  
         if ( attrs.type==="date" || attrs.type==="time"|| attrs.type==="datetime-local" || element[0].tagName==="SELECT" ) {
           
@@ -252,8 +257,9 @@
                   $scope.changeAction(iconsInAppbar,{action:'search',newAction:'searchActive'}); 
 
                 };
-                appbar.find('form').addClass('show');
-                
+                appbar.find('form').addClass('show'); 
+                appbar.find('form').find('input').eq(0).focus(); //focus input search
+
               }else{
                 nodeIcon.addClass('hide');
               };
@@ -262,7 +268,6 @@
               $rootScope.yemd.pristine = false ;
               $rootScope.yemd.toggleOverlay = ($rootScope.yemd.toggleOverlay)?false: true ;
               console.log("change overlay");
-              
             }); 
           };
           
