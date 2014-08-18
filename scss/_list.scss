@@ -32,7 +32,7 @@
   font-size: 14px; //change
   font-weight: 400;//change
   display: block;
-  color: $color-secondary-text; //change
+  color: $color-primary; //change
   @include text-wrapper;
 }
 .list__fields__action{
@@ -64,6 +64,7 @@
   line-height: 3; //one line
   position: relative;
   @include clearfix;
+  border-bottom:em(1) solid $color-divider-low;
 }
 .list__item__head__text {
   float: left;

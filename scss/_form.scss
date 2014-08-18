@@ -118,11 +118,15 @@ fieldset {
 .form-search {
 	display:none;
 	position: absolute;
-	top:em(16);
+	padding: em(16);
+	top:0;
 	right: 0; 
-
-	@include animation( enterX $time-animation $mode-animation forwards);
-	input {   
+	height:em($appbar-height);
+	background:$color-primary;
+	z-index:2; 
+	width:100%;
+	@include animation( fadeIn $time-animation $mode-animation forwards);
+	input {    
 		border-bottom:0 ;
 		padding: 0 0 0 em(56); 
 		@include box-sizing( border-box );
@@ -140,4 +144,19 @@ fieldset {
 			@include animation( fadeIn $time-animation ease forwards); 
 		}
 	}
+}
+
+.datalist { 
+	display: none;
+	position: absolute;
+	top: em(56);//appbar
+	padding:0 em(16);
+	width: 100%;
+	background-color: $color-secondary;
+	z-index: 1;
+}
+.datalist__item{
+	display:block;
+	color: $color-secondary-text;
+	
 }

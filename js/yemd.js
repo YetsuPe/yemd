@@ -249,13 +249,21 @@
                 if ( nodeIcon.data('action')==='menu' ) { $scope.changeAction(iconsInAppbar,{action:'menu',newIcon:'arrow-left',newAction:'back'}); };
                 if ( nodeIcon.data('action')==='search' ) { 
                   nodeIcon.addClass('searchActiveEnter');
-                  $scope.changeAction(iconsInAppbar,{action:'search',newIcon:'search',newAction:'searchActive'}); 
+                  $scope.changeAction(iconsInAppbar,{action:'search',newAction:'searchActive'}); 
+
                 };
                 appbar.find('form').addClass('show');
+                
               }else{
                 nodeIcon.addClass('hide');
               };
             });
+            $scope.$apply(function () { 
+              $rootScope.yemd.pristine = false ;
+              $rootScope.yemd.toggleOverlay = ($rootScope.yemd.toggleOverlay)?false: true ;
+              console.log("change overlay");
+              
+            }); 
           };
           
         }; /*
@@ -323,14 +331,21 @@
       }
     };
   }])//EC
-  .directive('list', ['$rootScope','$rootElement','$compile',function($rootScope,$rootElement,$compile){
+  .directive('list', ['$rootScope','$rootElement','$compile','$location',function($rootScope,$rootElement,$compile,$location){
       // Runs during compile
       return {
         // name: '',
         // priority: 1,
         // terminal: true,
-        scope: {}, // {} = isolate, true = child, false/undefined = no change
-        controller: function($scope, $element, $attrs, $rootScope,$rootElement,$compile) {
+        scope: {
+          items: '=',
+          datalist: '='
+        }, // {} = isolate, true = child, false/undefined = no change
+        controller: function($scope, $element, $attrs, $rootScope,$rootElement,$compile) { 
+          var vm = this;
+          vm.items= $scope.items || false;
+          vm.datalist= $scope.datalist || false;
+          vm.view= $rootScope.yemd.view; 
           /***** search input **/
           /*
           var formHtml= "<form name='searchMain' class='form-search'></form>",
@@ -361,12 +376,60 @@
         // template: '', 
         // replace: true,
         // transclude: true,
-        // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
+        compile: function(tElement, tAttrs,vm){ 
+          return {
+            pre : function  (scope, iElm, iAttrs, vm){
+              if ( vm.datalist ){   
+                var  dataListHtml="<ul class='datalist'></ul>",
+                    datalist= jQuery(dataListHtml) || angular.element(dataListHtml) ; 
+                angular.forEach(vm.datalist, function(row,index){
+                  var optionHtml="<li class='datalist__item'>"+row.value+"</li>",
+                      option= jQuery(optionHtml) || angular.element(optionHtml) ; 
+                  this.append(option);  
+                }, datalist);
+                //vm.datalist=datalist;
+                iElm.closest('body').find('header').find('form').after(datalist);
+              }else{
+                console.log("not set datalist");
+              };    
+            } ,
+            post: function   (scope, iElm, iAttrs, vm){
+
+            }
+          };
+        }/*,
         link: function($scope, iElm, iAttrs, vm) {
-          
-        }
+          console.log(iElm,vm.datalist);
+          iElm.prepend(vm.datalist);
+        }*/
       };
   }])
+  /*
+  directive('', ['', function(){
+    // Runs during compile
+    return {
+      // name: '',
+      // priority: 1,
+      // terminal: true,
+      // scope: {}, // {} = isolate, true = child, false/undefined = no change
+      // controller: function($scope, $element, $attrs, $transclude) {},
+      // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+      // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+      // template: '',
+      // templateUrl: '',
+      // replace: true,
+      // transclude: true,
+      // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ 
+          return function linking(scope, elm, attrs){
+    
+          }
+        })
+      ),
+      link: function($scope, iElm, iAttrs, controller) {
+        
+      }
+    };
+  }])*/
   .directive('appbar',['$rootScope', function($rootScope){
     return {
       restrict: 'EAC',

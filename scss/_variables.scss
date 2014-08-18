@@ -13,12 +13,15 @@ $color-text            : rgba($color-black,0.87);
 $color-text-white      : $color-white           ;
 $color-secondary-text  : rgba($color-black,0.54);
 $color-icon            : rgba($color-black,0.54);
-$color-divider         : rgba($color-black,0.54);
+$color-divider         : rgba($color-black,0.27);
+$color-divider-low     : rgba($color-black,0.13);
 
 $time-animation: 0.75s;
 $mode-animation: ease ;//ease;
 $mode-animation-enter-leave-canvas: ease ;//ease;
 /**** components ****/
+//appbar
+	$appbar-height:56px;
 //overlay
 $bg-overlay:rgba(0,0,0,.25);
 //snackbar
