@@ -1,0 +1,20 @@
+//Clearfix
+%clearfix {
+	//*zoom: 1;  /* The star is here to prevent other browsers from reading and applying this rule. */
+	&:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+}
+//card
+%card{
+	font-size:16px;
+	background-color: $bg-card ;
+	padding: em(8) 0;
+}
+%card--single-line{ 
+	height: em(48);
+	padding: em(16);
+	line-height:3;//center text
+}
