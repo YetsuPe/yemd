@@ -726,11 +726,81 @@ input {
     -ms-transform: translateY(8px);
     -o-transform: translateY(8px);
     transform: translateY(8px); } }
-/* line 45, ../scss/_animations.scss */
+@-webkit-keyframes enterFieldset {
+  /* line 43, ../scss/_animations.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    opacity: 0; }
+
+  /* line 47, ../scss/_animations.scss */
+  100% {
+    -webkit-transform: translateY(3.5em);
+    opacity: 1; } }
+@-moz-keyframes enterFieldset {
+  /* line 43, ../scss/_animations.scss */
+  0% {
+    -moz-transform: translateY(0);
+    opacity: 0; }
+
+  /* line 47, ../scss/_animations.scss */
+  100% {
+    -moz-transform: translateY(3.5em);
+    opacity: 1; } }
+@keyframes enterFieldset {
+  /* line 43, ../scss/_animations.scss */
+  0% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 0; }
+
+  /* line 47, ../scss/_animations.scss */
+  100% {
+    -webkit-transform: translateY(3.5em);
+    -moz-transform: translateY(3.5em);
+    -ms-transform: translateY(3.5em);
+    -o-transform: translateY(3.5em);
+    transform: translateY(3.5em);
+    opacity: 1; } }
+@-webkit-keyframes leaveFieldset {
+  /* line 52, ../scss/_animations.scss */
+  from {
+    -webkit-transform: translateY(3.5em); }
+
+  /* line 52, ../scss/_animations.scss */
+  to {
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes leaveFieldset {
+  /* line 52, ../scss/_animations.scss */
+  from {
+    -moz-transform: translateY(3.5em); }
+
+  /* line 52, ../scss/_animations.scss */
+  to {
+    -moz-transform: translateY(0); } }
+@keyframes leaveFieldset {
+  /* line 52, ../scss/_animations.scss */
+  from {
+    -webkit-transform: translateY(3.5em);
+    -moz-transform: translateY(3.5em);
+    -ms-transform: translateY(3.5em);
+    -o-transform: translateY(3.5em);
+    transform: translateY(3.5em); }
+
+  /* line 52, ../scss/_animations.scss */
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+/* line 57, ../scss/_animations.scss */
 .show {
   display: block !important; }
 
-/* line 48, ../scss/_animations.scss */
+/* line 60, ../scss/_animations.scss */
 .hide {
   display: none !important; }
 
@@ -1256,13 +1326,24 @@ fieldset {
 .datalist {
   display: none;
   position: absolute;
-  top: 3.5em;
+  top: 0;
+  opacity: 0;
   padding: 0 1em;
   width: 100%;
-  background-color: #03a9f4;
+  background-color: white;
   z-index: 1; }
+  /* line 158, ../scss/_form.scss */
+  .datalist.enter {
+    -webkit-animation: enterFieldset 0.75s 0.75s ease forwards;
+    -moz-animation: enterFieldset 0.75s 0.75s ease forwards;
+    animation: enterFieldset 0.75s 0.75s ease forwards; }
+  /* line 161, ../scss/_form.scss */
+  .datalist.leave {
+    -webkit-animation: leaveFieldset 0.75s ease;
+    -moz-animation: leaveFieldset 0.75s ease;
+    animation: leaveFieldset 0.75s ease; }
 
-/* line 158, ../scss/_form.scss */
+/* line 168, ../scss/_form.scss */
 .datalist__item {
   display: block;
   color: rgba(0, 0, 0, 0.54); }

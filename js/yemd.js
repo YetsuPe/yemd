@@ -12,9 +12,9 @@
 
     //config
     $rootScope.yemd= {
-      pristine: true,
+      pristine: true, 
       search:{
-        value:'Buscar ................'
+        value:'Buscar...'
       },
       //appbar 
       appbar: {
@@ -68,11 +68,10 @@
 
         var auxShow=true;
         element.on('keyup',function(){
-          if (attrs.action==='mainsearch') { 
-            $scope.model = model.$dirty ;
-            console.log($scope.model);
-          };
-          console.log(model.$dirty);
+          if (attrs.action==='mainsearch') {  
+            $scope.model = model[0].$modelValue  ;
+            //console.log($scope.model);
+          }; 
           /*
           if ( model.$dirty  ) {  
             element.parent('fieldset').addClass("focus"); 
@@ -257,9 +256,10 @@
                   $scope.changeAction(iconsInAppbar,{action:'search',newAction:'searchActive'}); 
 
                 };
+                /**** Action Main search    * use form>input datalist overlay * ***/
                 appbar.find('form').addClass('show'); 
                 appbar.find('form').find('input').eq(0).focus(); //focus input search
-
+                appbar.find('ul').addClass('show enter'); 
               }else{
                 nodeIcon.addClass('hide');
               };
@@ -301,6 +301,7 @@
           setTimeout(function(){
             ripple.removeClass('show');
           } ,750);
+
           //type
           var action= $element.data('action') ;
           if (  action ==="menu" ) {   
@@ -309,7 +310,7 @@
               $rootScope.yemd.pristine = false ;
             });  
           }else if( action ==="back"){
-            console.log("back");
+             
           }else if( action ==="searchActive"){
             console.log("search Active");
           }else if( action ==="search"){ 
@@ -350,31 +351,15 @@
           var vm = this;
           vm.items= $scope.items || false;
           vm.datalist= $scope.datalist || false;
-          vm.view= $rootScope.yemd.view; 
-          /***** search input **/
-          /*
-          var formHtml= "<form name='searchMain' class='form-search'></form>",
-              search  = "<input type='search' name='searchAppbar' placeholder='RRBuscar...' ng-model='search.value' data-action='mainsearch' />",
-              form= jQuery(formHtml) || angular.element(formHtml); 
-          //inject ng-model value
-          var linkFn = $compile(search);//2
-          var elementL= linkFn($rootScope);//3
-          form.append(elementL); 
-          $rootElement.find('header').append('form');
-          /*** icon ***/
-          //$scope.search="search";
-          //$scope.yemd.search= $rootScope.yemd.search;
-          var iconHtml = "<icon class='appbar__icon' data-action='search' data-icon='search'> </icon>" ,
-              //svgHtml= "<img src='"+ $rootScope.yemd.folderIcons + $scope.icon+".svg' />", 
-              icon= jQuery(iconHtml) || angular.element(iconHtml); 
+          vm.view= $rootScope.yemd.view;  
 
-          //icon.html( jQuery( svgHtml) || angular.element( svgHtml) );
-          //icon.html 
-          icon = $compile(icon);
-          icon= icon($scope);
-          $rootElement.find('h1').after(icon);
-          //$rootElement.find('header').html( svg( element.find('img') ) ); 
-          //$scope.changeAction({action:'menu',newAction:'mainsearch',newIcon:'arrow-left'});
+          //create the icon search 
+          var iconHtml = "<icon class='appbar__icon' data-action='search' data-icon='search'> </icon>" , 
+              icon= jQuery(iconHtml) || angular.element(iconHtml), 
+              linkIcon = $compile(icon);
+
+          vm.iconSearch= linkIcon($scope);
+           
         },
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'EC', // E = Element, A = Attribute, C = Class, M = Comment
@@ -384,6 +369,7 @@
         compile: function(tElement, tAttrs,vm){ 
           return {
             pre : function  (scope, iElm, iAttrs, vm){
+              iElm.closest('body').find('header').find('h1').after(vm.iconSearch); //Add icon search
               if ( vm.datalist ){   
                 var  dataListHtml="<ul class='datalist'></ul>",
                     datalist= jQuery(dataListHtml) || angular.element(dataListHtml) ; 

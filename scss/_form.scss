@@ -149,11 +149,21 @@ fieldset {
 .datalist { 
 	display: none;
 	position: absolute;
-	top: em(56);//appbar
+	top: 0;//appbar
+	opacity:0;
 	padding:0 em(16);
 	width: 100%;
-	background-color: $color-secondary;
+	background-color: $bg-datalist;
 	z-index: 1;
+	&.enter{
+		@include animation( enterFieldset $time-animation $time-animation $mode-animation forwards);
+	}
+	&.leave{
+		@include animation( leaveFieldset $time-animation $mode-animation);
+	}
+	//&.showD {
+		//display:block;
+	//}
 }
 .datalist__item{
 	display:block;
