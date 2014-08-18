@@ -19,11 +19,11 @@
   }
 }
 
-@mixin text-wrapper(){
+@mixin text-wrapper(){ //apply text's parent
   text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x:hidden; 
+  white-space: nowrap; 
 }
+
 @mixin fix_sidenav_width(){ 
   @each $prefix in webkit moz ms o {
     -#{$prefix}-transform: translateX( calc( -1 * ( 100% ) ) );
