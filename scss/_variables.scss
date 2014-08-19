@@ -17,8 +17,11 @@ $color-divider         : rgba($color-black,0.27);
 $color-divider-low     : rgba($color-black,0.13);
 
 $time-animation: 0.75s;
-$mode-animation: ease ;//ease;
-$mode-animation-enter-leave-canvas: ease ;//ease;
+$mode-animation: ease-in-out ;//ease;
+
+//Entering and Exiting Frame
+$enter-animation: 0.5s cubic-bezier(0,0,.5,1) 0.1875s ; 
+$leave-animation: 0.5s cubic-bezier(0,.5,1,1) ; 
 /**** components ****/
 //card
 $bg-card : $color-white;
