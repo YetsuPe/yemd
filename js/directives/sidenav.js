@@ -41,12 +41,17 @@
 	        },  
 	        post: function postLink(scope, element, iAttrs, vm) { 
 	        	element.css( vm.getHeightSidenav(element) );
+	        	element.find('a').on('click',function(e){
+	        		e.preventDefault();
+	        		$rootScope.$emit('changeSidenavLeft', $rootScope.yemd.sidenav.left.toggle); 
+	        	});
 	        	//responsive
 	        	$window.onresize= function(event){  
 	        		console.log(event);
 	        		element.find('figure').css( vm.getHeightToHead() ); 
 	        		element.css( vm.getHeightSidenav(element) );
-	        	}
+	        	};
+
 						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 
 				      sidenavToggle? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
 				      $rootScope.yemd.sidenav.left.toggle=sidenavToggle? false: true; 
