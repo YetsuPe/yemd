@@ -1,3 +1,7 @@
+@mixin text-wrapper(){ //apply text's parent
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
 @mixin zDepth($z_depth:1){
   @if  $z_depth==0{
     @include box-shadow( none );
@@ -18,15 +22,32 @@
     @include box-shadow( 0 15px 6px rgba(0,0,0,0.22) ,0 19px 19px rgba(0,0,0,0.30) );
   }
 }
-
-@mixin text-wrapper(){ //apply text's parent
-  text-overflow: ellipsis;
-  white-space: nowrap; 
-}
-
 @mixin fix_sidenav_width(){ 
   @each $prefix in webkit moz ms o {
     -#{$prefix}-transform: translateX( calc( -1 * ( 100% ) ) );
   }
   transform: translateX( calc( -1 * ( 100% ) ) );
 }
+
+@include keyframes( scaleIn ) {
+  from { @include transform(scale( 0 )); } 
+  to   { @include transform(scale( 1 )); }
+}
+
+@include keyframes( scaleOut ) {
+  from { @include transform(scale( 1 )); } 
+  to   { @include transform(scale( 0 )); }
+}
+
+@include keyframes( showSidenavLeft ) { 
+  to   { 
+    @include zDepth($z_depth:5);
+    @include transform( translateX(0) ); 
+  }
+}
+@include keyframes( hideSidenavLeft ) {  
+  to   { 
+    @include fix_sidenav_width;  
+  }
+}
+

@@ -35,7 +35,7 @@
     icon,
     .icon{
       @extend %float-left;
-      @extend %icon-list;
+      //@extend %icon-list;
     }
     @extend %icon--list;
     div {
@@ -43,6 +43,7 @@
       @extend %list--img_icon-one-line;
     }
   }
+  
     //__componets
     %list--img_icon-one-line {
       line-height: 3.5;

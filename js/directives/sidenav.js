@@ -5,7 +5,7 @@
 	function nav($rootScope,$window){
 		return {
 			scope: { 
-				type:'@' //main(left),right
+				sidenav:'=yemd' //main(left),right
 			},
 			restrict:'E',  
 			controller: function  ($scope, $element, $attrs,$rootScope){
@@ -17,21 +17,28 @@
 				}; 
 				vm.applyHeightToHead= function(element, h){ 
 					element.find('figure').css('height',h *(9/16)+"px"); // sidenav head 16:9
-				};
+				}; 
 			},
 			controllerAs:'vm',
 			compile: function(){
 				return {
 	        pre: function preLink(scope, element, iAttrs, vm) {  
 	        	element.addClass(vm.className);
-	        	(vm.getWidthHead() >= 320 )? vm.applyHeightToHead(element,264) : null ;
+	        	(vm.getWidthHead() >= 320 )? vm.applyHeightToHead(element,264) : vm.applyHeightToHead(element, vm.getWidthHead() ) ;
+	        	
 	        }, 
-	        post: function postLink(scope, element, iAttrs, vm) {
-	        	console.log($window);
+	        post: function postLink(scope, element, iAttrs, vm) { 
 	        	$window.onresize= function(event){
 	        		console.log(vm.getWidthHead());
 	        		(vm.getWidthHead() <= 320 )? vm.applyHeightToHead(element, vm.getWidthHead() ) : null ;
 	        	}
+	        	console.log(scope.sidenav.toggle);
+	        	scope.$watch('sidenav.toggle',function(){
+	        		console.log("open");
+	        		console.log(scope.sidenav.toggle);
+	        		element.hasClass('show')?element.removeClass('show'):element.addClass('show');
+	        	});
+	        	//scope.sidenav.toggle? element.addClass('show') : element.removeClass('show') ;
 	        }
 	      };
 			}

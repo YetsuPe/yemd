@@ -1,431 +1,215 @@
 /*** text ***/
 /**** components ****/
-/* line 14, ../scss/_placeholders.scss */
-.appbar__icon {
-  display: block;
-  width: 3em;
-  height: 3em;
-  padding: 0.75em;
-  z-index: 2; }
-  /* line 20, ../scss/_placeholders.scss */
-  .appbar__icon .ripple {
-    background-color: rgba(255, 255, 255, 0.75); }
-  /* line 23, ../scss/_placeholders.scss */
-  .appbar__icon svg {
-    fill: white; }
-    /* line 25, ../scss/_placeholders.scss */
-    .appbar__icon svg [stroke], .appbar__icon svg path, .appbar__icon svg polygon, .appbar__icon svg rect {
-      stroke: white;
-      -webkit-animation: enterIcon 0.75s ease;
-      -moz-animation: enterIcon 0.75s ease;
-      animation: enterIcon 0.75s ease; }
-  /* line 31, ../scss/_placeholders.scss */
-  .enterNewIcon.appbar__icon {
-    -webkit-animation: enterNewIcon 0.75s ease;
-    -moz-animation: enterNewIcon 0.75s ease;
-    animation: enterNewIcon 0.75s ease; }
+@-webkit-keyframes scaleIn {
+  /* line 33, ../scss/_mixins.scss */
+  from {
+    -webkit-transform: scale(0); }
 
-/* line 38, ../scss/_placeholders.scss */
-.card {
-  font-size: 16px;
-  background-color: white;
-  padding: 0.5em 0; }
+  /* line 34, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: scale(1); } }
+@-moz-keyframes scaleIn {
+  /* line 33, ../scss/_mixins.scss */
+  from {
+    -moz-transform: scale(0); }
 
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-/* line 9, ../scss/_normalize.scss */
-html {
-  font-family: sans-serif;
-  /* 1 */
-  -ms-text-size-adjust: 100%;
-  /* 2 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* line 34, ../scss/_mixins.scss */
+  to {
+    -moz-transform: scale(1); } }
+@keyframes scaleIn {
+  /* line 33, ../scss/_mixins.scss */
+  from {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); }
 
-/**
- * Remove default margin.
- */
-/* line 19, ../scss/_normalize.scss */
-body {
-  margin: 0; }
+  /* line 34, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes scaleOut {
+  /* line 38, ../scss/_mixins.scss */
+  from {
+    -webkit-transform: scale(1); }
 
-/* HTML5 display definitions
-   ========================================================================== */
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
-/* line 32, ../scss/_normalize.scss */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
+  /* line 39, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: scale(0); } }
+@-moz-keyframes scaleOut {
+  /* line 38, ../scss/_mixins.scss */
+  from {
+    -moz-transform: scale(1); }
+
+  /* line 39, ../scss/_mixins.scss */
+  to {
+    -moz-transform: scale(0); } }
+@keyframes scaleOut {
+  /* line 38, ../scss/_mixins.scss */
+  from {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
+
+  /* line 39, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0); } }
+@-webkit-keyframes showSidenavLeft {
+  /* line 43, ../scss/_mixins.scss */
+  to {
+    -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -webkit-transform: translateX(0); } }
+@-moz-keyframes showSidenavLeft {
+  /* line 43, ../scss/_mixins.scss */
+  to {
+    -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -moz-transform: translateX(0); } }
+@keyframes showSidenavLeft {
+  /* line 43, ../scss/_mixins.scss */
+  to {
+    -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0); } }
+@-webkit-keyframes hideSidenavLeft {
+  /* line 49, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
+    -moz-transform: translateX(calc(-1 * ( 100% ) ));
+    -ms-transform: translateX(calc(-1 * ( 100% ) ));
+    -o-transform: translateX(calc(-1 * ( 100% ) ));
+    transform: translateX(calc(-1 * ( 100% ) )); } }
+@-moz-keyframes hideSidenavLeft {
+  /* line 49, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
+    -moz-transform: translateX(calc(-1 * ( 100% ) ));
+    -ms-transform: translateX(calc(-1 * ( 100% ) ));
+    -o-transform: translateX(calc(-1 * ( 100% ) ));
+    transform: translateX(calc(-1 * ( 100% ) )); } }
+@keyframes hideSidenavLeft {
+  /* line 49, ../scss/_mixins.scss */
+  to {
+    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
+    -moz-transform: translateX(calc(-1 * ( 100% ) ));
+    -ms-transform: translateX(calc(-1 * ( 100% ) ));
+    -o-transform: translateX(calc(-1 * ( 100% ) ));
+    transform: translateX(calc(-1 * ( 100% ) )); } }
+/* line 10, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .icon,
+icon, .list--single-line a {
   display: block; }
 
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-/* line 52, ../scss/_normalize.scss */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */ }
+/* line 12, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption a {
+  color: white; }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-/* line 65, ../scss/_normalize.scss */
-audio:not([controls]) {
-  display: none;
-  height: 0; }
+/* line 14, ../scss/_placeholders.scss */
+.list--single-line a {
+  color: #03a9f4; }
 
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-/* line 75, ../scss/_normalize.scss */
-[hidden],
-template {
-  display: none; }
+/* line 16, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  width: 100%; }
 
-/* Links
-   ========================================================================== */
-/**
- * Remove the gray background color from active links in IE 10.
- */
-/* line 87, ../scss/_normalize.scss */
-a {
-  background: transparent; }
+/* line 18, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
+icon, .sidenav--left figure {
+  position: relative; }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-/* line 95, ../scss/_normalize.scss */
-a:active,
-a:hover {
-  outline: 0; }
+/* line 19, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  position: absolute; }
 
-/* Text-level semantics
-   ========================================================================== */
-/**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
-/* line 107, ../scss/_normalize.scss */
-abbr[title] {
-  border-bottom: 1px dotted; }
+/* line 20, ../scss/_placeholders.scss */
+.sidenav--left {
+  position: fixed; }
 
-/**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-/* line 115, ../scss/_normalize.scss */
-b,
-strong {
-  font-weight: bold; }
+/* line 22, ../scss/_placeholders.scss */
+.sidenav--left {
+  top: 0; }
 
-/**
- * Address styling not present in Safari and Chrome.
- */
-/* line 124, ../scss/_normalize.scss */
-dfn {
-  font-style: italic; }
+/* line 23, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  bottom: 0; }
 
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari, and Chrome.
- */
-/* line 133, ../scss/_normalize.scss */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0; }
+/* line 24, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  left: 0; }
 
-/**
- * Address styling not present in IE 8/9.
- */
-/* line 142, ../scss/_normalize.scss */
-mark {
-  background: #ff0;
-  color: #000; }
+/* line 26, ../scss/_placeholders.scss */
+.toolbar--default h1, .sidenav--left figure figcaption {
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
-/**
- * Address inconsistent and variable font size in all browsers.
- */
-/* line 151, ../scss/_normalize.scss */
-small {
-  font-size: 80%; }
+/* line 27, ../scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1, .list--single-line a {
+  line-height: 1; }
 
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-/* line 159, ../scss/_normalize.scss */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
+/* line 28, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  line-height: 3; }
 
-/* line 167, ../scss/_normalize.scss */
-sup {
-  top: -0.5em; }
+/* line 29, ../scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1 {
+  color: white; }
 
-/* line 171, ../scss/_normalize.scss */
-sub {
-  bottom: -0.25em; }
+/* line 30, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend {
+  background-color: #259b24; }
 
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9/10.
- */
-/* line 182, ../scss/_normalize.scss */
-img {
-  border: 0; }
+/* line 32, ../scss/_placeholders.scss */
+.sidenav--left figure img {
+  border-radius: 50% 50% 50% 50%; }
 
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-/* line 190, ../scss/_normalize.scss */
-svg:not(:root) {
-  overflow: hidden; }
+/* line 36, ../scss/_placeholders.scss */
+.sidenav--left section {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none; }
 
-/* Grouping content
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-/* line 201, ../scss/_normalize.scss */
-figure {
-  margin: 1em 40px; }
+/* line 37, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .list--single-line {
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12); }
 
-/**
- * Address differences between Firefox and other browsers.
- */
-/* line 209, ../scss/_normalize.scss */
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0; }
+/* line 46, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  overflow-x: hidden; }
 
-/**
- * Contain overflow in all browsers.
- */
-/* line 219, ../scss/_normalize.scss */
-pre {
-  overflow: auto; }
+/*** animations ***/
+/* line 50, ../scss/_placeholders.scss */
+.sidenav--left figure img {
+  -webkit-animation: scaleIn 0.75s ease forwards;
+  -moz-animation: scaleIn 0.75s ease forwards;
+  animation: scaleIn 0.75s ease forwards; }
 
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-/* line 227, ../scss/_normalize.scss */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em; }
-
-/* Forms
-   ========================================================================== */
-/**
- * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `select`, unless a `border` property is set.
- */
-/**
- * 1. Correct color not being inherited.
- *    Known issue: affects color of disabled elements.
- * 2. Correct font properties not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
- */
-/* line 250, ../scss/_normalize.scss */
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-  margin: 0;
-  /* 3 */ }
-
-/**
- * Address `overflow` set to `hidden` in IE 8/9/10/11.
- */
-/* line 264, ../scss/_normalize.scss */
-button {
-  overflow: visible; }
-
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
- * Correct `select` style inheritance in Firefox.
- */
-/* line 275, ../scss/_normalize.scss */
-button,
-select {
-  text-transform: none; }
-
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- */
-/* line 288, ../scss/_normalize.scss */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */ }
-
-/**
- * Re-set default cursor for disabled elements.
- */
-/* line 300, ../scss/_normalize.scss */
-button[disabled],
-html input[disabled] {
-  cursor: default; }
-
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-/* line 309, ../scss/_normalize.scss */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-/**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-/* line 320, ../scss/_normalize.scss */
-input {
-  line-height: normal; }
-
-/**
- * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect box-sizing, padding, or width.
- *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
- */
-/* line 332, ../scss/_normalize.scss */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */ }
-
-/**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
- * decrement button to change from `default` to `text`.
- */
-/* line 344, ../scss/_normalize.scss */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto; }
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
- */
-/* line 355, ../scss/_normalize.scss */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box; }
-
-/**
- * Remove inner padding and search cancel button in Safari and Chrome on OS X.
- * Safari (but not Chrome) clips the cancel button when the search input has
- * padding (and `textfield` appearance).
- */
-/* line 368, ../scss/_normalize.scss */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-/**
- * Define consistent border, margin, and padding.
- */
-/* line 377, ../scss/_normalize.scss */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
-
-/**
- * 1. Correct `color` not being inherited in IE 8/9/10/11.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
- */
-/* line 388, ../scss/_normalize.scss */
-legend {
-  border: 0;
-  /* 1 */
-  padding: 0;
-  /* 2 */ }
-
-/**
- * Remove default vertical scrollbar in IE 8/9/10/11.
- */
-/* line 397, ../scss/_normalize.scss */
-textarea {
-  overflow: auto; }
-
-/**
- * Don't inherit the `font-weight` (applied by a rule above).
- * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
- */
-/* line 406, ../scss/_normalize.scss */
-optgroup {
-  font-weight: bold; }
-
-/* Tables
-   ========================================================================== */
-/**
- * Remove most spacing between table cells.
- */
-/* line 417, ../scss/_normalize.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-/* line 422, ../scss/_normalize.scss */
-td,
-th {
-  padding: 0; }
+/* line 53, ../scss/_placeholders.scss */
+.show.sidenav--left {
+  -webkit-animation: showSidenavLeft 0.75s ease forwards;
+  -moz-animation: showSidenavLeft 0.75s ease forwards;
+  animation: showSidenavLeft 0.75s ease forwards; }
 
 /* line 1, ../scss/_reset.scss */
 * {
@@ -475,427 +259,6 @@ input {
   box-shadow: none;
   border-radius: 0; }
 
-@-webkit-keyframes fadeIn {
-  /* line 3, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 4, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@-moz-keyframes fadeIn {
-  /* line 3, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 4, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@keyframes fadeIn {
-  /* line 3, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 4, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@-webkit-keyframes enterIcon {
-  /* line 7, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 11, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@-moz-keyframes enterIcon {
-  /* line 7, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 11, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@keyframes enterIcon {
-  /* line 7, ../scss/_animations.scss */
-  0% {
-    opacity: 0; }
-
-  /* line 11, ../scss/_animations.scss */
-  100% {
-    opacity: 1; } }
-@-webkit-keyframes fadeOut {
-  /* line 17, ../scss/_animations.scss */
-  0% {
-    opacity: 1; }
-
-  /* line 18, ../scss/_animations.scss */
-  100% {
-    opacity: 0; } }
-@-moz-keyframes fadeOut {
-  /* line 17, ../scss/_animations.scss */
-  0% {
-    opacity: 1; }
-
-  /* line 18, ../scss/_animations.scss */
-  100% {
-    opacity: 0; } }
-@keyframes fadeOut {
-  /* line 17, ../scss/_animations.scss */
-  0% {
-    opacity: 1; }
-
-  /* line 18, ../scss/_animations.scss */
-  100% {
-    opacity: 0; } }
-/*  search **/
-@-webkit-keyframes enterX {
-  /* line 22, ../scss/_animations.scss */
-  0% {
-    width: 0; }
-
-  /* line 23, ../scss/_animations.scss */
-  100% {
-    width: 100%; } }
-@-moz-keyframes enterX {
-  /* line 22, ../scss/_animations.scss */
-  0% {
-    width: 0; }
-
-  /* line 23, ../scss/_animations.scss */
-  100% {
-    width: 100%; } }
-@keyframes enterX {
-  /* line 22, ../scss/_animations.scss */
-  0% {
-    width: 0; }
-
-  /* line 23, ../scss/_animations.scss */
-  100% {
-    width: 100%; } }
-/*  search **/
-@-webkit-keyframes leaveX {
-  /* line 26, ../scss/_animations.scss */
-  0% {
-    width: 100%; }
-
-  /* line 27, ../scss/_animations.scss */
-  100% {
-    width: 0; } }
-@-moz-keyframes leaveX {
-  /* line 26, ../scss/_animations.scss */
-  0% {
-    width: 100%; }
-
-  /* line 27, ../scss/_animations.scss */
-  100% {
-    width: 0; } }
-@keyframes leaveX {
-  /* line 26, ../scss/_animations.scss */
-  0% {
-    width: 100%; }
-
-  /* line 27, ../scss/_animations.scss */
-  100% {
-    width: 0; } }
-@-webkit-keyframes enterNewIcon {
-  /* line 31, ../scss/_animations.scss */
-  0% {
-    -webkit-transform: rotateZ(90deg); }
-
-  /* line 32, ../scss/_animations.scss */
-  100% {
-    -webkit-transform: rotateZ(0deg); } }
-@-moz-keyframes enterNewIcon {
-  /* line 31, ../scss/_animations.scss */
-  0% {
-    -moz-transform: rotateZ(90deg); }
-
-  /* line 32, ../scss/_animations.scss */
-  100% {
-    -moz-transform: rotateZ(0deg); } }
-@keyframes enterNewIcon {
-  /* line 31, ../scss/_animations.scss */
-  0% {
-    -webkit-transform: rotateZ(90deg);
-    -moz-transform: rotateZ(90deg);
-    -ms-transform: rotateZ(90deg);
-    -o-transform: rotateZ(90deg);
-    transform: rotateZ(90deg); }
-
-  /* line 32, ../scss/_animations.scss */
-  100% {
-    -webkit-transform: rotateZ(0deg);
-    -moz-transform: rotateZ(0deg);
-    -ms-transform: rotateZ(0deg);
-    -o-transform: rotateZ(0deg);
-    transform: rotateZ(0deg); } }
-@-webkit-keyframes enterLabel {
-  /* line 36, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(-24px); }
-
-  /* line 36, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(0); } }
-@-moz-keyframes enterLabel {
-  /* line 36, ../scss/_animations.scss */
-  from {
-    -moz-transform: translateY(-24px); }
-
-  /* line 36, ../scss/_animations.scss */
-  to {
-    -moz-transform: translateY(0); } }
-@keyframes enterLabel {
-  /* line 36, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(-24px);
-    -moz-transform: translateY(-24px);
-    -ms-transform: translateY(-24px);
-    -o-transform: translateY(-24px);
-    transform: translateY(-24px); }
-
-  /* line 36, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); } }
-@-webkit-keyframes leaveLabel {
-  /* line 37, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(0); }
-
-  /* line 37, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(-24px); } }
-@-moz-keyframes leaveLabel {
-  /* line 37, ../scss/_animations.scss */
-  from {
-    -moz-transform: translateY(0); }
-
-  /* line 37, ../scss/_animations.scss */
-  to {
-    -moz-transform: translateY(-24px); } }
-@keyframes leaveLabel {
-  /* line 37, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); }
-
-  /* line 37, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(-24px);
-    -moz-transform: translateY(-24px);
-    -ms-transform: translateY(-24px);
-    -o-transform: translateY(-24px);
-    transform: translateY(-24px); } }
-@-webkit-keyframes enterLabelInvalid {
-  /* line 39, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(8px); }
-
-  /* line 39, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(-24px); } }
-@-moz-keyframes enterLabelInvalid {
-  /* line 39, ../scss/_animations.scss */
-  from {
-    -moz-transform: translateY(8px); }
-
-  /* line 39, ../scss/_animations.scss */
-  to {
-    -moz-transform: translateY(-24px); } }
-@keyframes enterLabelInvalid {
-  /* line 39, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(8px);
-    -moz-transform: translateY(8px);
-    -ms-transform: translateY(8px);
-    -o-transform: translateY(8px);
-    transform: translateY(8px); }
-
-  /* line 39, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(-24px);
-    -moz-transform: translateY(-24px);
-    -ms-transform: translateY(-24px);
-    -o-transform: translateY(-24px);
-    transform: translateY(-24px); } }
-@-webkit-keyframes leaveLabelInvalid {
-  /* line 40, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(-24px); }
-
-  /* line 40, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(8px); } }
-@-moz-keyframes leaveLabelInvalid {
-  /* line 40, ../scss/_animations.scss */
-  from {
-    -moz-transform: translateY(-24px); }
-
-  /* line 40, ../scss/_animations.scss */
-  to {
-    -moz-transform: translateY(8px); } }
-@keyframes leaveLabelInvalid {
-  /* line 40, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(-24px);
-    -moz-transform: translateY(-24px);
-    -ms-transform: translateY(-24px);
-    -o-transform: translateY(-24px);
-    transform: translateY(-24px); }
-
-  /* line 40, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(8px);
-    -moz-transform: translateY(8px);
-    -ms-transform: translateY(8px);
-    -o-transform: translateY(8px);
-    transform: translateY(8px); } }
-@-webkit-keyframes enterFieldset {
-  /* line 43, ../scss/_animations.scss */
-  0% {
-    -webkit-transform: translateY(0);
-    opacity: 0; }
-
-  /* line 47, ../scss/_animations.scss */
-  100% {
-    -webkit-transform: translateY(3.5em);
-    opacity: 1; } }
-@-moz-keyframes enterFieldset {
-  /* line 43, ../scss/_animations.scss */
-  0% {
-    -moz-transform: translateY(0);
-    opacity: 0; }
-
-  /* line 47, ../scss/_animations.scss */
-  100% {
-    -moz-transform: translateY(3.5em);
-    opacity: 1; } }
-@keyframes enterFieldset {
-  /* line 43, ../scss/_animations.scss */
-  0% {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 0; }
-
-  /* line 47, ../scss/_animations.scss */
-  100% {
-    -webkit-transform: translateY(3.5em);
-    -moz-transform: translateY(3.5em);
-    -ms-transform: translateY(3.5em);
-    -o-transform: translateY(3.5em);
-    transform: translateY(3.5em);
-    opacity: 1; } }
-@-webkit-keyframes leaveFieldset {
-  /* line 52, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(3.5em); }
-
-  /* line 52, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(0); } }
-@-moz-keyframes leaveFieldset {
-  /* line 52, ../scss/_animations.scss */
-  from {
-    -moz-transform: translateY(3.5em); }
-
-  /* line 52, ../scss/_animations.scss */
-  to {
-    -moz-transform: translateY(0); } }
-@keyframes leaveFieldset {
-  /* line 52, ../scss/_animations.scss */
-  from {
-    -webkit-transform: translateY(3.5em);
-    -moz-transform: translateY(3.5em);
-    -ms-transform: translateY(3.5em);
-    -o-transform: translateY(3.5em);
-    transform: translateY(3.5em); }
-
-  /* line 52, ../scss/_animations.scss */
-  to {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); } }
-/* line 57, ../scss/_animations.scss */
-.show {
-  display: block !important; }
-
-/* line 60, ../scss/_animations.scss */
-.hide {
-  display: none !important; }
-
-/*
-[material] { height:70px; position: relative; overflow: hidden;  text-align: center; border: none; background: none; }
-[material][disabled] { background: rgb(234, 234, 234); }
- 
-[material][primary] { background: #cecece; width: 56px; height: 56px; -webkit-clip-path: circle(32px at 32px 32px); clip-path: circle(32px at 32px 32px); line-height: 32px; border-radius: 50%; font-size: 24px; }
-[material][raised] { border-radius: 3px; }
-[material][raised]:not([disabled]) { box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23); 
-transition: .3s all ease-in-out; background: #dfdfdf;
-}
-[material][raised]:not([disabled]):hover,
-[material][raised]:not([disabled]):active
-{ box-shadow: 0 14px 14px rgba(0, 0, 0, 0.25), 0 10px 5px rgba(0, 0, 0, 0.22); }
-
-[material][raised][colored] { color: #fff; background: #4285f4; }
-
-[material][secondary] { background: #cecece; width: 40px; height: 40px; -webkit-clip-path: circle(40px at 20px 20px); clip-path: circle(40px at 20px 20px); line-height: 16px; border-radius: 50%; font-size: 18px; }
-[material]:focus { outline: none; }
-*/
-/* line 21, ../scss/_ripple.scss */
-.ripple--radial {
-  display: block;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0); }
-
-/* line 29, ../scss/_ripple.scss */
-.ripple--radial {
-  width: 3em;
-  height: 3em;
-  top: 0;
-  left: 0; }
-  /* line 35, ../scss/_ripple.scss */
-  .ripple--radial.show {
-    -webkit-animation: rippleRadial 0.5s ease;
-    -moz-animation: rippleRadial 0.5s ease;
-    animation: rippleRadial 0.5s ease; }
-
-@-webkit-keyframes rippleRadial {
-  /* line 42, ../scss/_ripple.scss */
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(1); } }
-@-moz-keyframes rippleRadial {
-  /* line 42, ../scss/_ripple.scss */
-  100% {
-    opacity: 0;
-    -moz-transform: scale(1); } }
-@keyframes rippleRadial {
-  /* line 42, ../scss/_ripple.scss */
-  100% {
-    opacity: 0;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1); } }
 /* line 2, ../scss/_base.scss */
 html {
   height: 100%; }
@@ -908,791 +271,188 @@ body {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.87); }
 
-/* line 1, ../scss/_overlay.scss */
-.overlay {
-  background: rgba(0, 0, 0, 0.25);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: none; }
-  /* line 8, ../scss/_overlay.scss */
-  .overlay.show {
-    -webkit-animation: fadeIn 0.75s ease forwards;
-    -moz-animation: fadeIn 0.75s ease forwards;
-    animation: fadeIn 0.75s ease forwards; }
-  /* line 11, ../scss/_overlay.scss */
-  .overlay.hide {
-    -webkit-animation: fadeOut 0.75s ease forwards;
-    -moz-animation: fadeOut 0.75s ease forwards;
-    animation: fadeOut 0.75s ease forwards; }
-  /* line 14, ../scss/_overlay.scss */
-  .overlay.showD {
-    display: block; }
-
-/* line 2, ../scss/_appbar.scss */
-.appbar {
-  position: relative;
-  height: 3.5em;
-  background-color: #259b24;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+/* line 1, ../scss/components/_appbar.scss */
+.toolbar--default, .toolbar--extend {
   -webkit-transition: height 0.75s ease;
   -moz-transition: height 0.75s ease;
   transition: height 0.75s ease; }
-  /* line 8, ../scss/_appbar.scss */
-  .appbar.extend {
-    height: 8em; }
-    /* line 10, ../scss/_appbar.scss */
-    .appbar.extend .appbar__title {
-      font-size: 1.25em;
-      -webkit-transform: translateY(4.1em);
-      -moz-transform: translateY(4.1em);
-      -ms-transform: translateY(4.1em);
-      -o-transform: translateY(4.1em);
-      transform: translateY(4.1em);
-      margin-left: 3.6em; }
+  /* line 7, ../scss/components/_appbar.scss */
+  .toolbar--default icon, .toolbar--extend icon,
+  .toolbar--default .icon,
+  .toolbar--extend .icon {
+    position: absolute;
+    top: 0.25em; }
+    /* line 11, ../scss/components/_appbar.scss */
+    .toolbar--default icon:nth-last-of-type(1), .toolbar--extend icon:nth-last-of-type(1),
+    .toolbar--default .icon:nth-last-of-type(1),
+    .toolbar--extend .icon:nth-last-of-type(1) {
+      left: auto;
+      right: 0.25em; }
+    /* line 15, ../scss/components/_appbar.scss */
+    .toolbar--default icon:nth-last-of-type(2), .toolbar--extend icon:nth-last-of-type(2),
+    .toolbar--default .icon:nth-last-of-type(2),
+    .toolbar--extend .icon:nth-last-of-type(2) {
+      left: auto;
+      right: 3.5em; }
+    /* line 19, ../scss/components/_appbar.scss */
+    .toolbar--default icon:nth-last-of-type(3), .toolbar--extend icon:nth-last-of-type(3),
+    .toolbar--default .icon:nth-last-of-type(3),
+    .toolbar--extend .icon:nth-last-of-type(3) {
+      left: auto;
+      right: 6.75em; }
+    /* line 23, ../scss/components/_appbar.scss */
+    .toolbar--default icon:nth-last-of-type(4), .toolbar--extend icon:nth-last-of-type(4),
+    .toolbar--default .icon:nth-last-of-type(4),
+    .toolbar--extend .icon:nth-last-of-type(4) {
+      left: auto;
+      right: 10em; }
+    /* line 27, ../scss/components/_appbar.scss */
+    .toolbar--default icon:nth-last-of-type(5), .toolbar--extend icon:nth-last-of-type(5),
+    .toolbar--default .icon:nth-last-of-type(5),
+    .toolbar--extend .icon:nth-last-of-type(5) {
+      left: auto;
+      right: 13.25em; }
+    /* line 31, ../scss/components/_appbar.scss */
+    .toolbar--default icon:first-of-type, .toolbar--extend icon:first-of-type,
+    .toolbar--default .icon:first-of-type,
+    .toolbar--extend .icon:first-of-type {
+      left: 0.25em;
+      right: auto; }
 
-/* line 18, ../scss/_appbar.scss */
-.appbar__title {
-  position: relative;
-  -webkit-transform: translateY(1.25em);
-  -moz-transform: translateY(1.25em);
-  -ms-transform: translateY(1.25em);
-  -o-transform: translateY(1.25em);
-  transform: translateY(1.25em);
-  display: block;
-  font-size: 1em;
-  line-height: 1;
-  margin-left: 4.5em;
-  color: white;
+/* line 37, ../scss/components/_appbar.scss */
+.toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease;
   -moz-transition: all 0.75s ease;
   transition: all 0.75s ease; }
 
-/* line 29, ../scss/_appbar.scss */
-.appbar__icon {
-  position: absolute;
-  top: 0.25em;
-  -webkit-transition: left, right 0.75s ease;
-  -moz-transition: left, right 0.75s ease;
-  transition: left, right 0.75s ease; }
-  /* line 34, ../scss/_appbar.scss */
-  .appbar__icon .ripple--radial {
-    background-color: rgba(255, 255, 255, 0.75); }
-  /* line 38, ../scss/_appbar.scss */
-  .appbar__icon:nth-last-of-type(1) {
-    left: auto;
-    right: 0.25em; }
-  /* line 42, ../scss/_appbar.scss */
-  .appbar__icon:nth-last-of-type(2) {
-    left: auto;
-    right: 3.5em; }
-  /* line 46, ../scss/_appbar.scss */
-  .appbar__icon:nth-last-of-type(3) {
-    left: auto;
-    right: 6.75em; }
-  /* line 50, ../scss/_appbar.scss */
-  .appbar__icon:nth-last-of-type(4) {
-    left: auto;
-    right: 10em; }
-  /* line 54, ../scss/_appbar.scss */
-  .appbar__icon:nth-last-of-type(5) {
-    left: auto;
-    right: 13.25em; }
-  /* line 58, ../scss/_appbar.scss */
-  .appbar__icon:first-of-type {
-    left: 0.25em;
-    right: auto; }
-  /* line 62, ../scss/_appbar.scss */
-  .appbar__icon.searchActiveEnter {
-    right: 0.25em; }
+/* line 44, ../scss/components/_appbar.scss */
+.toolbar--default {
+  height: 3.5em; }
+  /* line 47, ../scss/components/_appbar.scss */
+  .toolbar--default h1 {
+    overflow: hidden;
+    -webkit-transform: translateY(1.25em);
+    -moz-transform: translateY(1.25em);
+    -ms-transform: translateY(1.25em);
+    -o-transform: translateY(1.25em);
+    transform: translateY(1.25em);
+    width: -webkit-calc(100% - 11.25em );
+    width: calc(100% - 11.25em );
+    font-size: 1em;
+    margin-left: 4.5em; }
 
-/* line 1, ../scss/_sidenav.scss */
-.sidenav {
-  position: fixed;
-  z-index: 2;
-  overflow-x: hidden;
+/* line 57, ../scss/components/_appbar.scss */
+.toolbar--extend {
+  height: 8em; }
+  /* line 60, ../scss/components/_appbar.scss */
+  .toolbar--extend h1 {
+    -webkit-transform: translateY(4.1em);
+    -moz-transform: translateY(4.1em);
+    -ms-transform: translateY(4.1em);
+    -o-transform: translateY(4.1em);
+    transform: translateY(4.1em);
+    font-size: 1.25em;
+    margin-left: 3.6em; }
+
+/* line 2, ../scss/components/_icon.scss */
+.icon,
+icon {
+  width: 3em;
+  height: 3em;
+  padding: 0.75em; }
+  /* line 8, ../scss/components/_icon.scss */
+  .icon svg,
+  icon svg {
+    fill: white; }
+    /* line 10, ../scss/components/_icon.scss */
+    .icon svg [stroke],
+    icon svg [stroke], .icon svg path,
+    icon svg path, .icon svg polygon,
+    icon svg polygon, .icon svg rect,
+    icon svg rect {
+      stroke: white;
+      -webkit-animation: enterIcon 0.75s ease;
+      -moz-animation: enterIcon 0.75s ease;
+      animation: enterIcon 0.75s ease; }
+  /* line 16, ../scss/components/_icon.scss */
+  .enterNewIcon.icon,
+  icon.enterNewIcon {
+    -webkit-animation: enterNewIcon 0.75s ease;
+    -moz-animation: enterNewIcon 0.75s ease;
+    animation: enterNewIcon 0.75s ease; }
+
+/* line 5, ../scss/components/_sidenav.scss */
+.sidenav--left {
   width: -webkit-calc( 100% - 56px );
   width: calc( 100% - 56px );
-  max-width: 400px;
+  height: 100%;
   -webkit-transform: translateX(calc(-1 * ( 100% ) ));
   -moz-transform: translateX(calc(-1 * ( 100% ) ));
   -ms-transform: translateX(calc(-1 * ( 100% ) ));
   -o-transform: translateX(calc(-1 * ( 100% ) ));
-  transform: translateX(calc(-1 * ( 100% ) ));
-  top: 0;
-  height: 100%;
-  background: white;
-  -webkit-transition: -webkit-transform 0.75s ease;
-  -moz-transition: -moz-transform 0.75s ease;
-  transition: transform 0.75s ease; }
-  /* line 14, ../scss/_sidenav.scss */
-  .sidenav.enter {
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-    -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-    -ms-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-    -o-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3); }
+  transform: translateX(calc(-1 * ( 100% ) )); }
 
-/* line 19, ../scss/_sidenav.scss */
-.sidenav__head {
-  background: url("../sample/images/cover.jpg") no-repeat;
+/* line 16, ../scss/components/_sidenav.scss */
+.sidenav--left figure {
+  background-image: url("../sample/images/cover.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  padding: 0 16px; }
+  padding: 0 1em; }
 
-/* line 25, ../scss/_sidenav.scss */
-.sidenav__head__logo {
+/* line 23, ../scss/components/_sidenav.scss */
+.sidenav--left figure img {
   display: block;
   position: relative;
-  top: 16px;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%; }
+  top: 1em;
+  width: 4em;
+  height: 4em;
+  padding: 0.25em;
+  background-color: white; }
 
-/* line 33, ../scss/_sidenav.scss */
-.sidenav__head__title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding-left: 16px;
-  height: 48px;
-  width: 100%;
-  font-size: 16px;
-  line-height: 3;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: hidden; }
+/* line 41, ../scss/components/_sidenav.scss */
+.sidenav--left figure figcaption {
+  padding: 0 1em;
+  height: 3em; }
 
-/* line 46, ../scss/_sidenav.scss */
-.sidenav__body__links {
-  display: block;
-  width: 100%;
-  height: 48px;
-  padding: 0 16px; }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .sidenav__body__links:after {
-    content: "";
-    display: table;
-    clear: both; }
-  /* line 52, ../scss/_sidenav.scss */
-  .sidenav__body__links a {
-    float: left;
-    width: -webkit-calc( 100% - 24px );
-    width: calc( 100% - 24px );
-    padding-left: 32px;
-    line-height: 3;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow-x: hidden; }
-  /* line 59, ../scss/_sidenav.scss */
-  .sidenav__body__links svg {
-    float: left;
-    position: relative;
-    width: 24px;
-    height: 24px;
-    top: 12px; }
-    /* line 65, ../scss/_sidenav.scss */
-    .sidenav__body__links svg path {
-      fill: rgba(0, 0, 0, 0.54); }
-
-/* line 70, ../scss/_sidenav.scss */
-.sidenav__body__plus-links {
-  display: block;
-  border-top: 1px solid rgba(0, 0, 0, 0.27);
-  padding: 0 16px; }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .sidenav__body__plus-links:after {
-    content: "";
-    display: table;
-    clear: both; }
-  /* line 75, ../scss/_sidenav.scss */
-  .sidenav__body__plus-links a {
-    float: left;
-    width: -webkit-calc( 100% - 24px );
-    width: calc( 100% - 24px );
-    line-height: 3; }
-
+@media only screen and (max-width: 256px) {
+  /* line 61, ../scss/components/_sidenav.scss */
+  .sidenav--left figure img {
+    pointer-events: none;
+    -webkit-animation: scaleOut 0.75s ease forwards;
+    -moz-animation: scaleOut 0.75s ease forwards;
+    animation: scaleOut 0.75s ease forwards; } }
 @media only screen and (min-width: 320px) {
-  /* line 83, ../scss/_sidenav.scss */
-  .sidenav {
+  /* line 68, ../scss/components/_sidenav.scss */
+  .sidenav--left {
     min-width: 264px;
     width: 20%; } }
-/* line 15, ../scss/bourbon/addons/_clearfix.scss */
-.canvas:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/* line 1, ../scss/_sub-title.scss */
-.sub-title {
-  height: 48px;
-  font-size: 16px;
-  line-height: 3;
-  color: rgba(0, 0, 0, 0.54);
-  display: block;
-  padding: 0 16px; }
-
-/* line 1, ../scss/_form.scss */
-form {
-  padding: 0 16px; }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  form:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* line 6, ../scss/_form.scss */
-input, select {
-  display: block;
-  width: 100%;
-  padding: 0 0 0.5em 0;
-  line-height: 1;
-  background: transparent;
-  font-size: 1em;
-  height: 1.5em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.27);
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  -webkit-transition: border 0.75s ease;
-  -moz-transition: border 0.75s ease;
-  transition: border 0.75s ease; }
-  /* line 20, ../scss/_form.scss */
-  input:focus, select:focus {
-    outline-color: transparent;
-    border-bottom-color: #259b24;
-    border-bottom-width: 0.125em; }
-  /* line 25, ../scss/_form.scss */
-  input.ng-dirty.ng-valid, select.ng-dirty.ng-valid {
-    border-bottom-color: #72c69d;
-    border-bottom-width: 0.125em; }
-  /* line 29, ../scss/_form.scss */
-  input.ng-dirty.ng-invalid, select.ng-dirty.ng-invalid {
-    border-bottom-color: #f44336;
-    border-bottom-width: 0.125em; }
-  /* line 34, ../scss/_form.scss */
-  input::-webkit-input-placeholder, select::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    opacity: 0;
-    -webkit-animation: fadeIn 0.75s ease forwards;
-    -moz-animation: fadeIn 0.75s ease forwards;
-    animation: fadeIn 0.75s ease forwards; }
-  /* line 39, ../scss/_form.scss */
-  input:-moz-placeholder, select:-moz-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-    opacity: 0;
-    -webkit-animation: fadeIn 0.75s ease forwards;
-    -moz-animation: fadeIn 0.75s ease forwards;
-    animation: fadeIn 0.75s ease forwards; }
-
-/* line 45, ../scss/_form.scss */
-select, input[type="number"] {
-  padding: 0; }
-
-/* line 48, ../scss/_form.scss */
-input[type="submit"] {
-  display: block;
-  background: #259b24;
-  height: 2em;
-  min-width: 5.5em;
-  width: auto;
-  line-height: 2;
-  text-transform: uppercase;
-  color: white;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  border-bottom: 0; }
-
-/* line 60, ../scss/_form.scss */
-label {
-  color: rgba(0, 0, 0, 0.54);
-  font-size: 12px;
-  position: relative;
-  display: none;
-  line-height: 1.333;
-  height: 1.33333em; }
-  /* line 67, ../scss/_form.scss */
-  label.valid {
-    margin-bottom: 0.66667em; }
-    /* line 69, ../scss/_form.scss */
-    label.valid.show {
-      -webkit-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
-      -moz-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
-      animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards; }
-      /* line 71, ../scss/_form.scss */
-      label.valid.show ~ input {
-        -webkit-animation: enterLabel 0.75s ease;
-        -moz-animation: enterLabel 0.75s ease;
-        animation: enterLabel 0.75s ease; }
-    /* line 75, ../scss/_form.scss */
-    label.valid.hide {
-      -webkit-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
-      -moz-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
-      animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards; }
-      /* line 77, ../scss/_form.scss */
-      label.valid.hide ~ input {
-        -webkit-animation: leaveLabel 0.75s ease;
-        -moz-animation: leaveLabel 0.75s ease;
-        animation: leaveLabel 0.75s ease; }
-  /* line 82, ../scss/_form.scss */
-  label.invalid {
-    color: #f44336; }
-    /* line 84, ../scss/_form.scss */
-    label.invalid.show {
-      -webkit-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
-      -moz-animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease;
-      animation: fadeIn 0.75s ease forwards, enterLabelInvalid 0.75s ease; }
-      /* line 86, ../scss/_form.scss */
-      label.invalid.show ~ input {
-        -webkit-animation: enterLabelInvalid 0.75s ease;
-        -moz-animation: enterLabelInvalid 0.75s ease;
-        animation: enterLabelInvalid 0.75s ease; }
-    /* line 90, ../scss/_form.scss */
-    label.invalid.hide {
-      -webkit-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
-      -moz-animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease;
-      animation: fadeOut 0.75s ease forwards, leaveLabelInvalid 0.75s ease; }
-      /* line 92, ../scss/_form.scss */
-      label.invalid.hide ~ input {
-        -webkit-animation: leaveLabelInvalid 0.75s ease;
-        -moz-animation: leaveLabelInvalid 0.75s ease;
-        animation: leaveLabelInvalid 0.75s ease; }
-  /* line 98, ../scss/_form.scss */
-  label.showD {
-    display: block; }
-
-/* line 103, ../scss/_form.scss */
-fieldset {
-  height: 48px;
-  overflow-y: hidden;
-  padding: 16px 0;
-  -webkit-transition: height 0.75s ease;
-  -moz-transition: height 0.75s ease;
-  transition: height 0.75s ease; }
-  /* line 108, ../scss/_form.scss */
-  fieldset.focus {
-    height: 72px; }
-  /* line 111, ../scss/_form.scss */
-  fieldset.submit {
-    padding: 0;
-    margin-top: 16px; }
-
-/*** search ***/
-/* line 118, ../scss/_form.scss */
-.form-search {
-  display: none;
-  position: absolute;
-  padding: 1em;
-  top: 0;
-  right: 0;
-  height: 3.5em;
-  background: #259b24;
-  z-index: 2;
-  width: 100%;
-  -webkit-animation: fadeIn 0.75s ease forwards;
-  -moz-animation: fadeIn 0.75s ease forwards;
-  animation: fadeIn 0.75s ease forwards; }
-  /* line 129, ../scss/_form.scss */
-  .form-search input {
-    border-bottom: 0;
-    padding: 0 0 0 3.5em;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: white; }
-    /* line 136, ../scss/_form.scss */
-    .form-search input::-webkit-input-placeholder {
-      color: white;
-      opacity: 0;
-      -webkit-animation: fadeIn 0.75s ease forwards;
-      -moz-animation: fadeIn 0.75s ease forwards;
-      animation: fadeIn 0.75s ease forwards; }
-    /* line 141, ../scss/_form.scss */
-    .form-search input:-moz-placeholder {
-      color: white;
-      opacity: 0;
-      -webkit-animation: fadeIn 0.75s ease forwards;
-      -moz-animation: fadeIn 0.75s ease forwards;
-      animation: fadeIn 0.75s ease forwards; }
-
-/* line 1, ../scss/_card.scss */
-.card {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  border-radius: 2px;
-  margin: 8px;
-  padding: 16px; }
-
-/* line 7, ../scss/_card.scss */
-.card__title {
-  font-size: 24px; }
-
-/* line 1, ../scss/_snackbar.scss */
-.snackbar {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 18px 24px;
-  color: white;
-  height: 56px;
-  line-height: 1;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  -webkit-transform: translateY(56px);
-  -moz-transform: translateY(56px);
-  -ms-transform: translateY(56px);
-  -o-transform: translateY(56px);
-  transform: translateY(56px);
-  -webkit-transition: -webkit-transform 0.75s ease;
-  -moz-transition: -moz-transform 0.75s ease;
-  transition: transform 0.75s ease; }
-  /* line 12, ../scss/_snackbar.scss */
-  .snackbar p {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 1.42; }
-  /* line 17, ../scss/_snackbar.scss */
-  .snackbar.show {
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0); }
-  /* line 20, ../scss/_snackbar.scss */
-  .snackbar.hide {
-    -webkit-transform: translateY(56px);
-    -moz-transform: translateY(56px);
-    -ms-transform: translateY(56px);
-    -o-transform: translateY(56px);
-    transform: translateY(56px); }
-
 /****** List *****/
-/* line 3, ../scss/_list.scss */
-.list {
-  position: relative;
-  display: block; }
-
-/* line 9, ../scss/_list.scss */
-.list__fields {
-  position: relative;
-  padding-left: 72px;
-  height: 48px; }
-
-/* line 15, ../scss/_list.scss */
-.list__fields__box {
-  display: block;
-  text-align: left;
-  line-height: 3;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.27);
-  overflow: hidden;
-  padding-right: 56px; }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .list__fields__box:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* line 24, ../scss/_list.scss */
-.list__fields__box__field {
-  display: none;
-  float: left;
-  width: 100%;
-  padding-right: 16px; }
-  /* line 29, ../scss/_list.scss */
-  .list__fields__box__field:first-child {
-    display: block; }
-
-/* line 33, ../scss/_list.scss */
-.list__fields__box__field__value {
-  position: relative;
-  font-size: 14px;
-  font-weight: 400;
-  display: block;
-  color: #259b24;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: hidden; }
-
-/* line 44, ../scss/_list.scss */
-.list__item {
-  height: 56px; }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .list__item:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* line 51, ../scss/_list.scss */
-.list__item__img {
-  padding: 8px 16px;
-  width: 72px;
-  float: left; }
-  /* line 55, ../scss/_list.scss */
-  .list__item__img img {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; }
-
-/* line 62, ../scss/_list.scss */
-.list__item__head {
-  width: -webkit-calc(100% - 72px);
-  width: calc(100% - 72px);
-  padding: 0 16px 0 0;
-  float: left;
+/* line 3, ../scss/components/_list.scss */
+.list--single-line {
   font-size: 16px;
-  line-height: 3;
-  position: relative;
-  border-bottom: 0.0625em solid rgba(0, 0, 0, 0.13); }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .list__item__head:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* line 72, ../scss/_list.scss */
-.list__item__head__text {
-  float: left;
-  width: -webkit-calc(100% - 40px);
-  width: calc(100% - 40px); }
-  /* line 15, ../scss/bourbon/addons/_clearfix.scss */
-  .list__item__head__text:after {
-    content: "";
-    display: table;
-    clear: both; }
-
-/* line 77, ../scss/_list.scss */
-.list__item__head__secondary-action {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  width: 40px;
-  height: 40px;
-  display: block; }
-  /* line 84, ../scss/_list.scss */
-  .list__item__head__secondary-action .fa {
-    font-size: 16px;
-    line-height: 2.5;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.54);
-    display: block; }
-
-/* line 92, ../scss/_list.scss */
-.list__item__head__text__primary-Text {
-  position: relative;
-  display: none;
-  float: left;
-  width: 100%;
-  padding-right: 16px; }
-  /* line 98, ../scss/_list.scss */
-  .list__item__head__text__primary-Text:first-child {
-    display: block; }
-
-/* line 102, ../scss/_list.scss */
-.list__item__head__text__primary-Text__value {
-  font-size: 16px;
-  font-weight: 300;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: hidden; }
-
-/* line 108, ../scss/_list.scss */
-.list__item__head__text__secondary-text {
-  font-size: 14px;
-  font-weight: 300; }
-
-@media only screen and (min-width: 400px) {
-  /* line 114, ../scss/_list.scss */
-  .list__fields__box__field {
-    width: 50%; }
-    /* line 114, ../scss/_list.scss */
-    .list__fields__box__field:nth-child(2) {
-      display: block; }
-
-  /* line 115, ../scss/_list.scss */
-  .list__item__head__text__primary-Text {
-    width: 50%; }
-    /* line 115, ../scss/_list.scss */
-    .list__item__head__text__primary-Text:nth-child(2) {
-      display: block; } }
-@media only screen and (min-width: 600px) {
-  /* line 118, ../scss/_list.scss */
-  .list__fields__box__field {
-    width: 33.33%; }
-    /* line 118, ../scss/_list.scss */
-    .list__fields__box__field:nth-child(3) {
-      display: block; }
-
-  /* line 119, ../scss/_list.scss */
-  .list__item__head__text__primary-Text {
-    width: 33.33%; }
-    /* line 119, ../scss/_list.scss */
-    .list__item__head__text__primary-Text:nth-child(3) {
-      display: block; } }
-@media only screen and (min-width: 800px) {
-  /* line 122, ../scss/_list.scss */
-  .list__fields__box__field {
-    width: 25%; }
-    /* line 122, ../scss/_list.scss */
-    .list__fields__box__field:nth-child(4) {
-      display: block; }
-
-  /* line 123, ../scss/_list.scss */
-  .list__item__head__text__primary-Text {
-    width: 25%; }
-    /* line 123, ../scss/_list.scss */
-    .list__item__head__text__primary-Text:nth-child(4) {
-      display: block; } }
-@media only screen and (min-width: 1000px) {
-  /* line 126, ../scss/_list.scss */
-  .list__fields__box__field {
-    width: 20%; }
-    /* line 126, ../scss/_list.scss */
-    .list__fields__box__field:nth-child(5) {
-      display: block; }
-
-  /* line 127, ../scss/_list.scss */
-  .list__item__head__text__primary-Text {
-    width: 20%; }
-    /* line 127, ../scss/_list.scss */
-    .list__item__head__text__primary-Text:nth-child(5) {
-      display: block; } }
-/* line 1, ../scss/_tooltip.scss */
-.tooltip {
-  display: none;
-  min-height: 22px;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 8px;
-  font-size: 10px;
-  line-height: 1.5;
-  width: auto;
-  font-weight: 300;
-  border-radius: 2px; }
-  /* line 13, ../scss/_tooltip.scss */
-  .tooltip.show {
-    -webkit-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
-    -moz-animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards;
-    animation: fadeIn 0.75s ease forwards, enterLabel 0.75s ease forwards; }
-  /* line 16, ../scss/_tooltip.scss */
-  .tooltip.hide {
-    -webkit-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
-    -moz-animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards;
-    animation: fadeOut 0.75s ease forwards, leaveLabel 0.75s ease forwards; }
-  /* line 19, ../scss/_tooltip.scss */
-  .tooltip.showD {
-    display: block; }
-
-/* line 1, ../scss/_action.scss */
-.action {
-  display: block;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  background-color: #03a9f4;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition: -webkit-transform 0.75s ease;
-  -moz-transition: -moz-transform 0.75s ease;
-  transition: transform 0.75s ease; }
-  /* line 14, ../scss/_action.scss */
-  .action.embed {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    position: absolute;
-    bottom: -20px;
-    left: 16px;
-    padding: 8px;
-    width: 40px;
-    height: 40px; }
-  /* line 25, ../scss/_action.scss */
-  .action.float {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    z-index: 2;
-    padding: 16px;
-    width: 56px;
-    height: 56px; }
-  /* line 37, ../scss/_action.scss */
-  .action svg {
-    position: relative;
-    width: 100%; }
-    /* line 40, ../scss/_action.scss */
-    .action svg line {
-      fill: white;
-      stroke: white; }
-
-/* line 1, ../scss/_datalist.scss */
-.datalist {
-  display: none;
-  position: absolute;
-  top: 0;
-  opacity: 0;
-  padding: 0 1em;
-  width: 100%;
   background-color: white;
-  z-index: 1;
-  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16); }
-  /* line 12, ../scss/_datalist.scss */
-  .datalist.enter {
-    -webkit-animation: enterFieldset 0.75s 0.75s ease forwards;
-    -moz-animation: enterFieldset 0.75s 0.75s ease forwards;
-    animation: enterFieldset 0.75s 0.75s ease forwards; }
-  /* line 15, ../scss/_datalist.scss */
-  .datalist.leave {
-    -webkit-animation: leaveFieldset 0.75s ease;
-    -moz-animation: leaveFieldset 0.75s ease;
-    animation: leaveFieldset 0.75s ease; }
+  padding: 0.5em 0; }
 
-/* line 22, ../scss/_datalist.scss */
-.datalist__item {
-  display: block;
-  color: rgba(0, 0, 0, 0.54); }
+/* line 12, ../scss/components/_list.scss */
+.list--single-line a {
+  height: 3em;
+  padding: 1em; }
 
-@media only screen and (min-width: 768px) {
-  /* line 3, ../scss/_responsive.scss */
-  body {
-    font-size: 18.5px; } }
+/*
+@import "animations";
+@import "ripple";
+ 
+@import "overlay";
+
+@import "sidenav";
+@import "canvas";
+@import "sub-title";
+@import "form";
+@import "card";
+@import "snackbar";
+@import "list";
+@import "tooltip";
+@import "action";
+@import "card";
+@import "responsive";
+*/

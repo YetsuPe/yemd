@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html data-ng-app="yemd">
+<head>
+	<meta charset="utf-8"/>
+	<title> Yemd | Punch of directives from Angular Js with material design inspiration </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Yemd by @YetsuPe" />
+	<meta name="author" content="@YetsuPe" />
+	<link rel="stylesheet" href="css/yemd.css" /> 
+</head> 
+<body>  
+ 
+	<header class="appbar" data-type="yemd.appbar.type">
+		<icon data-src="yemd.icons.menu"></icon>
+		<div toolbar  data-title="yemd.appbar.title"></div>
+	</header>  
+
+	
+	<nav class="sidenav">
+		<figure class="sidenav__head">
+			<img class="sidenav__head__logo" src="sample/images/logo.png" alt="Logo Yetsu" class="sidenav__logo">
+			<h4 class="sidenav__head__title">hola@yetsu.com</h4>
+		</figure>
+		<div class="sidenav__body">
+			<div class="sidenav__body__links"> 
+				<icon data-action="menu" icon="home" > </icon>
+				<a href="#">Home </a> 
+			</div>
+			<div class="sidenav__body__plus-links"> 
+				<a href="#">Other link </a> 
+			</div>
+		</div>
+	</nav>  
+
+	<main class="canvas">
+		<h2 class="sub-title"> Login  </h2>
+		<form name="form">
+			<input type="text" placeholder="usuario" ng-model="app.form.usuario" data-icon="user" required autofocus/>
+			<input type="password" placeholder="password" ng-model="app.form.password" data-icon="lock" required/>
+			
+			<select placeholder="select" data-input ng-model="app.form.select">
+				<option value="">value 1</option>
+				<option value="">value 2</option>
+			</select>
+
+			<input type="number" placeholder="number" ng-model="app.form.number" data-icon="user" required/>
+			<input type="datetime" placeholder="datetime" ng-model="app.form.datetime" data-icon="user" required/>
+			<input type="date" placeholder="datetime" ng-model="app.form.datetime" data-icon="user" required/>
+			<input type="datetime-local" placeholder="datetime-local" ng-model="app.form.datetimeLocal" data-icon="user" required/>
+			<input type="time" placeholder="time" ng-model="app.form.time" data-icon="user" required/>
+			<input type="tel" placeholder="tel" ng-model="app.form.tel" data-icon="user" required/>
+			<input type="url" placeholder="url" ng-model="app.form.url" data-icon="user" required/>
+			<input type="range" placeholder="range" ng-model="app.form.range" data-icon="user" required/>
+			<input type="color" placeholder="color" ng-model="app.form.color" data-icon="user" required/>
+			<input type="email" placeholder="email" ng-model="app.form.email" data-icon="user" required/>
+			
+			
+		</form>
+	</main> 
+
+<!--<script src="vendor/jquery/dist/jquery.min.js"></script>  fix it will shoud agnostic -->
+<script src="vendor/angular/angular.js"></script> 
+<script src="vendor/svg-injector/svg-injector.js"></script>
+
+<script src="js/yemd.js"></script>
+<script src="js/directives/icon.js"></script>
+<script src="js/directives/toolbar.js"></script>
+<script src="js/directives/appbar.js"></script>
+
+</body>
+<html>

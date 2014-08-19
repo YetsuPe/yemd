@@ -10,6 +10,8 @@
 %display-block     { display: block; }
 //color
 %color-white { color: $color-white  } 
+%color-primary { color: $color-primary  } 
+%color-secondary { color: $color-secondary  } 
 //padding
 %width-100percent { width:100%;  }
 //Position type
@@ -31,6 +33,7 @@
 
 
 // z Depth
+%zDepth-0 { @include zDepth($z_depth:0); }
 %zDepth-1 { @include zDepth($z_depth:1); }
 %zDepth-2 { @include zDepth($z_depth:2); }
 %zDepth-3 { @include zDepth($z_depth:3); }
@@ -47,3 +50,5 @@
 %animation-scaleIn { @include animation( scaleIn $time-animation $mode-animation forwards );}
 %animation-scaleOut{ @include animation( scaleOut $time-animation $mode-animation forwards );}
 
+%animation-showSidenavLeft{ @include animation( showSidenavLeft $time-animation $mode-animation forwards );}
+%animation-hideSidenavLeft{ @include animation( hideSidenavLeft $time-animation $mode-animation forwards );}
