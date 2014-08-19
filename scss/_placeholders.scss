@@ -18,6 +18,7 @@
 %position-relative { position: relative; }
 %position-absolute { position: absolute; }
 %position-fixed 	 { position: fixed; } 
+//width, height
 //Position location
 %position-top-0	 { top: 0; } 
 %position-bottom-0	 { bottom: 0; } 
@@ -47,8 +48,12 @@
 %overflow-y { overflow-y:hidden; }
 
 /*** animations ***/
+%animation-fadeIn { @include animation( fadeIn $time-animation $mode-animation forwards );}
+%animation-fadeOut{ @include animation( fadeOut $time-animation $mode-animation forwards );}
+
+
 %animation-scaleIn { @include animation( scaleIn $time-animation $mode-animation forwards );}
 %animation-scaleOut{ @include animation( scaleOut $time-animation $mode-animation forwards );}
 
-%animation-showSidenavLeft{ @include animation( showSidenavLeft $time-animation $mode-animation forwards );}
-%animation-hideSidenavLeft{ @include animation( hideSidenavLeft $time-animation $mode-animation forwards );}
+%animation-showSidenavLeft{ @include animation( showSidenavLeft 0.5s cubic-bezier(0,0,.5,1) 0.1875s forwards );}
+%animation-hideSidenavLeft{ @include animation( hideSidenavLeft 0.5s cubic-bezier(0,.5,1,1) forwards );}
