@@ -18,7 +18,7 @@
 					if ($verge.viewportH() >= element[0].clientHeight) { 
 						this.result= {'height': $verge.viewportH()+'px'} 
 					}else{  
-						$document.find('header').addClass('static');
+						//$document.find('header').addClass('static');
 						this.result= {'height': element[0].clientHeight+'px' , 'position':'absolute' } 
 					};
 					return this.result;
@@ -36,12 +36,11 @@
 	        	element.find('figure').css( vm.getHeightToHead() );
 	        },  
 	        post: function postLink(scope, element, iAttrs, vm) { 
-	        	console.log( vm.getHeightSidenav(element));
 	        	element.css( vm.getHeightSidenav(element) );
 	        	//responsive
-	        	//$window.onresize= function(event){ 
-	        		//element.find('figure').css( vm.getHeightToHead(element) );//appli height at figure
-	        	//}
+	        	$window.onresize= function(event){ 
+	        		element.css( vm.getHeightSidenav(element) );
+	        	}
 						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 
 				      sidenavToggle? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
 				      $rootScope.yemd.sidenav.left.toggle=sidenavToggle? false: true; 
