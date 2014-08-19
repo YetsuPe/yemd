@@ -216,7 +216,7 @@ icon, .sidenav--left figure {
   position: absolute; }
 
 /* line 20, ../scss/_placeholders.scss */
-.sidenav--left, .overlay {
+.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
   position: fixed; }
 
 /* line 23, ../scss/_placeholders.scss */
@@ -414,17 +414,21 @@ body {
     .toolbar--extend .icon:first-of-type {
       left: 0.25em;
       right: auto; }
+  /* line 36, ../scss/components/_appbar.scss */
+  .static.toolbar--default, .static.toolbar--extend {
+    width: 100%;
+    top: 0; }
 
-/* line 37, ../scss/components/_appbar.scss */
+/* line 42, ../scss/components/_appbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
 
-/* line 44, ../scss/components/_appbar.scss */
+/* line 49, ../scss/components/_appbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 47, ../scss/components/_appbar.scss */
+  /* line 52, ../scss/components/_appbar.scss */
   .toolbar--default h1 {
     overflow: hidden;
     -webkit-transform: translateY(1.25em);
@@ -437,10 +441,10 @@ body {
     font-size: 1em;
     margin-left: 4.5em; }
 
-/* line 57, ../scss/components/_appbar.scss */
+/* line 62, ../scss/components/_appbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 60, ../scss/components/_appbar.scss */
+  /* line 65, ../scss/components/_appbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -485,7 +489,6 @@ icon {
 .sidenav--left {
   width: -webkit-calc( 100% - 56px );
   width: calc( 100% - 56px );
-  height: 100%;
   -webkit-transform: translateX(calc(-1 * ( 100% ) ));
   -moz-transform: translateX(calc(-1 * ( 100% ) ));
   -ms-transform: translateX(calc(-1 * ( 100% ) ));
@@ -515,15 +518,16 @@ icon {
   padding: 0 1em;
   height: 3em; }
 
+/****** fix overflow-y:scrool when the height sidenav is menor*/
 @media only screen and (max-width: 256px) {
-  /* line 66, ../scss/components/_sidenav.scss */
+  /* line 67, ../scss/components/_sidenav.scss */
   .sidenav--left figure img {
     pointer-events: none;
     -webkit-animation: scaleOut 0.75s ease-in-out forwards;
     -moz-animation: scaleOut 0.75s ease-in-out forwards;
     animation: scaleOut 0.75s ease-in-out forwards; } }
 @media only screen and (min-width: 320px) {
-  /* line 73, ../scss/components/_sidenav.scss */
+  /* line 74, ../scss/components/_sidenav.scss */
   .sidenav--left {
     min-width: 264px;
     width: 20%; } }

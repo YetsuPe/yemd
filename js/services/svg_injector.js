@@ -1,5 +1,5 @@
 (function(yemd,svg){  
- 
+ 'use strict'; 
 	yemd.factory('injectSvg', ['$rootScope','$rootElement', function($rootScope,$rootElement){
 		return function(iconName,toElement){  
 			var iconNode = $rootScope.element("<img src='"+$rootScope.yemd.folderIcons+iconName+".svg' />"); 
