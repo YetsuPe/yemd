@@ -11,28 +11,28 @@
 			restrict:'EC', 
 			compile: function(){
 				return {
-	        pre: function preLink(scope, element, attrs, requires ) { 
-	        	var toolbarController = requires[0];
-	        	element.append( injectSvg(scope.src.icon, element) );
-	        	element.on('click',function(e){ 
-	        		if ( scope.src.involve==='sidenavLeft' && toolbarController.isAppbar ) {
-	        			$rootScope.yemd.sidenav.left.toggle=$rootScope.yemd.sidenav.left.toggle?false:true;
-	        			console.log($rootScope.yemd.sidenav.left.toggle,'change');
-	        		};
-	        		if ( scope.src.involve==='refresh' && toolbarController.isAppbar ) {
-	        			console.log("refresh app");
-	        		};
-	        		if ( scope.src.involve==='menuAbout' && toolbarController.isAppbar ) {
-	        			console.log("Show menu About/settings/feed");
-	        		};
-	        		if ( scope.src.involve==='sidenavRight' && toolbarController.isAppbar ) {
-	        			console.log("open Sidenav Right");
-	        		};
-
-	        	});
+	        pre: function preLink(scope, element, attrs, requires ) {  
+	        	element.append( injectSvg(scope.src.icon, element) ); 
 	        }, 
-	        post: function postLink(scope, element, attrs, toolbarController) {
-	        	//console.log(toolbar);
+	        post: function postLink(scope, element, attrs, requires) {
+	        	var toolbarController = requires[0];
+	        	element.on('click',function(e){  
+	        		if ( toolbarController.isAppbar ) {
+	        			if ( scope.src.involve==='sidenavLeft') {
+	        				console.log("toggel sidenav");
+		        			$rootScope.$emit('changeSidenavLeft', $rootScope.yemd.sidenav.left.toggle);
+		        		};
+		        		if ( scope.src.involve==='refresh') {
+		        			console.log("refresh app");
+		        		};
+		        		if ( scope.src.involve==='menuAbout') {
+		        			console.log("Show menu About/settings/feed");
+		        		};
+		        		if ( scope.src.involve==='sidenavRight') {
+		        			console.log("open Sidenav Right");
+		        		};
+	        		};
+	        	});
 	        }
 	      };
 			}/* ,
