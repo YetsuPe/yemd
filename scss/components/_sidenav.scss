@@ -3,12 +3,15 @@
 	@extend %position-top-0; 
 }
 %sidenav--left { 
-	@extend %sidenav;
-	//unique
+	@extend %sidenav; 
 	@include calc( "width", " 100% - 56px " );
+	height:100%;
 	//max-width:em(400);
-	background-color: red; /*test*/
-	@include fix_sidenav_width(); /** problem firefox os */
+	//@extend %animation-hideSidenavLeft; /** problem firefox os */
+	@include fix_sidenav_width; 
+	&.show{
+		@extend %animation-showSidenavLeft;
+	}
 }
 %sidenav--left__head{ 
 	@extend %position-relative ;
@@ -49,6 +52,9 @@
 				@extend %color-white; 
 			}
 		}
+	}
+	section {
+		@extend %zDepth-0; 
 	}
 }
 @media only screen and ( max-width: 256px ) {
