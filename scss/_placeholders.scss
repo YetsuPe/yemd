@@ -48,12 +48,15 @@
 %overflow-y { overflow-y:hidden; }
 
 /*** animations ***/
-%animation-fadeIn { @include animation( fadeIn $time-animation $mode-animation forwards );}
-%animation-fadeOut{ @include animation( fadeOut $time-animation $mode-animation forwards );}
+%animation-fadeIn { @include animation( fadeIn $start_animation forwards );}
+%animation-fadeOut{ @include animation( fadeOut $finish_animation forwards );}
 
+%animation-scaleIn { @include animation( scaleIn $start_animation forwards );}
+%animation-scaleOut{ @include animation( scaleOut $finish_animation forwards );}
 
-%animation-scaleIn { @include animation( scaleIn $time-animation $mode-animation forwards );}
-%animation-scaleOut{ @include animation( scaleOut $time-animation $mode-animation forwards );}
+//Entering and Exiting Frame (especial cases)
+%animation-showSidenavLeft{ @include animation( showSidenavLeft $enter_animation forwards );}
+%animation-hideSidenavLeft{ @include animation( hideSidenavLeft $leave_animation forwards );}
 
-%animation-showSidenavLeft{ @include animation( showSidenavLeft 0.5s cubic-bezier(0,0,.5,1) 0.1875s forwards );}
-%animation-hideSidenavLeft{ @include animation( hideSidenavLeft 0.5s cubic-bezier(0,.5,1,1) forwards );}
+%animation-overlayIn{ @include animation( fadeIn $enter_animation forwards );}
+%animation-overlayOut{ @include animation( fadeOut $leave_animation forwards );}
