@@ -25,20 +25,17 @@
 	        pre: function preLink(scope, element, iAttrs, vm) {  
 	        	element.addClass(vm.className);
 	        	(vm.getWidthHead() >= 320 )? vm.applyHeightToHead(element,264) : vm.applyHeightToHead(element, vm.getWidthHead() ) ;
-	        	
-	        }, 
+	        	console.log(scope.sidenav.toggle); 
+	        },  
 	        post: function postLink(scope, element, iAttrs, vm) { 
-	        	$window.onresize= function(event){
-	        		console.log(vm.getWidthHead());
+	        	$window.onresize= function(event){ 
 	        		(vm.getWidthHead() <= 320 )? vm.applyHeightToHead(element, vm.getWidthHead() ) : null ;
 	        	}
-	        	console.log(scope.sidenav.toggle);
-	        	scope.$watch('sidenav.toggle',function(){
-	        		console.log("open");
-	        		console.log(scope.sidenav.toggle);
-	        		element.hasClass('show')?element.removeClass('show'):element.addClass('show');
-	        	});
-	        	//scope.sidenav.toggle? element.addClass('show') : element.removeClass('show') ;
+	        	element.addClass(vm.className); 
+						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 
+				      sidenavToggle? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+				      $rootScope.yemd.sidenav.left.toggle=sidenavToggle? false: true; 
+				   	});
 	        }
 	      };
 			}

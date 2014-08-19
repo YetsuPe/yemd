@@ -19,9 +19,11 @@ $color-divider-low     : rgba($color-black,0.13);
 $time-animation: 0.75s;
 $mode-animation: ease-in-out ;//ease;
 
+$start_animation : 0.6s cubic-bezier(.25,.01,.75,1) 0.15s ; 
+$finish_animation: 0.6s cubic-bezier(0,.25,1,.75) ; 
 //Entering and Exiting Frame
-$enter-animation: 0.5s cubic-bezier(0,0,.5,1) 0.1875s ; 
-$leave-animation: 0.5s cubic-bezier(0,.5,1,1) ; 
+$enter_animation: 0.5625s cubic-bezier(0,0,.5,1) 0.1875s ; 
+$leave_animation: 0.5625s cubic-bezier(0,.5,1,1) ; 
 /**** components ****/
 //card
 $bg-card : $color-white;
