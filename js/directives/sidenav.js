@@ -16,12 +16,12 @@
 				vm.getHeightSidenav=  function(element){
 					console.log($verge.viewportH() , element[0].clientHeight,element);
 					if ($verge.viewportH() >= element[0].clientHeight) { 
-						this.result= {'height': $verge.viewportH()+'px'} 
+						this.result= {'height': $verge.viewportH()+'px', 'position':'fixed'} ;
 					}else{  
 						//$document.find('header').addClass('static');
 						var listHeight = element.find('section')[0].clientHeight ;
 						console.log("sidenav",vm.getHeightToHeadValue(),'list',listHeight);
-						this.result= {'height': (vm.getHeightToHeadValue() + listHeight) +'px' , 'position':'absolute' } 
+						this.result= {'height': (vm.getHeightToHeadValue() + listHeight) +'px' , 'position':'absolute' } ;
 					};
 					return this.result;
 				}; 
@@ -45,7 +45,6 @@
 	        	$window.onresize= function(event){  
 	        		console.log(event);
 	        		element.find('figure').css( vm.getHeightToHead() ); 
-	        		//fix 
 	        		element.css( vm.getHeightSidenav(element) );
 	        	}
 						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 
