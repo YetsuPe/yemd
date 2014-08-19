@@ -1,0 +1,74 @@
+/****** List *****/
+//list
+%list{
+  font-size:16px;
+  background-color: $bg-list ;
+  padding: em(8) 0;
+  @extend %zDepth-1; 
+}
+  // list--single-line
+  %list--single-line { 
+    @extend %list;  
+    a {
+      @extend %display-block;
+      @extend %line-height-1;
+      @extend %color-secondary;
+      height: em(48);
+      padding: em(16); 
+    }
+  }
+  // list--icon-one-line 
+  %list--img-one-line {
+    @extend %list;
+    height: em(56); 
+    @extend %clearfix;
+    figure{
+      @extend %float-left;
+      @extend %list--img-one-line__img;
+    }
+    div {
+      @extend %float-left;
+      @extend %list--img_icon-one-line;
+    }
+  }
+  //list--icon-on-line 
+  %list--icon-one-line {
+    @extend %list;
+    height: em(56); 
+    @extend %clearfix;
+    icon,
+    .icon{
+      @extend %float-left;
+      //@extend %icon-list;
+    } 
+    div {
+      @extend %float-left;
+      @extend %list--img_icon-one-line;
+    }
+  }
+    //__componets
+    %list--img_icon-one-line {
+      line-height: 3.5;
+      padding: em(16) em(16) em(16) 0;
+      @include calc('width',"100% - 72px" ); 
+    }
+    %list--img-one-line__img { 
+      @extend %display-block;
+      width  : em(72); 
+      padding: em(16) ;
+      img {
+        width : em(40);
+        height: em(40);
+        @extend %display-block;
+        @extend %border-radius-full-50percent ;
+      } 
+    }
+    %icon--list{ 
+      width:40px;
+      height:40px;
+    }
+
+.list--single-line {
+  @extend %list--single-line;
+}
+
