@@ -19,13 +19,17 @@
 						this.result= {'height': $verge.viewportH()+'px'} 
 					}else{  
 						//$document.find('header').addClass('static');
-						this.result= {'height': element[0].clientHeight+'px' , 'position':'absolute' } 
+						var listHeight = element.find('section')[0].clientHeight ;
+						console.log("sidenav",vm.getHeightToHeadValue(),'list',listHeight);
+						this.result= {'height': (vm.getHeightToHeadValue() + listHeight) +'px' , 'position':'absolute' } 
 					};
 					return this.result;
 				}; 
-				vm.getHeightToHead= function(){  
-					this.heightFigure= $verge.viewportW() <= 320? ($verge.viewportW() - 56)*(9/16): 320*(9/16) ;
-					return { height: this.heightFigure +"px" };
+				vm.getHeightToHeadValue= function(){ 
+					return this.heightFigure= $verge.viewportW() <= 320? ($verge.viewportW() - 56)*(9/16): 320*(9/16) ;
+				};
+				vm.getHeightToHead= function(){   
+					return { height: vm.getHeightToHeadValue() +"px" };
 				}; 
 			},
 			controllerAs:'vm',
@@ -38,7 +42,10 @@
 	        post: function postLink(scope, element, iAttrs, vm) { 
 	        	element.css( vm.getHeightSidenav(element) );
 	        	//responsive
-	        	$window.onresize= function(event){ 
+	        	$window.onresize= function(event){  
+	        		console.log(event);
+	        		element.find('figure').css( vm.getHeightToHead() ); 
+	        		//fix 
 	        		element.css( vm.getHeightSidenav(element) );
 	        	}
 						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 

@@ -1,7 +1,7 @@
 %sidenav {
 	@extend %position-fixed;
 	@extend %position-top-0; 
-	background-color: $bg-sidenav;
+	background-color: $bg-sidenav; 
 }
 %sidenav--left { 
 	@extend %sidenav; 
