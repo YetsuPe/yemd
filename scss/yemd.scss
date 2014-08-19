@@ -3,9 +3,7 @@
 @import "variables";
 @import "prefix";
 @import "mixins";
-
-
-
+//Placeholders
 @import "placeholders";
 //@import "normalize";
 @import "reset";
@@ -14,6 +12,7 @@
 @import "components/appbar";
 @import "components/icon";
 @import "components/sidenav";
+@import "components/list";
 /*
 @import "animations";
 @import "ripple";
