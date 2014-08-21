@@ -1,7 +1,7 @@
  (function(angular, global){
   'use strict';  
 
-  global.yemd = angular.module('yemd',[])  ;
+  global.yemd = angular.module('yemd', [])  ;
 
   yemd.run(function ($rootScope, $rootElement) {   
     $rootScope.element = ( typeof jQuery !== 'undefined' ) ? jQuery : angular.element ; 
