@@ -1,7 +1,5 @@
-(function(yemd){  
-	'use strict'; 
-	yemd.directive('icon',icon);
-
+	'use strict';  
+	icon.$inject=['$rootScope', 'injectSvg'];
 	function icon($rootScope, injectSvg){
 		return {
 			scope: {
@@ -40,6 +38,6 @@
 				console.log(toolbarController);
 			}*/
 		};
-	};
+	}; 
 
-})(yemd);
+	angular.module('yemd').directive('icon',icon);
