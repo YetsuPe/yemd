@@ -14,13 +14,13 @@
 				vm.className= 'sidenav--'+vm.type ; 
 
 				vm.getHeightSidenav=  function(element){
-					console.log($verge.viewportH() , element[0].clientHeight,element);
+					//console.log($verge.viewportH() , element[0].clientHeight,element);
 					if ($verge.viewportH() >= element[0].clientHeight) { 
 						this.result= {'height': $verge.viewportH()+'px', 'position':'fixed'} ;
 					}else{  
 						//$document.find('header').addClass('static');
 						var listHeight = element.find('section')[0].clientHeight ;
-						console.log("sidenav",vm.getHeightToHeadValue(),'list',listHeight);
+						//console.log("sidenav",vm.getHeightToHeadValue(),'list',listHeight);
 						this.result= {'height': (vm.getHeightToHeadValue() + listHeight) +'px' , 'position':'absolute' } ;
 					};
 					return this.result;
@@ -47,7 +47,7 @@
 	        	});
 	        	//responsive
 	        	$window.onresize= function(event){  
-	        		console.log(event);
+	        		//console.log(event);
 	        		element.find('figure').css( vm.getHeightToHead() ); 
 	        		element.css( vm.getHeightSidenav(element) );
 	        	};
