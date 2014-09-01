@@ -1,0 +1,25 @@
+.snackbar {
+  background-color: $bg-snackbar;
+  padding: em(18px) em(24px);
+  color: white;
+  //min-height: em(56px);
+  height: em(56px);
+  //max-height: em(80px);
+  line-height: 1;
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  @include transform( translateY(em(56px)) );
+  //@include transition ( transform $time-animation $mode-animation-enter-leave-canvas );
+  p{
+    font-weight: 300;
+    font-size: 14px;
+    line-height:1.42; 
+  }
+  &.show{ 
+		@extend %animation-enterSnackbar;
+	}
+	&.hide{ 
+    @extend %animation-leaveSnackbar;
+	} 
+}
