@@ -1,0 +1,17 @@
+/*** grid Card--person***/
+@media only screen and (min-width: 580px) { /* sm */
+  .card--person {
+    float:left;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 870px) { /* md */
+  .card--person { 
+    width: 33.3%;
+  }
+}
+@media only screen and (min-width: 1160px) { /* lg */
+  .card--person { 
+    width: 25%;
+  }
+}

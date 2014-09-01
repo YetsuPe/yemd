@@ -64,4 +64,39 @@
     @include fix_sidenav_width;  
   }
 }
-
+/*** labels ***/
+@include keyframes( labelIn ) {
+  from {@include transform(translateY( -1 * em(24,12) )); } 
+  to {@include transform(translateY( 0 ));}
+}
+@include keyframes( labelOut ) {
+  from {@include transform(translateY( 0 ));} 
+  to {@include transform(translateY( -1 * em(24,12) ));}
+}
+//label--error
+@include keyframes( labelErrorIn ) {
+  from {@include transform(translateY( em(24,12) )); } 
+  to {@include transform(translateY( 0 ));}
+}
+@include keyframes( labelErrorOut ) {
+  from {@include transform(translateY( -24px ));} 
+  to {@include transform(translateY( 0px ));}
+}
+//input
+@include keyframes( moveInputDown ) {
+  from {@include transform(translateY( -1 * em(24px) )); } 
+  to {@include transform(translateY( 0 ));}
+}
+@include keyframes( moveInputUp ) {
+  from {@include transform(translateY( 0 ));} 
+  to {@include transform(translateY( -1 * em(24px) ));} 
+}
+//snackbar
+@include keyframes( enterSnackbar ) {
+  0 {opacity:0;@include transform(translateY( em(56) )); } 
+  100% {opacity:1;@include transform(translateY( 0 ));}
+}
+@include keyframes( leaveSnackbar ) {
+  0%  {opacity:1;@include transform(translateY( 0 ));} 
+  100%{opacity:0;@include transform(translateY( em(56) ));}
+}

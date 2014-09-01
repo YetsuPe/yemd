@@ -1,4 +1,4 @@
-.action{
+%action{
 	display: block;
   
   @include border-top-radius(50%);
@@ -11,35 +11,51 @@
   //opacity: 0;
   @include transform( scale(0) );
   @include transition (transform $time-animation $mode-animation);
-  &.embed { 
-  	//opacity: 1;
-  	@include transform( scale(1) );
-  	position: absolute;
-		bottom: -20px;
-		left: 16px;
-
-  	padding: 8px;
-  	width : 40px;
-  	height: 40px ; 
-  }
-  &.float {
-  	//opacity: 1;
-  	@include transform( scale(1) );
-  	position: fixed;
-		bottom: 16px;
-		right: 16px;
-		z-index: 2;
-
-  	padding: 16px;
-  	width : 56px;
-  	height: 56px ; 
-  }
-  svg { 
+  
+  icon,
+  .icon { 
   	position: relative; 
   	width: 100%; 
+    width: em(40px);
+    height: em(40px);
+    padding: em(8px);
+    left: 0;
+    top: 0;
 		line {
 			fill: $color-white;
 			stroke: $color-white;
 		}
 	}
+  .show {
+    @extend %animation-scaleIn;
+  }
+  .hide {
+    @extend %animation-scaleOut;
+  }
+}
+
+
+.action--embed { 
+  @extend %action;
+  @include transform( scale(1) );
+  position: absolute;
+  bottom: -em(20px);
+  left: em(16px);
+
+  padding: em(8px);
+  width : em(40px);
+  height: em(40px) ; 
+}
+
+.action--float {
+  @extend %action;
+  @include transform( scale(1) );
+  position: fixed;
+  bottom: em(16px);
+  right: em(16px);
+  z-index: 2;
+
+  padding: em(16px);
+  width :  em(56px);
+  height:  em(56px) ; 
 }

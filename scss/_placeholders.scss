@@ -1,52 +1,3 @@
-//Clearfix
-%clearfix {
-	//*zoom: 1;  /* The star is here to prevent other browsers from reading and applying this rule. */
-	&:after {
-	  content: "";
-	  display: table;
-	  clear: both;
-	}
-}
-%display-block     { display: block; }
-//color
-%color-white { color: $color-white  } 
-%color-primary { color: $color-primary  } 
-%color-secondary { color: $color-secondary  } 
-//padding
-%width-100percent { width:100%;  }
-//Position type
-%position-relative { position: relative; }
-%position-absolute { position: absolute; }
-%position-fixed 	 { position: fixed; } 
-//width, height
-//Position location
-%position-top-0	 { top: 0; } 
-%position-bottom-0	 { bottom: 0; } 
-%position-left-0	 { left: 0; } 
-//text wrapper
-%text-ellipsis     { @include text-wrapper;}
-%line-height-1     { line-height:1; }
-%line-height-3     { line-height:3; }
-%text-color-white  { color:$color-text-white; }
-%bg-primary        { background-color: $color-primary; }
-%float-left        { float: left ;}
-%border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
-
-
-// z Depth
-%zDepth-0 { @include zDepth($z_depth:0); }
-%zDepth-1 { @include zDepth($z_depth:1); }
-%zDepth-2 { @include zDepth($z_depth:2); }
-%zDepth-3 { @include zDepth($z_depth:3); }
-%zDepth-4 { @include zDepth($z_depth:4); }
-%zDepth-5 { @include zDepth($z_depth:5); } 
-
-
-//overflow
-%overflow { overflow:hidden; }
-%overflow-x { overflow-x:hidden; }
-%overflow-y { overflow-y:hidden; }
-
 /*** animations ***/
 %animation-fadeIn { @include animation( fadeIn $start_animation forwards );}
 %animation-fadeOut{ @include animation( fadeOut $finish_animation forwards );}
@@ -55,8 +6,91 @@
 %animation-scaleOut{ @include animation( scaleOut $finish_animation forwards );}
 
 //Entering and Exiting Frame (especial cases)
-%animation-showSidenavLeft{ @include animation( showSidenavLeft $enter_animation forwards );}
-%animation-hideSidenavLeft{ @include animation( hideSidenavLeft $leave_animation forwards );}
+%animation-showSidenavLeft { @include animation( showSidenavLeft $enter_animation forwards );}
+%animation-hideSidenavLeft { @include animation( hideSidenavLeft $leave_animation forwards );}
 
-%animation-overlayIn{ @include animation( fadeIn $enter_animation forwards );}
-%animation-overlayOut{ @include animation( fadeOut $leave_animation forwards );}
+%animation-overlayIn  { @include animation( fadeIn $enter_animation forwards );}
+%animation-overlayOut { @include animation( fadeOut $leave_animation forwards );}
+
+%animation-moveInputDown  { @include animation( moveInputDown $start_animation forwards ); }
+%animation-moveInputUp    { @include animation( moveInputUp 0.75s cubic-bezier(0,0,.5,1) ); }
+
+%animation-labelIn  { @include animation( fadeIn $enter_animation forwards   , labelIn $enter_animation forwards ); }
+%animation-labelOut { @include animation( fadeOut $leave_animation forwards , labelOut $leave_animation forwards ); }
+
+%animation-labelErrorIn  { @include animation( fadeIn $enter_animation forwards   , labelErrorIn $enter_animation forwards ); }
+%animation-labelErrorOut { @include animation( fadeOut $leave_animation forwards , labelErrorOut $leave_animation forwards ); }
+
+%animation-enterSnackbar{ @include animation(  enterSnackbar $enter_animation forwards ); };
+%animation-leaveSnackbar{ @include animation(  leaveSnackbar $leave_animation forwards ); };
+
+//Border radius
+%border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
+%border-radius-card { border-radius:em(2px ); }
+//Display
+%display-block  { display: block; }
+%display-none   { display: none; }
+
+//Clearfix
+%clearfix {
+	//*zoom: 1;  /* The star is here to prevent other browsers from reading and applying this rule. */
+	&:after { content: ""; display: table; clear: both; }
+}
+// color
+%color-white { color: $color-white  } 
+%color-primary { color: $color-primary  } 
+%color-secondary { color: $color-secondary  } 
+
+// font
+%font-size-base { font-size: 1em   }; //16px !default
+%font-size-14   { font-size: em(14)   }; //16px !default
+%float-left     { float: left ;}
+
+%height-inherit { height: inherit; }
+//Line height
+%line-height-1     { line-height:1; }
+%line-height-2     { line-height:2; }
+%line-height-3     { line-height:3; }
+
+
+%bg-primary        { background-color: $color-primary; }
+
+
+//overflow
+%overflow { overflow:hidden; }
+%overflow-x { overflow-x:hidden; }
+%overflow-y { overflow-y:hidden; }
+%overflow-hidden { overflow:hidden; }
+
+%padding-right-16 { padding-right: em(16); }
+//Position type
+%position-relative { position: relative; }
+%position-absolute { position: absolute; }
+%position-fixed 	 { position: fixed; } 
+
+//Position location
+%position-top-0	     { top:    0; } 
+%position-bottom-0	 { bottom: 0; } 
+%position-left-0	   { left:   0; } 
+%position-right-0	   { right:  0; } 
+
+%position-left-auto	 { left:auto; } 
+
+%pointer-events-none  { pointer-events: none; }
+
+//text wrapper
+%text-ellipsis     { @include text-wrapper;}
+%text-transform-capitalize { text-transform: capitalize;}
+
+%text-color-white  { color:$color-text-white; }
+
+//width
+%width-100percent { width:100%;  }
+
+// z Depth
+%zDepth-0 { @include zDepth($z_depth:0); }
+%zDepth-1 { @include zDepth($z_depth:1); }
+%zDepth-2 { @include zDepth($z_depth:2); }
+%zDepth-3 { @include zDepth($z_depth:3); }
+%zDepth-4 { @include zDepth($z_depth:4); }
+%zDepth-5 { @include zDepth($z_depth:5); } 

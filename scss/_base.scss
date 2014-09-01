@@ -1,4 +1,4 @@
-//@import url("http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"); //300  normal
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,400,500"); //300  normal
 html {
 	height:100%;
 }
@@ -9,3 +9,9 @@ body {
   font-weight: 300;//normal
   color: $color-text;
 }
+a {
+	@extend %color-secondary;
+}
+@media only screen and ( min-width: $media-md ){
+	body { font-size: 18.5px}
+} 

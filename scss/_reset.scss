@@ -12,7 +12,9 @@ p,
 figure,
 fieldset,
 ul, 
-ol {
+ol,
+dl,
+dd {
   margin: 0;
 }
 
@@ -30,7 +32,7 @@ a{
 	text-decoration:none;
 }
 /*** canvas *****/
-main {
+main,card {
 	display:block;
 }
 /***** forms ****/
@@ -39,5 +41,6 @@ input {
 	border:0;
 	box-shadow: none; // firefox browser and OS */
 	border-radius: 0; // firefox browser and OS */
+	outline:0;
 }
 

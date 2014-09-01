@@ -1,36 +1,100 @@
 /****** List *****/
 //list
 %list{
-  font-size:16px;
+  font-size:em(16px);
   background-color: $bg-list ;
   padding: em(8) 0;
-  @extend %zDepth-1; 
+  //@extend %zDepth-1; 
 }
   // list--single-line
   %list--single-line { 
-    @extend %list;  
+    @extend %list;   
     a {
       @extend %display-block;
       @extend %line-height-1;
       @extend %color-secondary;
+      @extend %overflow-hidden;
+      @extend %text-ellipsis ;
       height: em(48);
       padding: em(16); 
     }
   }
   // list--icon-one-line 
   %list--img-one-line {
-    @extend %list;
-    height: em(56); 
+    @extend %list; 
+    .list__fields {//list__fields 
+      @extend %list__fields;
+        .list__fields__box {
+          @extend %clearfix;
+          @extend %display-block;
+          @extend %line-height-3;
+          @extend %overflow-hidden;
+          height: inherit;
+          text-align: left; 
+          border-bottom: em(2px) solid $color-divider;  
+          padding-right: em(16);
+            
+        }
+    } 
+    .list__item {
+      @extend %clearfix;
+      height: em(56);
+      .list__item__img { //wrapper image
+        padding: em(8px) em(16px);
+        width: em(72px);
+        float: left;
+        img {
+          @extend %display-block;
+          @extend %border-radius-full-50percent;
+          width: em(40px);
+          height: em(40px); 
+        }
+      }
+      
+    } 
+  }
+  .list__fields__box__field {//please refactor soon (1)
+    @extend %display-none;
+    @extend %float-left ; 
+    @extend %width-100percent ; 
+    @extend %text-ellipsis;
+    @extend %overflow-hidden;
+    @extend %font-size-14 ;
+    @extend %text-transform-capitalize ; 
+    @extend %height-inherit ; 
+    @extend %color-primary ; 
+    @extend %padding-right-16 ;  
+    line-height: 3.4285;    
+    &:first-child {
+      @extend %display-block;
+    } 
+  }
+  .list__item__head { //list__item__head
     @extend %clearfix;
-    figure{
-      @extend %float-left;
-      @extend %list--img-one-line__img;
-    }
-    div {
-      @extend %float-left;
-      @extend %list--img_icon-one-line;
+    @extend %line-height-3;
+    @extend %font-size-base;
+    @include calc('width',"100% - " + em(72px) );
+    height: inherit;
+    padding:0 em(16px) 0 0;
+    float: left; 
+    position: relative; 
+    border-bottom:em(1) solid $color-divider-low;
+  }
+  .list__item__head__text  {//list__item__head__text
+    height: inherit;
+    line-height: 3.5;
+    @extend %clearfix;
+    @extend %float-left; 
+    @extend %text-ellipsis ;
+    @extend %overflow-hidden ;
+    @include calc('width',"100% - " + em(40px) );  
+    @extend %display-none;
+    padding-right: em(16);
+    &:first-child {
+      @extend %display-block;
     }
   }
+
   //list--icon-on-line 
   %list--icon-one-line {
     @extend %list;
@@ -46,6 +110,12 @@
       @extend %list--img_icon-one-line;
     }
   }
+    %list__fields {
+      @extend %clearfix;
+      @extend %position-relative; 
+      padding-left: em(72px);
+      height: em(48px);
+    }
     //__componets
     %list--img_icon-one-line {
       line-height: 3.5;
@@ -64,11 +134,37 @@
       } 
     }
     %icon--list{ 
-      width:40px;
-      height:40px;
+      width:em(40px);
+      height:em(40px);
     }
 
 .list--single-line {
   @extend %list--single-line;
 }
+
+.list--img-one-line {
+  @extend %list--img-one-line;
+}
+
+@media only screen and ( min-width: 400px ) {
+  .list__fields__box__field {width:50%; &:nth-child(2) { display: block; }}
+  .list__item__head__text   {width:50%; &:nth-child(2) { display: block; }}
+}
+@media only screen and ( min-width: 600px ) {
+  .list__fields__box__field {width:33.33%; &:nth-child(3) { display: block; }}
+  .list__item__head__text   {width:33.33%; &:nth-child(3) { display: block; }}
+}
+@media only screen and ( min-width: 800px ) { //Tablet -> MD
+  .list__fields__box__field {width:25%; &:nth-child(4) { display: block; }}
+  .list__item__head__text   {width:25%; &:nth-child(4) { display: block; }}
+}
+@media only screen and ( min-width: 1000px ) { //Laptop/PC ->lg
+  .list__fields__box__field {width:20%; &:nth-child(5) { display: block; }}
+  .list__item__head__text   {width:20%; &:nth-child(5) { display: block; }}
+  .list__fields__box__field { cursor:pointer; } //Show icon hand
+} 
+@media only screen and ( min-width: 1200px ) {
+  .list__fields__box__field {width:16.66%; &:nth-child(6) { display: block; }}
+  .list__item__head__text   {width:16.66%; &:nth-child(6) { display: block; }}
+} 
 

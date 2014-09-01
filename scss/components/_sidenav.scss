@@ -18,6 +18,9 @@
 		@extend %animation-hideSidenavLeft;
 	}
 }
+%sidenav--left {
+	@extend %sidenav;
+}
 %sidenav--left__head{ 
 	@extend %position-relative ;
 	background-image: url("../sample/images/cover.jpg") ;
@@ -49,7 +52,7 @@
 			@extend %position-left-0 ;
 			@extend %width-100percent;
 			@extend %line-height-3 ;  
-			@extend %overflow-x;
+			@extend %overflow;
 			padding: 0 em(16);
 			height:em(48); 
 			@extend %text-ellipsis;
@@ -61,6 +64,8 @@
 	section {
 		@extend %zDepth-0; 
 	}
+}
+.sidenav--right { 
 }
 /****** fix overflow-y:scrool when the height sidenav is menor*/ 
 @media only screen and ( max-width: 256px ) {

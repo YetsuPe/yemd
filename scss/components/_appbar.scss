@@ -4,28 +4,28 @@
 	@extend %zDepth-1;
 	@extend %bg-primary ;
 	@include transition ( height $time-animation $mode-animation );
-	icon,
-	.icon { 
-		position: absolute; 
+	> icon,
+	> .icon { 
+		@extend %position-absolute;
 		top:em(4); 
 		&:nth-last-of-type(1){
-			left:auto;
+			@extend %position-left-auto	;
 			right: em(4);
 		}
 		&:nth-last-of-type(2){
-			left:auto;
+			@extend %position-left-auto	;
 			right: em(56);
 		}
 		&:nth-last-of-type(3){
-			left:auto;
+			@extend %position-left-auto	;
 			right: em(108);
 		}
 		&:nth-last-of-type(4){
-			left:auto;
+			@extend %position-left-auto	;
 			right: em(160);
 		}
 		&:nth-last-of-type(5){
-			left:auto;
+			@extend %position-left-auto	;
 			right: em(212);
 		}//+52
 		&:first-of-type {
@@ -33,17 +33,42 @@
 			right:auto;
 		}
 	}
+	
 	&.static {
 		@extend %position-fixed;
+		@extend %position-top-0	 ;
+		width: 100%; 
+	}
+	form {
 		width: 100%;
-		top: 0;
+		@extend %position-absolute;
+		padding: em(16);
+		input{
+			width: 100%;
+			box-sizing: border-box;
+			background: transparent;
+			padding-left: em(56);
+			color: white;
+			border-bottom: em(1px) solid white;
+			&::-webkit-input-placeholder {
+		  	color:$color-text-white; 
+				@extend %animation-fadeIn; 
+		  }
+			&:-moz-placeholder {
+				color:$color-text-white; 
+				@extend %animation-fadeIn; 
+			}
+		}
 	}
 }
+
+
 %toolbar__title {
 	@extend %position-relative;
 	@extend %line-height-1;
 	@extend %text-color-white;
 	@include transition ( all $time-animation $mode-animation );
+	text-transform:uppercase;
 }
 
 .toolbar--default {
@@ -52,21 +77,22 @@
 	h1{ 
 		@extend %toolbar__title;
 		@extend %text-ellipsis ; 
-		overflow: hidden;
+		@extend %overflow-hidden;
+		@extend %font-size-base ;  
+		@extend %pointer-events-none ;  
+
 		@include transform( translateY( em(20) ) );
 		@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
-		font-size:em(16);  
-		margin-left: em(72);
+		
+		margin-left: em(72); 
 	}
 }
 .toolbar--extend {
 	@extend %toolbar;
 	height: em(128);
 	h1 {
-		@extend %toolbar__title;
-
-		@include transform( translateY( em(82,20) ) );
-
+		@extend %toolbar__title; 
+		@include transform( translateY( em(82,20) ) ); 
 		font-size: em(20);
 		margin-left: em(72,20);
 	}

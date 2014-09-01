@@ -8,27 +8,27 @@
 //@import "normalize";
 @import "reset";
 @import "base";
+//Effects
+@import "components/ripple";
 //components
 @import "components/appbar";
 @import "components/icon";
 @import "components/sidenav";
 @import "components/list";
 @import "components/overlay";
+@import "components/sub-title";
+@import "components/form";
+@import "components/snackbar";
+@import "components/action";
+@import "components/card";
+@import "components/spinner";
 /*
-@import "animations";
-@import "ripple";
+
+ 
+ 
+@import "canvas"; 
  
 
-
-@import "sidenav";
-@import "canvas";
-@import "sub-title";
-@import "form";
-@import "card";
-@import "snackbar";
 @import "list";
 @import "tooltip";
-@import "action";
-@import "card";
-@import "responsive";
 */

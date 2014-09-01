@@ -12,6 +12,9 @@
 			@include animation( enterIcon $time-animation $mode-animation );
 		}
 	}
+	.ripple--radial {
+		background: rgba(255,255,255,.75); 
+	}
 	// animations
 	&.enterNewIcon {
 		@include animation( enterNewIcon $time-animation $mode-animation ); 
