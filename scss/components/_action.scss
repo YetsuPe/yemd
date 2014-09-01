@@ -1,0 +1,54 @@
+%action{
+  @extend %display-block;
+  @extend %zDepth-2;
+  @extend %border-radius-full-50percent;  
+  @include transition (all $time-animation $mode-animation);
+  z-index: 1;
+  background-color: $color-secondary ; 
+
+  icon,
+  .icon { 
+    position: absolute; 
+    width: 100%; 
+    width: em(40px);
+    height: em(40px);
+    padding: em(8px); 
+    top: 0;
+    left: 0;
+    line {
+      fill: $color-white;
+      stroke: $color-white;
+    }
+  }
+  &.show {
+    @extend %animation-scaleIn;
+  }
+  &.hide {
+    @extend %animation-scaleOut;
+  }
+}
+/***directive***/ 
+.action--embed { 
+  @extend %action;
+  @include transform( scale(1) );
+  position: absolute;
+  bottom: -1* em(20px);
+  left: em(16px);
+
+  padding: em(8px);
+  width : em(40px);
+  height: em(40px) ; 
+}
+
+.action--float {
+  @extend %action;
+  @include transform( scale(1) );
+  position: fixed;
+  bottom: em(16px);
+  right: em(16px);
+  z-index: 2;
+
+  padding: em(16px);
+  width :  em(56px);
+  height:  em(56px) ; 
+}
