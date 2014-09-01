@@ -1,0 +1,199 @@
+form{
+	@extend %clearfix;
+	padding:0 em(16px);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select, 
+textarea {
+	@extend %display-block;
+	@extend %width-100percent; 
+	@extend %line-height-1; 
+	@extend %font-size-base; 
+
+	padding: 0 0 em(8) 0; 
+  background:transparent; 
+  height: em(16);
+  border-bottom:1px solid $color-divider;
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  @include box-sizing( content-box );
+  @include transition ( border $time-animation ease );
+  //@include zDepth($z_depth:1);
+  &:focus {
+    outline-color: transparent;  
+    border-bottom-color:$color-primary ;
+    border-bottom-width:em(2);
+  }
+  &.ng-dirty.ng-valid {
+    border-bottom-color:$color-success;
+    border-bottom-width:em(2);
+  }
+  &.ng-dirty.ng-invalid {
+    border-bottom-color:$color-error;
+    border-bottom-width:em(2);
+  }
+  //placeholder
+  &::-webkit-input-placeholder {
+  	color:$color-secondary-text;
+  	opacity: 0;
+		@include animation( fadeIn $time-animation ease forwards); 
+  }
+	&:-moz-placeholder {
+		color:$color-secondary-text;
+  	opacity: 0;
+		@include animation( fadeIn $time-animation ease forwards); 
+	}
+} 
+
+select {
+  height: em(18);
+}
+
+
+input[type="submit"],
+button{
+	display:block;
+	background: $color-primary ;
+	height: em(32);
+	min-width: em(88);
+	width: auto;
+  line-height: 2; 
+  text-transform: uppercase;
+  color:$color-text-white ;
+  @include zDepth($z_depth:1); 
+  border-bottom: 0; 
+  @include box-sizing( border-box );
+}
+
+fieldset {
+	height: em(48px); 
+	overflow-y:hidden;
+	padding: em(16px) 0;  
+	@include transition ( height $time-animation $mode-animation );
+	&.focus {
+		height: em(72px);
+	}
+	&.submit {
+		padding:0;
+		margin-top: em(16px);
+  }
+}
+
+label {
+	color:$color-secondary-text;
+	font-size:12px;
+	position: relative;
+	display:none;
+	line-height:1.333;
+	height:em(16,12); 
+	&.valid{
+		margin-bottom:em(8,12);
+    font-weight: 500;
+    text-transform: capitalize;
+		&.enter{  
+			@extend %animation-labelIn;
+			& ~ input {
+				@extend %animation-moveInputDown;
+			}
+		}
+		&.leave{ 
+			@extend %animation-labelOut;
+			& ~ input {
+				@extend %animation-moveInputUp;
+			}
+		}
+	}
+	&.invalid{ 
+		color:$color-error; 
+		&.enter{  
+			@extend %animation-labelErrorIn;
+			& ~ input {
+				@extend %animation-moveInputUp;
+			}
+		}
+		&.leave{ 
+			@extend %animation-labelErrorOut;
+			& ~ input {
+				@extend %animation-moveInputDown;
+			}
+		}
+	}
+	
+	&.showD{
+		@extend %display-block;
+	}
+}
+
+
+
+/** switch**/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 32px;
+  height: 2px;
+  padding: 12px 3px 3px 3px;
+}
+
+.switch-input {
+ position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 16px;
+  z-index: 2;
+  margin: 0;
+  cursor: pointer;
+}
+
+.switch-label {
+  position: relative;
+  top: -5px;
+  display: block;
+  height: inherit;
+  background: $color-divider;
+  border-radius: inherit;
+  @include transition ( 0.15s ease-out );
+  @include transition-property( opacity background );
+}
+.switch-input:checked ~ .switch-label {
+  background: $color-divider;
+}
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: $color-white;
+  border: 2px solid $color-divider ;
+  border-radius: 10px;
+  @include transition ( all 0.15s ease-out );
+}
+.switch-input:checked ~ .switch-handle {
+  left: 16px;
+  border: 2px solid $color-success;
+  background: $color-success;
+}
+
+.switch-green > .switch-input:checked ~ .switch-label {
+  background: $color-success;
+}
+
