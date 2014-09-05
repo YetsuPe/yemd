@@ -1,31 +1,23 @@
 /*** text ***/
 /**** components ****/
+@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,400,500");
 @-webkit-keyframes scaleIn {
-  /* line 33, ../scss/_mixins.scss */
   from {
     -webkit-transform: scale(0); }
-
-  /* line 34, ../scss/_mixins.scss */
   to {
     -webkit-transform: scale(1); } }
 @-moz-keyframes scaleIn {
-  /* line 33, ../scss/_mixins.scss */
   from {
     -moz-transform: scale(0); }
-
-  /* line 34, ../scss/_mixins.scss */
   to {
     -moz-transform: scale(1); } }
 @keyframes scaleIn {
-  /* line 33, ../scss/_mixins.scss */
   from {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0); }
-
-  /* line 34, ../scss/_mixins.scss */
   to {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -33,79 +25,52 @@
     -o-transform: scale(1);
     transform: scale(1); } }
 @-webkit-keyframes fadeIn {
-  /* line 38, ../scss/_mixins.scss */
   from {
     opacity: 0; }
-
-  /* line 39, ../scss/_mixins.scss */
   to {
     opacity: 1; } }
 @-moz-keyframes fadeIn {
-  /* line 38, ../scss/_mixins.scss */
   from {
     opacity: 0; }
-
-  /* line 39, ../scss/_mixins.scss */
   to {
     opacity: 1; } }
 @keyframes fadeIn {
-  /* line 38, ../scss/_mixins.scss */
   from {
     opacity: 0; }
-
-  /* line 39, ../scss/_mixins.scss */
   to {
     opacity: 1; } }
 @-webkit-keyframes fadeOut {
-  /* line 42, ../scss/_mixins.scss */
   from {
     opacity: 1; }
-
-  /* line 43, ../scss/_mixins.scss */
   to {
     opacity: 0; } }
 @-moz-keyframes fadeOut {
-  /* line 42, ../scss/_mixins.scss */
   from {
     opacity: 1; }
-
-  /* line 43, ../scss/_mixins.scss */
   to {
     opacity: 0; } }
 @keyframes fadeOut {
-  /* line 42, ../scss/_mixins.scss */
   from {
     opacity: 1; }
-
-  /* line 43, ../scss/_mixins.scss */
   to {
     opacity: 0; } }
 @-webkit-keyframes scaleOut {
-  /* line 47, ../scss/_mixins.scss */
   from {
     -webkit-transform: scale(1); }
-
-  /* line 48, ../scss/_mixins.scss */
   to {
     -webkit-transform: scale(0); } }
 @-moz-keyframes scaleOut {
-  /* line 47, ../scss/_mixins.scss */
   from {
     -moz-transform: scale(1); }
-
-  /* line 48, ../scss/_mixins.scss */
   to {
     -moz-transform: scale(0); } }
 @keyframes scaleOut {
-  /* line 47, ../scss/_mixins.scss */
   from {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); }
-
-  /* line 48, ../scss/_mixins.scss */
   to {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
@@ -113,17 +78,14 @@
     -o-transform: scale(0);
     transform: scale(0); } }
 @-webkit-keyframes showSidenavLeft {
-  /* line 52, ../scss/_mixins.scss */
   to {
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -webkit-transform: translateX(0); } }
 @-moz-keyframes showSidenavLeft {
-  /* line 52, ../scss/_mixins.scss */
   to {
     -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -moz-transform: translateX(0); } }
 @keyframes showSidenavLeft {
-  /* line 52, ../scss/_mixins.scss */
   to {
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
@@ -136,35 +98,28 @@
     -o-transform: translateX(0);
     transform: translateX(0); } }
 @-webkit-keyframes hideSidenavLeft {
-  /* line 58, ../scss/_mixins.scss */
   from {
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -webkit-transform: translateX(0); }
-
-  /* line 62, ../scss/_mixins.scss */
   to {
     -webkit-box-shadow: none;
-    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
-    -moz-transform: translateX(calc(-1 * ( 100% ) ));
-    -ms-transform: translateX(calc(-1 * ( 100% ) ));
-    -o-transform: translateX(calc(-1 * ( 100% ) ));
-    transform: translateX(calc(-1 * ( 100% ) )); } }
+    -webkit-transform: translateX(calc( -1 * ( 100% ) ));
+    -moz-transform: translateX(calc( -1 * ( 100% ) ));
+    -ms-transform: translateX(calc( -1 * ( 100% ) ));
+    -o-transform: translateX(calc( -1 * ( 100% ) ));
+    transform: translateX(calc( -1 * ( 100% ) )); } }
 @-moz-keyframes hideSidenavLeft {
-  /* line 58, ../scss/_mixins.scss */
   from {
     -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -moz-transform: translateX(0); }
-
-  /* line 62, ../scss/_mixins.scss */
   to {
     -moz-box-shadow: none;
-    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
-    -moz-transform: translateX(calc(-1 * ( 100% ) ));
-    -ms-transform: translateX(calc(-1 * ( 100% ) ));
-    -o-transform: translateX(calc(-1 * ( 100% ) ));
-    transform: translateX(calc(-1 * ( 100% ) )); } }
+    -webkit-transform: translateX(calc( -1 * ( 100% ) ));
+    -moz-transform: translateX(calc( -1 * ( 100% ) ));
+    -ms-transform: translateX(calc( -1 * ( 100% ) ));
+    -o-transform: translateX(calc( -1 * ( 100% ) ));
+    transform: translateX(calc( -1 * ( 100% ) )); } }
 @keyframes hideSidenavLeft {
-  /* line 58, ../scss/_mixins.scss */
   from {
     -webkit-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 6px rgba(0, 0, 0, 0.22), 0 19px 19px rgba(0, 0, 0, 0.3);
@@ -176,87 +131,472 @@
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0); }
-
-  /* line 62, ../scss/_mixins.scss */
   to {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -ms-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
-    -webkit-transform: translateX(calc(-1 * ( 100% ) ));
-    -moz-transform: translateX(calc(-1 * ( 100% ) ));
-    -ms-transform: translateX(calc(-1 * ( 100% ) ));
-    -o-transform: translateX(calc(-1 * ( 100% ) ));
-    transform: translateX(calc(-1 * ( 100% ) )); } }
+    -webkit-transform: translateX(calc( -1 * ( 100% ) ));
+    -moz-transform: translateX(calc( -1 * ( 100% ) ));
+    -ms-transform: translateX(calc( -1 * ( 100% ) ));
+    -o-transform: translateX(calc( -1 * ( 100% ) ));
+    transform: translateX(calc( -1 * ( 100% ) )); } }
+/*** labels ***/
+@-webkit-keyframes labelIn {
+  from {
+    -webkit-transform: translateY(-2em); }
+  to {
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes labelIn {
+  from {
+    -moz-transform: translateY(-2em); }
+  to {
+    -moz-transform: translateY(0); } }
+@keyframes labelIn {
+  from {
+    -webkit-transform: translateY(-2em);
+    -moz-transform: translateY(-2em);
+    -ms-transform: translateY(-2em);
+    -o-transform: translateY(-2em);
+    transform: translateY(-2em); }
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes labelOut {
+  from {
+    -webkit-transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-2em); } }
+@-moz-keyframes labelOut {
+  from {
+    -moz-transform: translateY(0); }
+  to {
+    -moz-transform: translateY(-2em); } }
+@keyframes labelOut {
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-2em);
+    -moz-transform: translateY(-2em);
+    -ms-transform: translateY(-2em);
+    -o-transform: translateY(-2em);
+    transform: translateY(-2em); } }
+@-webkit-keyframes labelErrorIn {
+  from {
+    -webkit-transform: translateY(2em); }
+  to {
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes labelErrorIn {
+  from {
+    -moz-transform: translateY(2em); }
+  to {
+    -moz-transform: translateY(0); } }
+@keyframes labelErrorIn {
+  from {
+    -webkit-transform: translateY(2em);
+    -moz-transform: translateY(2em);
+    -ms-transform: translateY(2em);
+    -o-transform: translateY(2em);
+    transform: translateY(2em); }
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes labelErrorOut {
+  from {
+    -webkit-transform: translateY(-24px); }
+  to {
+    -webkit-transform: translateY(0px); } }
+@-moz-keyframes labelErrorOut {
+  from {
+    -moz-transform: translateY(-24px); }
+  to {
+    -moz-transform: translateY(0px); } }
+@keyframes labelErrorOut {
+  from {
+    -webkit-transform: translateY(-24px);
+    -moz-transform: translateY(-24px);
+    -ms-transform: translateY(-24px);
+    -o-transform: translateY(-24px);
+    transform: translateY(-24px); }
+  to {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px); } }
+@-webkit-keyframes moveInputDown {
+  from {
+    -webkit-transform: translateY(-1.5em); }
+  to {
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes moveInputDown {
+  from {
+    -moz-transform: translateY(-1.5em); }
+  to {
+    -moz-transform: translateY(0); } }
+@keyframes moveInputDown {
+  from {
+    -webkit-transform: translateY(-1.5em);
+    -moz-transform: translateY(-1.5em);
+    -ms-transform: translateY(-1.5em);
+    -o-transform: translateY(-1.5em);
+    transform: translateY(-1.5em); }
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes moveInputUp {
+  from {
+    -webkit-transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-1.5em); } }
+@-moz-keyframes moveInputUp {
+  from {
+    -moz-transform: translateY(0); }
+  to {
+    -moz-transform: translateY(-1.5em); } }
+@keyframes moveInputUp {
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-1.5em);
+    -moz-transform: translateY(-1.5em);
+    -ms-transform: translateY(-1.5em);
+    -o-transform: translateY(-1.5em);
+    transform: translateY(-1.5em); } }
+@-webkit-keyframes enterSnackbar {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(3.5em); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0); } }
+@-moz-keyframes enterSnackbar {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(3.5em); }
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
+@keyframes enterSnackbar {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(3.5em);
+    -moz-transform: translateY(3.5em);
+    -ms-transform: translateY(3.5em);
+    -o-transform: translateY(3.5em);
+    transform: translateY(3.5em); }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); } }
+@-webkit-keyframes leaveSnackbar {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(3.5em); } }
+@-moz-keyframes leaveSnackbar {
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0); }
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(3.5em); } }
+@keyframes leaveSnackbar {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(3.5em);
+    -moz-transform: translateY(3.5em);
+    -ms-transform: translateY(3.5em);
+    -o-transform: translateY(3.5em);
+    transform: translateY(3.5em); } }
+/*** animations ***/
+/* line 2, ../scss/_placeholders.scss */
+.toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder {
+  -webkit-animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  -moz-animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
+
+/* line 5, ../scss/_placeholders.scss */
+.sidenav--left figure img, .show.action--embed, .show.action--float {
+  -webkit-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  -moz-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
+
+/* line 6, ../scss/_placeholders.scss */
+.hide.action--embed, .hide.action--float {
+  -webkit-animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards;
+  -moz-animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards;
+  animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards; }
+
+/* line 9, ../scss/_placeholders.scss */
+.show.sidenav--left {
+  -webkit-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  -moz-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
+
 /* line 10, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend, .icon,
-icon, .list--single-line a {
-  display: block; }
+.hide.sidenav--left {
+  -webkit-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  -moz-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
 /* line 12, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption a {
-  color: white; }
+.overlay.show {
+  -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 14, ../scss/_placeholders.scss */
-.list--single-line a {
-  color: #03a9f4; }
+/* line 13, ../scss/_placeholders.scss */
+.overlay.hide {
+  -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
+
+/* line 15, ../scss/_placeholders.scss */
+label.valid.enter ~ input, label.invalid.leave ~ input {
+  -webkit-animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  -moz-animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
+  animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
 
 /* line 16, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  width: 100%; }
+label.valid.leave ~ input, label.invalid.enter ~ input {
+  -webkit-animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1);
+  -moz-animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1);
+  animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1); }
 
 /* line 18, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
-icon, .sidenav--left figure {
-  position: relative; }
+label.valid.enter {
+  -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
 /* line 19, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  position: absolute; }
+label.valid.leave {
+  -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 20, ../scss/_placeholders.scss */
-.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
-  position: fixed; }
+/* line 21, ../scss/_placeholders.scss */
+label.invalid.enter {
+  -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 23, ../scss/_placeholders.scss */
-.sidenav--left, .overlay {
-  top: 0; }
+/* line 22, ../scss/_placeholders.scss */
+label.invalid.leave {
+  -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
 /* line 24, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  bottom: 0; }
+.snackbar.show {
+  -webkit-animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  -moz-animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
+  animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
 /* line 25, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  left: 0; }
-
-/* line 27, ../scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption {
-  text-overflow: ellipsis;
-  white-space: nowrap; }
+.snackbar.hide {
+  -webkit-animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  -moz-animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
+  animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
 /* line 28, ../scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1, .list--single-line a {
-  line-height: 1; }
+.ripple--radial, .sidenav--left figure img, .list--img-one-line .list__item .list__item__img img, .action--embed, .action--float {
+  border-radius: 50% 50% 50% 50%; }
 
 /* line 29, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  line-height: 3; }
-
-/* line 30, ../scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1 {
-  color: white; }
+.card--person, .card--default, .card--full {
+  border-radius: 0.125em; }
 
 /* line 31, ../scss/_placeholders.scss */
+.ripple--radial, .toolbar--default, .toolbar--extend, .icon,
+icon, .list--single-line a, .list--img-one-line .list__fields .list__fields__box, .list--img-one-line .list__item .list__item__img img, .list__fields__box__field:first-child, .list__item__head__text:first-child, .sub-title, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, label.showD, .action--embed, .action--float, .card--person figure img {
+  display: block; }
+
+/* line 32, ../scss/_placeholders.scss */
+.list__fields__box__field, .list__item__head__text {
+  display: none; }
+
+/* line 37, ../scss/_placeholders.scss */
+.list--img-one-line .list__fields .list__fields__box:after, .list--img-one-line .list__item:after, .list__item__head:after, .list__item__head__text:after, .list--img-one-line .list__fields:after, form:after, .card--person figure:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* line 40, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption a {
+  color: #fff; }
+
+/* line 41, ../scss/_placeholders.scss */
+.list__fields__box__field, .card--person em, .card--default em, .card--full em {
+  color: #259b24; }
+
+/* line 42, ../scss/_placeholders.scss */
+a, .list--single-line a {
+  color: #03a9f4; }
+
+/* line 45, ../scss/_placeholders.scss */
+.toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  font-size: 1em; }
+
+/* line 46, ../scss/_placeholders.scss */
+.list__fields__box__field {
+  font-size: 0.875em; }
+
+/* line 47, ../scss/_placeholders.scss */
+.list__fields__box__field, .list__item__head__text, .card--person figure img,
+.card--person figure figcaption {
+  float: left; }
+
+/* line 49, ../scss/_placeholders.scss */
+.list__fields__box__field {
+  height: inherit; }
+
+/* line 51, ../scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  line-height: 1; }
+
+/* line 53, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption, .list--img-one-line .list__fields .list__fields__box, .list__item__head, .sub-title {
+  line-height: 3; }
+
+/* line 56, ../scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend {
   background-color: #259b24; }
 
-/* line 33, ../scss/_placeholders.scss */
-.sidenav--left figure img {
-  border-radius: 50% 50% 50% 50%; }
+/* line 60, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  overflow: hidden; }
 
-/* line 37, ../scss/_placeholders.scss */
+/* line 63, ../scss/_placeholders.scss */
+.toolbar--default h1, .list--single-line a, .list--img-one-line .list__fields .list__fields__box, .list__fields__box__field, .list__item__head__text {
+  overflow: hidden; }
+
+/* line 65, ../scss/_placeholders.scss */
+.list__fields__box__field {
+  padding-right: 1em; }
+
+/* line 67, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
+icon, .sidenav--left figure, .list--img-one-line .list__fields, .card--person figure img {
+  position: relative; }
+
+/* line 68, ../scss/_placeholders.scss */
+.ripple--radial, .toolbar--default > icon, .toolbar--extend > icon,
+.toolbar--default > .icon,
+.toolbar--extend > .icon, .toolbar--default form, .toolbar--extend form, .sidenav--left, .sidenav--left figure figcaption {
+  position: absolute; }
+
+/* line 69, ../scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .overlay {
+  position: fixed; }
+
+/* line 72, ../scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
+  top: 0; }
+
+/* line 73, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  bottom: 0; }
+
+/* line 74, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  left: 0; }
+
+/* line 77, ../scss/_placeholders.scss */
+.toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
+.toolbar--default > .icon:nth-last-of-type(1),
+.toolbar--extend > .icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
+.toolbar--default > .icon:nth-last-of-type(2),
+.toolbar--extend > .icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
+.toolbar--default > .icon:nth-last-of-type(3),
+.toolbar--extend > .icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
+.toolbar--default > .icon:nth-last-of-type(4),
+.toolbar--extend > .icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
+.toolbar--default > .icon:nth-last-of-type(5),
+.toolbar--extend > .icon:nth-last-of-type(5) {
+  left: auto; }
+
+/* line 79, ../scss/_placeholders.scss */
+.toolbar--default h1 {
+  pointer-events: none; }
+
+/* line 82, ../scss/_placeholders.scss */
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__fields__box__field, .list__item__head__text {
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+/* line 83, ../scss/_placeholders.scss */
+.list__fields__box__field {
+  text-transform: capitalize; }
+
+/* line 85, ../scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1 {
+  color: #fff; }
+
+/* line 88, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption, .list__fields__box__field, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%; }
+
+/* line 91, ../scss/_placeholders.scss */
 .sidenav--left section {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -264,48 +604,21 @@ icon, .sidenav--left figure {
   -o-box-shadow: none;
   box-shadow: none; }
 
-/* line 38, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend, .list--single-line {
+/* line 92, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .card--person, .card--default, .card--full {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12); }
 
-/* line 47, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  overflow-x: hidden; }
-
-/*** animations ***/
-/* line 54, ../scss/_placeholders.scss */
-.sidenav--left figure img {
-  -webkit-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
-  -moz-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
-  animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
-
-/* line 58, ../scss/_placeholders.scss */
-.show.sidenav--left {
-  -webkit-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
-  -moz-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
-  animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
-
-/* line 59, ../scss/_placeholders.scss */
-.hide.sidenav--left {
-  -webkit-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
-  -moz-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
-  animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
-
-/* line 61, ../scss/_placeholders.scss */
-.overlay.show {
-  -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
-  -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
-  animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
-
-/* line 62, ../scss/_placeholders.scss */
-.overlay.hide {
-  -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
-  -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
-  animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
+/* line 93, ../scss/_placeholders.scss */
+.action--embed, .action--float {
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16); }
 
 /* line 1, ../scss/_reset.scss */
 * {
@@ -324,36 +637,39 @@ p,
 figure,
 fieldset,
 ul,
-ol {
+ol,
+dl,
+dd {
   margin: 0; }
 
-/* line 19, ../scss/_reset.scss */
+/* line 21, ../scss/_reset.scss */
 fieldset,
 ul,
 ol {
   padding: 0; }
 
-/* line 25, ../scss/_reset.scss */
+/* line 27, ../scss/_reset.scss */
 ul,
 ol {
   list-style: none; }
 
-/* line 29, ../scss/_reset.scss */
+/* line 31, ../scss/_reset.scss */
 a {
   text-decoration: none; }
 
 /*** canvas *****/
-/* line 33, ../scss/_reset.scss */
-main {
+/* line 35, ../scss/_reset.scss */
+main, card {
   display: block; }
 
 /***** forms ****/
-/* line 37, ../scss/_reset.scss */
+/* line 39, ../scss/_reset.scss */
 fieldset,
 input {
   border: 0;
   box-shadow: none;
-  border-radius: 0; }
+  border-radius: 0;
+  outline: 0; }
 
 /* line 2, ../scss/_base.scss */
 html {
@@ -367,70 +683,122 @@ body {
   font-weight: 300;
   color: rgba(0, 0, 0, 0.87); }
 
+@media only screen and (min-width: 768px) {
+  /* line 16, ../scss/_base.scss */
+  body {
+    font-size: 18.5px; } }
+/* line 1, ../scss/components/_ripple.scss */
+.ripple--radial {
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0); }
+
+/* line 9, ../scss/components/_ripple.scss */
+.ripple--radial {
+  width: 3em;
+  height: 3em;
+  top: 0;
+  left: 0; }
+  /* line 15, ../scss/components/_ripple.scss */
+  .ripple--radial.show {
+    -webkit-animation: rippleRadial 0.5s ease;
+    -moz-animation: rippleRadial 0.5s ease;
+    animation: rippleRadial 0.5s ease; }
+
+@-webkit-keyframes rippleRadial {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1); } }
+@-moz-keyframes rippleRadial {
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1); } }
+@keyframes rippleRadial {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
 /* line 1, ../scss/components/_appbar.scss */
 .toolbar--default, .toolbar--extend {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
   /* line 7, ../scss/components/_appbar.scss */
-  .toolbar--default icon, .toolbar--extend icon,
-  .toolbar--default .icon,
-  .toolbar--extend .icon {
-    position: absolute;
+  .toolbar--default > icon, .toolbar--extend > icon,
+  .toolbar--default > .icon,
+  .toolbar--extend > .icon {
     top: 0.25em; }
     /* line 11, ../scss/components/_appbar.scss */
-    .toolbar--default icon:nth-last-of-type(1), .toolbar--extend icon:nth-last-of-type(1),
-    .toolbar--default .icon:nth-last-of-type(1),
-    .toolbar--extend .icon:nth-last-of-type(1) {
-      left: auto;
+    .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
+    .toolbar--default > .icon:nth-last-of-type(1),
+    .toolbar--extend > .icon:nth-last-of-type(1) {
       right: 0.25em; }
     /* line 15, ../scss/components/_appbar.scss */
-    .toolbar--default icon:nth-last-of-type(2), .toolbar--extend icon:nth-last-of-type(2),
-    .toolbar--default .icon:nth-last-of-type(2),
-    .toolbar--extend .icon:nth-last-of-type(2) {
-      left: auto;
+    .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
+    .toolbar--default > .icon:nth-last-of-type(2),
+    .toolbar--extend > .icon:nth-last-of-type(2) {
       right: 3.5em; }
     /* line 19, ../scss/components/_appbar.scss */
-    .toolbar--default icon:nth-last-of-type(3), .toolbar--extend icon:nth-last-of-type(3),
-    .toolbar--default .icon:nth-last-of-type(3),
-    .toolbar--extend .icon:nth-last-of-type(3) {
-      left: auto;
+    .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
+    .toolbar--default > .icon:nth-last-of-type(3),
+    .toolbar--extend > .icon:nth-last-of-type(3) {
       right: 6.75em; }
     /* line 23, ../scss/components/_appbar.scss */
-    .toolbar--default icon:nth-last-of-type(4), .toolbar--extend icon:nth-last-of-type(4),
-    .toolbar--default .icon:nth-last-of-type(4),
-    .toolbar--extend .icon:nth-last-of-type(4) {
-      left: auto;
+    .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
+    .toolbar--default > .icon:nth-last-of-type(4),
+    .toolbar--extend > .icon:nth-last-of-type(4) {
       right: 10em; }
     /* line 27, ../scss/components/_appbar.scss */
-    .toolbar--default icon:nth-last-of-type(5), .toolbar--extend icon:nth-last-of-type(5),
-    .toolbar--default .icon:nth-last-of-type(5),
-    .toolbar--extend .icon:nth-last-of-type(5) {
-      left: auto;
+    .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
+    .toolbar--default > .icon:nth-last-of-type(5),
+    .toolbar--extend > .icon:nth-last-of-type(5) {
       right: 13.25em; }
     /* line 31, ../scss/components/_appbar.scss */
-    .toolbar--default icon:first-of-type, .toolbar--extend icon:first-of-type,
-    .toolbar--default .icon:first-of-type,
-    .toolbar--extend .icon:first-of-type {
+    .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type,
+    .toolbar--default > .icon:first-of-type,
+    .toolbar--extend > .icon:first-of-type {
       left: 0.25em;
       right: auto; }
-  /* line 36, ../scss/components/_appbar.scss */
+  /* line 37, ../scss/components/_appbar.scss */
   .static.toolbar--default, .static.toolbar--extend {
+    width: 100%; }
+  /* line 42, ../scss/components/_appbar.scss */
+  .toolbar--default form, .toolbar--extend form {
     width: 100%;
-    top: 0; }
+    padding: 1em; }
+    /* line 46, ../scss/components/_appbar.scss */
+    .toolbar--default form input, .toolbar--extend form input {
+      width: 100%;
+      box-sizing: border-box;
+      background: transparent;
+      padding-left: 3.5em;
+      color: white;
+      border-bottom: 0.0625em solid white; }
+      /* line 53, ../scss/components/_appbar.scss */
+      .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder {
+        color: #fff; }
+      /* line 57, ../scss/components/_appbar.scss */
+      .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder {
+        color: #fff; }
 
-/* line 42, ../scss/components/_appbar.scss */
+/* line 66, ../scss/components/_appbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out; }
+  transition: all 0.75s ease-in-out;
+  text-transform: uppercase; }
 
-/* line 49, ../scss/components/_appbar.scss */
+/* line 74, ../scss/components/_appbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 52, ../scss/components/_appbar.scss */
+  /* line 77, ../scss/components/_appbar.scss */
   .toolbar--default h1 {
-    overflow: hidden;
     -webkit-transform: translateY(1.25em);
     -moz-transform: translateY(1.25em);
     -ms-transform: translateY(1.25em);
@@ -438,13 +806,12 @@ body {
     transform: translateY(1.25em);
     width: -webkit-calc(100% - 11.25em );
     width: calc(100% - 11.25em );
-    font-size: 1em;
     margin-left: 4.5em; }
 
-/* line 62, ../scss/components/_appbar.scss */
+/* line 90, ../scss/components/_appbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 65, ../scss/components/_appbar.scss */
+  /* line 93, ../scss/components/_appbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -470,11 +837,15 @@ icon {
     icon svg path, .icon svg polygon,
     icon svg polygon, .icon svg rect,
     icon svg rect {
-      stroke: white;
+      stroke: #fff;
       -webkit-animation: enterIcon 0.75s ease-in-out;
       -moz-animation: enterIcon 0.75s ease-in-out;
       animation: enterIcon 0.75s ease-in-out; }
-  /* line 16, ../scss/components/_icon.scss */
+  /* line 15, ../scss/components/_icon.scss */
+  .icon .ripple--radial,
+  icon .ripple--radial {
+    background: rgba(255, 255, 255, 0.75); }
+  /* line 19, ../scss/components/_icon.scss */
   .enterNewIcon.icon,
   icon.enterNewIcon {
     -webkit-animation: enterNewIcon 0.75s ease-in-out;
@@ -483,27 +854,27 @@ icon {
 
 /* line 1, ../scss/components/_sidenav.scss */
 .sidenav--left {
-  background-color: white; }
+  background-color: #fff; }
 
 /* line 6, ../scss/components/_sidenav.scss */
 .sidenav--left {
-  width: -webkit-calc( 100% - 56px );
-  width: calc( 100% - 56px );
-  -webkit-transform: translateX(calc(-1 * ( 100% ) ));
-  -moz-transform: translateX(calc(-1 * ( 100% ) ));
-  -ms-transform: translateX(calc(-1 * ( 100% ) ));
-  -o-transform: translateX(calc(-1 * ( 100% ) ));
-  transform: translateX(calc(-1 * ( 100% ) ));
+  width: -webkit-calc( 100% - {#em(56px)} );
+  width: calc( 100% - {#em(56px)} );
+  -webkit-transform: translateX(calc( -1 * ( 100% ) ));
+  -moz-transform: translateX(calc( -1 * ( 100% ) ));
+  -ms-transform: translateX(calc( -1 * ( 100% ) ));
+  -o-transform: translateX(calc( -1 * ( 100% ) ));
+  transform: translateX(calc( -1 * ( 100% ) ));
   z-index: 1; }
 
-/* line 21, ../scss/components/_sidenav.scss */
+/* line 24, ../scss/components/_sidenav.scss */
 .sidenav--left figure {
   background-image: url("../sample/images/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 1em; }
 
-/* line 28, ../scss/components/_sidenav.scss */
+/* line 31, ../scss/components/_sidenav.scss */
 .sidenav--left figure img {
   display: block;
   position: relative;
@@ -511,38 +882,157 @@ icon {
   width: 4em;
   height: 4em;
   padding: 0.25em;
-  background-color: white; }
+  background-color: #fff; }
 
-/* line 46, ../scss/components/_sidenav.scss */
+/* line 49, ../scss/components/_sidenav.scss */
 .sidenav--left figure figcaption {
   padding: 0 1em;
   height: 3em; }
 
 /****** fix overflow-y:scrool when the height sidenav is menor*/
 @media only screen and (max-width: 256px) {
-  /* line 67, ../scss/components/_sidenav.scss */
+  /* line 72, ../scss/components/_sidenav.scss */
   .sidenav--left figure img {
     pointer-events: none;
     -webkit-animation: scaleOut 0.75s ease-in-out forwards;
     -moz-animation: scaleOut 0.75s ease-in-out forwards;
     animation: scaleOut 0.75s ease-in-out forwards; } }
 @media only screen and (min-width: 320px) {
-  /* line 74, ../scss/components/_sidenav.scss */
+  /* line 79, ../scss/components/_sidenav.scss */
   .sidenav--left {
     min-width: 264px;
     width: 20%; } }
 /****** List *****/
 /* line 3, ../scss/components/_list.scss */
-.list--single-line {
-  font-size: 16px;
-  background-color: white;
+.list--single-line, .list--img-one-line {
+  font-size: 1em;
   padding: 0.5em 0; }
 
-/* line 12, ../scss/components/_list.scss */
+/* line 11, ../scss/components/_list.scss */
 .list--single-line a {
   height: 3em;
   padding: 1em; }
 
+/* line 27, ../scss/components/_list.scss */
+.list--img-one-line .list__fields .list__fields__box {
+  height: inherit;
+  text-align: left;
+  border-bottom: 0.125em solid rgba(0, 0, 0, 0.27);
+  padding-right: 1em; }
+/* line 39, ../scss/components/_list.scss */
+.list--img-one-line .list__item {
+  height: 3.5em; }
+  /* line 42, ../scss/components/_list.scss */
+  .list--img-one-line .list__item .list__item__img {
+    padding: 0.5em 1em;
+    width: 4.5em;
+    float: left; }
+    /* line 46, ../scss/components/_list.scss */
+    .list--img-one-line .list__item .list__item__img img {
+      width: 2.5em;
+      height: 2.5em; }
+
+/* line 56, ../scss/components/_list.scss */
+.list__fields__box__field {
+  line-height: 3.4285; }
+
+/* line 72, ../scss/components/_list.scss */
+.list__item__head {
+  width: -webkit-calc(100% - 4.5em);
+  width: calc(100% - 4.5em);
+  height: inherit;
+  padding: 0 1em 0 0;
+  float: left;
+  position: relative;
+  border-bottom: 0.0625em solid rgba(0, 0, 0, 0.13); }
+
+/* line 83, ../scss/components/_list.scss */
+.list__item__head__text {
+  height: inherit;
+  line-height: 3.5;
+  width: -webkit-calc(100% - 2.5em);
+  width: calc(100% - 2.5em);
+  padding-right: 1em; }
+
+/* line 113, ../scss/components/_list.scss */
+.list--img-one-line .list__fields {
+  padding-left: 4.5em;
+  height: 3em; }
+
+@media only screen and (min-width: 400px) {
+  /* line 150, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    width: 50%; }
+    /* line 150, ../scss/components/_list.scss */
+    .list__fields__box__field:nth-child(2) {
+      display: block; }
+
+  /* line 151, ../scss/components/_list.scss */
+  .list__item__head__text {
+    width: 50%; }
+    /* line 151, ../scss/components/_list.scss */
+    .list__item__head__text:nth-child(2) {
+      display: block; } }
+@media only screen and (min-width: 600px) {
+  /* line 154, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    width: 33.33%; }
+    /* line 154, ../scss/components/_list.scss */
+    .list__fields__box__field:nth-child(3) {
+      display: block; }
+
+  /* line 155, ../scss/components/_list.scss */
+  .list__item__head__text {
+    width: 33.33%; }
+    /* line 155, ../scss/components/_list.scss */
+    .list__item__head__text:nth-child(3) {
+      display: block; } }
+@media only screen and (min-width: 800px) {
+  /* line 158, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    width: 25%; }
+    /* line 158, ../scss/components/_list.scss */
+    .list__fields__box__field:nth-child(4) {
+      display: block; }
+
+  /* line 159, ../scss/components/_list.scss */
+  .list__item__head__text {
+    width: 25%; }
+    /* line 159, ../scss/components/_list.scss */
+    .list__item__head__text:nth-child(4) {
+      display: block; } }
+@media only screen and (min-width: 1000px) {
+  /* line 162, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    width: 20%; }
+    /* line 162, ../scss/components/_list.scss */
+    .list__fields__box__field:nth-child(5) {
+      display: block; }
+
+  /* line 163, ../scss/components/_list.scss */
+  .list__item__head__text {
+    width: 20%; }
+    /* line 163, ../scss/components/_list.scss */
+    .list__item__head__text:nth-child(5) {
+      display: block; }
+
+  /* line 164, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    cursor: pointer; } }
+@media only screen and (min-width: 1200px) {
+  /* line 167, ../scss/components/_list.scss */
+  .list__fields__box__field {
+    width: 16.66%; }
+    /* line 167, ../scss/components/_list.scss */
+    .list__fields__box__field:nth-child(6) {
+      display: block; }
+
+  /* line 168, ../scss/components/_list.scss */
+  .list__item__head__text {
+    width: 16.66%; }
+    /* line 168, ../scss/components/_list.scss */
+    .list__item__head__text:nth-child(6) {
+      display: block; } }
 /* line 1, ../scss/components/_overlay.scss */
 .overlay {
   background: rgba(0, 0, 0, 0.25);
@@ -557,21 +1047,501 @@ icon {
   .overlay.hide {
     pointer-events: none; }
 
+/* line 1, ../scss/components/_sub-title.scss */
+.sub-title {
+  height: 3em;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 0 16px; }
+
+/* line 1, ../scss/components/_form.scss */
+form {
+  padding: 0 1em; }
+
+/* line 6, ../scss/components/_form.scss */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  padding: 0 0 0.5em 0;
+  background: transparent;
+  height: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.27);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-transition: border 0.75s ease;
+  -moz-transition: border 0.75s ease;
+  transition: border 0.75s ease; }
+  /* line 29, ../scss/components/_form.scss */
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  input[type="number"]:focus,
+  input[type="tel"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  select:focus,
+  textarea:focus {
+    outline-color: transparent;
+    border-bottom-color: #259b24;
+    border-bottom-width: 0.125em; }
+  /* line 34, ../scss/components/_form.scss */
+  input[type="text"].ng-dirty.ng-valid,
+  input[type="date"].ng-dirty.ng-valid,
+  input[type="number"].ng-dirty.ng-valid,
+  input[type="tel"].ng-dirty.ng-valid,
+  input[type="email"].ng-dirty.ng-valid,
+  input[type="password"].ng-dirty.ng-valid,
+  select.ng-dirty.ng-valid,
+  textarea.ng-dirty.ng-valid {
+    border-bottom-color: #72C69D;
+    border-bottom-width: 0.125em; }
+  /* line 38, ../scss/components/_form.scss */
+  input[type="text"].ng-dirty.ng-invalid,
+  input[type="date"].ng-dirty.ng-invalid,
+  input[type="number"].ng-dirty.ng-invalid,
+  input[type="tel"].ng-dirty.ng-invalid,
+  input[type="email"].ng-dirty.ng-invalid,
+  input[type="password"].ng-dirty.ng-invalid,
+  select.ng-dirty.ng-invalid,
+  textarea.ng-dirty.ng-invalid {
+    border-bottom-color: #f44336;
+    border-bottom-width: 0.125em; }
+  /* line 43, ../scss/components/_form.scss */
+  input[type="text"]::-webkit-input-placeholder,
+  input[type="date"]::-webkit-input-placeholder,
+  input[type="number"]::-webkit-input-placeholder,
+  input[type="tel"]::-webkit-input-placeholder,
+  input[type="email"]::-webkit-input-placeholder,
+  input[type="password"]::-webkit-input-placeholder,
+  select::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    opacity: 0;
+    -webkit-animation: fadeIn 0.75s ease forwards;
+    -moz-animation: fadeIn 0.75s ease forwards;
+    animation: fadeIn 0.75s ease forwards; }
+  /* line 48, ../scss/components/_form.scss */
+  input[type="text"]:-moz-placeholder,
+  input[type="date"]:-moz-placeholder,
+  input[type="number"]:-moz-placeholder,
+  input[type="tel"]:-moz-placeholder,
+  input[type="email"]:-moz-placeholder,
+  input[type="password"]:-moz-placeholder,
+  select:-moz-placeholder,
+  textarea:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+    opacity: 0;
+    -webkit-animation: fadeIn 0.75s ease forwards;
+    -moz-animation: fadeIn 0.75s ease forwards;
+    animation: fadeIn 0.75s ease forwards; }
+
+/* line 55, ../scss/components/_form.scss */
+select {
+  height: 1.125em; }
+
+/* line 60, ../scss/components/_form.scss */
+input[type="submit"],
+button {
+  display: block;
+  background: #259b24;
+  height: 2em;
+  min-width: 5.5em;
+  width: auto;
+  line-height: 2;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  border-bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 75, ../scss/components/_form.scss */
+fieldset {
+  height: 3em;
+  overflow-y: hidden;
+  padding: 1em 0;
+  -webkit-transition: height 0.75s ease-in-out;
+  -moz-transition: height 0.75s ease-in-out;
+  transition: height 0.75s ease-in-out; }
+  /* line 80, ../scss/components/_form.scss */
+  fieldset.focus {
+    height: 4.5em; }
+  /* line 83, ../scss/components/_form.scss */
+  fieldset.submit {
+    padding: 0;
+    margin-top: 1em; }
+
+/* line 89, ../scss/components/_form.scss */
+label {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  position: relative;
+  display: none;
+  line-height: 1.333;
+  height: 1.33333em; }
+  /* line 96, ../scss/components/_form.scss */
+  label.valid {
+    margin-bottom: 0.66667em;
+    font-weight: 500;
+    text-transform: capitalize; }
+  /* line 113, ../scss/components/_form.scss */
+  label.invalid {
+    color: #f44336; }
+
+/** switch**/
+/* line 138, ../scss/components/_form.scss */
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 32px;
+  height: 2px;
+  padding: 12px 3px 3px 3px; }
+
+/* line 147, ../scss/components/_form.scss */
+.switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 16px;
+  z-index: 2;
+  margin: 0;
+  cursor: pointer; }
+
+/* line 159, ../scss/components/_form.scss */
+.switch-label {
+  position: relative;
+  top: -5px;
+  display: block;
+  height: inherit;
+  background: rgba(0, 0, 0, 0.27);
+  border-radius: inherit;
+  -webkit-transition: 0.15s ease-out;
+  -moz-transition: 0.15s ease-out;
+  transition: 0.15s ease-out;
+  -webkit-transition-property: opacity background;
+  -moz-transition-property: opacity background;
+  transition-property: opacity background; }
+
+/* line 169, ../scss/components/_form.scss */
+.switch-input:checked ~ .switch-label {
+  background: rgba(0, 0, 0, 0.27); }
+
+/* line 172, ../scss/components/_form.scss */
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0; }
+
+/* line 175, ../scss/components/_form.scss */
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1; }
+
+/* line 179, ../scss/components/_form.scss */
+.switch-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.27);
+  border-radius: 10px;
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out; }
+
+/* line 190, ../scss/components/_form.scss */
+.switch-input:checked ~ .switch-handle {
+  left: 16px;
+  border: 2px solid #72C69D;
+  background: #72C69D; }
+
+/* line 196, ../scss/components/_form.scss */
+.switch-green > .switch-input:checked ~ .switch-label {
+  background: #72C69D; }
+
+/* line 1, ../scss/components/_snackbar.scss */
+.snackbar {
+  background-color: #323232;
+  padding: 1.125em 1.5em;
+  color: white;
+  height: 3.5em;
+  line-height: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  -webkit-transform: translateY(3.5em);
+  -moz-transform: translateY(3.5em);
+  -ms-transform: translateY(3.5em);
+  -o-transform: translateY(3.5em);
+  transform: translateY(3.5em); }
+  /* line 14, ../scss/components/_snackbar.scss */
+  .snackbar p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.42; }
+
+/* line 1, ../scss/components/_action.scss */
+.action--embed, .action--float {
+  -webkit-transition: all 0.75s ease-in-out;
+  -moz-transition: all 0.75s ease-in-out;
+  transition: all 0.75s ease-in-out;
+  z-index: 1;
+  background-color: #03a9f4; }
+  /* line 9, ../scss/components/_action.scss */
+  .action--embed icon, .action--float icon,
+  .action--embed .icon,
+  .action--float .icon {
+    position: absolute;
+    width: 100%;
+    width: 2.5em;
+    height: 2.5em;
+    padding: 0.5em;
+    top: 0;
+    left: 0; }
+    /* line 18, ../scss/components/_action.scss */
+    .action--embed icon line, .action--float icon line,
+    .action--embed .icon line,
+    .action--float .icon line {
+      fill: #fff;
+      stroke: #fff; }
+
+/***directive***/
+/* line 31, ../scss/components/_action.scss */
+.action--embed {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  position: absolute;
+  bottom: -1.25em;
+  left: 1em;
+  padding: 0.5em;
+  width: 2.5em;
+  height: 2.5em; }
+
+/* line 43, ../scss/components/_action.scss */
+.action--float {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 2;
+  padding: 1em;
+  width: 3.5em;
+  height: 3.5em; }
+
+/* line 5, ../scss/components/_card.scss */
+.card--person h2, .card--default h2, .card--full h2 {
+  font-size: 1.0625em; }
+/* line 10, ../scss/components/_card.scss */
+.card--person dl, .card--default dl, .card--full dl {
+  margin-bottom: 1em; }
+/* line 11, ../scss/components/_card.scss */
+.card--person dt, .card--default dt, .card--full dt {
+  font-weight: 400;
+  text-transform: capitalize; }
+/* line 15, ../scss/components/_card.scss */
+.card--person dd, .card--default dd, .card--full dd {
+  font-size: 0.875em; }
+
+/* line 18, ../scss/components/_card.scss */
+.card--person {
+  padding: 0 1em; }
+  /* line 23, ../scss/components/_card.scss */
+  .card--person figure img {
+    left: -1em;
+    width: 30%; }
+  /* line 29, ../scss/components/_card.scss */
+  .card--person figure figcaption {
+    width: 70%; }
+
+/* line 38, ../scss/components/_card.scss */
+.card__title {
+  font-size: 1.5em; }
+
+/* line 42, ../scss/components/_card.scss */
+.card--default {
+  margin: 0.5em; }
+
+/* line 49, ../scss/components/_card.scss */
+.card--person {
+  margin: 0.5em; }
+
 /*
-@import "animations";
-@import "ripple";
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {
+  animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.path {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+    dash $duration ease-in-out infinite, 
+    colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% { stroke: #4285F4; }
+  25% { stroke: #DE3E35; }
+  50% { stroke: #F7C223; }
+  75% { stroke: #1B9A59; }
+  100% { stroke: #4285F4; }
+}
+
+@keyframes dash {
+ 0% { stroke-dashoffset: $offset; }
+ 50% {
+   stroke-dashoffset: $offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
+}*/
+/* line 45, ../scss/components/_spinner.scss */
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+  -moz-animation: rotator 1.4s linear infinite;
+  animation: rotator 1.4s linear infinite; }
+
+/* line 49, ../scss/components/_spinner.scss */
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  -moz-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite; }
+
+@-webkit-keyframes colors {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(270deg); } }
+@-moz-keyframes colors {
+  0% {
+    -moz-transform: rotate(0deg); }
+  100% {
+    -moz-transform: rotate(270deg); } }
+@keyframes colors {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg); } }
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4; }
+  25% {
+    stroke: #DE3E35; }
+  50% {
+    stroke: #F7C223; }
+  75% {
+    stroke: #1B9A59; }
+  100% {
+    stroke: #4285F4; } }
+@-moz-keyframes colors {
+  0% {
+    stroke: #4285F4; }
+  25% {
+    stroke: #DE3E35; }
+  50% {
+    stroke: #F7C223; }
+  75% {
+    stroke: #1B9A59; }
+  100% {
+    stroke: #4285F4; } }
+@keyframes colors {
+  0% {
+    stroke: #4285F4; }
+  25% {
+    stroke: #DE3E35; }
+  50% {
+    stroke: #F7C223; }
+  75% {
+    stroke: #1B9A59; }
+  100% {
+    stroke: #4285F4; } }
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg); } }
+@-moz-keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    -moz-transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    -moz-transform: rotate(450deg); } }
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    -moz-transform: rotate(450deg);
+    -ms-transform: rotate(450deg);
+    -o-transform: rotate(450deg);
+    transform: rotate(450deg); } }
+/*
+
+ 
+ 
+@import "canvas"; 
  
 
-
-@import "sidenav";
-@import "canvas";
-@import "sub-title";
-@import "form";
-@import "card";
-@import "snackbar";
 @import "list";
 @import "tooltip";
-@import "action";
-@import "card";
-@import "responsive";
 */
+
+/*# sourceMappingURL=yemd.css.map */

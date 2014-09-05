@@ -1,36 +1,72 @@
 (function(yemd){  
 	'use strict'; 
-	yemd.directive('header',toolbar);
+	
+	toolbar.$inject=['$rootScope','$compile'];
 
-	function toolbar($rootScope){
+	function toolbar($rootScope,$compile){
 		return {
 			scope: {
-				title:'=', //extend,normal
-				type:'=', //extend,normal
-				isAppbar: '='
-			},
-			restrict:'E', 
+				title:'@', //extend,normal
+				type:'@', //extend,normal
+				isAppbar: '@'
+			}, 
+			restrict:'AEC', 
 			//template:"<h1>{{ vm.title }}</h1>",
 			controller: function  ($scope, $element, $attrs,$rootScope){
 				var vm= this;
-				vm.isAppbar= $scope.isAppbar || false ; 
-				vm.title= $scope.title; 
-				vm.type= $scope.type; 
-				vm.nodeTitle= $rootScope.element("<h1>"+vm.title+"</h1>"); 
+				vm.isAppbar= $scope.isAppbar || false ;  
+				vm.title= $scope.title || 'APP' ; 
+				vm.type= $scope.type || 'default'; 
 			},
 			controllerAs:'toolbarController',
 			compile: function(){
 				return {
-	        pre: function preLink(scope, iElement, iAttrs, toolbarController) {  
-	        	iElement.append(toolbarController.nodeTitle);
-	        	iElement.addClass('toolbar--'+toolbarController.type);
+	        pre: function preLink(scope, element, iAttrs, toolbarController) {  
+	        	element.addClass('toolbar--'+toolbarController.type);  
 	        }, 
-	        post: function postLink(scope, iElement, iAttrs, controller) {
+	        post: function postLink(scope, element, iAttrs, toolbarController) {
+
+	        	$rootScope.$on('injectIcon', function(event,icon,action){ 
+	        		var linkIcon = $compile(icon); 
+	        		scope.search = action;
+              linkIcon(scope); 
+	        		element.find('icon').eq(0).after(icon) 
+	        	});
+
+	        	$rootScope.$on('injectActionNew', function(event,icon,action,node){ 
+	        		var linkIcon = $compile(icon); 
+	        		scope.actionNew = action;
+              linkIcon(scope);
+              node.append(icon).addClass('show') ;
+	        	});
+
+	        	$rootScope.$on('changeTitleAppbar',function(event,newTitle){ element.find('h1').text(newTitle) });
+	        	
+	        	$rootScope.$on('changeAppbar', function(e,className){ 
+	        		element.attr('class', 'toolbar--'+className);
+						});
+
+	        	$rootScope.$on('showActionNew', function(e,menu,stateName){ 
+	        		angular.forEach(menu, function(value,index){
+	        			if ( value.nombre===stateName ) {  
+	        				var className=( element.hasClass('toolbar--default') )? 'float' : 'embed' ;
+	        				this.append( $rootScope.element( "<a class='action--"+className+"'> </a>"   ) );
+	        				var node = element.find('a').eq(-1);
+	        				var icon = $rootScope.$emit('injectActionNew', $rootScope.element("<icon data-src='actionNew' ui-sref='^.new'> </icon>"), {icon:'plus', involve:'actionNew' },node );
+	        				//this.append( $rootScope.element( "<a class='action--"+className+"'> "+icon+" </a>"   ) );
+	        			};
+	        		}, element);
+	        	});
+	        	$rootScope.$on('hideActionNew', function(e,menu){
+	        		element.find('a').removeClass('show').addClass('hide');
+	        	});
+
 	        }
 	      };
 			}
 		};
 	};
 
+	yemd.directive('yemdToolbar',toolbar);
 })(yemd);
 

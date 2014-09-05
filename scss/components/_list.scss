@@ -1,8 +1,7 @@
 /****** List *****/
 //list
 %list{
-  font-size:em(16px);
-  background-color: $bg-list ;
+  font-size:em(16px); 
   padding: em(8) 0;
   //@extend %zDepth-1; 
 }
@@ -19,6 +18,7 @@
       padding: em(16); 
     }
   }
+  
   // list--icon-one-line 
   %list--img-one-line {
     @extend %list; 

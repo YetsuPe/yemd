@@ -5,8 +5,8 @@ function $settingsProvider(){
 		colorSecondary : 'red'
 	};  
 
-  this.folderIcons= 'icons/'; //default
-
+  this.folderIcons = 'icons/'; //default
+  this.snackbar    = { toggle: false }
   this.$get=$get;
 
   $get.$inject = ['$rootScope'];

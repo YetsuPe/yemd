@@ -14,12 +14,11 @@
 	        pre: function preLink(scope, element, iAttrs) {   
 	        },  
 	        post: function postLink(scope, element, iAttrs) {  
-						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) {  
-							sidenavToggle? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show');
+						$rootScope.$on('changeSidenavLeft', function(event) { 
+				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
 				   	}); 
-				   	element.on('click',function(){
-				   		console.log("click overlay");  
-				   		$rootScope.$emit('changeSidenavLeft', $rootScope.yemd.sidenav.left.toggle); 
+				   	element.on('click',function(){ 
+				   		$rootScope.$emit('changeSidenavLeft'); 
 				   	});
 				  }
 	      };

@@ -1,11 +1,11 @@
 %sidenav {
-	@extend %position-fixed;
+	@extend %position-absolute;
 	@extend %position-top-0; 
 	background-color: $bg-sidenav; 
 }
 %sidenav--left { 
 	@extend %sidenav; 
-	@include calc( "width", " 100% - 56px " );
+	@include calc( "width", " 100% - {#em(56px)} " );
 	//height:100%;
 	//max-width:em(400);
 	//@extend %animation-hideSidenavLeft; /** problem firefox os */

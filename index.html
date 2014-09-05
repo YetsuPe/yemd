@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html data-ng-app="yemd">
+<html data-ng-app="yemd" >
 <head>
 	<meta charset="utf-8"/>
-	<title> Yemd | Punch of directives from Angular Js with material design inspiration </title>
+	<title> consama </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Yemd by @YetsuPe" />
 	<meta name="author" content="@YetsuPe" />
@@ -10,42 +10,68 @@
 	<link rel="stylesheet" href="css/yemd.css" /> 
 </head> 
 <body>  
- 
-	<header data-type="yemd.toolbar.appbar.type" data-title="yemd.toolbar.appbar.title" data-is-appbar='yemd.toolbar.appbar.isAppbar'>
-		<icon data-src="yemd.icons.menu"></icon> 
-		<icon data-src="yemd.icons.refresh"></icon>
-		<icon data-src="yemd.icons.about"></icon>
+
+	<!-- Appbar -->
+	<header yemd-toolbar data-type="default" data-is-appbar='true'>
+ 		
+ 		<h1>Yemd</h1>
+
+		<icon data-icon="menu"    data-action='sidenavLeft'></icon> 
+		<icon data-icon="refresh" data-action='refreshState'></icon>
+		<icon data-icon="menu2"   data-action='about'></icon> 
+
 	</header> 
 
-	<nav data-yemd="yemd.sidenav.left">
-		<figure data-src="sample/images/cover.jpg">
+	<!-- Sidenav -->
+	<nav yemd-sidenav data-type="left">
+		<figure data-src="sample/images/cover.jpg" class="card--head-sidenav">
 			<img src="sample/images/logo.png" alt="logo"/>
 			<figcaption>
 				<a href="#"> hello@yetsu.com </a>
 			</figcaption>
 		</figure>
-		<section data-items="" data-type=""> 
-			<a href="">Link</a> 
-			<a href="">Link</a> 
-			<a href="">Link</a> 
+		<section class="list--single-line" data-items="" data-type=""> 
+			<a href="#"> Home </a> 
+			<a href="#"> Contact </a> 
 		</section>
 	</nav>
-<!--Dependencies-->
-<!--<script src="vendor/jquery/dist/jquery.min.js"></script>  fix it will shoud agnostic -->
-<script src="vendor/angular/angular.js"></script> 
-<script src="vendor/svg-injector/svg-injector.js"></script> 
+	<nav data-type="right">
 
-<script src="js/yemd.js"></script>
-<script src="js/services/build_node.js"></script>
-<script src="js/services/svg_injector.js"></script>
+	</nav> 
+
+<!--Dependencies
+<script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic -->
+<script src="vendor/angular/angular.min.js"></script>  
+<script src="vendor/svg-injector/dist/svg-injector.min.js"></script>
+
+<script src="js/yemd.js"></script> 
+
 <script src="js/services/verge.js"></script>
+<script src="js/services/svg_injector.js"></script>
 
-<script src="js/directives/icon.js"></script>
 <script src="js/directives/toolbar.js"></script>
+<script src="js/directives/icon.js"></script>
 <script src="js/directives/sidenav.js"></script> 
+<!--
+<script src="js/services/build_node.js"></script>
+
+
+<script src="js/services/rest.js"></script>
+<script src="js/services/valid_form.js"></script>
+<script src="js/services/list_html.js"></script>
+<script src="js/services/form_html.js"></script>
+
+
+
+
 <script src="js/directives/list.js"></script> 
-<script src="js/directives/overlay.js"></script> 
-<script src="js/directives/canvas.js"></script> 
-<!---->
+<script src="js/directives/overlay.js"></script>  
+<script src="js/directives/input.js"></script>  
+<script src="js/directives/snackbar.js"></script>  
+<script src="js/directives/action.js"></script>  
+<script src="js/directives/form.js"></script>  
+<script src="js/directives/card.js"></script>  
+<script src="js/directives/show_item.js"></script>   
+-->
 </body>
 <html>

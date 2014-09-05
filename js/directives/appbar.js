@@ -1,3 +1,4 @@
+/*
 (function(yemd){  
 	'use strict'; 
 	yemd.directive('appbar',appbar);
@@ -15,8 +16,12 @@
 			},
 			link: function($scope, element, iAttrs, vm) { 
 				element.addClass('appbar--'+$scope.type); //fefinde type of toolbar
+				$rootScope.$emit('changeAppbar', function(e,className){
+					element.addClass('appbar--'+className); //fefinde type of toolbar
+				});
 			}
 		};
 	};
 
 })(yemd);
+*/

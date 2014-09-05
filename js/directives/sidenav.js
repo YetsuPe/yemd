@@ -1,66 +1,70 @@
 (function(yemd){  
 	'use strict'; 
-	yemd.directive('nav',nav);
-
-	function nav($rootScope,$window,$verge,$document){
+	
+	sidenav.$inject=['$rootScope', '$window', '$verge', '$document'];
+	function sidenav($rootScope,$window,$verge,$document){
 		return {
 			scope: { 
-				sidenav:'=yemd' //main(left),right
+				type:'@' // left, right
 			},
-			restrict:'E',  
-			controller: function  ($scope, $element, $attrs,$rootScope,$verge,$document){
-				var vm=this;
+			restrict:'AEC',  
+			controller: function  ($scope, $element, $attrs,$rootScope,$verge,$document ){
+				var vm = this;
 				vm.type = $scope.type || 'left';
 				vm.className= 'sidenav--'+vm.type ; 
 
 				vm.getHeightSidenav=  function(element){
-					//console.log($verge.viewportH() , element[0].clientHeight,element);
-					if ($verge.viewportH() >= element[0].clientHeight) { 
-						this.result= {'height': $verge.viewportH()+'px', 'position':'fixed'} ;
-					}else{  
-						//$document.find('header').addClass('static');
-						var listHeight = element.find('section')[0].clientHeight ;
-						//console.log("sidenav",vm.getHeightToHeadValue(),'list',listHeight);
-						this.result= {'height': (vm.getHeightToHeadValue() + listHeight) +'px' , 'position':'absolute' } ;
-					};
-					return this.result;
+					var height = vm.getHeightToHeadValue() + $element.find('section').eq(0)[0].clientHeight;  
+					return ($verge.viewportH() > height )? { 'height':'100%' } : {'height': (vm.getHeightToHeadValue() + height) +'px' };
 				}; 
 				vm.getHeightToHeadValue= function(){ 
-					return this.heightFigure= $verge.viewportW() <= 320? ($verge.viewportW() - 56)*(9/16): 320*(9/16) ;
+					return $verge.viewportW() <= 320? ($verge.viewportW() - 56)*(9/16)    : 320*(9/16) ;
 				};
 				vm.getHeightToHead= function(){   
 					return { height: vm.getHeightToHeadValue() +"px" };
 				}; 
+
 			},
 			controllerAs:'vm',
 			compile: function(){
 				return {
 	        pre: function preLink(scope, element, iAttrs, vm) {  
-	        	element.addClass(vm.className);
+	        	element.addClass(vm.className); 
+	        	console.log(vm.getHeightSidenav());
+	        	element.css(vm.getHeightSidenav());
 	        	element.find('figure').css( vm.getHeightToHead() );
 	        },  
 	        post: function postLink(scope, element, iAttrs, vm) { 
+
+	        	$rootScope.$on('changeSidenavLeft', function(event) { 
+				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+				   	});
+
+	        	/*
 	        	element.css( vm.getHeightSidenav(element) );
+
 	        	element.find('a').on('click',function(e){
 	        		e.preventDefault();
-	        		$rootScope.$emit('changeSidenavLeft', $rootScope.yemd.sidenav.left.toggle); 
+	        		$rootScope.$emit('changeSidenavLeft'); 
 	        	});
+	        	
 	        	//responsive
-	        	$window.onresize= function(event){  
-	        		//console.log(event);
-	        		element.find('figure').css( vm.getHeightToHead() ); 
-	        		element.css( vm.getHeightSidenav(element) );
+	        	$window.onresize= function(event){    
+	        		element.find('figure').css( vm.getHeightToHead() );
+	        		element.css( vm.getHeightSidenav(element) ); 
 	        	};
 
-						$rootScope.$on('changeSidenavLeft', function(event,sidenavToggle) { 
-				      sidenavToggle? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
-				      $rootScope.yemd.sidenav.left.toggle=sidenavToggle? false: true; 
-				   	});
+						
+						*/
+						
+
 	        }
 	      };
 			}
 		};
 	};
+
+	yemd.directive('yemdSidenav',sidenav);
 
 })(yemd);
 

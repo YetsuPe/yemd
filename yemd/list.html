@@ -1,0 +1,20 @@
+ 
+		<div class="list__fields" ng-show=" items[0] ">
+			<div class="list__fields__box">  
+				<div class="list__fields__box__field" ng-repeat="(field,value) in items[0]" ng-hide="field==='id'" ng-click="order(field)"> {{ vm.field(field) }} </div> 
+			</div>
+		</div> 
+
+		<article class="list__item" ng-repeat="(index, item) in items | filter:search | orderBy: orderBy " ng-click='selectItem()' ui-sref="^.show({ id: item.id })"> 
+	    <div class="list__item__img">
+	      <img src='sample/images/menber.jpg'  alt='Photo menber'/> 
+	    </div>
+	    <div class="list__item__head" >
+	      <div class="list__item__head__text" ng-repeat="(field, value) in item " ng-hide="field==='id'">  {{ vm.value(field,value) }}  </div>  
+	    </div>
+	  </article> 
+<!--
+<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+  <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+</svg>
+-->

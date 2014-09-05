@@ -1,68 +1,26 @@
- (function(angular, global){
+(function(angular,global){ 
   'use strict';  
 
-  global.yemd = angular.module('yemd', [])  ;
+  /**
+  * 
+  * yemd Module
+  *
+  * Description: directives for ui inspired in material design
+  */
 
-  yemd.run(function ($rootScope, $rootElement) {   
-    $rootScope.element = ( typeof jQuery !== 'undefined' ) ? jQuery : angular.element ; 
-    /* components */
-    var snackbar = $rootScope.element("<div class='snackbar'></div>"),
-        overlay  = $rootScope.element("<div class='overlay'></div>");   
-    $rootElement.find('body').append( overlay ); 
-    $rootElement.find('body').append( snackbar ); 
+  global.yemd = angular.module('yemd', []);
 
-    //config inital values
+  yemd.provider('$yemd', function $yemdProvider(){
 
-    $rootScope.yemd= {
-      settings: {
-        fontSize      : '16px',
-        colorPrimary  : 'blue',
-        colorSecondary: 'red'
-      },
-      //search
-      search:{
-        value:'Buscar...'
-      },
-      //appbar 
-      toolbar: {
-        appbar: {
-          title: 'Yemd',
-          type:'default',// 'default','extend'
-          isAppbar:true
-        }
-      },
-      //action
-      action:{
-        type:'float',//float,embed
-        icon:'plus'
-      },
-      //sidenav
-      sidenav: {
-        left: {
-          toggle: false
-        } 
-      },
-      //sidenav
-      overlay:{
-        show: false
-      },
-      //icon
-      icons:{
-        menu:   {
-          icon: 'menu',
-          involve: 'sidenavLeft' //main
-        },
-        about:  {icon: 'menu2',involve:'menuAbout'},
-        refresh:{icon: 'refresh',involve:'refresh'}
-      },
-      //sidenav
-      snackbar: {
-        show:false,
-        message: 'Default Snackbar'
-      },
-      folderIcons: 'icons/' //default
-    };   
+  	var folderIcons = 'icons8/' ; //Icon's by VisualPharm
+
+  	this.$get = [function(){
+  	  return {
+  	  	folderIcons: folderIcons
+  	  };
+
+  	}];
+
   });
- 
+
 })(angular, window);
- 

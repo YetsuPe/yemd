@@ -1,11 +1,10 @@
-(function(yemd,svg){  
+(function(angular, yemd, svg){  
  'use strict'; 
-	yemd.factory('injectSvg', ['$rootScope','$rootElement', function($rootScope,$rootElement){
-		return function(iconName,toElement){  
-			var iconNode = $rootScope.element("<img src='"+$rootScope.yemd.folderIcons+iconName+".svg' />"); 
-			toElement.append(iconNode); 
-			svg( toElement.find('img') );  
+	yemd.factory('injectSvg', ['$yemd', function($yemd){
+		return function(iconName,toElement){   
+			toElement.append( angular.element("<img src='"+ $yemd.folderIcons + iconName + ".svg' />") ); 
+			return svg( toElement.find('img') );  
 		};
 	}]);
 
-})(yemd,SVGInjector);
+})(angular, yemd, SVGInjector);
