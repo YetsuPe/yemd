@@ -1,0 +1,35 @@
+.margin-top--0 {
+	@extend %margin-top--0 ;
+}
+//Backgrounds 
+.bg-primary {
+	background-color: $color-primary;
+}
+.bg-secondary {
+	background-color: $color-secondary;
+}
+.color-primary {
+	color: $color-primary;
+}
+.color-secondary {
+	color: $color-secondary;
+}
+
+.color-facebook {
+	color:#3b5998;
+}
+.color-twitter {
+	color:#00aced;
+}
+.color-pinterest {
+	color: #cb2027;
+}
+.color-googleplus {
+	color: #dd4b39;
+}
+.color-youtube {
+	color: #bb0000;
+}
+.color-linkedin {
+	color: #007bb6;
+}

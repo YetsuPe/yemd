@@ -1,55 +1,95 @@
 %card {
 	@extend %zDepth-1;
 	@extend %border-radius-card ; 
-	//padding :em(16px);
-	h2 {
-		font-size: em(17); 
-	}
-	em { @extend %color-primary; }
-
-	dl { margin-bottom:em(16); }
-	dt {
-		font-weight: 400;
-		text-transform: capitalize;
-	}
-	dd { font-size: em(14); }
-
+	@extend %position-relative;
+	background: $color-white;    
 }
-%card--person{
-	@extend %card; 
-	padding :0 em(16px);
-	figure{
-		@extend %clearfix;
-		img {
-			@extend %display-block;
-			@extend %position-relative;
-			left: -1 * em(16);
-			width: 30%;
-		}
-		figcaption {
-			width: 70%;
-		}
-		img,
-		figcaption {
-			@extend %float-left;
-		}
-	}
-}
-%card__title{
+ 
+//components
+%card__title{ 
 	font-size:em(24px);
+	@extend %font-weight--400 ;
+	@extend %line-height-1 ;
+	margin-bottom: em(8,24);
+	color: $color-primary;
 }
 
-.card--default { 
-	@extend %card;
+// end placeholders
+
+
+
+//card
+.card {
+	@extend %card; 
 	margin  : em(8px);
-}
+	padding : em(16);
+} 
 .card--full { 
-	@extend %card;
+	@extend %card; 
+	padding : em(16);
 }
-.card--person { 
-	@extend %card--person;
+.card--full-padding-0 {
+	@extend %card; 
+}
+.card--figure {
+	@extend %card; 
+	margin  : em(8px);
+	@extend %clearfix;  
+}
+.card--list {
+	@extend %card; 
 	margin  : em(8px); 
+	.card__title,
+	.card__title--center {
+		@extend %clearfix; 
+		padding: em(16,24) 0 0 0;
+		margin: 0;
+	}
 }
+//Card components
+
 .card__title { 
 	@extend %card__title;
+} 
+.card__title--center { 
+	@extend %card__title;
+	@extend %text-align--center; 
 }
+.card__icon {
+
+}
+.card__description {
+	padding : em(16);
+	p {
+		margin-bottom: em(8);
+	}
+}
+.card__logo--main {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	margin: 0 auto em(8) auto;
+	@extend %padding-0 ; 
+	svg {
+		@extend %width-100percent;
+		@extend %height-100percent;
+	}
+}
+
+// Extras
+.countdown {
+	@extend %clearfix;
+}
+.countdown__item {
+	@extend %float-left;
+	width:33.3%;
+	@extend %text-align--center;
+	em, span {
+		@extend %display--block;
+	}
+	em {
+		@extend %card__title;
+	}
+}
+
+// Grid

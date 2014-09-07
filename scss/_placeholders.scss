@@ -28,7 +28,8 @@
 %border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
 %border-radius-card { border-radius:em(2px ); }
 //Display
-%display-block  { display: block; }
+/*DEPRECATED*/%display-block  { display: block; }
+%display--block  { display: block; }
 %display-none   { display: none; }
 
 //Clearfix
@@ -44,14 +45,25 @@
 // font
 %font-size-base { font-size: 1em   }; //16px !default
 %font-size-14   { font-size: em(14)   }; //16px !default
+
+%font-weight--100 { font-weight: 100 ; }
+%font-weight--300 { font-weight: 300 ; }
+%font-weight--400 { font-weight: 400 ; }
+%font-weight--500 { font-weight: 500 ; }
+
 %float-left     { float: left ;}
+%float--left     { float: left ;}
+%float--none     { float: none ;}
 
 %height-inherit { height: inherit; }
+%height-100percent { height: 100%; }
 //Line height
 %line-height-1     { line-height:1; }
 %line-height-2     { line-height:2; }
 %line-height-3     { line-height:3; }
 
+//margin
+%margin-top--0 { margin-top: 0; }
 
 %bg-primary        { background-color: $color-primary; }
 
@@ -62,6 +74,8 @@
 %overflow-y { overflow-y:hidden; }
 %overflow-hidden { overflow:hidden; }
 
+%padding-0        { padding: 0; }
+%padding-16       { padding: em(16); }
 %padding-right-16 { padding-right: em(16); }
 //Position type
 %position-relative { position: relative; }
@@ -78,6 +92,8 @@
 
 %pointer-events-none  { pointer-events: none; }
 
+
+%text-align--center   { text-align: center; }
 //text wrapper
 %text-ellipsis     { @include text-wrapper;}
 %text-transform-capitalize { text-transform: capitalize;}

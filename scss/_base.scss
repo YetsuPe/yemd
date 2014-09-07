@@ -8,6 +8,7 @@ body {
   line-height: 1.5;
   font-weight: 300;//normal
   color: $color-text;
+  background: $bg-body;
 }
 a {
 	@extend %color-secondary;
