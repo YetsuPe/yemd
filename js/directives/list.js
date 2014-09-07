@@ -80,6 +80,7 @@
   }; 
 
 
-  yemd.directive('list',list);    
+  yemd.directive('yemdList',list);    
+
 })(yemd);
  

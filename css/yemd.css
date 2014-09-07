@@ -431,48 +431,56 @@ label.invalid.leave {
   animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
 /* line 28, ../scss/_placeholders.scss */
-.ripple--radial, .sidenav--left figure img, .list--img-one-line .list__item .list__item__img img, .action--embed, .action--float {
+.ripple--radial, .sidenav--left figure img, .list__item__img img,
+.list__item__img svg,
+.list__item__icon img,
+.list__item__icon svg, .action--embed, .action--float {
   border-radius: 50% 50% 50% 50%; }
 
 /* line 29, ../scss/_placeholders.scss */
-.card--person, .card--default, .card--full {
+.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   border-radius: 0.125em; }
 
+/*DEPRECATED*/
 /* line 31, ../scss/_placeholders.scss */
 .ripple--radial, .toolbar--default, .toolbar--extend, .icon,
-icon, .list--single-line a, .list--img-one-line .list__fields .list__fields__box, .list--img-one-line .list__item .list__item__img img, .list__fields__box__field:first-child, .list__item__head__text:first-child, .sub-title, input[type="text"],
+icon, .list--single-line a, .list__item__img img,
+.list__item__img svg,
+.list__item__icon img,
+.list__item__icon svg, .list__item__head__text:first-child, .sub-title, input[type="text"],
 input[type="date"],
 input[type="number"],
 input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea, label.showD, .action--embed, .action--float, .card--person figure img {
+textarea, label.showD, .action--embed, .action--float {
   display: block; }
 
 /* line 32, ../scss/_placeholders.scss */
-.list__fields__box__field, .list__item__head__text {
+.countdown__item em, .countdown__item span {
+  display: block; }
+
+/* line 33, ../scss/_placeholders.scss */
+.list__item__head__text {
   display: none; }
 
-/* line 37, ../scss/_placeholders.scss */
-.list--img-one-line .list__fields .list__fields__box:after, .list--img-one-line .list__item:after, .list__item__head:after, .list__item__head__text:after, .list--img-one-line .list__fields:after, form:after, .card--person figure:after {
+/* line 38, ../scss/_placeholders.scss */
+.list__item:after, .list__item__head:after, .list__item__head__text:after, form:after, .card--figure:after, .card--list .card__title:after,
+.card--list .card__title--center:after, .countdown:after {
   content: "";
   display: table;
   clear: both; }
 
-/* line 40, ../scss/_placeholders.scss */
+/* line 41, ../scss/_placeholders.scss */
 .sidenav--left figure figcaption a {
   color: #fff; }
 
-/* line 41, ../scss/_placeholders.scss */
-.list__fields__box__field, .card--person em, .card--default em, .card--full em {
-  color: #259b24; }
-
-/* line 42, ../scss/_placeholders.scss */
+/* line 43, ../scss/_placeholders.scss */
 a, .list--single-line a {
-  color: #03a9f4; }
+  color: #009688; }
 
-/* line 45, ../scss/_placeholders.scss */
+/* line 46, ../scss/_placeholders.scss */
 .toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -483,20 +491,28 @@ select,
 textarea {
   font-size: 1em; }
 
-/* line 46, ../scss/_placeholders.scss */
-.list__fields__box__field {
-  font-size: 0.875em; }
+/* line 51, ../scss/_placeholders.scss */
+.card__title, .card__title--center, .countdown__item em {
+  font-weight: 400; }
 
-/* line 47, ../scss/_placeholders.scss */
-.list__fields__box__field, .list__item__head__text, .card--person figure img,
-.card--person figure figcaption {
+/* line 54, ../scss/_placeholders.scss */
+.list__item__img,
+.list__item__icon, .list__item__head__text, .countdown__item {
   float: left; }
 
-/* line 49, ../scss/_placeholders.scss */
-.list__fields__box__field {
-  height: inherit; }
+/* line 55, ../scss/_placeholders.scss */
+[class*="col-"] {
+  float: left; }
 
-/* line 51, ../scss/_placeholders.scss */
+/* line 56, ../scss/_placeholders.scss */
+.list--social .list__item__icon {
+  float: none; }
+
+/* line 59, ../scss/_placeholders.scss */
+.card__logo--main svg {
+  height: 100%; }
+
+/* line 61, ../scss/_placeholders.scss */
 .toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -504,57 +520,61 @@ input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea {
+textarea, .card__title, .card__title--center, .countdown__item em {
   line-height: 1; }
 
-/* line 53, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption, .list--img-one-line .list__fields .list__fields__box, .list__item__head, .sub-title {
+/* line 63, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption, .list__item__head, .sub-title {
   line-height: 3; }
 
-/* line 56, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend {
-  background-color: #259b24; }
+/* line 66, ../scss/_placeholders.scss */
+.margin-top--0 {
+  margin-top: 0; }
 
-/* line 60, ../scss/_placeholders.scss */
+/* line 68, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend {
+  background-color: #03a9f4; }
+
+/* line 72, ../scss/_placeholders.scss */
 .sidenav--left figure figcaption {
   overflow: hidden; }
 
-/* line 63, ../scss/_placeholders.scss */
-.toolbar--default h1, .list--single-line a, .list--img-one-line .list__fields .list__fields__box, .list__fields__box__field, .list__item__head__text {
+/* line 75, ../scss/_placeholders.scss */
+.toolbar--default h1, .list--single-line a, .list__item__head__text {
   overflow: hidden; }
 
-/* line 65, ../scss/_placeholders.scss */
-.list__fields__box__field {
-  padding-right: 1em; }
+/* line 77, ../scss/_placeholders.scss */
+.card__logo--main {
+  padding: 0; }
 
-/* line 67, ../scss/_placeholders.scss */
+/* line 81, ../scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
-icon, .sidenav--left figure, .list--img-one-line .list__fields, .card--person figure img {
+icon, .sidenav--left figure, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   position: relative; }
 
-/* line 68, ../scss/_placeholders.scss */
+/* line 82, ../scss/_placeholders.scss */
 .ripple--radial, .toolbar--default > icon, .toolbar--extend > icon,
 .toolbar--default > .icon,
 .toolbar--extend > .icon, .toolbar--default form, .toolbar--extend form, .sidenav--left, .sidenav--left figure figcaption {
   position: absolute; }
 
-/* line 69, ../scss/_placeholders.scss */
+/* line 83, ../scss/_placeholders.scss */
 .static.toolbar--default, .static.toolbar--extend, .overlay {
   position: fixed; }
 
-/* line 72, ../scss/_placeholders.scss */
+/* line 86, ../scss/_placeholders.scss */
 .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
   top: 0; }
 
-/* line 73, ../scss/_placeholders.scss */
+/* line 87, ../scss/_placeholders.scss */
 .sidenav--left figure figcaption {
   bottom: 0; }
 
-/* line 74, ../scss/_placeholders.scss */
+/* line 88, ../scss/_placeholders.scss */
 .sidenav--left figure figcaption {
   left: 0; }
 
-/* line 77, ../scss/_placeholders.scss */
+/* line 91, ../scss/_placeholders.scss */
 .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
 .toolbar--default > .icon:nth-last-of-type(1),
 .toolbar--extend > .icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
@@ -568,35 +588,35 @@ icon, .sidenav--left figure, .list--img-one-line .list__fields, .card--person fi
 .toolbar--extend > .icon:nth-last-of-type(5) {
   left: auto; }
 
-/* line 79, ../scss/_placeholders.scss */
+/* line 93, ../scss/_placeholders.scss */
 .toolbar--default h1 {
   pointer-events: none; }
 
-/* line 82, ../scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__fields__box__field, .list__item__head__text {
+/* line 96, ../scss/_placeholders.scss */
+.list--social, .card__title--center, .countdown__item {
+  text-align: center; }
+
+/* line 98, ../scss/_placeholders.scss */
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-/* line 83, ../scss/_placeholders.scss */
-.list__fields__box__field {
-  text-transform: capitalize; }
-
-/* line 85, ../scss/_placeholders.scss */
+/* line 101, ../scss/_placeholders.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   color: #fff; }
 
-/* line 88, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption, .list__fields__box__field, input[type="text"],
+/* line 104, ../scss/_placeholders.scss */
+.sidenav--left figure figcaption, input[type="text"],
 input[type="date"],
 input[type="number"],
 input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea {
+textarea, .card__logo--main svg {
   width: 100%; }
 
-/* line 91, ../scss/_placeholders.scss */
+/* line 107, ../scss/_placeholders.scss */
 .sidenav--left section {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -604,15 +624,15 @@ textarea {
   -o-box-shadow: none;
   box-shadow: none; }
 
-/* line 92, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend, .card--person, .card--default, .card--full {
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12); }
+/* line 108, ../scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12); }
 
-/* line 93, ../scss/_placeholders.scss */
+/* line 109, ../scss/_placeholders.scss */
 .action--embed, .action--float {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
@@ -681,12 +701,53 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  background: #E6E6E6; }
 
 @media only screen and (min-width: 768px) {
-  /* line 16, ../scss/_base.scss */
+  /* line 17, ../scss/_base.scss */
   body {
     font-size: 18.5px; } }
+/* line 5, ../scss/_helpers.scss */
+.bg-primary {
+  background-color: #03a9f4; }
+
+/* line 8, ../scss/_helpers.scss */
+.bg-secondary {
+  background-color: #009688; }
+
+/* line 11, ../scss/_helpers.scss */
+.color-primary {
+  color: #03a9f4; }
+
+/* line 14, ../scss/_helpers.scss */
+.color-secondary {
+  color: #009688; }
+
+/* line 18, ../scss/_helpers.scss */
+.color-facebook {
+  color: #3b5998; }
+
+/* line 21, ../scss/_helpers.scss */
+.color-twitter {
+  color: #00aced; }
+
+/* line 24, ../scss/_helpers.scss */
+.color-pinterest {
+  color: #cb2027; }
+
+/* line 27, ../scss/_helpers.scss */
+.color-googleplus {
+  color: #dd4b39; }
+
+/* line 30, ../scss/_helpers.scss */
+.color-youtube {
+  color: #bb0000; }
+
+/* line 33, ../scss/_helpers.scss */
+.color-linkedin {
+  color: #007bb6; }
+
 /* line 1, ../scss/components/_ripple.scss */
 .ripple--radial {
   background: rgba(0, 0, 0, 0.25);
@@ -724,6 +785,46 @@ body {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
+/* line 4, ../scss/components/_grid.scss */
+.col-10 {
+  width: 10%; }
+
+/* line 5, ../scss/components/_grid.scss */
+.col-20 {
+  width: 20%; }
+
+/* line 6, ../scss/components/_grid.scss */
+.col-30 {
+  width: 30%; }
+
+/* line 7, ../scss/components/_grid.scss */
+.col-40 {
+  width: 40%; }
+
+/* line 8, ../scss/components/_grid.scss */
+.col-50 {
+  width: 50%; }
+
+/* line 9, ../scss/components/_grid.scss */
+.col-60 {
+  width: 60%; }
+
+/* line 10, ../scss/components/_grid.scss */
+.col-70 {
+  width: 70%; }
+
+/* line 11, ../scss/components/_grid.scss */
+.col-80 {
+  width: 80%; }
+
+/* line 12, ../scss/components/_grid.scss */
+.col-90 {
+  width: 90%; }
+
+/* line 13, ../scss/components/_grid.scss */
+.col-100 {
+  width: 100%; }
+
 /* line 1, ../scss/components/_appbar.scss */
 .toolbar--default, .toolbar--extend {
   -webkit-transition: height 0.75s ease-in-out;
@@ -869,7 +970,7 @@ icon {
 
 /* line 24, ../scss/components/_sidenav.scss */
 .sidenav--left figure {
-  background-image: url("../sample/images/cover.jpg");
+  background-image: url("../assets/images/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 1em; }
@@ -904,7 +1005,7 @@ icon {
     width: 20%; } }
 /****** List *****/
 /* line 3, ../scss/components/_list.scss */
-.list--single-line, .list--img-one-line {
+.list--single-line, .list--figure {
   font-size: 1em;
   padding: 0.5em 0; }
 
@@ -913,40 +1014,39 @@ icon {
   height: 3em;
   padding: 1em; }
 
-/* line 27, ../scss/components/_list.scss */
-.list--img-one-line .list__fields .list__fields__box {
-  height: inherit;
-  text-align: left;
-  border-bottom: 0.125em solid rgba(0, 0, 0, 0.27);
-  padding-right: 1em; }
-/* line 39, ../scss/components/_list.scss */
-.list--img-one-line .list__item {
+/* line 36, ../scss/components/_list.scss */
+.list__item {
   height: 3.5em; }
-  /* line 42, ../scss/components/_list.scss */
-  .list--img-one-line .list__item .list__item__img {
-    padding: 0.5em 1em;
-    width: 4.5em;
-    float: left; }
-    /* line 46, ../scss/components/_list.scss */
-    .list--img-one-line .list__item .list__item__img img {
-      width: 2.5em;
-      height: 2.5em; }
 
-/* line 56, ../scss/components/_list.scss */
-.list__fields__box__field {
-  line-height: 3.4285; }
+/* line 41, ../scss/components/_list.scss */
+.list__item__img,
+.list__item__icon {
+  padding: 0.5em 1em;
+  width: 4.5em;
+  height: 3.5em; }
+  /* line 47, ../scss/components/_list.scss */
+  .list__item__img img,
+  .list__item__img svg,
+  .list__item__icon img,
+  .list__item__icon svg {
+    width: 2.5em;
+    height: 2.5em; }
 
-/* line 72, ../scss/components/_list.scss */
+/* line 55, ../scss/components/_list.scss */
+.list__item__icon svg {
+  padding: 0.5em;
+  background-color: #03a9f4; }
+
+/* line 60, ../scss/components/_list.scss */
 .list__item__head {
   width: -webkit-calc(100% - 4.5em);
   width: calc(100% - 4.5em);
   height: inherit;
   padding: 0 1em 0 0;
   float: left;
-  position: relative;
-  border-bottom: 0.0625em solid rgba(0, 0, 0, 0.13); }
+  position: relative; }
 
-/* line 83, ../scss/components/_list.scss */
+/* line 71, ../scss/components/_list.scss */
 .list__item__head__text {
   height: inherit;
   line-height: 3.5;
@@ -954,85 +1054,12 @@ icon {
   width: calc(100% - 2.5em);
   padding-right: 1em; }
 
-/* line 113, ../scss/components/_list.scss */
-.list--img-one-line .list__fields {
-  padding-left: 4.5em;
-  height: 3em; }
+/* line 88, ../scss/components/_list.scss */
+.list--social .list__item__icon {
+  display: inline-block;
+  padding: 0.5em;
+  width: 3.5em; }
 
-@media only screen and (min-width: 400px) {
-  /* line 150, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    width: 50%; }
-    /* line 150, ../scss/components/_list.scss */
-    .list__fields__box__field:nth-child(2) {
-      display: block; }
-
-  /* line 151, ../scss/components/_list.scss */
-  .list__item__head__text {
-    width: 50%; }
-    /* line 151, ../scss/components/_list.scss */
-    .list__item__head__text:nth-child(2) {
-      display: block; } }
-@media only screen and (min-width: 600px) {
-  /* line 154, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    width: 33.33%; }
-    /* line 154, ../scss/components/_list.scss */
-    .list__fields__box__field:nth-child(3) {
-      display: block; }
-
-  /* line 155, ../scss/components/_list.scss */
-  .list__item__head__text {
-    width: 33.33%; }
-    /* line 155, ../scss/components/_list.scss */
-    .list__item__head__text:nth-child(3) {
-      display: block; } }
-@media only screen and (min-width: 800px) {
-  /* line 158, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    width: 25%; }
-    /* line 158, ../scss/components/_list.scss */
-    .list__fields__box__field:nth-child(4) {
-      display: block; }
-
-  /* line 159, ../scss/components/_list.scss */
-  .list__item__head__text {
-    width: 25%; }
-    /* line 159, ../scss/components/_list.scss */
-    .list__item__head__text:nth-child(4) {
-      display: block; } }
-@media only screen and (min-width: 1000px) {
-  /* line 162, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    width: 20%; }
-    /* line 162, ../scss/components/_list.scss */
-    .list__fields__box__field:nth-child(5) {
-      display: block; }
-
-  /* line 163, ../scss/components/_list.scss */
-  .list__item__head__text {
-    width: 20%; }
-    /* line 163, ../scss/components/_list.scss */
-    .list__item__head__text:nth-child(5) {
-      display: block; }
-
-  /* line 164, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    cursor: pointer; } }
-@media only screen and (min-width: 1200px) {
-  /* line 167, ../scss/components/_list.scss */
-  .list__fields__box__field {
-    width: 16.66%; }
-    /* line 167, ../scss/components/_list.scss */
-    .list__fields__box__field:nth-child(6) {
-      display: block; }
-
-  /* line 168, ../scss/components/_list.scss */
-  .list__item__head__text {
-    width: 16.66%; }
-    /* line 168, ../scss/components/_list.scss */
-    .list__item__head__text:nth-child(6) {
-      display: block; } }
 /* line 1, ../scss/components/_overlay.scss */
 .overlay {
   background: rgba(0, 0, 0, 0.25);
@@ -1089,7 +1116,7 @@ textarea {
   select:focus,
   textarea:focus {
     outline-color: transparent;
-    border-bottom-color: #259b24;
+    border-bottom-color: #03a9f4;
     border-bottom-width: 0.125em; }
   /* line 34, ../scss/components/_form.scss */
   input[type="text"].ng-dirty.ng-valid,
@@ -1150,18 +1177,18 @@ select {
 input[type="submit"],
 button {
   display: block;
-  background: #259b24;
+  background: #03a9f4;
   height: 2em;
   min-width: 5.5em;
   width: auto;
   line-height: 2;
   text-transform: uppercase;
   color: #fff;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   border-bottom: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1300,7 +1327,7 @@ label {
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out;
   z-index: 1;
-  background-color: #03a9f4; }
+  background-color: #009688; }
   /* line 9, ../scss/components/_action.scss */
   .action--embed icon, .action--float icon,
   .action--embed .icon,
@@ -1349,42 +1376,55 @@ label {
   width: 3.5em;
   height: 3.5em; }
 
-/* line 5, ../scss/components/_card.scss */
-.card--person h2, .card--default h2, .card--full h2 {
-  font-size: 1.0625em; }
-/* line 10, ../scss/components/_card.scss */
-.card--person dl, .card--default dl, .card--full dl {
-  margin-bottom: 1em; }
-/* line 11, ../scss/components/_card.scss */
-.card--person dt, .card--default dt, .card--full dt {
-  font-weight: 400;
-  text-transform: capitalize; }
-/* line 15, ../scss/components/_card.scss */
-.card--person dd, .card--default dd, .card--full dd {
-  font-size: 0.875em; }
+/* line 1, ../scss/components/_card.scss */
+.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  background: #fff; }
 
-/* line 18, ../scss/components/_card.scss */
-.card--person {
-  padding: 0 1em; }
-  /* line 23, ../scss/components/_card.scss */
-  .card--person figure img {
-    left: -1em;
-    width: 30%; }
-  /* line 29, ../scss/components/_card.scss */
-  .card--person figure figcaption {
-    width: 70%; }
+/* line 9, ../scss/components/_card.scss */
+.card__title, .card__title--center, .countdown__item em {
+  font-size: 1.5em;
+  margin-bottom: 0.33333em;
+  color: #03a9f4; }
 
-/* line 38, ../scss/components/_card.scss */
-.card__title {
-  font-size: 1.5em; }
+/* line 22, ../scss/components/_card.scss */
+.card {
+  margin: 0.5em;
+  padding: 1em; }
 
-/* line 42, ../scss/components/_card.scss */
-.card--default {
+/* line 27, ../scss/components/_card.scss */
+.card--full {
+  padding: 1em; }
+
+/* line 34, ../scss/components/_card.scss */
+.card--figure {
   margin: 0.5em; }
 
-/* line 49, ../scss/components/_card.scss */
-.card--person {
+/* line 39, ../scss/components/_card.scss */
+.card--list {
   margin: 0.5em; }
+  /* line 42, ../scss/components/_card.scss */
+  .card--list .card__title,
+  .card--list .card__title--center {
+    padding: 0.66667em 0 0 0;
+    margin: 0; }
+
+/* line 61, ../scss/components/_card.scss */
+.card__description {
+  padding: 1em; }
+  /* line 63, ../scss/components/_card.scss */
+  .card__description p {
+    margin-bottom: 0.5em; }
+
+/* line 67, ../scss/components/_card.scss */
+.card__logo--main {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.5em auto; }
+
+/* line 83, ../scss/components/_card.scss */
+.countdown__item {
+  width: 33.3%; }
 
 /*
 $offset: 187;

@@ -2,7 +2,7 @@
 <html data-ng-app="yemd" >
 <head>
 	<meta charset="utf-8"/>
-	<title> consama </title>
+	<title> Yemd </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Yemd by @YetsuPe" />
 	<meta name="author" content="@YetsuPe" />
@@ -14,8 +14,7 @@
 	<!-- Appbar -->
 	<header yemd-toolbar data-type="default" data-is-appbar='true'>
  		
- 		<h1>Yemd</h1>
-
+ 		<h1>Yemd</h1> 
 		<icon data-icon="menu"    data-action='sidenavLeft'></icon> 
 		<icon data-icon="refresh" data-action='refreshState'></icon>
 		<icon data-icon="menu2"   data-action='about'></icon> 
@@ -24,8 +23,8 @@
 
 	<!-- Sidenav -->
 	<nav yemd-sidenav data-type="left">
-		<figure data-src="sample/images/cover.jpg" class="card--head-sidenav">
-			<img src="sample/images/logo.png" alt="logo"/>
+		<figure data-src="assets/images/cover.jpg" class="card--head-sidenav">
+			<img src="assets/images/logo-yetsu.svg" alt="logo"/>
 			<figcaption>
 				<a href="#"> hello@yetsu.com </a>
 			</figcaption>
@@ -35,9 +34,87 @@
 			<a href="#"> Contact </a> 
 		</section>
 	</nav>
-	<nav data-type="right">
 
-	</nav> 
+	<main>
+		
+
+		<article class="card--full">
+			<icon data-icon="logo-yetsu" class='card__logo--main'></icon> 
+			<h2 class="card__title--center">"build beautiful webapps"</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolo </p>
+		</article>
+
+		<article class="card">
+
+			<div class="countdown">
+				<div class="countdown__item">
+          <em>  29  </em>
+          <span>Days</span>
+        </div>
+        <div class="countdown__item">
+          <em>  13  </em>
+          <span>Hours</span>
+        </div>
+        <div class="countdown__item">
+          <em>  59     </em>
+          <span>Minutes</span>
+        </div>
+			</div>
+		</article>
+
+		<article class="card--figure">
+			<icon data-icon='Messaging/message_outline' class="card__icon col-20 bg-primary"></icon>
+			<div class="card__description col-80">
+				<h2 class="card__title">
+					Title
+				</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				</p>
+				<input type="email" placeholder="Tú email" />	
+			</div>
+		</article>
+ 
+		<article class="card--list">
+
+			<h2 class="card__title--center">Title</h2>
+
+			<section class='list--figure'> 
+
+				<article class="list__item" > 
+			    <icon data-icon="Social_networks/facebook" class='list__item__icon'></icon>
+			    <div class="list__item__head" >
+			      <div class="list__item__head__text">  Item </div>  
+			    </div>
+			  </article>  
+			  <article class="list__item" > 
+			    <icon data-icon="Social_networks/twitter" class='list__item__icon'></icon>
+			    <div class="list__item__head" >
+			      <div class="list__item__head__text">  Item </div>  
+			    </div>
+			  </article>  
+			  <article class="list__item" > 
+			    <icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
+			    <div class="list__item__head" >
+			      <div class="list__item__head__text">  Item </div>  
+			    </div>
+			  </article>  
+			</section> 
+
+		</article>
+
+		<article class="card--full">
+			<h2 class="card__title--center">Title</h2>
+			<section class="list--social">
+				<icon data-icon="Social_networks/facebook" class='list__item__icon color'></icon>
+				<icon data-icon="Social_networks/twitter" class='list__item__icon'></icon>
+				<icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
+				<icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
+			</section>
+		</article>
+		<!--<h2 class="sub-title"> Cards  </h2>--> 
+		
+	</main>
 
 <!--Dependencies
 <script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic -->

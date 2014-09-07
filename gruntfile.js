@@ -3,9 +3,9 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		watch:{ 
 			scripts:{
-        files:['./*.html','_components/*.html','js/*.js','js/directives/*.js','js/services/*.js','css/*.css'],
+        files:['./*.html','_components/*.html','js/*.js','js/directives/*.js','js/services/*.js','css/*.css', 'scss/*.scss', 'scss/components/*.scss'],
         options: {
-         	livereload: 1337
+         	livereload: 1338
         }
       },
 			sass:{
@@ -16,9 +16,9 @@ module.exports = function(grunt){
 		connect: {
 		  server: {
 		    options: {
-		    	port: 9002,
+		    	port: 9003,
 		    	base:'.',
-		     	livereload: 1337
+		     	livereload: 1338
 		    }
 		  }
 		},
