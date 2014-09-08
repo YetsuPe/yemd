@@ -1408,21 +1408,27 @@ label {
     padding: 0.66667em 0 0 0;
     margin: 0; }
 
-/* line 61, ../scss/components/_card.scss */
+/* line 58, ../scss/components/_card.scss */
+.card__image {
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0.125em 0 0 0.125em; }
+
+/* line 63, ../scss/components/_card.scss */
 .card__description {
   padding: 1em; }
-  /* line 63, ../scss/components/_card.scss */
+  /* line 65, ../scss/components/_card.scss */
   .card__description p {
     margin-bottom: 0.5em; }
 
-/* line 67, ../scss/components/_card.scss */
+/* line 69, ../scss/components/_card.scss */
 .card__logo--main {
   position: relative;
   width: 60px;
   height: 60px;
   margin: 0 auto 0.5em auto; }
 
-/* line 83, ../scss/components/_card.scss */
+/* line 85, ../scss/components/_card.scss */
 .countdown__item {
   width: 33.3%; }
 

@@ -30,7 +30,6 @@
 				return {
 	        pre: function preLink(scope, element, iAttrs, vm) {  
 	        	element.addClass(vm.className); 
-	        	console.log(vm.getHeightSidenav());
 	        	element.css(vm.getHeightSidenav());
 	        	element.find('figure').css( vm.getHeightToHead() );
 	        },  

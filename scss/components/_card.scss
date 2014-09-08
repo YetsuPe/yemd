@@ -55,8 +55,10 @@
 	@extend %card__title;
 	@extend %text-align--center; 
 }
-.card__icon {
-
+.card__image {
+	background-size: cover;
+	background-position: center center ;
+	border-radius:em(2px ) 0 0 em(2); 
 }
 .card__description {
 	padding : em(16);
