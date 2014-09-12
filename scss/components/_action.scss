@@ -1,7 +1,7 @@
 %action{
-  @extend %display-block;
+  @extend %display--block;
   @extend %zDepth-2;
-  @extend %border-radius-full-50percent;  
+  @extend %border-radius--50percent;  
   @include transition (all $time-animation $mode-animation);
   z-index: 1;
   background-color: $color-secondary ; 

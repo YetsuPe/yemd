@@ -1,6 +1,707 @@
+/* line 20, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .sidenav--left figure img, .list__item__img img,
+.list__item__img svg,
+.list__item__icon img,
+.list__item__icon svg, .action--embed, .action--float {
+  border-radius: 50% 50% 50% 50%; }
+
+/* line 23, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .toolbar--default, .toolbar--extend, .icon,
+icon, .sidenav--left figure img, .list--single-line a, .list__item__img img,
+.list__item__img svg,
+.list__item__icon img,
+.list__item__icon svg, .list__item__head__text:first-child, .sub-title, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, label.showD, .action--embed, .action--float, .countdown__item em, .countdown__item span {
+  display: block; }
+
+/* line 26, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list__item__head__text {
+  display: none; }
+
+/* line 31, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list__item:after, .list__item__head:after, .list__item__head__text:after, form:after, .card--figure:after, .card--list .card__title:after,
+.card--list .card__title--center:after, .countdown:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* line 34, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1, .sidenav--left figure figcaption a {
+  color: #ffffff; }
+
+/* line 36, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card__title, .card__title--center, .countdown__item em {
+  color: #03a9f4; }
+
+/* line 37, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list--single-line a {
+  color: #009688; }
+
+/* line 47, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  font-size: 1em; }
+
+/* line 52, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card__title, .card__title--center, .countdown__item em {
+  font-weight: 400; }
+
+/* line 55, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+[class*="col-"], .list__item__img,
+.list__item__icon, .list__item__head__text, .countdown__item {
+  float: left; }
+
+/* line 57, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list--social .list__item__icon {
+  float: none; }
+
+/* line 60, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card__logo--main svg {
+  height: 100%; }
+
+/* line 62, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, .card__title, .card__title--center, .countdown__item em {
+  line-height: 1; }
+
+/* line 64, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.sidenav--left figure figcaption, .list__item__head, .sub-title {
+  line-height: 3; }
+
+/* line 67, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.margin-top--0 {
+  margin-top: 0; }
+
+/* line 82, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend {
+  background-color: #03a9f4; }
+
+/* line 84, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  background-color: #ffffff; }
+
+/* line 91, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
+  overflow: hidden; }
+
+/* line 93, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card__logo--main {
+  padding: 0; }
+
+/* line 98, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
+icon, .sidenav--left figure, .sidenav--left figure img, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  position: relative; }
+
+/* line 99, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .toolbar--default > icon, .toolbar--extend > icon,
+.toolbar--default > .icon,
+.toolbar--extend > .icon, .toolbar--default form, .toolbar--extend form, .sidenav--left figure figcaption {
+  position: absolute; }
+
+/* line 100, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
+  position: fixed; }
+
+/* line 102, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .overlay, .overlay.hide {
+  pointer-events: none; }
+
+/* line 103, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.overlay.show {
+  pointer-events: auto; }
+
+/* line 106, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
+  top: 0; }
+
+/* line 107, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.sidenav--left figure figcaption {
+  bottom: 0; }
+
+/* line 108, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .sidenav--left figure figcaption {
+  left: 0; }
+
+/* line 116, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
+.toolbar--default > .icon:nth-last-of-type(1),
+.toolbar--extend > .icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
+.toolbar--default > .icon:nth-last-of-type(2),
+.toolbar--extend > .icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
+.toolbar--default > .icon:nth-last-of-type(3),
+.toolbar--extend > .icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
+.toolbar--default > .icon:nth-last-of-type(4),
+.toolbar--extend > .icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
+.toolbar--default > .icon:nth-last-of-type(5),
+.toolbar--extend > .icon:nth-last-of-type(5) {
+  left: auto; }
+
+/* line 117, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type,
+.toolbar--default > .icon:first-of-type,
+.toolbar--extend > .icon:first-of-type {
+  right: auto; }
+
+/* line 123, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list--social, .card__title--center, .countdown__item {
+  text-align: center; }
+
+/* line 124, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+/* line 126, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default h1, .toolbar--extend h1 {
+  text-transform: uppercase; }
+
+/* line 129, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-10, .col-100 {
+  width: 10%; }
+
+/* line 130, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-20 {
+  width: 20%; }
+
+/* line 131, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-30 {
+  width: 30%; }
+
+/* line 132, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-40 {
+  width: 40%; }
+
+/* line 133, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-50 {
+  width: 50%; }
+
+/* line 134, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-60 {
+  width: 60%; }
+
+/* line 135, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-70 {
+  width: 70%; }
+
+/* line 136, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-80 {
+  width: 80%; }
+
+/* line 137, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.col-90 {
+  width: 90%; }
+
+/* line 138, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .sidenav--left figure figcaption, input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, .card__logo--main svg {
+  width: 100%; }
+
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 9, ../scss/common-scss/dev/components/_normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+/* line 19, ../scss/common-scss/dev/components/_normalize.scss */
+body {
+  margin: 0; }
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+/* line 32, ../scss/common-scss/dev/components/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+/* line 52, ../scss/common-scss/dev/components/_normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 65, ../scss/common-scss/dev/components/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+/* line 75, ../scss/common-scss/dev/components/_normalize.scss */
+[hidden],
+template {
+  display: none; }
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 87, ../scss/common-scss/dev/components/_normalize.scss */
+a {
+  background: transparent; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 95, ../scss/common-scss/dev/components/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+/* line 107, ../scss/common-scss/dev/components/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+/* line 115, ../scss/common-scss/dev/components/_normalize.scss */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+/* line 124, ../scss/common-scss/dev/components/_normalize.scss */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+/* line 133, ../scss/common-scss/dev/components/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 142, ../scss/common-scss/dev/components/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 151, ../scss/common-scss/dev/components/_normalize.scss */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 159, ../scss/common-scss/dev/components/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 167, ../scss/common-scss/dev/components/_normalize.scss */
+sup {
+  top: -0.5em; }
+
+/* line 171, ../scss/common-scss/dev/components/_normalize.scss */
+sub {
+  bottom: -0.25em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+/* line 182, ../scss/common-scss/dev/components/_normalize.scss */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/* line 190, ../scss/common-scss/dev/components/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+/* line 201, ../scss/common-scss/dev/components/_normalize.scss */
+figure {
+  margin: 1em 40px; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 209, ../scss/common-scss/dev/components/_normalize.scss */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Contain overflow in all browsers.
+ */
+/* line 219, ../scss/common-scss/dev/components/_normalize.scss */
+pre {
+  overflow: auto; }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+/* line 227, ../scss/common-scss/dev/components/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+/* line 250, ../scss/common-scss/dev/components/_normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+/* line 264, ../scss/common-scss/dev/components/_normalize.scss */
+button {
+  overflow: visible; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+/* line 275, ../scss/common-scss/dev/components/_normalize.scss */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 288, ../scss/common-scss/dev/components/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 300, ../scss/common-scss/dev/components/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 309, ../scss/common-scss/dev/components/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 320, ../scss/common-scss/dev/components/_normalize.scss */
+input {
+  line-height: normal; }
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 332, ../scss/common-scss/dev/components/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+/* line 344, ../scss/common-scss/dev/components/_normalize.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 355, ../scss/common-scss/dev/components/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+/* line 368, ../scss/common-scss/dev/components/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 377, ../scss/common-scss/dev/components/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 388, ../scss/common-scss/dev/components/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+/* line 397, ../scss/common-scss/dev/components/_normalize.scss */
+textarea {
+  overflow: auto; }
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+/* line 406, ../scss/common-scss/dev/components/_normalize.scss */
+optgroup {
+  font-weight: bold; }
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 417, ../scss/common-scss/dev/components/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 422, ../scss/common-scss/dev/components/_normalize.scss */
+td,
+th {
+  padding: 0; }
+
+/* line 1, ../scss/common-scss/dev/components/_reset.scss */
+body,
+figure,
+main,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+/* line 13, ../scss/common-scss/dev/components/_reset.scss */
+a {
+  text-decoration: none; }
+
+/* line 17, ../scss/common-scss/dev/components/_reset.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 1, ../scss/common-scss/dev/components/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 5, ../scss/common-scss/dev/components/_base.scss */
+html {
+  font-size: 16px;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* line 12, ../scss/common-scss/dev/components/_base.scss */
+::-moz-selection {
+  background-color: #03a9f4;
+  color: #ffffff;
+  text-shadow: none; }
+
+/* line 17, ../scss/common-scss/dev/components/_base.scss */
+::selection {
+  background-color: #03a9f4;
+  color: #ffffff;
+  text-shadow: none; }
+
+/* line 23, ../scss/common-scss/dev/components/_base.scss */
+img {
+  -ms-interpolation-mode: bicubic; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+/* line 28, ../scss/common-scss/dev/components/_base.scss */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+/* line 38, ../scss/common-scss/dev/components/_base.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+@media print {
+  /* line 48, ../scss/common-scss/dev/components/_base.scss */
+  img {
+    max-width: 100% !important; } }
+@media print {
+  /* line 52, ../scss/common-scss/dev/components/_base.scss */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; } }
 /*** text ***/
 /**** components ****/
-@import url("http://fonts.googleapis.com/css?family=Roboto:100,300,400,500");
 @-webkit-keyframes scaleIn {
   from {
     -webkit-transform: scale(0); }
@@ -430,193 +1131,11 @@ label.invalid.leave {
   -moz-animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 28, ../scss/_placeholders.scss */
-.ripple--radial, .sidenav--left figure img, .list__item__img img,
-.list__item__img svg,
-.list__item__icon img,
-.list__item__icon svg, .action--embed, .action--float {
-  border-radius: 50% 50% 50% 50%; }
-
-/* line 29, ../scss/_placeholders.scss */
+/* line 27, ../scss/_placeholders.scss */
 .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   border-radius: 0.125em; }
 
-/*DEPRECATED*/
-/* line 31, ../scss/_placeholders.scss */
-.ripple--radial, .toolbar--default, .toolbar--extend, .icon,
-icon, .list--single-line a, .list__item__img img,
-.list__item__img svg,
-.list__item__icon img,
-.list__item__icon svg, .list__item__head__text:first-child, .sub-title, input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"],
-select,
-textarea, label.showD, .action--embed, .action--float {
-  display: block; }
-
-/* line 32, ../scss/_placeholders.scss */
-.countdown__item em, .countdown__item span {
-  display: block; }
-
 /* line 33, ../scss/_placeholders.scss */
-.list__item__head__text {
-  display: none; }
-
-/* line 38, ../scss/_placeholders.scss */
-.list__item:after, .list__item__head:after, .list__item__head__text:after, form:after, .card--figure:after, .card--list .card__title:after,
-.card--list .card__title--center:after, .countdown:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/* line 41, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption a {
-  color: #fff; }
-
-/* line 43, ../scss/_placeholders.scss */
-a, .list--single-line a {
-  color: #009688; }
-
-/* line 46, ../scss/_placeholders.scss */
-.toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"],
-select,
-textarea {
-  font-size: 1em; }
-
-/* line 51, ../scss/_placeholders.scss */
-.card__title, .card__title--center, .countdown__item em {
-  font-weight: 400; }
-
-/* line 54, ../scss/_placeholders.scss */
-.list__item__img,
-.list__item__icon, .list__item__head__text, .countdown__item {
-  float: left; }
-
-/* line 55, ../scss/_placeholders.scss */
-[class*="col-"] {
-  float: left; }
-
-/* line 56, ../scss/_placeholders.scss */
-.list--social .list__item__icon {
-  float: none; }
-
-/* line 59, ../scss/_placeholders.scss */
-.card__logo--main svg {
-  height: 100%; }
-
-/* line 61, ../scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"],
-select,
-textarea, .card__title, .card__title--center, .countdown__item em {
-  line-height: 1; }
-
-/* line 63, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption, .list__item__head, .sub-title {
-  line-height: 3; }
-
-/* line 66, ../scss/_placeholders.scss */
-.margin-top--0 {
-  margin-top: 0; }
-
-/* line 68, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend {
-  background-color: #03a9f4; }
-
-/* line 72, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  overflow: hidden; }
-
-/* line 75, ../scss/_placeholders.scss */
-.toolbar--default h1, .list--single-line a, .list__item__head__text {
-  overflow: hidden; }
-
-/* line 77, ../scss/_placeholders.scss */
-.card__logo--main {
-  padding: 0; }
-
-/* line 81, ../scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
-icon, .sidenav--left figure, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
-  position: relative; }
-
-/* line 82, ../scss/_placeholders.scss */
-.ripple--radial, .toolbar--default > icon, .toolbar--extend > icon,
-.toolbar--default > .icon,
-.toolbar--extend > .icon, .toolbar--default form, .toolbar--extend form, .sidenav--left, .sidenav--left figure figcaption {
-  position: absolute; }
-
-/* line 83, ../scss/_placeholders.scss */
-.static.toolbar--default, .static.toolbar--extend, .overlay {
-  position: fixed; }
-
-/* line 86, ../scss/_placeholders.scss */
-.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
-  top: 0; }
-
-/* line 87, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  bottom: 0; }
-
-/* line 88, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption {
-  left: 0; }
-
-/* line 91, ../scss/_placeholders.scss */
-.toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
-.toolbar--default > .icon:nth-last-of-type(1),
-.toolbar--extend > .icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
-.toolbar--default > .icon:nth-last-of-type(2),
-.toolbar--extend > .icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
-.toolbar--default > .icon:nth-last-of-type(3),
-.toolbar--extend > .icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
-.toolbar--default > .icon:nth-last-of-type(4),
-.toolbar--extend > .icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
-.toolbar--default > .icon:nth-last-of-type(5),
-.toolbar--extend > .icon:nth-last-of-type(5) {
-  left: auto; }
-
-/* line 93, ../scss/_placeholders.scss */
-.toolbar--default h1 {
-  pointer-events: none; }
-
-/* line 96, ../scss/_placeholders.scss */
-.list--social, .card__title--center, .countdown__item {
-  text-align: center; }
-
-/* line 98, ../scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-/* line 101, ../scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1 {
-  color: #fff; }
-
-/* line 104, ../scss/_placeholders.scss */
-.sidenav--left figure figcaption, input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"],
-select,
-textarea, .card__logo--main svg {
-  width: 100%; }
-
-/* line 107, ../scss/_placeholders.scss */
 .sidenav--left section {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -624,7 +1143,7 @@ textarea, .card__logo--main svg {
   -o-box-shadow: none;
   box-shadow: none; }
 
-/* line 108, ../scss/_placeholders.scss */
+/* line 34, ../scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
@@ -632,7 +1151,7 @@ textarea, .card__logo--main svg {
   -o-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12); }
 
-/* line 109, ../scss/_placeholders.scss */
+/* line 35, ../scss/_placeholders.scss */
 .action--embed, .action--float {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
@@ -691,23 +1210,6 @@ input {
   border-radius: 0;
   outline: 0; }
 
-/* line 2, ../scss/_base.scss */
-html {
-  height: 100%; }
-
-/* line 5, ../scss/_base.scss */
-body {
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.87);
-  background: #E6E6E6; }
-
-@media only screen and (min-width: 768px) {
-  /* line 17, ../scss/_base.scss */
-  body {
-    font-size: 18.5px; } }
 /* line 5, ../scss/_helpers.scss */
 .bg-primary {
   background-color: #03a9f4; }
@@ -724,30 +1226,6 @@ body {
 .color-secondary {
   color: #009688; }
 
-/* line 18, ../scss/_helpers.scss */
-.color-facebook {
-  color: #3b5998; }
-
-/* line 21, ../scss/_helpers.scss */
-.color-twitter {
-  color: #00aced; }
-
-/* line 24, ../scss/_helpers.scss */
-.color-pinterest {
-  color: #cb2027; }
-
-/* line 27, ../scss/_helpers.scss */
-.color-googleplus {
-  color: #dd4b39; }
-
-/* line 30, ../scss/_helpers.scss */
-.color-youtube {
-  color: #bb0000; }
-
-/* line 33, ../scss/_helpers.scss */
-.color-linkedin {
-  color: #007bb6; }
-
 /* line 1, ../scss/components/_ripple.scss */
 .ripple--radial {
   background: rgba(0, 0, 0, 0.25);
@@ -757,13 +1235,11 @@ body {
   -o-transform: scale(0);
   transform: scale(0); }
 
-/* line 9, ../scss/components/_ripple.scss */
+/* line 10, ../scss/components/_ripple.scss */
 .ripple--radial {
   width: 3em;
-  height: 3em;
-  top: 0;
-  left: 0; }
-  /* line 15, ../scss/components/_ripple.scss */
+  height: 3em; }
+  /* line 16, ../scss/components/_ripple.scss */
   .ripple--radial.show {
     -webkit-animation: rippleRadial 0.5s ease;
     -moz-animation: rippleRadial 0.5s ease;
@@ -785,95 +1261,51 @@ body {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-/* line 4, ../scss/components/_grid.scss */
-.col-10 {
-  width: 10%; }
-
-/* line 5, ../scss/components/_grid.scss */
-.col-20 {
-  width: 20%; }
-
-/* line 6, ../scss/components/_grid.scss */
-.col-30 {
-  width: 30%; }
-
-/* line 7, ../scss/components/_grid.scss */
-.col-40 {
-  width: 40%; }
-
-/* line 8, ../scss/components/_grid.scss */
-.col-50 {
-  width: 50%; }
-
-/* line 9, ../scss/components/_grid.scss */
-.col-60 {
-  width: 60%; }
-
-/* line 10, ../scss/components/_grid.scss */
-.col-70 {
-  width: 70%; }
-
-/* line 11, ../scss/components/_grid.scss */
-.col-80 {
-  width: 80%; }
-
-/* line 12, ../scss/components/_grid.scss */
-.col-90 {
-  width: 90%; }
-
-/* line 13, ../scss/components/_grid.scss */
-.col-100 {
-  width: 100%; }
-
-/* line 1, ../scss/components/_appbar.scss */
+/* line 1, ../scss/components/_toolbar.scss */
 .toolbar--default, .toolbar--extend {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
-  /* line 7, ../scss/components/_appbar.scss */
+  /* line 7, ../scss/components/_toolbar.scss */
   .toolbar--default > icon, .toolbar--extend > icon,
   .toolbar--default > .icon,
   .toolbar--extend > .icon {
     top: 0.25em; }
-    /* line 11, ../scss/components/_appbar.scss */
+    /* line 11, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
     .toolbar--default > .icon:nth-last-of-type(1),
     .toolbar--extend > .icon:nth-last-of-type(1) {
       right: 0.25em; }
-    /* line 15, ../scss/components/_appbar.scss */
+    /* line 15, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
     .toolbar--default > .icon:nth-last-of-type(2),
     .toolbar--extend > .icon:nth-last-of-type(2) {
       right: 3.5em; }
-    /* line 19, ../scss/components/_appbar.scss */
+    /* line 19, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
     .toolbar--default > .icon:nth-last-of-type(3),
     .toolbar--extend > .icon:nth-last-of-type(3) {
       right: 6.75em; }
-    /* line 23, ../scss/components/_appbar.scss */
+    /* line 23, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
     .toolbar--default > .icon:nth-last-of-type(4),
     .toolbar--extend > .icon:nth-last-of-type(4) {
       right: 10em; }
-    /* line 27, ../scss/components/_appbar.scss */
+    /* line 27, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
     .toolbar--default > .icon:nth-last-of-type(5),
     .toolbar--extend > .icon:nth-last-of-type(5) {
       right: 13.25em; }
-    /* line 31, ../scss/components/_appbar.scss */
+    /* line 31, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type,
     .toolbar--default > .icon:first-of-type,
     .toolbar--extend > .icon:first-of-type {
-      left: 0.25em;
-      right: auto; }
-  /* line 37, ../scss/components/_appbar.scss */
-  .static.toolbar--default, .static.toolbar--extend {
-    width: 100%; }
-  /* line 42, ../scss/components/_appbar.scss */
+      left: 0.25em; }
+  /* line 42, ../scss/components/_toolbar.scss */
   .toolbar--default form, .toolbar--extend form {
     width: 100%;
     padding: 1em; }
-    /* line 46, ../scss/components/_appbar.scss */
+    /* line 46, ../scss/components/_toolbar.scss */
     .toolbar--default form input, .toolbar--extend form input {
       width: 100%;
       box-sizing: border-box;
@@ -881,24 +1313,23 @@ body {
       padding-left: 3.5em;
       color: white;
       border-bottom: 0.0625em solid white; }
-      /* line 53, ../scss/components/_appbar.scss */
+      /* line 53, ../scss/components/_toolbar.scss */
       .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder {
         color: #fff; }
-      /* line 57, ../scss/components/_appbar.scss */
+      /* line 57, ../scss/components/_toolbar.scss */
       .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder {
         color: #fff; }
 
-/* line 66, ../scss/components/_appbar.scss */
+/* line 66, ../scss/components/_toolbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-  text-transform: uppercase; }
+  transition: all 0.75s ease-in-out; }
 
-/* line 74, ../scss/components/_appbar.scss */
+/* line 75, ../scss/components/_toolbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 77, ../scss/components/_appbar.scss */
+  /* line 78, ../scss/components/_toolbar.scss */
   .toolbar--default h1 {
     -webkit-transform: translateY(1.25em);
     -moz-transform: translateY(1.25em);
@@ -909,10 +1340,10 @@ body {
     width: calc(100% - 11.25em );
     margin-left: 4.5em; }
 
-/* line 90, ../scss/components/_appbar.scss */
+/* line 91, ../scss/components/_toolbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 93, ../scss/components/_appbar.scss */
+  /* line 94, ../scss/components/_toolbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -977,8 +1408,6 @@ icon {
 
 /* line 31, ../scss/components/_sidenav.scss */
 .sidenav--left figure img {
-  display: block;
-  position: relative;
   top: 1em;
   width: 4em;
   height: 4em;
@@ -1065,14 +1494,7 @@ icon {
   background: rgba(0, 0, 0, 0.25);
   width: 100%;
   height: 100%;
-  pointer-events: none;
   opacity: 0; }
-  /* line 10, ../scss/components/_overlay.scss */
-  .overlay.show {
-    pointer-events: auto; }
-  /* line 14, ../scss/components/_overlay.scss */
-  .overlay.hide {
-    pointer-events: none; }
 
 /* line 1, ../scss/components/_sub-title.scss */
 .sub-title {
@@ -1376,15 +1798,10 @@ label {
   width: 3.5em;
   height: 3.5em; }
 
-/* line 1, ../scss/components/_card.scss */
-.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
-  background: #fff; }
-
 /* line 9, ../scss/components/_card.scss */
 .card__title, .card__title--center, .countdown__item em {
   font-size: 1.5em;
-  margin-bottom: 0.33333em;
-  color: #03a9f4; }
+  margin-bottom: 0.33333em; }
 
 /* line 22, ../scss/components/_card.scss */
 .card {

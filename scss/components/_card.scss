@@ -1,17 +1,17 @@
 %card {
 	@extend %zDepth-1;
-	@extend %border-radius-card ; 
-	@extend %position-relative;
-	background: $color-white;    
+	@extend %border-radius--2px ; 
+	@extend %position--relative;
+	@extend %bg--white;   
 }
  
 //components
 %card__title{ 
-	font-size:em(24px);
 	@extend %font-weight--400 ;
-	@extend %line-height-1 ;
-	margin-bottom: em(8,24);
-	color: $color-primary;
+	@extend %line-height--1 ;
+	@extend %color--primary ;
+	font-size:em(24px);
+	margin-bottom: em(8,24); 
 }
 
 // end placeholders
@@ -71,10 +71,10 @@
 	width: 60px;
 	height: 60px;
 	margin: 0 auto em(8) auto;
-	@extend %padding-0 ; 
+	@extend %padding--0 ; 
 	svg {
-		@extend %width-100percent;
-		@extend %height-100percent;
+		@extend %width--100percent;
+		@extend %height--100percent;
 	}
 }
 
@@ -83,7 +83,7 @@
 	@extend %clearfix;
 }
 .countdown__item {
-	@extend %float-left;
+	@extend %float--left;
 	width:33.3%;
 	@extend %text-align--center;
 	em, span {

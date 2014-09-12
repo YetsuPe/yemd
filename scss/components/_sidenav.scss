@@ -1,6 +1,6 @@
 %sidenav {
-	@extend %position-absolute;
-	@extend %position-top-0; 
+	@extend %position--fixed;
+	@extend %top--0; 
 	background-color: $bg-sidenav; 
 }
 %sidenav--left { 
@@ -22,21 +22,21 @@
 	@extend %sidenav;
 }
 %sidenav--left__head{ 
-	@extend %position-relative ;
+	@extend %position--relative ;
 	background-image: url("../assets/images/cover.jpg") ;
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding:0 em(16px); 
 }
 %sidenav--left__head__logo{
-	display:block;
-	position: relative;
+	@extend %display--block ;
+	@extend %position--relative ;
 	top: em(16px);
 	width: em(64px);
 	height: em(64px);
 	padding: em(4);
 	background-color: $color-white ; 
-	@extend %border-radius-full-50percent;
+	@extend %border-radius--50percent;
 	@extend %animation-scaleIn;
 } 
 .sidenav--left{
@@ -47,17 +47,17 @@
 			@extend %sidenav--left__head__logo;
 		}
 		figcaption {
-			@extend %position-absolute ;
-			@extend %position-bottom-0 ;
-			@extend %position-left-0 ;
-			@extend %width-100percent;
-			@extend %line-height-3 ;  
-			@extend %overflow;
+			@extend %position--absolute ;
+			@extend %bottom--0 ;
+			@extend %left--0 ;
+			@extend %width--100percent;
+			@extend %line-height--3 ;  
+			@extend %overflow--hidden;
 			padding: 0 em(16);
 			height:em(48); 
-			@extend %text-ellipsis;
+			@extend %text-overflow--ellipsis;
 			a {
-				@extend %color-white; 
+				@extend %color--white; 
 			}
 		}
 	}

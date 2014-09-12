@@ -1,13 +1,13 @@
 [class*="col-"] {
 	@extend %float--left;
 }
-.col-10 { width: 10% ;}
-.col-20 { width: 20% ;}
-.col-30 { width: 30% ;}
-.col-40 { width: 40% ;}
-.col-50 { width: 50% ;}
-.col-60 { width: 60% ;}
-.col-70 { width: 70% ;}
-.col-80 { width: 80% ;}
-.col-90 { width: 90% ;} 
-.col-100{ width: 100% ;}
+.col-10 { @extend %width--10percent; }
+.col-20 { @extend %width--20percent; }
+.col-30 { @extend %width--30percent; }
+.col-40 { @extend %width--40percent; }
+.col-50 { @extend %width--50percent; }
+.col-60 { @extend %width--60percent; }
+.col-70 { @extend %width--70percent; }
+.col-80 { @extend %width--80percent; }
+.col-90 { @extend %width--90percent; } 
+.col-100{ @extend %width--10percent; }

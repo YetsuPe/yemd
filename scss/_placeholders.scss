@@ -24,84 +24,10 @@
 %animation-enterSnackbar{ @include animation(  enterSnackbar $enter_animation forwards ); };
 %animation-leaveSnackbar{ @include animation(  leaveSnackbar $leave_animation forwards ); };
 
-//Border radius
-%border-radius-full-50percent { border-radius:50% 50% 50% 50% ; }
-%border-radius-card { border-radius:em(2px ); }
-//Display
-/*DEPRECATED*/%display-block  { display: block; }
-%display--block  { display: block; }
-%display-none   { display: none; }
-
-//Clearfix
-%clearfix {
-	//*zoom: 1;  /* The star is here to prevent other browsers from reading and applying this rule. */
-	&:after { content: ""; display: table; clear: both; }
-}
-// color
-%color-white { color: $color-white  } 
-%color-primary { color: $color-primary  } 
-%color-secondary { color: $color-secondary  } 
-
-// font
-%font-size-base { font-size: 1em   }; //16px !default
-%font-size-14   { font-size: em(14)   }; //16px !default
-
-%font-weight--100 { font-weight: 100 ; }
-%font-weight--300 { font-weight: 300 ; }
-%font-weight--400 { font-weight: 400 ; }
-%font-weight--500 { font-weight: 500 ; }
-
-%float-left     { float: left ;}
-%float--left     { float: left ;}
-%float--none     { float: none ;}
-
-%height-inherit { height: inherit; }
-%height-100percent { height: 100%; }
-//Line height
-%line-height-1     { line-height:1; }
-%line-height-2     { line-height:2; }
-%line-height-3     { line-height:3; }
-
-//margin
-%margin-top--0 { margin-top: 0; }
-
-%bg-primary        { background-color: $color-primary; }
+%border-radius--2px { border-radius: em(2px); } 
 
 
-//overflow
-%overflow { overflow:hidden; }
-%overflow-x { overflow-x:hidden; }
-%overflow-y { overflow-y:hidden; }
-%overflow-hidden { overflow:hidden; }
 
-%padding-0        { padding: 0; }
-%padding-16       { padding: em(16); }
-%padding-right-16 { padding-right: em(16); }
-//Position type
-%position-relative { position: relative; }
-%position-absolute { position: absolute; }
-%position-fixed 	 { position: fixed; } 
-
-//Position location
-%position-top-0	     { top:    0; } 
-%position-bottom-0	 { bottom: 0; } 
-%position-left-0	   { left:   0; } 
-%position-right-0	   { right:  0; } 
-
-%position-left-auto	 { left:auto; } 
-
-%pointer-events-none  { pointer-events: none; }
-
-
-%text-align--center   { text-align: center; }
-//text wrapper
-%text-ellipsis     { @include text-wrapper;}
-%text-transform-capitalize { text-transform: capitalize;}
-
-%text-color-white  { color:$color-text-white; }
-
-//width
-%width-100percent { width:100%;  }
 
 // z Depth
 %zDepth-0 { @include zDepth($z_depth:0); }
@@ -109,4 +35,6 @@
 %zDepth-2 { @include zDepth($z_depth:2); }
 %zDepth-3 { @include zDepth($z_depth:3); }
 %zDepth-4 { @include zDepth($z_depth:4); }
-%zDepth-5 { @include zDepth($z_depth:5); } 
+%zDepth-5 { @include zDepth($z_depth:5); }
+
+

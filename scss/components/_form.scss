@@ -11,10 +11,10 @@ input[type="email"],
 input[type="password"],
 select, 
 textarea {
-	@extend %display-block;
-	@extend %width-100percent; 
-	@extend %line-height-1; 
-	@extend %font-size-base; 
+	@extend %display--block;
+	@extend %width--100percent; 
+	@extend %line-height--1; 
+	@extend %font-size--base; 
 
 	padding: 0 0 em(8) 0; 
   background:transparent; 
@@ -127,7 +127,7 @@ label {
 	}
 	
 	&.showD{
-		@extend %display-block;
+		@extend %display--block;
 	}
 }
 
