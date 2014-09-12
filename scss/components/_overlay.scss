@@ -1,12 +1,13 @@
 .overlay {
 	@extend %position--fixed;
 	@extend %top--0;
-	background:$bg-overlay ;  
-	width:100%;
-	height:100%;
+	@extend %width--100percent;
+	@extend %height--100percent;
 	@extend %pointer-events--none;
-	opacity:0;
-	//@include animation( fadeOut $time-animation $mode-animation forwards);
+	@extend %opacity--0;
+
+	background:$bg-overlay ;
+
 	&.show{ 
 		@extend %pointer-events--auto;
 		@extend %animation-overlayIn;

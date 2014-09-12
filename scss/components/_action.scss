@@ -2,19 +2,20 @@
   @extend %display--block;
   @extend %zDepth-2;
   @extend %border-radius--50percent;  
+  @extend %z-index--1 ;
+  @extend %bg--secondary  ;
+
   @include transition (all $time-animation $mode-animation);
-  z-index: 1;
-  background-color: $color-secondary ; 
 
   icon,
   .icon { 
-    position: absolute; 
-    width: 100%; 
+    @extend %position--absolute;
+    @extend %top--0;
+    @extend %left--0; 
+    @extend %width--100percent;
     width: em(40px);
     height: em(40px);
-    padding: em(8px); 
-    top: 0;
-    left: 0;
+    padding: em(8px);  
     line {
       fill: $color-white;
       stroke: $color-white;
@@ -27,14 +28,17 @@
     @extend %animation-scaleOut;
   }
 }
+.action {
+  @extend %display--none;
+}
 /***directive***/ 
 .action--embed { 
   @extend %action;
   @include transform( scale(1) );
-  position: absolute;
-  bottom: -1* em(20px);
-  left: em(16px);
+  @extend %position--absolute;
+  @extend %left--base;
 
+  bottom: -1* em(20px);
   padding: em(8px);
   width : em(40px);
   height: em(40px) ; 
@@ -42,13 +46,13 @@
 
 .action--float {
   @extend %action;
+  @extend %position--fixed;
+  @extend %z-index--2;
+  @extend %top--base;
+  @extend %right--base;
+  @extend %padding--base;
+  
   @include transform( scale(1) );
-  position: fixed;
-  bottom: em(16px);
-  right: em(16px);
-  z-index: 2;
-
-  padding: em(16px);
   width :  em(56px);
   height:  em(56px) ; 
 }

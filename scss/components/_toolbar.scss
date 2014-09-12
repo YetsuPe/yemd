@@ -3,9 +3,9 @@
 	@extend %position--relative;
 	@extend %zDepth-1;
 	@extend %bg--primary ;
+
 	@include transition ( height $time-animation $mode-animation );
-	> icon,
-	> .icon { 
+	> icon { 
 		@extend %position--absolute;
 		top:em(4); 
 		&:nth-last-of-type(1){
@@ -40,22 +40,23 @@
 		@extend %width--100percent	 ; 
 	}
 	form {
-		width: 100%;
+		@extend %width--100percent;
 		@extend %position--absolute;
-		padding: em(16);
+		@extend %padding--base;
 		input{
-			width: 100%;
-			box-sizing: border-box;
-			background: transparent;
+			@extend %width--100percent;
+			@extend %color--white;
+			@extend %bg--transparent;
+			@extend %box-sizing--border-box;
 			padding-left: em(56);
-			color: white;
 			border-bottom: em(1px) solid white;
+
 			&::-webkit-input-placeholder {
-		  	color:$color-text-white; 
+		  	@extend %color--white;
 				@extend %animation-fadeIn; 
 		  }
 			&:-moz-placeholder {
-				color:$color-text-white; 
+				@extend %color--white;
 				@extend %animation-fadeIn; 
 			}
 		}
@@ -75,12 +76,13 @@
 .toolbar--default {
 	@extend %toolbar;
 	height: em(56); 
+
 	h1{ 
-		@extend %toolbar__title;
+		@extend %toolbar__title ;
 		@extend %text-overflow--ellipsis ; 
 		@extend %overflow--hidden;
 		@extend %font-size--base ;  
-		@extend %pointer-events--none ;  
+		@extend %pointer-events--none ;    
 
 		@include transform( translateY( em(20) ) );
 		@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
@@ -88,6 +90,7 @@
 		margin-left: em(72); 
 	}
 }
+
 .toolbar--extend {
 	@extend %toolbar;
 	height: em(128);

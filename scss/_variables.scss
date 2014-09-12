@@ -7,8 +7,8 @@ $color-primary         : #03a9f4 !default;
 $color-secondary       : #009688 !default;
 
 // grey text, icons, and dividers
-$color-black           : #000;
-$color-white           : #fff; 
+$color-black           : #000000;
+$color-white           : #ffffff; 
 $color-divider         : rgba($color-black,0.12);
 $color-hint-text       : rgba($color-black,0.26);
 $color-text            : rgba($color-black,0.87);
@@ -36,7 +36,7 @@ $bg-datalist : $color-white;
 //appbar
 $appbar-height:56px;
 //overlay
-$bg-overlay:rgba(0,0,0,.25);
+$bg-overlay:rgba(0,0,0,.5);
 //snackbar
 $bg-snackbar: #323232 ;
 //tooltip

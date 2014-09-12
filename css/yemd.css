@@ -1,11 +1,31 @@
-/* line 20, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 21, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default form input, .toolbar--extend form input {
+  background-color: transparent; }
+
+/* line 22, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default, .toolbar--extend {
+  background-color: #03a9f4; }
+
+/* line 23, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--embed, .action--float {
+  background-color: #009688; }
+
+/* line 24, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  background-color: #ffffff; }
+
+/* line 28, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .sidenav--left figure img, .list__item__img img,
 .list__item__img svg,
 .list__item__icon img,
 .list__item__icon svg, .action--embed, .action--float {
   border-radius: 50% 50% 50% 50%; }
 
-/* line 23, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 31, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default form input, .toolbar--extend form input {
+  box-sizing: border-box; }
+
+/* line 35, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .toolbar--default, .toolbar--extend, .icon,
 icon, .sidenav--left figure img, .list--single-line a, .list__item__img img,
 .list__item__img svg,
@@ -20,30 +40,30 @@ select,
 textarea, label.showD, .action--embed, .action--float, .countdown__item em, .countdown__item span {
   display: block; }
 
-/* line 26, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.list__item__head__text {
+/* line 38, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.list__item__head__text, .action {
   display: none; }
 
-/* line 31, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 43, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list__item:after, .list__item__head:after, .list__item__head__text:after, form:after, .card--figure:after, .card--list .card__title:after,
 .card--list .card__title--center:after, .countdown:after {
   content: "";
   display: table;
   clear: both; }
 
-/* line 34, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1, .sidenav--left figure figcaption a {
+/* line 46, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default form input, .toolbar--extend form input, .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder, .toolbar--default h1, .toolbar--extend h1, .sidenav--left figure figcaption a {
   color: #ffffff; }
 
-/* line 36, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 48, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .card__title, .card__title--center, .countdown__item em {
   color: #03a9f4; }
 
-/* line 37, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 49, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list--single-line a {
   color: #009688; }
 
-/* line 47, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 59, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -54,24 +74,24 @@ select,
 textarea {
   font-size: 1em; }
 
-/* line 52, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 64, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .card__title, .card__title--center, .countdown__item em {
   font-weight: 400; }
 
-/* line 55, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 67, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 [class*="col-"], .list__item__img,
 .list__item__icon, .list__item__head__text, .countdown__item {
   float: left; }
 
-/* line 57, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 69, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list--social .list__item__icon {
   float: none; }
 
-/* line 60, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card__logo--main svg {
+/* line 72, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.overlay, .card__logo--main svg {
   height: 100%; }
 
-/* line 62, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 74, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -82,144 +102,158 @@ select,
 textarea, .card__title, .card__title--center, .countdown__item em {
   line-height: 1; }
 
-/* line 64, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 76, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .sidenav--left figure figcaption, .list__item__head, .sub-title {
   line-height: 3; }
 
-/* line 67, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 79, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .margin-top--0 {
   margin-top: 0; }
 
-/* line 82, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend {
-  background-color: #03a9f4; }
-
-/* line 84, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
-  background-color: #ffffff; }
-
-/* line 91, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 98, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
   overflow: hidden; }
 
-/* line 93, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 101, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.overlay {
+  opacity: 0; }
+
+/* line 103, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .card__logo--main {
   padding: 0; }
 
-/* line 98, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 105, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default form, .toolbar--extend form, .action--float {
+  padding: 1em; }
+
+/* line 113, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
 icon, .sidenav--left figure, .sidenav--left figure img, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   position: relative; }
 
-/* line 99, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.ripple--radial, .toolbar--default > icon, .toolbar--extend > icon,
-.toolbar--default > .icon,
-.toolbar--extend > .icon, .toolbar--default form, .toolbar--extend form, .sidenav--left figure figcaption {
+/* line 114, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .toolbar--default > icon, .toolbar--extend > icon, .toolbar--default form, .toolbar--extend form, .sidenav--left figure figcaption, .action--embed icon, .action--float icon,
+.action--embed .icon,
+.action--float .icon, .action--embed {
   position: absolute; }
 
-/* line 100, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
+/* line 115, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay, .action--float {
   position: fixed; }
 
-/* line 102, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 117, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .overlay, .overlay.hide {
   pointer-events: none; }
 
-/* line 103, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 118, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .overlay.show {
   pointer-events: auto; }
 
-/* line 106, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.ripple--radial, .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay {
+/* line 121, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay, .action--embed icon, .action--float icon,
+.action--embed .icon,
+.action--float .icon {
   top: 0; }
 
-/* line 107, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 122, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .sidenav--left figure figcaption {
   bottom: 0; }
 
-/* line 108, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.ripple--radial, .sidenav--left figure figcaption {
+/* line 123, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.ripple--radial, .sidenav--left figure figcaption, .action--embed icon, .action--float icon,
+.action--embed .icon,
+.action--float .icon {
   left: 0; }
 
-/* line 116, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
-.toolbar--default > .icon:nth-last-of-type(1),
-.toolbar--extend > .icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
-.toolbar--default > .icon:nth-last-of-type(2),
-.toolbar--extend > .icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
-.toolbar--default > .icon:nth-last-of-type(3),
-.toolbar--extend > .icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
-.toolbar--default > .icon:nth-last-of-type(4),
-.toolbar--extend > .icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
-.toolbar--default > .icon:nth-last-of-type(5),
-.toolbar--extend > .icon:nth-last-of-type(5) {
+/* line 126, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--float {
+  top: 1em; }
+
+/* line 128, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--embed {
+  left: 1em; }
+
+/* line 129, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--float {
+  right: 1em; }
+
+/* line 131, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5) {
   left: auto; }
 
-/* line 117, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type,
-.toolbar--default > .icon:first-of-type,
-.toolbar--extend > .icon:first-of-type {
+/* line 132, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type {
   right: auto; }
 
-/* line 123, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 138, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list--social, .card__title--center, .countdown__item {
   text-align: center; }
 
-/* line 124, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 139, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-/* line 126, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 141, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   text-transform: uppercase; }
 
-/* line 129, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 144, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-10, .col-100 {
   width: 10%; }
 
-/* line 130, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 145, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-20 {
   width: 20%; }
 
-/* line 131, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 146, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-30 {
   width: 30%; }
 
-/* line 132, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 147, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-40 {
   width: 40%; }
 
-/* line 133, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 148, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-50 {
   width: 50%; }
 
-/* line 134, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 149, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-60 {
   width: 60%; }
 
-/* line 135, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 150, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-70 {
   width: 70%; }
 
-/* line 136, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 151, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-80 {
   width: 80%; }
 
-/* line 137, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+/* line 152, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .col-90 {
   width: 90%; }
 
-/* line 138, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.static.toolbar--default, .static.toolbar--extend, .sidenav--left figure figcaption, input[type="text"],
+/* line 153, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.static.toolbar--default, .static.toolbar--extend, .toolbar--default form, .toolbar--extend form, .toolbar--default form input, .toolbar--extend form input, .sidenav--left figure figcaption, .overlay, input[type="text"],
 input[type="date"],
 input[type="number"],
 input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea, .card__logo--main svg {
+textarea, .action--embed icon, .action--float icon,
+.action--embed .icon,
+.action--float .icon, .card__logo--main svg {
   width: 100%; }
+
+/* line 155, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--embed, .action--float {
+  z-index: 1; }
+
+/* line 156, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.action--float {
+  z-index: 2; }
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
@@ -1266,70 +1300,42 @@ input {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
-  /* line 7, ../scss/components/_toolbar.scss */
-  .toolbar--default > icon, .toolbar--extend > icon,
-  .toolbar--default > .icon,
-  .toolbar--extend > .icon {
+  /* line 8, ../scss/components/_toolbar.scss */
+  .toolbar--default > icon, .toolbar--extend > icon {
     top: 0.25em; }
     /* line 11, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1),
-    .toolbar--default > .icon:nth-last-of-type(1),
-    .toolbar--extend > .icon:nth-last-of-type(1) {
+    .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1) {
       right: 0.25em; }
     /* line 15, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2),
-    .toolbar--default > .icon:nth-last-of-type(2),
-    .toolbar--extend > .icon:nth-last-of-type(2) {
+    .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2) {
       right: 3.5em; }
     /* line 19, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3),
-    .toolbar--default > .icon:nth-last-of-type(3),
-    .toolbar--extend > .icon:nth-last-of-type(3) {
+    .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3) {
       right: 6.75em; }
     /* line 23, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4),
-    .toolbar--default > .icon:nth-last-of-type(4),
-    .toolbar--extend > .icon:nth-last-of-type(4) {
+    .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4) {
       right: 10em; }
     /* line 27, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5),
-    .toolbar--default > .icon:nth-last-of-type(5),
-    .toolbar--extend > .icon:nth-last-of-type(5) {
+    .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5) {
       right: 13.25em; }
     /* line 31, ../scss/components/_toolbar.scss */
-    .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type,
-    .toolbar--default > .icon:first-of-type,
-    .toolbar--extend > .icon:first-of-type {
+    .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type {
       left: 0.25em; }
-  /* line 42, ../scss/components/_toolbar.scss */
-  .toolbar--default form, .toolbar--extend form {
-    width: 100%;
-    padding: 1em; }
-    /* line 46, ../scss/components/_toolbar.scss */
-    .toolbar--default form input, .toolbar--extend form input {
-      width: 100%;
-      box-sizing: border-box;
-      background: transparent;
-      padding-left: 3.5em;
-      color: white;
-      border-bottom: 0.0625em solid white; }
-      /* line 53, ../scss/components/_toolbar.scss */
-      .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder {
-        color: #fff; }
-      /* line 57, ../scss/components/_toolbar.scss */
-      .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder {
-        color: #fff; }
+  /* line 46, ../scss/components/_toolbar.scss */
+  .toolbar--default form input, .toolbar--extend form input {
+    padding-left: 3.5em;
+    border-bottom: 0.0625em solid white; }
 
-/* line 66, ../scss/components/_toolbar.scss */
+/* line 67, ../scss/components/_toolbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
 
-/* line 75, ../scss/components/_toolbar.scss */
+/* line 76, ../scss/components/_toolbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 78, ../scss/components/_toolbar.scss */
+  /* line 80, ../scss/components/_toolbar.scss */
   .toolbar--default h1 {
     -webkit-transform: translateY(1.25em);
     -moz-transform: translateY(1.25em);
@@ -1340,10 +1346,10 @@ input {
     width: calc(100% - 11.25em );
     margin-left: 4.5em; }
 
-/* line 91, ../scss/components/_toolbar.scss */
+/* line 94, ../scss/components/_toolbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 94, ../scss/components/_toolbar.scss */
+  /* line 97, ../scss/components/_toolbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -1369,7 +1375,7 @@ icon {
     icon svg path, .icon svg polygon,
     icon svg polygon, .icon svg rect,
     icon svg rect {
-      stroke: #fff;
+      stroke: #ffffff;
       -webkit-animation: enterIcon 0.75s ease-in-out;
       -moz-animation: enterIcon 0.75s ease-in-out;
       animation: enterIcon 0.75s ease-in-out; }
@@ -1386,7 +1392,7 @@ icon {
 
 /* line 1, ../scss/components/_sidenav.scss */
 .sidenav--left {
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 /* line 6, ../scss/components/_sidenav.scss */
 .sidenav--left {
@@ -1412,7 +1418,7 @@ icon {
   width: 4em;
   height: 4em;
   padding: 0.25em;
-  background-color: #fff; }
+  background-color: #ffffff; }
 
 /* line 49, ../scss/components/_sidenav.scss */
 .sidenav--left figure figcaption {
@@ -1491,10 +1497,7 @@ icon {
 
 /* line 1, ../scss/components/_overlay.scss */
 .overlay {
-  background: rgba(0, 0, 0, 0.25);
-  width: 100%;
-  height: 100%;
-  opacity: 0; }
+  background: rgba(0, 0, 0, 0.5); }
 
 /* line 1, ../scss/components/_sub-title.scss */
 .sub-title {
@@ -1605,7 +1608,7 @@ button {
   width: auto;
   line-height: 2;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffffff;
   -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
@@ -1705,7 +1708,7 @@ label {
   left: 0;
   width: 16px;
   height: 16px;
-  background: #fff;
+  background: #ffffff;
   border: 2px solid rgba(0, 0, 0, 0.27);
   border-radius: 10px;
   -webkit-transition: all 0.15s ease-out;
@@ -1747,54 +1750,41 @@ label {
 .action--embed, .action--float {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
-  transition: all 0.75s ease-in-out;
-  z-index: 1;
-  background-color: #009688; }
-  /* line 9, ../scss/components/_action.scss */
+  transition: all 0.75s ease-in-out; }
+  /* line 10, ../scss/components/_action.scss */
   .action--embed icon, .action--float icon,
   .action--embed .icon,
   .action--float .icon {
-    position: absolute;
-    width: 100%;
     width: 2.5em;
     height: 2.5em;
-    padding: 0.5em;
-    top: 0;
-    left: 0; }
-    /* line 18, ../scss/components/_action.scss */
+    padding: 0.5em; }
+    /* line 19, ../scss/components/_action.scss */
     .action--embed icon line, .action--float icon line,
     .action--embed .icon line,
     .action--float .icon line {
-      fill: #fff;
-      stroke: #fff; }
+      fill: #ffffff;
+      stroke: #ffffff; }
 
 /***directive***/
-/* line 31, ../scss/components/_action.scss */
+/* line 35, ../scss/components/_action.scss */
 .action--embed {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  position: absolute;
   bottom: -1.25em;
-  left: 1em;
   padding: 0.5em;
   width: 2.5em;
   height: 2.5em; }
 
-/* line 43, ../scss/components/_action.scss */
+/* line 47, ../scss/components/_action.scss */
 .action--float {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
   -o-transform: scale(1);
   transform: scale(1);
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-  z-index: 2;
-  padding: 1em;
   width: 3.5em;
   height: 3.5em; }
 

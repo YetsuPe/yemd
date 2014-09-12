@@ -14,13 +14,22 @@
 
   	var folderIcons = 'icons8/' ; //Icon's by VisualPharm
 
-  	this.$get = [function(){
+  	this.$get = ['$rootElement',function($rootElement){
+
+      var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
+          overlay  = angular.element("<div class='overlay'></div>"),
+          action   = angular.element("<a class='action'><icon data-icon='plus'></icon></a>");  
+
+      $rootElement.find('body').append( overlay );  
+      $rootElement.find('body').append( snackbar ); 
+      $rootElement.find('header').append( action ); 
+
   	  return {
   	  	folderIcons: folderIcons
   	  };
 
   	}];
 
-  });
+  }); 
 
 })(angular, window);
