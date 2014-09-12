@@ -119,7 +119,7 @@ textarea, .card__title, .card__title--center, .countdown__item em {
   opacity: 0; }
 
 /* line 103, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card__logo--main {
+.form--strech, .card__logo--main {
   padding: 0; }
 
 /* line 105, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
@@ -1326,16 +1326,16 @@ input {
     padding-left: 3.5em;
     border-bottom: 0.0625em solid white; }
 
-/* line 67, ../scss/components/_toolbar.scss */
+/* line 66, ../scss/components/_toolbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
 
-/* line 76, ../scss/components/_toolbar.scss */
+/* line 75, ../scss/components/_toolbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 80, ../scss/components/_toolbar.scss */
+  /* line 79, ../scss/components/_toolbar.scss */
   .toolbar--default h1 {
     -webkit-transform: translateY(1.25em);
     -moz-transform: translateY(1.25em);
@@ -1346,10 +1346,10 @@ input {
     width: calc(100% - 11.25em );
     margin-left: 4.5em; }
 
-/* line 94, ../scss/components/_toolbar.scss */
+/* line 93, ../scss/components/_toolbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 97, ../scss/components/_toolbar.scss */
+  /* line 96, ../scss/components/_toolbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -1509,7 +1509,7 @@ icon {
 form {
   padding: 0 1em; }
 
-/* line 6, ../scss/components/_form.scss */
+/* line 8, ../scss/components/_form.scss */
 input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -1531,7 +1531,7 @@ textarea {
   -webkit-transition: border 0.75s ease;
   -moz-transition: border 0.75s ease;
   transition: border 0.75s ease; }
-  /* line 29, ../scss/components/_form.scss */
+  /* line 31, ../scss/components/_form.scss */
   input[type="text"]:focus,
   input[type="date"]:focus,
   input[type="number"]:focus,
@@ -1543,7 +1543,7 @@ textarea {
     outline-color: transparent;
     border-bottom-color: #03a9f4;
     border-bottom-width: 0.125em; }
-  /* line 34, ../scss/components/_form.scss */
+  /* line 36, ../scss/components/_form.scss */
   input[type="text"].ng-dirty.ng-valid,
   input[type="date"].ng-dirty.ng-valid,
   input[type="number"].ng-dirty.ng-valid,
@@ -1552,9 +1552,9 @@ textarea {
   input[type="password"].ng-dirty.ng-valid,
   select.ng-dirty.ng-valid,
   textarea.ng-dirty.ng-valid {
-    border-bottom-color: #72C69D;
+    border-bottom-color: #259b24;
     border-bottom-width: 0.125em; }
-  /* line 38, ../scss/components/_form.scss */
+  /* line 40, ../scss/components/_form.scss */
   input[type="text"].ng-dirty.ng-invalid,
   input[type="date"].ng-dirty.ng-invalid,
   input[type="number"].ng-dirty.ng-invalid,
@@ -1565,7 +1565,7 @@ textarea {
   textarea.ng-dirty.ng-invalid {
     border-bottom-color: #f44336;
     border-bottom-width: 0.125em; }
-  /* line 43, ../scss/components/_form.scss */
+  /* line 45, ../scss/components/_form.scss */
   input[type="text"]::-webkit-input-placeholder,
   input[type="date"]::-webkit-input-placeholder,
   input[type="number"]::-webkit-input-placeholder,
@@ -1579,7 +1579,7 @@ textarea {
     -webkit-animation: fadeIn 0.75s ease forwards;
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
-  /* line 48, ../scss/components/_form.scss */
+  /* line 50, ../scss/components/_form.scss */
   input[type="text"]:-moz-placeholder,
   input[type="date"]:-moz-placeholder,
   input[type="number"]:-moz-placeholder,
@@ -1594,11 +1594,11 @@ textarea {
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
 
-/* line 55, ../scss/components/_form.scss */
+/* line 57, ../scss/components/_form.scss */
 select {
   height: 1.125em; }
 
-/* line 60, ../scss/components/_form.scss */
+/* line 62, ../scss/components/_form.scss */
 input[type="submit"],
 button {
   display: block;
@@ -1619,7 +1619,7 @@ button {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 75, ../scss/components/_form.scss */
+/* line 77, ../scss/components/_form.scss */
 fieldset {
   height: 3em;
   overflow-y: hidden;
@@ -1627,15 +1627,15 @@ fieldset {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
-  /* line 80, ../scss/components/_form.scss */
+  /* line 82, ../scss/components/_form.scss */
   fieldset.focus {
     height: 4.5em; }
-  /* line 83, ../scss/components/_form.scss */
+  /* line 85, ../scss/components/_form.scss */
   fieldset.submit {
     padding: 0;
     margin-top: 1em; }
 
-/* line 89, ../scss/components/_form.scss */
+/* line 91, ../scss/components/_form.scss */
 label {
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
@@ -1643,17 +1643,17 @@ label {
   display: none;
   line-height: 1.333;
   height: 1.33333em; }
-  /* line 96, ../scss/components/_form.scss */
+  /* line 98, ../scss/components/_form.scss */
   label.valid {
     margin-bottom: 0.66667em;
     font-weight: 500;
     text-transform: capitalize; }
-  /* line 113, ../scss/components/_form.scss */
+  /* line 115, ../scss/components/_form.scss */
   label.invalid {
     color: #f44336; }
 
 /** switch**/
-/* line 138, ../scss/components/_form.scss */
+/* line 140, ../scss/components/_form.scss */
 .switch {
   position: relative;
   display: inline-block;
@@ -1662,7 +1662,7 @@ label {
   height: 2px;
   padding: 12px 3px 3px 3px; }
 
-/* line 147, ../scss/components/_form.scss */
+/* line 149, ../scss/components/_form.scss */
 .switch-input {
   position: absolute;
   top: 0;
@@ -1674,7 +1674,7 @@ label {
   margin: 0;
   cursor: pointer; }
 
-/* line 159, ../scss/components/_form.scss */
+/* line 161, ../scss/components/_form.scss */
 .switch-label {
   position: relative;
   top: -5px;
@@ -1689,19 +1689,19 @@ label {
   -moz-transition-property: opacity background;
   transition-property: opacity background; }
 
-/* line 169, ../scss/components/_form.scss */
+/* line 171, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label {
   background: rgba(0, 0, 0, 0.27); }
 
-/* line 172, ../scss/components/_form.scss */
+/* line 174, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label:before {
   opacity: 0; }
 
-/* line 175, ../scss/components/_form.scss */
+/* line 177, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label:after {
   opacity: 1; }
 
-/* line 179, ../scss/components/_form.scss */
+/* line 181, ../scss/components/_form.scss */
 .switch-handle {
   position: absolute;
   top: 0;
@@ -1715,15 +1715,15 @@ label {
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out; }
 
-/* line 190, ../scss/components/_form.scss */
+/* line 192, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-handle {
   left: 16px;
-  border: 2px solid #72C69D;
-  background: #72C69D; }
+  border: 2px solid #259b24;
+  background: #259b24; }
 
-/* line 196, ../scss/components/_form.scss */
+/* line 198, ../scss/components/_form.scss */
 .switch-green > .switch-input:checked ~ .switch-label {
-  background: #72C69D; }
+  background: #259b24; }
 
 /* line 1, ../scss/components/_snackbar.scss */
 .snackbar {

@@ -14,7 +14,10 @@
 			compile: function(){
 				return {
 	        pre: function preLink(scope, element, attrs ) {  
-	        	if ( attrs.class='card--figure' ) {
+	        	
+	        }, 
+	        post: function postLink(scope, element, attrs) {
+ 						if ( attrs.class='card--figure' ) {
 	        		var image = element.find('img').eq(0);
 	        		var blockImage=angular.element("<div'></div>"); 
 	        		//console.log( "url('"+image.attr('src')+"'')" );
@@ -23,9 +26,6 @@
 	        		image.remove();
 	        		element.prepend(blockImage);
 	        	};
-	        }, 
-	        post: function postLink(scope, element, attrs) {
- 						  
 	        }
 	      };
 			}

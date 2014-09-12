@@ -69,7 +69,11 @@
 				</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</p>
-				<input type="email" placeholder="Tú email" />
+
+				<form name="suscription" no-validate class="form--strech">
+					<input type="email" placeholder="Tú email" name='email' ng-model="email" required/>
+				</form>
+				
 			</div>
 		</article>
 
@@ -128,7 +132,16 @@
 <script src="js/directives/sidenav.js"></script>
 <script src="js/directives/card.js"></script>
 <script src="js/directives/overlay.js"></script>
+<script src="js/directives/input.js"></script>
 <!--
+<script src="js/directives/list.js"></script>
+
+<script src="js/directives/snackbar.js"></script>
+<script src="js/directives/action.js"></script>
+<script src="js/directives/form.js"></script>
+<script src="js/directives/show_item.js"></script>
+
+
 <script src="js/services/build_node.js"></script>
 
 
@@ -140,14 +153,6 @@
 
 
 
-<script src="js/directives/list.js"></script>
-
-<script src="js/directives/input.js"></script>
-<script src="js/directives/snackbar.js"></script>
-<script src="js/directives/action.js"></script>
-<script src="js/directives/form.js"></script>
-
-<script src="js/directives/show_item.js"></script>
 -->
 </body>
 <html>

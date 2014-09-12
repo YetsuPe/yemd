@@ -2,7 +2,9 @@ form{
 	@extend %clearfix;
 	padding:0 em(16px);
 }
-
+.form--strech {
+  @extend %padding--0;
+}
 input[type="text"],
 input[type="date"],
 input[type="number"],
