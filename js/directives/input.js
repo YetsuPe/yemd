@@ -5,8 +5,8 @@
 	function input($rootScope, $timeout){
 		return {
 			scope: {},
-			restrict:'E',
-			require:['ngModel','^form'] , 
+			restrict:'E', 
+			require:['ngModel','?^form'] , 
 			controller:  function($scope,$element,$attrs,$rootScope ){
 
 			},
@@ -17,7 +17,7 @@
             		error    = angular.element("<label class='invalid'>"+(attrs.title || 'error')+"</label>"),
             		fieldset = angular.element("<fieldset></fieldset>");
             
-           	if ( attrs.type==="date" || attrs.type==="time"|| attrs.type==="datetime-local" || element[0].tagName==="SELECT" ) {
+           		if ( attrs.type==="date" || attrs.type==="time"|| attrs.type==="datetime-local" || element[0].tagName==="SELECT" ) {
 		          element.wrap(fieldset); 
 		          element.parent('fieldset').addClass('focus'); 
 		          element.parent('fieldset').prepend( label );
@@ -25,26 +25,29 @@
 		          element.parent('fieldset').append( error );
 		       	}else if ( attrs.type==="submit" || element[0].tagName==="button" ) {
 		        	element.wrap(fieldset); 
-		          element.parent('fieldset').addClass('submit'); 
+		          	element.parent('fieldset').addClass('submit'); 
 		       	}else if ( attrs.special==='switch' ) {
 		       		element.closest('label').wrap(fieldset);
 		       		element.closest('fieldset').addClass('focus'); 
 		       		element.closest('fieldset').prepend(label) ;
 		       		label.addClass('showD show');
 		       		requires[0]= (requires[0])? 1 : 0 ;
- 						}else if ( attrs.special==='searchAppbar' ) { 
- 						}else{
- 							element.wrap(fieldset); 
- 							element.parent('fieldset').prepend(label);
-            	element.parent('fieldset').append(error);
- 						}
+ 				}else if ( attrs.special==='searchAppbar' ) { 
 
- 						if ( requires[0]!=='' && attrs.type !=="submit" && attrs.special!=='switch' ) {
- 							//element.closest('label').wrap(fieldset);
+ 				}else if ( attrs.special==='decoration' ) { 
+
+ 				}else{
+ 					element.wrap(fieldset); 
+ 					element.parent('fieldset').prepend(label);
+            		element.parent('fieldset').append(error);
+ 				}
+
+ 				if ( requires[0]!=='' && attrs.type !=="submit" && attrs.special!=='switch' ) {
+ 					//element.closest('label').wrap(fieldset);
 		       		//element.closest('fieldset').addClass('focus'); 
 		       		//element.closest('fieldset').prepend(label) ;
 		       		//label.addClass('showD show');
- 						};
+ 				};
 						
 	        },  
 	        post: function postLink(scope, element, attrs,requires) {    
@@ -69,7 +72,7 @@
 		        	}
 		        });
 						*/
-						element.on('blur',function(){ 
+				element.on('blur',function(){ 
 							
 							if ( requires[0].$dirty ) {
 								element.parent('fieldset').addClass("focus");
@@ -87,7 +90,7 @@
 		            	element.parent('fieldset').find('label').eq(0).removeClass('showD'); 
 		            	element.parent('fieldset').find('label').eq(1).removeClass('leave').addClass("showD enter");
 		            }, 750); 
-							}
+				}
 							/*	 
 							if ( ngModel.$invalid ) {   
 								if (ngModel.$pristine) { ngModel }; 
@@ -111,7 +114,7 @@
 						});
 
 						
-				  }
+				}
 	      };
 			}
 		};

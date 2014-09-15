@@ -25,6 +25,7 @@
 %animation-leaveSnackbar{ @include animation(  leaveSnackbar $leave_animation forwards ); };
 
 %border-radius--2px { border-radius: em(2px); } 
+%border-radius--card { border-radius: em(2px); } 
 
 
 

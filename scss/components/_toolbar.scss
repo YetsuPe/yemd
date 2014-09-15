@@ -1,36 +1,42 @@
 %toolbar {
-	@extend %display--block;
-	@extend %position--relative;
-	@extend %zDepth-1;
-	@extend %bg--primary ;
+  @extend %display--block;
+  @extend %position--relative;
+  @extend %zDepth-1;
+  @extend %bg--primary ;
 
 	@include transition ( height $time-animation $mode-animation );
 	> icon { 
 		@extend %position--absolute;
 		top:em(4); 
-		&:nth-last-of-type(1){
-			@extend %left--auto	;
+
+		&:nth-last-of-type(1) {
+			@extend %left--auto;
 			right: em(4);
 		}
-		&:nth-last-of-type(2){
-			@extend %left--auto	;
+
+		&:nth-last-of-type(2) {
+			@extend %left--auto;
 			right: em(56);
 		}
-		&:nth-last-of-type(3){
-			@extend %left--auto	;
+
+		&:nth-last-of-type(3) {
+			@extend %left--auto;
 			right: em(108);
 		}
-		&:nth-last-of-type(4){
-			@extend %left--auto	;
+
+		&:nth-last-of-type(4) {
+			@extend %left--auto;
 			right: em(160);
 		}
-		&:nth-last-of-type(5){
-			@extend %left--auto	;
+
+		&:nth-last-of-type(5) {
+			@extend %left--auto;
 			right: em(212);
 		}//+52
+
 		&:first-of-type {
 			left:em(4);
-			@extend %right--auto	;
+			@extend %right--auto;
 		}
 	}
 	
@@ -43,7 +49,7 @@
 		@extend %width--100percent;
 		@extend %position--absolute;
 		@extend %padding--base;
-		input{
+		input {
 			@extend %width--100percent;
 			@extend %color--white;
 			@extend %bg--transparent;
@@ -65,9 +71,8 @@
 
 %toolbar__title {
 	@extend %position--relative;
-	@extend %line-height--1;
-	@extend %color--white;
-	@extend %text-transform--uppercase;
+	@extend %line-height--1; 
+	@extend %text-transform--uppercase; 
 
 	@include transition ( all $time-animation $mode-animation );
 }
@@ -76,12 +81,13 @@
 	@extend %toolbar;
 	height: em(56); 
 
-	h1{ 
-		@extend %toolbar__title ;
-		@extend %text-overflow--ellipsis ; 
+	h1 { 
+		color: $color-white; //Bug
+		@extend %toolbar__title;
+		@extend %text-overflow--ellipsis; 
 		@extend %overflow--hidden;
-		@extend %font-size--base ;  
-		@extend %pointer-events--none ;    
+		@extend %font-size--base;  
+		@extend %pointer-events--none; 
 
 		@include transform( translateY( em(20) ) );
 		@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");

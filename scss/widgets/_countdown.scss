@@ -1,0 +1,45 @@
+.countdown,
+.countdown--knob {
+	@extend %clearfix;
+}
+.countdownt__item {
+	@extend %float--left;
+	width:25%;
+	@extend %text-align--center;
+	em, span {
+		@extend %display--block;
+	}
+	em {
+		@extend %card__title;
+		font-style: normal;
+	}
+	span {
+		@extend %overflow--hidden;
+		@extend %text-overflow--ellipsis;
+		font-size: 14px;
+	}
+}
+
+.countdown--knob__item {
+	@extend %float--left;
+	width:25%;
+	@extend %text-align--center;
+	em, span {
+		@extend %display--block;
+	}
+	em {
+		@extend %display--none;
+		@extend %card__title;
+	}
+	span {
+		@extend %overflow--hidden;
+		@extend %text-overflow--ellipsis;
+		font-size: 14px;
+	}
+	input {
+		padding: 0 0 .5em 0 !important ; //fix
+	}
+	> div {
+		@extend %position--relative;
+	}
+}

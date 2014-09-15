@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100");
 /* line 21, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default form input, .toolbar--extend form input {
   background-color: transparent; }
@@ -52,7 +53,7 @@ textarea, label.showD, .action--embed, .action--float, .countdown__item em, .cou
   clear: both; }
 
 /* line 46, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default form input, .toolbar--extend form input, .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder, .toolbar--default h1, .toolbar--extend h1, .sidenav--left figure figcaption a {
+.toolbar--default form input, .toolbar--extend form input, .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder, .sidenav--left figure figcaption a {
   color: #ffffff; }
 
 /* line 48, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
@@ -73,6 +74,10 @@ input[type="password"],
 select,
 textarea {
   font-size: 1em; }
+
+/* line 63, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+body {
+  font-weight: 300; }
 
 /* line 64, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .card__title, .card__title--center, .countdown__item em {
@@ -111,7 +116,7 @@ textarea, .card__title, .card__title--center, .countdown__item em {
   margin-top: 0; }
 
 /* line 98, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdown__item span {
   overflow: hidden; }
 
 /* line 101, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
@@ -190,7 +195,7 @@ icon, .sidenav--left figure, .sidenav--left figure img, .card, .card--full, .car
   text-align: center; }
 
 /* line 139, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text {
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdown__item span {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
@@ -734,7 +739,10 @@ img {
   p, h2, h3 {
     orphans: 3;
     widows: 3; } }
-/*** text ***/
+/* line 55, ../scss/common-scss/dev/components/_base.scss */
+body {
+  line-height: 1.5; }
+
 /**** components ****/
 @-webkit-keyframes scaleIn {
   from {
@@ -1244,6 +1252,11 @@ input {
   border-radius: 0;
   outline: 0; }
 
+/* line 2, ../scss/_base.scss */
+body {
+  background-color: #cfcfcf;
+  font-family: 'Roboto', sans-serif; }
+
 /* line 5, ../scss/_helpers.scss */
 .bg-primary {
   background-color: #03a9f4; }
@@ -1303,40 +1316,41 @@ input {
   /* line 8, ../scss/components/_toolbar.scss */
   .toolbar--default > icon, .toolbar--extend > icon {
     top: 0.25em; }
-    /* line 11, ../scss/components/_toolbar.scss */
+    /* line 12, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1) {
       right: 0.25em; }
-    /* line 15, ../scss/components/_toolbar.scss */
+    /* line 17, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2) {
       right: 3.5em; }
-    /* line 19, ../scss/components/_toolbar.scss */
+    /* line 22, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3) {
       right: 6.75em; }
-    /* line 23, ../scss/components/_toolbar.scss */
+    /* line 27, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4) {
       right: 10em; }
-    /* line 27, ../scss/components/_toolbar.scss */
+    /* line 32, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5) {
       right: 13.25em; }
-    /* line 31, ../scss/components/_toolbar.scss */
+    /* line 37, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type {
       left: 0.25em; }
-  /* line 46, ../scss/components/_toolbar.scss */
+  /* line 52, ../scss/components/_toolbar.scss */
   .toolbar--default form input, .toolbar--extend form input {
     padding-left: 3.5em;
     border-bottom: 0.0625em solid white; }
 
-/* line 66, ../scss/components/_toolbar.scss */
+/* line 72, ../scss/components/_toolbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
 
-/* line 75, ../scss/components/_toolbar.scss */
+/* line 80, ../scss/components/_toolbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 79, ../scss/components/_toolbar.scss */
+  /* line 84, ../scss/components/_toolbar.scss */
   .toolbar--default h1 {
+    color: #fff;
     -webkit-transform: translateY(1.25em);
     -moz-transform: translateY(1.25em);
     -ms-transform: translateY(1.25em);
@@ -1346,10 +1360,10 @@ input {
     width: calc(100% - 11.25em );
     margin-left: 4.5em; }
 
-/* line 93, ../scss/components/_toolbar.scss */
+/* line 99, ../scss/components/_toolbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 96, ../scss/components/_toolbar.scss */
+  /* line 102, ../scss/components/_toolbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -1375,7 +1389,7 @@ icon {
     icon svg path, .icon svg polygon,
     icon svg polygon, .icon svg rect,
     icon svg rect {
-      stroke: #ffffff;
+      stroke: #fff;
       -webkit-animation: enterIcon 0.75s ease-in-out;
       -moz-animation: enterIcon 0.75s ease-in-out;
       animation: enterIcon 0.75s ease-in-out; }
@@ -1392,7 +1406,7 @@ icon {
 
 /* line 1, ../scss/components/_sidenav.scss */
 .sidenav--left {
-  background-color: #ffffff; }
+  background-color: #fff; }
 
 /* line 6, ../scss/components/_sidenav.scss */
 .sidenav--left {
@@ -1418,7 +1432,7 @@ icon {
   width: 4em;
   height: 4em;
   padding: 0.25em;
-  background-color: #ffffff; }
+  background-color: #fff; }
 
 /* line 49, ../scss/components/_sidenav.scss */
 .sidenav--left figure figcaption {
@@ -1608,7 +1622,7 @@ button {
   width: auto;
   line-height: 2;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #fff;
   -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -ms-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
@@ -1708,7 +1722,7 @@ label {
   left: 0;
   width: 16px;
   height: 16px;
-  background: #ffffff;
+  background: #fff;
   border: 2px solid rgba(0, 0, 0, 0.27);
   border-radius: 10px;
   -webkit-transition: all 0.15s ease-out;
@@ -1762,8 +1776,8 @@ label {
     .action--embed icon line, .action--float icon line,
     .action--embed .icon line,
     .action--float .icon line {
-      fill: #ffffff;
-      stroke: #ffffff; }
+      fill: #fff;
+      stroke: #fff; }
 
 /***directive***/
 /* line 35, ../scss/components/_action.scss */
@@ -1788,56 +1802,62 @@ label {
   width: 3.5em;
   height: 3.5em; }
 
-/* line 9, ../scss/components/_card.scss */
+/* line 10, ../scss/components/_card.scss */
 .card__title, .card__title--center, .countdown__item em {
   font-size: 1.5em;
   margin-bottom: 0.33333em; }
 
-/* line 22, ../scss/components/_card.scss */
+/* line 23, ../scss/components/_card.scss */
 .card {
   margin: 0.5em;
   padding: 1em; }
 
-/* line 27, ../scss/components/_card.scss */
+/* line 28, ../scss/components/_card.scss */
 .card--full {
   padding: 1em; }
 
-/* line 34, ../scss/components/_card.scss */
+/* line 35, ../scss/components/_card.scss */
 .card--figure {
   margin: 0.5em; }
 
-/* line 39, ../scss/components/_card.scss */
+/* line 40, ../scss/components/_card.scss */
 .card--list {
   margin: 0.5em; }
-  /* line 42, ../scss/components/_card.scss */
+  /* line 43, ../scss/components/_card.scss */
   .card--list .card__title,
   .card--list .card__title--center {
     padding: 0.66667em 0 0 0;
     margin: 0; }
 
-/* line 58, ../scss/components/_card.scss */
+/* line 59, ../scss/components/_card.scss */
 .card__image {
   background-size: cover;
   background-position: center center;
   border-radius: 0.125em 0 0 0.125em; }
 
-/* line 63, ../scss/components/_card.scss */
+/* line 64, ../scss/components/_card.scss */
 .card__description {
   padding: 1em; }
-  /* line 65, ../scss/components/_card.scss */
+  /* line 66, ../scss/components/_card.scss */
   .card__description p {
     margin-bottom: 0.5em; }
 
-/* line 69, ../scss/components/_card.scss */
+/* line 70, ../scss/components/_card.scss */
 .card__logo--main {
   position: relative;
   width: 60px;
   height: 60px;
   margin: 0 auto 0.5em auto; }
 
-/* line 85, ../scss/components/_card.scss */
+/* line 86, ../scss/components/_card.scss */
 .countdown__item {
-  width: 33.3%; }
+  width: 25%; }
+  /* line 93, ../scss/components/_card.scss */
+  .countdown__item em {
+    font-style: normal; }
+  /* line 97, ../scss/components/_card.scss */
+  .countdown__item span {
+    font-size: 14px; }
 
 /*
 $offset: 187;
@@ -1986,15 +2006,5 @@ $duration: 1.4s;
     -ms-transform: rotate(450deg);
     -o-transform: rotate(450deg);
     transform: rotate(450deg); } }
-/*
-
- 
- 
-@import "canvas"; 
- 
-
-@import "list";
-@import "tooltip";
-*/
 
 /*# sourceMappingURL=yemd.css.map */

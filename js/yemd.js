@@ -12,9 +12,10 @@
 
   yemd.provider('$yemd', function $yemdProvider(){
 
-  	var folderIcons = 'icons8/' ; //Icon's by VisualPharm
+  	this.folderIcons = 'icons8/' ; //Icon's by VisualPharm
 
   	this.$get = ['$rootElement',function($rootElement){
+      var folderIcons= this.folderIcons;
 
       var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
           overlay  = angular.element("<div class='overlay'></div>"),
@@ -27,8 +28,11 @@
   	  return {
   	  	folderIcons: folderIcons
   	  };
-
   	}];
+
+    this.setFolderIcons = function(dir){
+        this.folderIcons = dir;
+    };
 
   }); 
 

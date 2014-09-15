@@ -1,22 +1,23 @@
 %card {
-	@extend %zDepth-1;
-	@extend %border-radius--2px ; 
-	@extend %position--relative;
-	@extend %bg--white;   
+  @extend %zDepth-1;
+  @extend %border-radius--2px; 
+  @extend %position--relative;
+  @extend %bg--white;    
 }
  
+
 //components
-%card__title{ 
+%card__title { 
 	@extend %font-weight--400 ;
 	@extend %line-height--1 ;
-	@extend %color--primary ;
+	@extend %color--primary;
 	font-size:em(24px);
+
 	margin-bottom: em(8,24); 
 }
 
+
 // end placeholders
-
-
 
 //card
 .card {
@@ -77,21 +78,3 @@
 		@extend %height--100percent;
 	}
 }
-
-// Extras
-.countdown {
-	@extend %clearfix;
-}
-.countdown__item {
-	@extend %float--left;
-	width:33.3%;
-	@extend %text-align--center;
-	em, span {
-		@extend %display--block;
-	}
-	em {
-		@extend %card__title;
-	}
-}
-
-// Grid

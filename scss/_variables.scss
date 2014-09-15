@@ -1,25 +1,24 @@
-/*** text ***/
 $base-font             : 16px; 
 
-$bg-body               : #E6E6E6;
+$bg-body               : #cfcfcf;
 
 $color-primary         : #03a9f4 !default; 
 $color-secondary       : #009688 !default;
 
 // grey text, icons, and dividers
-$color-black           : #000000;
-$color-white           : #ffffff; 
-$color-divider         : rgba($color-black,0.12);
-$color-hint-text       : rgba($color-black,0.26);
-$color-text            : rgba($color-black,0.87);
-$color-text-white      : $color-white           ;
-$color-secondary-text  : rgba($color-black,0.54);
-$color-icon            : rgba($color-black,0.54);
-$color-divider         : rgba($color-black,0.27);
-$color-divider-low     : rgba($color-black,0.13);
+$color-black : #000;
+$color-white : #fff; 
+$color-divider         : rgba($color-black, .12);
+$color-hint-text       : rgba($color-black, .26);
+$color-text            : rgba($color-black, .87);
+$color-text-white      : $color-white;
+$color-secondary-text  : rgba($color-black, .54);
+$color-icon            : rgba($color-black, .54);
+$color-divider         : rgba($color-black, .27);
+$color-divider-low     : rgba($color-black, .13);
 
-$time-animation: 0.75s;
-$mode-animation: ease-in-out ;//ease;
+$time-animation: .75s;
+$mode-animation: ease-in-out; //ease;
 
 $start_animation : 0.6s cubic-bezier(.25,.01,.75,1) 0.15s ; 
 $finish_animation: 0.6s cubic-bezier(0,.25,1,.75) ; 
@@ -46,5 +45,7 @@ $bg-sidenav:$color-white ;
 //form 
 $color-success: #259b24;
 $color-error: #f44336;
+
 //media querys
 $media-md:768px;
+$media-lg:1024px;
