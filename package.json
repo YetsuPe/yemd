@@ -1,8 +1,11 @@
 {
-  "name": "Consama",
+  "name": "yemd",
   "version": "0.0.2",
-  "description": "software consama",
-  "main": "Gruntfile.js",
+  "description": "Yemd framework",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/yetsupe/yemd"
+  },
   "devDependencies": {
     "grunt": "^0.4.4",
     "grunt-contrib-watch": "~0.5.3",
