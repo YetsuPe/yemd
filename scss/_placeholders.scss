@@ -18,13 +18,12 @@
 %animation-labelIn  { @include animation( fadeIn $enter_animation forwards   , labelIn $enter_animation forwards ); }
 %animation-labelOut { @include animation( fadeOut $leave_animation forwards , labelOut $leave_animation forwards ); }
 
-%animation-labelErrorIn  { @include animation( fadeIn $enter_animation forwards   , labelErrorIn $enter_animation forwards ); }
+%animation-labelErrorIn { @include animation( fadeIn $enter_animation forwards   , labelErrorIn $enter_animation forwards ); }
 %animation-labelErrorOut { @include animation( fadeOut $leave_animation forwards , labelErrorOut $leave_animation forwards ); }
 
-%animation-enterSnackbar{ @include animation(  enterSnackbar $enter_animation forwards ); };
-%animation-leaveSnackbar{ @include animation(  leaveSnackbar $leave_animation forwards ); };
+%animation-enterSnackbar { @include animation(  enterSnackbar $enter_animation forwards ); };
+%animation-leaveSnackbar { @include animation(  leaveSnackbar $leave_animation forwards ); };
 
-%border-radius--2px { border-radius: em(2px); } 
 %border-radius--card { border-radius: em(2px); } 
 
 

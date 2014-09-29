@@ -1,32 +1,15 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100");
-/* line 21, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default form input, .toolbar--extend form input {
-  background-color: transparent; }
-
-/* line 22, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default, .toolbar--extend {
-  background-color: #03a9f4; }
-
-/* line 23, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.action--embed, .action--float {
-  background-color: #009688; }
-
-/* line 24, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
-  background-color: #ffffff; }
-
-/* line 28, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .sidenav--left figure img, .list__item__img img,
 .list__item__img svg,
 .list__item__icon img,
 .list__item__icon svg, .action--embed, .action--float {
   border-radius: 50% 50% 50% 50%; }
 
-/* line 31, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default form input, .toolbar--extend form input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 35, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .toolbar--default, .toolbar--extend, .icon,
 icon, .sidenav--left figure img, .list--single-line a, .list__item__img img,
 .list__item__img svg,
@@ -38,33 +21,40 @@ input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea, label.showD, .action--embed, .action--float, .countdown__item em, .countdown__item span {
+textarea, label.showD, .action--embed, .action--float, .countdownt__item em, .countdownt__item span, .countdown--knob__item em, .countdown--knob__item span {
   display: block; }
 
-/* line 38, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.list__item__head__text, .action {
+.list__item__head__text, .action, .countdown--knob__item em {
   display: none; }
 
-/* line 43, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list__item:after, .list__item__head:after, .list__item__head__text:after, form:after, .card--figure:after, .card--list .card__title:after,
-.card--list .card__title--center:after, .countdown:after {
+.card--list .card__title--center:after, .countdown:after,
+.countdown--knob:after {
   content: "";
   display: table;
   clear: both; }
 
-/* line 46, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
+.toolbar--default form input, .toolbar--extend form input {
+  background-color: transparent; }
+
+.toolbar--default, .toolbar--extend {
+  background-color: #03a9f4; }
+
+.action--embed, .action--float {
+  background-color: #009688; }
+
+.card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+  background-color: #ffffff; }
+
 .toolbar--default form input, .toolbar--extend form input, .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder, .sidenav--left figure figcaption a {
   color: #ffffff; }
 
-/* line 48, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card__title, .card__title--center, .countdown__item em {
+.card__title, .card__title--center, .countdownt__item em, .countdown--knob__item em {
   color: #03a9f4; }
 
-/* line 49, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list--single-line a {
   color: #009688; }
 
-/* line 59, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .list__item__head, .sub-title, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -75,28 +65,22 @@ select,
 textarea {
   font-size: 1em; }
 
-/* line 63, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 body {
   font-weight: 300; }
 
-/* line 64, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.card__title, .card__title--center, .countdown__item em {
+.card__title, .card__title--center, .countdownt__item em, .countdown--knob__item em {
   font-weight: 400; }
 
-/* line 67, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-[class*="col-"], .list__item__img,
-.list__item__icon, .list__item__head__text, .countdown__item {
+[class*="col-sm"], .list__item__img,
+.list__item__icon, .list__item__head__text, .countdownt__item, .countdown--knob__item {
   float: left; }
 
-/* line 69, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .list--social .list__item__icon {
   float: none; }
 
-/* line 72, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .overlay, .card__logo--main svg {
   height: 100%; }
 
-/* line 74, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default h1, .toolbar--extend h1, .list--single-line a, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -104,142 +88,110 @@ input[type="tel"],
 input[type="email"],
 input[type="password"],
 select,
-textarea, .card__title, .card__title--center, .countdown__item em {
+textarea, .card__title, .card__title--center, .countdownt__item em, .countdown--knob__item em {
   line-height: 1; }
 
-/* line 76, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .sidenav--left figure figcaption, .list__item__head, .sub-title {
   line-height: 3; }
 
-/* line 79, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .margin-top--0 {
   margin-top: 0; }
 
-/* line 98, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdown__item span {
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdownt__item span, .countdown--knob__item span {
   overflow: hidden; }
 
-/* line 101, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.overlay {
-  opacity: 0; }
-
-/* line 103, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .form--strech, .card__logo--main {
   padding: 0; }
 
-/* line 105, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default form, .toolbar--extend form, .action--float {
   padding: 1em; }
 
-/* line 113, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend, .toolbar--default h1, .toolbar--extend h1, .icon,
-icon, .sidenav--left figure, .sidenav--left figure img, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
+icon, .sidenav--left figure, .sidenav--left figure img, .card, .card--full, .card--full-padding-0, .card--figure, .card--list, main, .countdown--knob__item > div {
   position: relative; }
 
-/* line 114, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .toolbar--default > icon, .toolbar--extend > icon, .toolbar--default form, .toolbar--extend form, .sidenav--left figure figcaption, .action--embed icon, .action--float icon,
 .action--embed .icon,
 .action--float .icon, .action--embed {
   position: absolute; }
 
-/* line 115, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay, .action--float {
   position: fixed; }
 
-/* line 117, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .overlay, .overlay.hide {
-  pointer-events: none; }
+.toolbar--default h1, .toolbar--extend h1 {
+  text-transform: uppercase; }
 
-/* line 118, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.overlay.show {
-  pointer-events: auto; }
-
-/* line 121, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .static.toolbar--default, .static.toolbar--extend, .sidenav--left, .overlay, .action--embed icon, .action--float icon,
 .action--embed .icon,
 .action--float .icon {
   top: 0; }
 
-/* line 122, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .sidenav--left figure figcaption {
   bottom: 0; }
 
-/* line 123, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .ripple--radial, .sidenav--left figure figcaption, .action--embed icon, .action--float icon,
 .action--embed .icon,
 .action--float .icon {
   left: 0; }
 
-/* line 126, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .action--float {
   top: 1em; }
 
-/* line 128, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .action--embed {
   left: 1em; }
 
-/* line 129, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .action--float {
   right: 1em; }
 
-/* line 131, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1), .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2), .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3), .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4), .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5) {
   left: auto; }
 
-/* line 132, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type {
   right: auto; }
 
-/* line 138, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.list--social, .card__title--center, .countdown__item {
+.overlay {
+  opacity: 0; }
+
+.toolbar--default h1, .overlay, .overlay.hide {
+  pointer-events: none; }
+
+.overlay.show {
+  pointer-events: auto; }
+
+.list--social, .card__title--center, .countdownt__item, .countdown--knob__item {
   text-align: center; }
 
-/* line 139, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdown__item span {
+.toolbar--default h1, .sidenav--left figure figcaption, .list--single-line a, .list__item__head__text, .countdownt__item span, .countdown--knob__item span {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-/* line 141, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.toolbar--default h1, .toolbar--extend h1 {
-  text-transform: uppercase; }
-
-/* line 144, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-10, .col-100 {
+.col-sm-10, .col-sm-100 {
   width: 10%; }
 
-/* line 145, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-20 {
+.col-sm-20 {
   width: 20%; }
 
-/* line 146, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-30 {
+.col-sm-30 {
   width: 30%; }
 
-/* line 147, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-40 {
+.col-sm-40 {
   width: 40%; }
 
-/* line 148, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-50 {
+.col-sm-50 {
   width: 50%; }
 
-/* line 149, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-60 {
+.col-sm-60 {
   width: 60%; }
 
-/* line 150, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-70 {
+.col-sm-70 {
   width: 70%; }
 
-/* line 151, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-80 {
+.col-sm-80 {
   width: 80%; }
 
-/* line 152, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
-.col-90 {
+.col-sm-90 {
   width: 90%; }
 
-/* line 153, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .static.toolbar--default, .static.toolbar--extend, .toolbar--default form, .toolbar--extend form, .toolbar--default form input, .toolbar--extend form input, .sidenav--left figure figcaption, .overlay, input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -252,11 +204,9 @@ textarea, .action--embed icon, .action--float icon,
 .action--float .icon, .card__logo--main svg {
   width: 100%; }
 
-/* line 155, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .action--embed, .action--float {
   z-index: 1; }
 
-/* line 156, ../scss/common-scss/dev/placeholders-scss/_placeholders.scss */
 .action--float {
   z-index: 2; }
 
@@ -266,7 +216,6 @@ textarea, .action--embed icon, .action--float icon,
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-/* line 9, ../scss/common-scss/dev/components/_normalize.scss */
 html {
   font-family: sans-serif;
   /* 1 */
@@ -278,7 +227,6 @@ html {
 /**
  * Remove default margin.
  */
-/* line 19, ../scss/common-scss/dev/components/_normalize.scss */
 body {
   margin: 0; }
 
@@ -289,7 +237,6 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-/* line 32, ../scss/common-scss/dev/components/_normalize.scss */
 article,
 aside,
 details,
@@ -308,7 +255,6 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-/* line 52, ../scss/common-scss/dev/components/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -322,7 +268,6 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-/* line 65, ../scss/common-scss/dev/components/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0; }
@@ -331,7 +276,6 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-/* line 75, ../scss/common-scss/dev/components/_normalize.scss */
 [hidden],
 template {
   display: none; }
@@ -341,14 +285,12 @@ template {
 /**
  * Remove the gray background color from active links in IE 10.
  */
-/* line 87, ../scss/common-scss/dev/components/_normalize.scss */
 a {
   background: transparent; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 95, ../scss/common-scss/dev/components/_normalize.scss */
 a:active,
 a:hover {
   outline: 0; }
@@ -358,14 +300,12 @@ a:hover {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-/* line 107, ../scss/common-scss/dev/components/_normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-/* line 115, ../scss/common-scss/dev/components/_normalize.scss */
 b,
 strong {
   font-weight: bold; }
@@ -373,7 +313,6 @@ strong {
 /**
  * Address styling not present in Safari and Chrome.
  */
-/* line 124, ../scss/common-scss/dev/components/_normalize.scss */
 dfn {
   font-style: italic; }
 
@@ -381,7 +320,6 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
-/* line 133, ../scss/common-scss/dev/components/_normalize.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
@@ -389,7 +327,6 @@ h1 {
 /**
  * Address styling not present in IE 8/9.
  */
-/* line 142, ../scss/common-scss/dev/components/_normalize.scss */
 mark {
   background: #ff0;
   color: #000; }
@@ -397,14 +334,12 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-/* line 151, ../scss/common-scss/dev/components/_normalize.scss */
 small {
   font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 159, ../scss/common-scss/dev/components/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -412,11 +347,9 @@ sup {
   position: relative;
   vertical-align: baseline; }
 
-/* line 167, ../scss/common-scss/dev/components/_normalize.scss */
 sup {
   top: -0.5em; }
 
-/* line 171, ../scss/common-scss/dev/components/_normalize.scss */
 sub {
   bottom: -0.25em; }
 
@@ -425,14 +358,12 @@ sub {
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
-/* line 182, ../scss/common-scss/dev/components/_normalize.scss */
 img {
   border: 0; }
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
-/* line 190, ../scss/common-scss/dev/components/_normalize.scss */
 svg:not(:root) {
   overflow: hidden; }
 
@@ -441,14 +372,12 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-/* line 201, ../scss/common-scss/dev/components/_normalize.scss */
 figure {
   margin: 1em 40px; }
 
 /**
  * Address differences between Firefox and other browsers.
  */
-/* line 209, ../scss/common-scss/dev/components/_normalize.scss */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -457,14 +386,12 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
-/* line 219, ../scss/common-scss/dev/components/_normalize.scss */
 pre {
   overflow: auto; }
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-/* line 227, ../scss/common-scss/dev/components/_normalize.scss */
 code,
 kbd,
 pre,
@@ -484,7 +411,6 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-/* line 250, ../scss/common-scss/dev/components/_normalize.scss */
 button,
 input,
 optgroup,
@@ -500,7 +426,6 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-/* line 264, ../scss/common-scss/dev/components/_normalize.scss */
 button {
   overflow: visible; }
 
@@ -510,7 +435,6 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-/* line 275, ../scss/common-scss/dev/components/_normalize.scss */
 button,
 select {
   text-transform: none; }
@@ -522,7 +446,6 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 288, ../scss/common-scss/dev/components/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -535,7 +458,6 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 300, ../scss/common-scss/dev/components/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default; }
@@ -543,7 +465,6 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 309, ../scss/common-scss/dev/components/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -553,7 +474,6 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 320, ../scss/common-scss/dev/components/_normalize.scss */
 input {
   line-height: normal; }
 
@@ -564,7 +484,6 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-/* line 332, ../scss/common-scss/dev/components/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -577,7 +496,6 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-/* line 344, ../scss/common-scss/dev/components/_normalize.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
@@ -587,7 +505,6 @@ input[type="number"]::-webkit-outer-spin-button {
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
  */
-/* line 355, ../scss/common-scss/dev/components/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -601,7 +518,6 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-/* line 368, ../scss/common-scss/dev/components/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
@@ -609,7 +525,6 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Define consistent border, margin, and padding.
  */
-/* line 377, ../scss/common-scss/dev/components/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -619,7 +534,6 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
-/* line 388, ../scss/common-scss/dev/components/_normalize.scss */
 legend {
   border: 0;
   /* 1 */
@@ -629,7 +543,6 @@ legend {
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
-/* line 397, ../scss/common-scss/dev/components/_normalize.scss */
 textarea {
   overflow: auto; }
 
@@ -637,7 +550,6 @@ textarea {
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
-/* line 406, ../scss/common-scss/dev/components/_normalize.scss */
 optgroup {
   font-weight: bold; }
 
@@ -646,17 +558,14 @@ optgroup {
 /**
  * Remove most spacing between table cells.
  */
-/* line 417, ../scss/common-scss/dev/components/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 422, ../scss/common-scss/dev/components/_normalize.scss */
 td,
 th {
   padding: 0; }
 
-/* line 1, ../scss/common-scss/dev/components/_reset.scss */
 body,
 figure,
 main,
@@ -668,47 +577,39 @@ h5,
 h6 {
   margin: 0; }
 
-/* line 13, ../scss/common-scss/dev/components/_reset.scss */
 a {
   text-decoration: none; }
 
-/* line 17, ../scss/common-scss/dev/components/_reset.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 1, ../scss/common-scss/dev/components/_base.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 5, ../scss/common-scss/dev/components/_base.scss */
 html {
   font-size: 16px;
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-/* line 12, ../scss/common-scss/dev/components/_base.scss */
 ::-moz-selection {
   background-color: #03a9f4;
   color: #ffffff;
   text-shadow: none; }
 
-/* line 17, ../scss/common-scss/dev/components/_base.scss */
 ::selection {
   background-color: #03a9f4;
   color: #ffffff;
   text-shadow: none; }
 
-/* line 23, ../scss/common-scss/dev/components/_base.scss */
 img {
   -ms-interpolation-mode: bicubic; }
 
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-/* line 28, ../scss/common-scss/dev/components/_base.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -720,7 +621,6 @@ img {
   width: 1px; }
 
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-/* line 38, ../scss/common-scss/dev/components/_base.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -731,18 +631,12 @@ img {
   width: auto; }
 
 @media print {
-  /* line 48, ../scss/common-scss/dev/components/_base.scss */
   img {
     max-width: 100% !important; } }
 @media print {
-  /* line 52, ../scss/common-scss/dev/components/_base.scss */
   p, h2, h3 {
     orphans: 3;
     widows: 3; } }
-/* line 55, ../scss/common-scss/dev/components/_base.scss */
-body {
-  line-height: 1.5; }
-
 /**** components ****/
 @-webkit-keyframes scaleIn {
   from {
@@ -1083,101 +977,84 @@ body {
     -o-transform: translateY(3.5em);
     transform: translateY(3.5em); } }
 /*** animations ***/
-/* line 2, ../scss/_placeholders.scss */
 .toolbar--default form input::-webkit-input-placeholder, .toolbar--extend form input::-webkit-input-placeholder, .toolbar--default form input:-moz-placeholder, .toolbar--extend form input:-moz-placeholder {
   -webkit-animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   -moz-animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   animation: fadeIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
 
-/* line 5, ../scss/_placeholders.scss */
 .sidenav--left figure img, .show.action--embed, .show.action--float {
   -webkit-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   -moz-animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   animation: scaleIn 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
 
-/* line 6, ../scss/_placeholders.scss */
 .hide.action--embed, .hide.action--float {
   -webkit-animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards;
   -moz-animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards;
   animation: scaleOut 0.6s cubic-bezier(0, 0.25, 1, 0.75) forwards; }
 
-/* line 9, ../scss/_placeholders.scss */
 .show.sidenav--left {
   -webkit-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   -moz-animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   animation: showSidenavLeft 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 10, ../scss/_placeholders.scss */
 .hide.sidenav--left {
   -webkit-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   -moz-animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: hideSidenavLeft 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 12, ../scss/_placeholders.scss */
 .overlay.show {
   -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 13, ../scss/_placeholders.scss */
 .overlay.hide {
   -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 15, ../scss/_placeholders.scss */
 label.valid.enter ~ input, label.invalid.leave ~ input {
   -webkit-animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   -moz-animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards;
   animation: moveInputDown 0.6s cubic-bezier(0.25, 0.01, 0.75, 1) 0.15s forwards; }
 
-/* line 16, ../scss/_placeholders.scss */
 label.valid.leave ~ input, label.invalid.enter ~ input {
   -webkit-animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1);
   -moz-animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1);
   animation: moveInputUp 0.75s cubic-bezier(0, 0, 0.5, 1); }
 
-/* line 18, ../scss/_placeholders.scss */
 label.valid.enter {
   -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 19, ../scss/_placeholders.scss */
 label.valid.leave {
   -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 21, ../scss/_placeholders.scss */
 label.invalid.enter {
   -webkit-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   -moz-animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   animation: fadeIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards, labelErrorIn 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 22, ../scss/_placeholders.scss */
 label.invalid.leave {
   -webkit-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   -moz-animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: fadeOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards, labelErrorOut 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 24, ../scss/_placeholders.scss */
 .snackbar.show {
   -webkit-animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   -moz-animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards;
   animation: enterSnackbar 0.5625s cubic-bezier(0, 0, 0.5, 1) 0.1875s forwards; }
 
-/* line 25, ../scss/_placeholders.scss */
 .snackbar.hide {
   -webkit-animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   -moz-animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards;
   animation: leaveSnackbar 0.5625s cubic-bezier(0, 0.5, 1, 1) forwards; }
 
-/* line 27, ../scss/_placeholders.scss */
 .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   border-radius: 0.125em; }
 
-/* line 33, ../scss/_placeholders.scss */
 .sidenav--left section {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -1185,7 +1062,6 @@ label.invalid.leave {
   -o-box-shadow: none;
   box-shadow: none; }
 
-/* line 34, ../scss/_placeholders.scss */
 .toolbar--default, .toolbar--extend, .card, .card--full, .card--full-padding-0, .card--figure, .card--list {
   -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   -moz-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
@@ -1193,7 +1069,6 @@ label.invalid.leave {
   -o-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12);
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.24), 0 1px 1.5px 1.5px rgba(0, 0, 0, 0.12); }
 
-/* line 35, ../scss/_placeholders.scss */
 .action--embed, .action--float {
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
@@ -1201,13 +1076,11 @@ label.invalid.leave {
   -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16); }
 
-/* line 1, ../scss/_reset.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 5, ../scss/_reset.scss */
 h1,
 h2,
 h3,
@@ -1223,28 +1096,23 @@ dl,
 dd {
   margin: 0; }
 
-/* line 21, ../scss/_reset.scss */
 fieldset,
 ul,
 ol {
   padding: 0; }
 
-/* line 27, ../scss/_reset.scss */
 ul,
 ol {
   list-style: none; }
 
-/* line 31, ../scss/_reset.scss */
 a {
   text-decoration: none; }
 
 /*** canvas *****/
-/* line 35, ../scss/_reset.scss */
 main, card {
   display: block; }
 
 /***** forms ****/
-/* line 39, ../scss/_reset.scss */
 fieldset,
 input {
   border: 0;
@@ -1252,28 +1120,22 @@ input {
   border-radius: 0;
   outline: 0; }
 
-/* line 2, ../scss/_base.scss */
 body {
   background-color: #cfcfcf;
   font-family: 'Roboto', sans-serif; }
 
-/* line 5, ../scss/_helpers.scss */
 .bg-primary {
   background-color: #03a9f4; }
 
-/* line 8, ../scss/_helpers.scss */
 .bg-secondary {
   background-color: #009688; }
 
-/* line 11, ../scss/_helpers.scss */
 .color-primary {
   color: #03a9f4; }
 
-/* line 14, ../scss/_helpers.scss */
 .color-secondary {
   color: #009688; }
 
-/* line 1, ../scss/components/_ripple.scss */
 .ripple--radial {
   background: rgba(0, 0, 0, 0.25);
   -webkit-transform: scale(0);
@@ -1282,11 +1144,9 @@ body {
   -o-transform: scale(0);
   transform: scale(0); }
 
-/* line 10, ../scss/components/_ripple.scss */
 .ripple--radial {
   width: 3em;
   height: 3em; }
-  /* line 16, ../scss/components/_ripple.scss */
   .ripple--radial.show {
     -webkit-animation: rippleRadial 0.5s ease;
     -moz-animation: rippleRadial 0.5s ease;
@@ -1308,47 +1168,73 @@ body {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-/* line 1, ../scss/components/_toolbar.scss */
+@media screen and (min-width: 1024px) {
+  .clearfix-lg:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+  [class*="col-lg"] {
+    float: left; }
+
+  .col-lg-10 {
+    width: 10%; }
+
+  .col-lg-20 {
+    width: 20%; }
+
+  .col-lg-30 {
+    width: 30%; }
+
+  .col-lg-40 {
+    width: 40%; }
+
+  .col-lg-50 {
+    width: 50%; }
+
+  .col-lg-60 {
+    width: 60%; }
+
+  .col-lg-70 {
+    width: 70%; }
+
+  .col-lg-80 {
+    width: 80%; }
+
+  .col-lg-90 {
+    width: 90%; }
+
+  .col-lg-100 {
+    width: 100%; } }
 .toolbar--default, .toolbar--extend {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
-  /* line 8, ../scss/components/_toolbar.scss */
   .toolbar--default > icon, .toolbar--extend > icon {
     top: 0.25em; }
-    /* line 12, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(1), .toolbar--extend > icon:nth-last-of-type(1) {
       right: 0.25em; }
-    /* line 17, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(2), .toolbar--extend > icon:nth-last-of-type(2) {
       right: 3.5em; }
-    /* line 22, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(3), .toolbar--extend > icon:nth-last-of-type(3) {
       right: 6.75em; }
-    /* line 27, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(4), .toolbar--extend > icon:nth-last-of-type(4) {
       right: 10em; }
-    /* line 32, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:nth-last-of-type(5), .toolbar--extend > icon:nth-last-of-type(5) {
       right: 13.25em; }
-    /* line 37, ../scss/components/_toolbar.scss */
     .toolbar--default > icon:first-of-type, .toolbar--extend > icon:first-of-type {
       left: 0.25em; }
-  /* line 52, ../scss/components/_toolbar.scss */
   .toolbar--default form input, .toolbar--extend form input {
     padding-left: 3.5em;
     border-bottom: 0.0625em solid white; }
 
-/* line 72, ../scss/components/_toolbar.scss */
 .toolbar--default h1, .toolbar--extend h1 {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
 
-/* line 80, ../scss/components/_toolbar.scss */
 .toolbar--default {
   height: 3.5em; }
-  /* line 84, ../scss/components/_toolbar.scss */
   .toolbar--default h1 {
     color: #fff;
     -webkit-transform: translateY(1.25em);
@@ -1360,10 +1246,8 @@ body {
     width: calc(100% - 11.25em );
     margin-left: 4.5em; }
 
-/* line 99, ../scss/components/_toolbar.scss */
 .toolbar--extend {
   height: 8em; }
-  /* line 102, ../scss/components/_toolbar.scss */
   .toolbar--extend h1 {
     -webkit-transform: translateY(4.1em);
     -moz-transform: translateY(4.1em);
@@ -1373,17 +1257,14 @@ body {
     font-size: 1.25em;
     margin-left: 3.6em; }
 
-/* line 2, ../scss/components/_icon.scss */
 .icon,
 icon {
   width: 3em;
   height: 3em;
   padding: 0.75em; }
-  /* line 8, ../scss/components/_icon.scss */
   .icon svg,
   icon svg {
     fill: white; }
-    /* line 10, ../scss/components/_icon.scss */
     .icon svg [stroke],
     icon svg [stroke], .icon svg path,
     icon svg path, .icon svg polygon,
@@ -1393,22 +1274,18 @@ icon {
       -webkit-animation: enterIcon 0.75s ease-in-out;
       -moz-animation: enterIcon 0.75s ease-in-out;
       animation: enterIcon 0.75s ease-in-out; }
-  /* line 15, ../scss/components/_icon.scss */
   .icon .ripple--radial,
   icon .ripple--radial {
     background: rgba(255, 255, 255, 0.75); }
-  /* line 19, ../scss/components/_icon.scss */
   .enterNewIcon.icon,
   icon.enterNewIcon {
     -webkit-animation: enterNewIcon 0.75s ease-in-out;
     -moz-animation: enterNewIcon 0.75s ease-in-out;
     animation: enterNewIcon 0.75s ease-in-out; }
 
-/* line 1, ../scss/components/_sidenav.scss */
 .sidenav--left {
   background-color: #fff; }
 
-/* line 6, ../scss/components/_sidenav.scss */
 .sidenav--left {
   width: -webkit-calc( 100% - {#em(56px)} );
   width: calc( 100% - {#em(56px)} );
@@ -1419,14 +1296,12 @@ icon {
   transform: translateX(calc( -1 * ( 100% ) ));
   z-index: 1; }
 
-/* line 24, ../scss/components/_sidenav.scss */
 .sidenav--left figure {
   background-image: url("../assets/images/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0 1em; }
 
-/* line 31, ../scss/components/_sidenav.scss */
 .sidenav--left figure img {
   top: 1em;
   width: 4em;
@@ -1434,46 +1309,38 @@ icon {
   padding: 0.25em;
   background-color: #fff; }
 
-/* line 49, ../scss/components/_sidenav.scss */
 .sidenav--left figure figcaption {
   padding: 0 1em;
   height: 3em; }
 
 /****** fix overflow-y:scrool when the height sidenav is menor*/
 @media only screen and (max-width: 256px) {
-  /* line 72, ../scss/components/_sidenav.scss */
   .sidenav--left figure img {
     pointer-events: none;
     -webkit-animation: scaleOut 0.75s ease-in-out forwards;
     -moz-animation: scaleOut 0.75s ease-in-out forwards;
     animation: scaleOut 0.75s ease-in-out forwards; } }
 @media only screen and (min-width: 320px) {
-  /* line 79, ../scss/components/_sidenav.scss */
   .sidenav--left {
     min-width: 264px;
     width: 20%; } }
 /****** List *****/
-/* line 3, ../scss/components/_list.scss */
 .list--single-line, .list--figure {
   font-size: 1em;
   padding: 0.5em 0; }
 
-/* line 11, ../scss/components/_list.scss */
 .list--single-line a {
   height: 3em;
   padding: 1em; }
 
-/* line 36, ../scss/components/_list.scss */
 .list__item {
   height: 3.5em; }
 
-/* line 41, ../scss/components/_list.scss */
 .list__item__img,
 .list__item__icon {
   padding: 0.5em 1em;
   width: 4.5em;
   height: 3.5em; }
-  /* line 47, ../scss/components/_list.scss */
   .list__item__img img,
   .list__item__img svg,
   .list__item__icon img,
@@ -1481,12 +1348,10 @@ icon {
     width: 2.5em;
     height: 2.5em; }
 
-/* line 55, ../scss/components/_list.scss */
 .list__item__icon svg {
   padding: 0.5em;
   background-color: #03a9f4; }
 
-/* line 60, ../scss/components/_list.scss */
 .list__item__head {
   width: -webkit-calc(100% - 4.5em);
   width: calc(100% - 4.5em);
@@ -1495,7 +1360,6 @@ icon {
   float: left;
   position: relative; }
 
-/* line 71, ../scss/components/_list.scss */
 .list__item__head__text {
   height: inherit;
   line-height: 3.5;
@@ -1503,27 +1367,22 @@ icon {
   width: calc(100% - 2.5em);
   padding-right: 1em; }
 
-/* line 88, ../scss/components/_list.scss */
 .list--social .list__item__icon {
   display: inline-block;
   padding: 0.5em;
   width: 3.5em; }
 
-/* line 1, ../scss/components/_overlay.scss */
 .overlay {
   background: rgba(0, 0, 0, 0.5); }
 
-/* line 1, ../scss/components/_sub-title.scss */
 .sub-title {
   height: 3em;
   color: rgba(0, 0, 0, 0.54);
   padding: 0 16px; }
 
-/* line 1, ../scss/components/_form.scss */
 form {
   padding: 0 1em; }
 
-/* line 8, ../scss/components/_form.scss */
 input[type="text"],
 input[type="date"],
 input[type="number"],
@@ -1545,7 +1404,6 @@ textarea {
   -webkit-transition: border 0.75s ease;
   -moz-transition: border 0.75s ease;
   transition: border 0.75s ease; }
-  /* line 31, ../scss/components/_form.scss */
   input[type="text"]:focus,
   input[type="date"]:focus,
   input[type="number"]:focus,
@@ -1557,7 +1415,6 @@ textarea {
     outline-color: transparent;
     border-bottom-color: #03a9f4;
     border-bottom-width: 0.125em; }
-  /* line 36, ../scss/components/_form.scss */
   input[type="text"].ng-dirty.ng-valid,
   input[type="date"].ng-dirty.ng-valid,
   input[type="number"].ng-dirty.ng-valid,
@@ -1568,7 +1425,6 @@ textarea {
   textarea.ng-dirty.ng-valid {
     border-bottom-color: #259b24;
     border-bottom-width: 0.125em; }
-  /* line 40, ../scss/components/_form.scss */
   input[type="text"].ng-dirty.ng-invalid,
   input[type="date"].ng-dirty.ng-invalid,
   input[type="number"].ng-dirty.ng-invalid,
@@ -1579,7 +1435,6 @@ textarea {
   textarea.ng-dirty.ng-invalid {
     border-bottom-color: #f44336;
     border-bottom-width: 0.125em; }
-  /* line 45, ../scss/components/_form.scss */
   input[type="text"]::-webkit-input-placeholder,
   input[type="date"]::-webkit-input-placeholder,
   input[type="number"]::-webkit-input-placeholder,
@@ -1593,7 +1448,6 @@ textarea {
     -webkit-animation: fadeIn 0.75s ease forwards;
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
-  /* line 50, ../scss/components/_form.scss */
   input[type="text"]:-moz-placeholder,
   input[type="date"]:-moz-placeholder,
   input[type="number"]:-moz-placeholder,
@@ -1608,11 +1462,9 @@ textarea {
     -moz-animation: fadeIn 0.75s ease forwards;
     animation: fadeIn 0.75s ease forwards; }
 
-/* line 57, ../scss/components/_form.scss */
 select {
   height: 1.125em; }
 
-/* line 62, ../scss/components/_form.scss */
 input[type="submit"],
 button {
   display: block;
@@ -1633,7 +1485,6 @@ button {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 77, ../scss/components/_form.scss */
 fieldset {
   height: 3em;
   overflow-y: hidden;
@@ -1641,15 +1492,12 @@ fieldset {
   -webkit-transition: height 0.75s ease-in-out;
   -moz-transition: height 0.75s ease-in-out;
   transition: height 0.75s ease-in-out; }
-  /* line 82, ../scss/components/_form.scss */
   fieldset.focus {
     height: 4.5em; }
-  /* line 85, ../scss/components/_form.scss */
   fieldset.submit {
     padding: 0;
     margin-top: 1em; }
 
-/* line 91, ../scss/components/_form.scss */
 label {
   color: rgba(0, 0, 0, 0.54);
   font-size: 12px;
@@ -1657,17 +1505,14 @@ label {
   display: none;
   line-height: 1.333;
   height: 1.33333em; }
-  /* line 98, ../scss/components/_form.scss */
   label.valid {
     margin-bottom: 0.66667em;
     font-weight: 500;
     text-transform: capitalize; }
-  /* line 115, ../scss/components/_form.scss */
   label.invalid {
     color: #f44336; }
 
 /** switch**/
-/* line 140, ../scss/components/_form.scss */
 .switch {
   position: relative;
   display: inline-block;
@@ -1676,7 +1521,6 @@ label {
   height: 2px;
   padding: 12px 3px 3px 3px; }
 
-/* line 149, ../scss/components/_form.scss */
 .switch-input {
   position: absolute;
   top: 0;
@@ -1688,7 +1532,6 @@ label {
   margin: 0;
   cursor: pointer; }
 
-/* line 161, ../scss/components/_form.scss */
 .switch-label {
   position: relative;
   top: -5px;
@@ -1703,19 +1546,15 @@ label {
   -moz-transition-property: opacity background;
   transition-property: opacity background; }
 
-/* line 171, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label {
   background: rgba(0, 0, 0, 0.27); }
 
-/* line 174, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label:before {
   opacity: 0; }
 
-/* line 177, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-label:after {
   opacity: 1; }
 
-/* line 181, ../scss/components/_form.scss */
 .switch-handle {
   position: absolute;
   top: 0;
@@ -1729,17 +1568,14 @@ label {
   -moz-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out; }
 
-/* line 192, ../scss/components/_form.scss */
 .switch-input:checked ~ .switch-handle {
   left: 16px;
   border: 2px solid #259b24;
   background: #259b24; }
 
-/* line 198, ../scss/components/_form.scss */
 .switch-green > .switch-input:checked ~ .switch-label {
   background: #259b24; }
 
-/* line 1, ../scss/components/_snackbar.scss */
 .snackbar {
   background-color: #323232;
   padding: 1.125em 1.5em;
@@ -1754,25 +1590,21 @@ label {
   -ms-transform: translateY(3.5em);
   -o-transform: translateY(3.5em);
   transform: translateY(3.5em); }
-  /* line 14, ../scss/components/_snackbar.scss */
   .snackbar p {
     font-weight: 300;
     font-size: 14px;
     line-height: 1.42; }
 
-/* line 1, ../scss/components/_action.scss */
 .action--embed, .action--float {
   -webkit-transition: all 0.75s ease-in-out;
   -moz-transition: all 0.75s ease-in-out;
   transition: all 0.75s ease-in-out; }
-  /* line 10, ../scss/components/_action.scss */
   .action--embed icon, .action--float icon,
   .action--embed .icon,
   .action--float .icon {
     width: 2.5em;
     height: 2.5em;
     padding: 0.5em; }
-    /* line 19, ../scss/components/_action.scss */
     .action--embed icon line, .action--float icon line,
     .action--embed .icon line,
     .action--float .icon line {
@@ -1780,7 +1612,6 @@ label {
       stroke: #fff; }
 
 /***directive***/
-/* line 35, ../scss/components/_action.scss */
 .action--embed {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -1792,7 +1623,6 @@ label {
   width: 2.5em;
   height: 2.5em; }
 
-/* line 47, ../scss/components/_action.scss */
 .action--float {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -1802,62 +1632,42 @@ label {
   width: 3.5em;
   height: 3.5em; }
 
-/* line 10, ../scss/components/_card.scss */
-.card__title, .card__title--center, .countdown__item em {
+.card__title, .card__title--center, .countdownt__item em, .countdown--knob__item em {
   font-size: 1.5em;
   margin-bottom: 0.33333em; }
 
-/* line 23, ../scss/components/_card.scss */
 .card {
   margin: 0.5em;
   padding: 1em; }
 
-/* line 28, ../scss/components/_card.scss */
 .card--full {
   padding: 1em; }
 
-/* line 35, ../scss/components/_card.scss */
 .card--figure {
   margin: 0.5em; }
 
-/* line 40, ../scss/components/_card.scss */
 .card--list {
   margin: 0.5em; }
-  /* line 43, ../scss/components/_card.scss */
   .card--list .card__title,
   .card--list .card__title--center {
     padding: 0.66667em 0 0 0;
     margin: 0; }
 
-/* line 59, ../scss/components/_card.scss */
 .card__image {
   background-size: cover;
   background-position: center center;
   border-radius: 0.125em 0 0 0.125em; }
 
-/* line 64, ../scss/components/_card.scss */
 .card__description {
   padding: 1em; }
-  /* line 66, ../scss/components/_card.scss */
   .card__description p {
     margin-bottom: 0.5em; }
 
-/* line 70, ../scss/components/_card.scss */
 .card__logo--main {
   position: relative;
   width: 60px;
   height: 60px;
   margin: 0 auto 0.5em auto; }
-
-/* line 86, ../scss/components/_card.scss */
-.countdown__item {
-  width: 25%; }
-  /* line 93, ../scss/components/_card.scss */
-  .countdown__item em {
-    font-style: normal; }
-  /* line 97, ../scss/components/_card.scss */
-  .countdown__item span {
-    font-size: 14px; }
 
 /*
 $offset: 187;
@@ -1900,13 +1710,11 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }*/
-/* line 45, ../scss/components/_spinner.scss */
 .spinner {
   -webkit-animation: rotator 1.4s linear infinite;
   -moz-animation: rotator 1.4s linear infinite;
   animation: rotator 1.4s linear infinite; }
 
-/* line 49, ../scss/components/_spinner.scss */
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
@@ -2006,5 +1814,45 @@ $duration: 1.4s;
     -ms-transform: rotate(450deg);
     -o-transform: rotate(450deg);
     transform: rotate(450deg); } }
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 18.2857px; }
+
+  main {
+    width: 768px;
+    margin: 0 auto;
+    top: -8em;
+    background-color: #fff;
+    border-radius: 0.25em;
+    -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+    -ms-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+    -o-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.23), 0 3px 3px rgba(0, 0, 0, 0.16);
+    overflow: hidden; }
+
+  .toolbar--default {
+    height: 12em; }
+
+  [class*="card"] {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0; } }
+.countdownt__item {
+  width: 25%; }
+  .countdownt__item em {
+    font-style: normal; }
+  .countdownt__item span {
+    font-size: 14px; }
+
+.countdown--knob__item {
+  width: 25%; }
+  .countdown--knob__item span {
+    font-size: 14px; }
+  .countdown--knob__item input {
+    padding: 0 0 0.5em 0 !important; }
 
 /*# sourceMappingURL=yemd.css.map */

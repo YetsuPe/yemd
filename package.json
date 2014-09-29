@@ -2,14 +2,16 @@
   "name": "yemd",
   "version": "0.0.2",
   "description": "Yemd framework",
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "https://github.com/yetsupe/yemd"
   },
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-sass": "^0.7.3"
+    "gulp": "3.8.8",
+    "gulp-rename": "1.2.0",
+    "gulp-concat": "2.4.1",
+    "gulp-jshint": "1.8.4",
+    "gulp-uglify": "1.0.1",
+    "gulp-ruby-sass": "^0.7.1"
   }
 }
