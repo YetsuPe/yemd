@@ -3,10 +3,13 @@ main {
 }
 
 @media screen and (min-width: $media-lg) {
+
 	$base-font: 18.2857px;
+
 	body {
 		font-size: $base-font;
 	}
+
 	main { 
 		width: 768px;
 		margin: 0 auto;
@@ -16,6 +19,7 @@ main {
 		@include zDepth($z_depth:2);
 		overflow: hidden;
 	}
+	
 	.toolbar--default {  
 		height: em( 64 *3);
 	}

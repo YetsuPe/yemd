@@ -1,9 +1,9 @@
-%action{
+%action {
   @extend %display--block;
   @extend %zDepth-2;
   @extend %border-radius--50percent;  
-  @extend %z-index--1 ;
-  @extend %bg--secondary  ;
+  @extend %z-index--1;
+  @extend %bg--secondary;
 
   @include transition (all $time-animation $mode-animation);
 
@@ -15,22 +15,28 @@
     @extend %width--100percent;
     width: em(40px);
     height: em(40px);
-    padding: em(8px);  
+    padding: em(8px); 
+     
     line {
       fill: $color-white;
       stroke: $color-white;
     }
   }
+
   &.show {
     @extend %animation-scaleIn;
   }
+
   &.hide {
     @extend %animation-scaleOut;
   }
+
 }
+
 .action {
   @extend %display--none;
 }
+
 /***directive***/ 
 .action--embed { 
   @extend %action;
@@ -41,7 +47,7 @@
   bottom: -1* em(20px);
   padding: em(8px);
   width : em(40px);
-  height: em(40px) ; 
+  height: em(40px); 
 }
 
 .action--float {
@@ -52,7 +58,7 @@
   @extend %right--base;
   @extend %padding--base;
   
-  @include transform( scale(1) );
-  width :  em(56px);
-  height:  em(56px) ; 
+  @include transform(scale(1));
+  width: em(56px);
+  height: em(56px); 
 }

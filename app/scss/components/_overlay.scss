@@ -1,0 +1,20 @@
+.overlay {
+  @extend %position--fixed;
+  @extend %top--0;
+  @extend %width--100percent;
+  @extend %height--100percent;
+  @extend %pointer-events--none;
+  @extend %opacity--0;
+	//@extend %display--none; 
+  background: $bg-overlay;
+
+  &.show { 
+    @extend %pointer-events--auto;
+    @extend %animation-overlayIn;
+	}
+	
+  &.hide { 
+    @extend %pointer-events--none;
+    @extend %animation-overlayOut;
+	}
+}

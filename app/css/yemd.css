@@ -3,7 +3,7 @@
 .list__item__img svg,
 .list__item__icon img,
 .list__item__icon svg, .action--embed, .action--float {
-  border-radius: 50% 50% 50% 50%; }
+  border-radius: 50%; }
 
 .toolbar--default form input, .toolbar--extend form input {
   -webkit-box-sizing: border-box;
@@ -1108,11 +1108,10 @@ ol {
 a {
   text-decoration: none; }
 
-/*** canvas *****/
-main, card {
+main,
+card {
   display: block; }
 
-/***** forms ****/
 fieldset,
 input {
   border: 0;

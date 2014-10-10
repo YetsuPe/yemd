@@ -22,16 +22,16 @@ gulp.task('lint',function(){
 });
 
 gulp.task('sass', function(){
-	return gulp.src('app/scss/style.scss')
+	return gulp.src('app/scss/yemd.scss')
 		.pipe(sass())
 		.pipe(gulp.dest('app/css/'));
 });
 
 gulp.task('scripts',function(){
 	return gulp.src('app/js/*.js')
-		.pipe(concat('all.js'))
+		.pipe(concat('yemd.js'))
 		.pipe(gulp.dest('dist'))
-		.pipe(rename('all.min.js'))
+		.pipe(rename('yemd.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist'));
 });

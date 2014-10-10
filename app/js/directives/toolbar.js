@@ -6,16 +6,13 @@
 	function toolbar($rootScope,$compile){
 		return {
 			scope: {
-				title:'@', //extend,normal
 				type:'@', //extend,normal
 				isAppbar: '@'
 			}, 
-			restrict:'AEC', 
-			//template:"<h1>{{ vm.title }}</h1>",
+			restrict:'EC', 
 			controller: function  ($scope, $element, $attrs,$rootScope){
 				var vm= this;
-				vm.isAppbar= $scope.isAppbar || false ;  
-				vm.title= $scope.title || 'APP' ; 
+				vm.isAppbar= $scope.isAppbar || false ;
 				vm.type= $scope.type || 'default'; 
 			},
 			controllerAs:'toolbarController',
@@ -67,6 +64,6 @@
 		};
 	};
 
-	yemd.directive('yemdToolbar',toolbar);
-})(yemd);
+	yemd.directive('toolbar',toolbar);
 
+})(yemd);

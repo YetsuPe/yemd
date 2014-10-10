@@ -1,0 +1,48 @@
+* {
+  @include box-sizing(border-box);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+fieldset,
+ul, 
+ol,
+dl,
+dd {
+  margin: 0;
+}
+
+fieldset,
+ul, 
+ol {
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main,
+card {
+  display: block;
+}
+
+fieldset, 
+input {
+  border: 0;
+  box-shadow: none; // firefox browser and OS */
+  border-radius: 0; // firefox browser and OS */
+  outline: 0;
+}
+
