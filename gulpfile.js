@@ -28,12 +28,12 @@ gulp.task('sass', function(){
 });
 
 gulp.task('scripts',function(){
-	return gulp.src('app/js/*.js')
+	return gulp.src(['app/js/*.js', 'app/js/**/*.js'])
 		.pipe(concat('yemd.js'))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest('dist/js/'))
 		.pipe(rename('yemd.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('watch',function(){
