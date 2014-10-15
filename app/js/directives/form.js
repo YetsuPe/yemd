@@ -74,13 +74,10 @@
  						
 						var titleAppbar= (scope.type==='update')? 'Editar '+scope.module :'Nuevo '+scope.module;
 
-						$rootScope.$emit('changeTitleAppbar', titleAppbar ); 
-
-						$rootScope.$emit('changeAppbar', 'default' );
-            $rootScope.$emit('hideActionNew'); 
-            $rootScope.$emit('hideSearch'); 
+						//$rootScope.$emit('changeTitleAppbar', titleAppbar ); 
+            //$rootScope.$emit('hideSearch'); 
             
-						$rootScope.$emit('changeIcon',{oldAction:'sidenavLeft', newAction:'back', newIcon:'arrow-left'});
+						//$rootScope.$emit('changeIcon',{oldAction:'sidenavLeft', newAction:'back', newIcon:'arrow-left'});
 	        },  
 	        post: function postLink(scope, element, attrs, require) {   
 
@@ -91,8 +88,9 @@
 					 			if ( validFormResult.status ) {
 					 				rest( scope.module+'/new' ,'POST', scope.models).then(function(respond){  
 		                console.log(respond);
-		                if (respond.status) { 
-		                  $state.go('^.list');
+		                if (respond.status) {
+		                  $rootScope.$emit('formSuccess') ;
+		                  $rootScope.$emit('showSnackbar', respond.message ) ;
 		                }else{ 
 		                  $rootScope.$emit('showSnackbar', respond.message ) ;
 		                };
@@ -105,7 +103,8 @@
 	        			rest( scope.module+'/'+scope.iditem ,'PUT', scope.models).then(function(respond){  
 		              console.log(respond);
 		              if (respond.status) { 
-		                $state.go('^.list');
+		                $rootScope.$emit('formSuccess') ;
+		                $rootScope.$emit('showSnackbar', respond.message ) ;
 		              }else{ 
 		                $rootScope.$emit('showSnackbar', respond.message ) ;
 		              };
