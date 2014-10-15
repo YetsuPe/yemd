@@ -9,6 +9,9 @@
 %animation-showSidenavLeft { @include animation( showSidenavLeft $enter_animation forwards );}
 %animation-hideSidenavLeft { @include animation( hideSidenavLeft $leave_animation forwards );}
 
+%animation-showSidenavRight { @include animation( showSidenavRight $enter_animation forwards );}
+%animation-hideSidenavRight { @include animation( hideSidenavRight $leave_animation forwards );}
+
 %animation-overlayIn  { @include animation( fadeIn $enter_animation forwards );}
 %animation-overlayOut { @include animation( fadeOut $leave_animation forwards );}
 

@@ -82,7 +82,7 @@
 	height: em(56); 
 
 	h1 { 
-		color: $color-white; //Bug
+		color: white; //Bug
 		@extend %toolbar__title;
 		@extend %text-overflow--ellipsis; 
 		@extend %overflow--hidden;
@@ -104,6 +104,7 @@
 		@include transform( translateY( em(82,20) ) ); 
 		font-size: em(20);
 		margin-left: em(72,20);
+		color: white;
 	}
 }
 

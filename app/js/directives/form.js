@@ -48,7 +48,7 @@
 					}); 
 					template += "<input type='submit' value='"+ $scope.submit.value +"' ng-model='models.submit' ng-click='submit()' />";
 				} 
-				$scope.template=$rootScope.element( template ); 
+				$scope.template=angular.element( template ); 
  
 				// fill modles if type === update
 				if ($scope.type==='update'){

@@ -23,7 +23,7 @@
 
       $rootElement.find('body').append( overlay );  
       $rootElement.find('body').append( snackbar ); 
-      $rootElement.find('header').append( action ); 
+      $rootElement.find('header').eq(0).append( action ); 
 
   	  return {
   	  	folderIcons: folderIcons
@@ -40,9 +40,9 @@
 (function(angular, yemd){  
 	'use strict';  
 
-	action.$inject=['$rootScope', 'injectSvg', '$timeout','$state'];
+	action.$inject=['$rootScope', 'injectSvg', '$timeout'];
 
-	function action($rootScope, injectSvg, $timeout,$state){
+	function action($rootScope, injectSvg, $timeout){
 		return {
 			scope: {},  
 			restrict:'C', 
@@ -64,9 +64,9 @@
 		 				});
 
 		 				element.on('click',function(){ 
-		 					var state= $state.current.name.split('.'); 
-		 					if ( state[1] ==='list' ) { $state.go('^.new') };
-		 					//$rootScope.$emit('clickAction');
+		 					//var state= $state.current.name.split('.'); 
+		 					//if ( state[1] ==='list' ) { $state.go('^.new') };
+		 					$rootScope.$emit('clickAction');
 		 				});
 
 	        }
@@ -180,7 +180,7 @@ angular.module('yemd').directive('canvas',$canvas);
 					}); 
 					template += "<input type='submit' value='"+ $scope.submit.value +"' ng-model='models.submit' ng-click='submit()' />";
 				} 
-				$scope.template=$rootScope.element( template ); 
+				$scope.template=angular.element( template ); 
  
 				// fill modles if type === update
 				if ($scope.type==='update'){
@@ -297,7 +297,7 @@ angular.module('yemd').directive('canvas',$canvas);
 
         		//element.on('touchstart',clickTouch );
 	        	element.on('click',clickTouch);
-	        	/*
+	        	
 	        	$rootScope.$on('changeIcon',function(e,data){
 	        		if (scope.action === data.oldAction) {
 	        			scope.action = data.newAction ;
@@ -307,7 +307,8 @@ angular.module('yemd').directive('canvas',$canvas);
 	        			element.append( injectSvg( scope.icon, element) ); 
 	        		};
 	        	});
-
+	        	
+						/*
  						$rootScope.$on('removeFormSearch',function(){  
  							$rootScope.$emit('cleanFormSearch');  
 		          $rootElement.find('header').children('form').remove();  
@@ -582,6 +583,7 @@ angular.module('yemd').directive('canvas',$canvas);
       compile: function(){
         return {
           pre: function preLink(scope, element, iAttrs, vm) {
+            $rootScope.$emit('changeIcon',{oldAction:'back', newAction:'sidenavLeft', newIcon:'menu'});
             if ( scope.items.length === 0 ) {
               element.append($rootScope.element("<h2 class='sub-title'> No hay registros de "+scope.title+" </h2> "));
             };  
@@ -604,7 +606,7 @@ angular.module('yemd').directive('canvas',$canvas);
   }; 
 
 
-  yemd.directive('yemdList',list);    
+  yemd.directive('list',list);    
 
 })(yemd);
  
@@ -703,7 +705,8 @@ angular.module('yemd').directive('canvas',$canvas);
 	function sidenav($rootScope,$window,$verge,$document){
 		return {
 			scope: { 
-				type:'@' // left, right
+				type:'@', // left, right
+				isAppbar: '@'
 			},
 			restrict:'AEC',  
 			controller: function  ($scope, $element, $attrs,$rootScope,$verge,$document ){
@@ -712,32 +715,29 @@ angular.module('yemd').directive('canvas',$canvas);
 				vm.className= 'sidenav--'+vm.type ; 
 
 				vm.getHeightSidenav=  function(element){
-					var height = vm.getHeightToHeadValue() + $element.find('section').eq(0)[0].clientHeight;  
-					return ($verge.viewportH() > height )? { 'height':'100%' } : {'height': (vm.getHeightToHeadValue() + height) +'px' };
+					var height = (vm.type==='left')? vm.getHeightToHeadValue() + element.children('section')[0].clientHeight: $element.children('section')[0].clientHeight ;  
+					//console.log( $verge.viewportH() , vm.getHeightToHeadValue(), element.children('section').eq(0).height() );
+					return ($verge.viewportH() > height )? { 'height':'100%' } : {'height': (vm.getHeightToHeadValue() + height) +'px', 'overflow-y': scroll };
 				}; 
 				vm.getHeightToHeadValue= function(){ 
-					return $verge.viewportW() <= 320? ($verge.viewportW() - 56)*(9/16)    : 320*(9/16) ;
+					return $verge.viewportW() < 320? ($verge.viewportW() - 56)*(9/16)    : 264*(9/16) ;
 				};
 				vm.getHeightToHead= function(){   
-					return { height: vm.getHeightToHeadValue() +"px" };
+					return { 'height': vm.getHeightToHeadValue() +"px" };
 				}; 
 
 			},
 			controllerAs:'vm',
-			compile: function(){
+			compile: function(tElement, tAttrs){
+
 				return {
-	        pre: function preLink(scope, element, iAttrs, vm) {  
-	        	element.addClass(vm.className); 
-	        	element.css(vm.getHeightSidenav());
+	        pre: function preLink(scope, element, attrs, vm) {   
+	          element.addClass(vm.className); 
 	        	element.find('figure').css( vm.getHeightToHead() );
+
 	        },  
-	        post: function postLink(scope, element, iAttrs, vm) { 
+	        post: function postLink(scope, element, attrs, vm) {
 
-	        	$rootScope.$on('changeSidenavLeft', function(event) { 
-				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
-				   	});
-
-	        	/*
 	        	element.css( vm.getHeightSidenav(element) );
 
 	        	element.find('a').on('click',function(e){
@@ -745,15 +745,15 @@ angular.module('yemd').directive('canvas',$canvas);
 	        		$rootScope.$emit('changeSidenavLeft'); 
 	        	});
 	        	
-	        	//responsive
-	        	$window.onresize= function(event){    
-	        		element.find('figure').css( vm.getHeightToHead() );
-	        		element.css( vm.getHeightSidenav(element) ); 
-	        	};
+	        	$rootScope.$on('changeSidenavLeft', function(event) { 
+				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+				   	});
 
-						
-						*/
-						
+	        	//responsive
+	        	$window.onresize= function(event){   
+	        		element.find('figure').css( vm.getHeightToHead() );
+	        		//element.css( vm.getHeightSidenav(element) ); 
+	        	};
 
 	        }
 	      };
@@ -761,20 +761,22 @@ angular.module('yemd').directive('canvas',$canvas);
 		};
 	};
 
-	yemd.directive('yemdSidenav',sidenav);
+	yemd.directive('sidenav',sidenav);
 
 })(yemd);
 
 
-(function(angular){ 
+(function(angular, yemd){ 
+  
 	yemd
-	.directive('snackbar',['$rootScope','$timeout','$settings', function($rootScope,$timeout,$settings){
+	.directive('snackbar',['$rootScope','$timeout', function($rootScope,$timeout){
     return {
       restrict: 'AC',
       scope:{}, 
       compile:function(){
       	return {
       		post: function postLink(scope,element,attrs){
+
       			$rootScope.$on('showSnackbar',function(event,message){
 		      		console.log(message);
 		      		element.removeClass('hide').addClass('show'); 
@@ -783,6 +785,7 @@ angular.module('yemd').directive('canvas',$canvas);
 		      			element.removeClass('show').addClass('hide'); 
 		      		}, 1750); 
 		      	});
+
       		}
       	}
       } 
@@ -814,41 +817,47 @@ angular.module('yemd').directive('canvas',$canvas);
 	        }, 
 	        post: function postLink(scope, element, iAttrs, toolbarController) {
 
+	        	$rootScope.$on('changeTitleAppbar',function(event,newTitle){ 
+	        		if ( scope.isAppbar!== undefined ) { element.find('h1').text(newTitle);  };
+	        	});
+	        	
+	        	$rootScope.$on('changeAppbar', function(e,className){ 
+	        		element.attr('class', 'toolbar--'+className);
+						});
+
+	        	/*
 	        	$rootScope.$on('injectIcon', function(event,icon,action){ 
 	        		var linkIcon = $compile(icon); 
 	        		scope.search = action;
               linkIcon(scope); 
 	        		element.find('icon').eq(0).after(icon) 
 	        	});
-
+	        	/*
 	        	$rootScope.$on('injectActionNew', function(event,icon,action,node){ 
 	        		var linkIcon = $compile(icon); 
 	        		scope.actionNew = action;
               linkIcon(scope);
               node.append(icon).addClass('show') ;
 	        	});
-
-	        	$rootScope.$on('changeTitleAppbar',function(event,newTitle){ element.find('h1').text(newTitle) });
+						*/
 	        	
-	        	$rootScope.$on('changeAppbar', function(e,className){ 
-	        		element.attr('class', 'toolbar--'+className);
-						});
-
+	        	/*
 	        	$rootScope.$on('showActionNew', function(e,menu,stateName){ 
 	        		angular.forEach(menu, function(value,index){
 	        			if ( value.nombre===stateName ) {  
 	        				var className=( element.hasClass('toolbar--default') )? 'float' : 'embed' ;
 	        				this.append( $rootScope.element( "<a class='action--"+className+"'> </a>"   ) );
 	        				var node = element.find('a').eq(-1);
-	        				var icon = $rootScope.$emit('injectActionNew', $rootScope.element("<icon data-src='actionNew' ui-sref='^.new'> </icon>"), {icon:'plus', involve:'actionNew' },node );
+	        				var icon = $rootScope.$emit('injectActionNew', angular.element("<icon data-src='actionNew' ui-sref='^.new'> </icon>"), {icon:'plus', involve:'actionNew' },node );
 	        				//this.append( $rootScope.element( "<a class='action--"+className+"'> "+icon+" </a>"   ) );
 	        			};
 	        		}, element);
 	        	});
+						*/
 	        	$rootScope.$on('hideActionNew', function(e,menu){
 	        		element.find('a').removeClass('show').addClass('hide');
 	        	});
-
+						
 	        }
 	      };
 			}
@@ -859,115 +868,7 @@ angular.module('yemd').directive('canvas',$canvas);
 
 })(yemd);
 
-(function(angular,svg){ 
-	angular.module('yemd',[]);
-})(angular);
-(function(yemd){  
-	'use strict'; 
-	yemd.factory('buildNode', ['$rootScope', function($rootScope){
-		return function htmlNode (html){
-			var newNode = $rootScope.element(html); //html content 
-			return newNode;
-		}; 
-	}]); 
-	
-})(yemd);
-(function(angular,yemd){
-	"use strict";
-	yemd.factory('checkLogin', ['$state','$rootScope', function($state,$rootScope){
-    return function (query){
-      if (query.status) {  
-        return   ($state.current.name=== 'login')? $state.go('home'): { status:true, data:query.respond.data , menu:query.respond.menu  } ;              
-      }else{
-        return  ($state.current.name!== 'login')? $state.go('login'): { status: false, message:"Debe loguearse para acceder al sistema" };
-      };
-    };
-  }]); 
-})(angular,yemd);
-(function(angular,yemd){
 
-	function form(){
-		this.template=function(query){
-			if (!query.status) return query ;
-			var template='';
-			angular.forEach(query.respond, function(value,index){
-				switch (value.type){
-					case 'number':
-						var required = (value.required)? 'required' : '' ;
-						template    += "<input type='"+value.type+"' name='"+value.name+"' "+required+" max='"+value.max+"' placeholder='"+value.name+"'/>";
-					break;
-					default:
-						template +="<input/>";
-					break;
-				}
-			}, template);
-			return template;
-
-		};
-		return this.template;
-	}
-
-	yemd.factory('formHtml',form);
-})(angular,yemd);
-(function(angular, yemd){
-	yemd.factory('listHtml', [ function(){
-    return function(query,select ){
-      var result= {};
-      var newQuery= [];
-      if ( angular.isArray(query) ) {
-        angular.forEach(query, function(valueI,indexI){ // travel of all rows
-          var row={};
-          angular.forEach(valueI, function(value,key){ // individual row and retrieve field,key
-            //angular.forEach(value, function(contentOneRow,fieldOneRow){ //key and field of individual row
-              angular.forEach(select, function(content,index){ //select array
-                if ( angular.isObject(content) ) {
-                  angular.forEach(content, function(nameView,field){
-                    if ( key === field && typeof(content.filter)==='undefined' ) { this[nameView]=value };
-                    if ( key === field && typeof(content.filter)!=='undefined') { this[nameView]= content.filter(value) };
-                  }, row);
-                }else if (  key === content ) { 
-                  this[key]= value ;
-                };
-              }, row);
-            //});
-          });
-          this.push(row);
-        },newQuery);
-        return newQuery;
-      }else{
-        angular.forEach(query, function(value,key){ 
-          angular.forEach(select, function(content,index){
-            if ( angular.isObject(content) ) {
-              angular.forEach(content, function(nameView,field){
-                if ( key === field && typeof(content.filter)==='undefined' ) { this[nameView]=value };
-                if ( key === field && typeof(content.filter)!=='undefined')  { this[nameView]= content.filter(value) };
-              }, result);
-            }else if (  key === content ) { 
-              this[key]=value ;
-            };
-          }, result);
-        });
-        return result;
-      }; 
-    };  
-  }]);
-})(angular,yemd);
-(function(angular,yemd,$){
-	"use strict";
-	yemd
-  .factory('rest', ['$http', function($http){
-    return function(uri, method, data){ 
-      return $http({
-                    method:method, 
-                    url: 'http://consama.com.pe/rest/'+uri,  
-                    data: $.param(data), 
-                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' } 
-            }).then(function(respond){ 
-                return respond.data ; 
-            });
-    };
-  }]);
-})(angular,yemd,jQuery);
 (function(angular, yemd, svg){  
  'use strict'; 
 	yemd.factory('injectSvg', ['$yemd', function($yemd){
@@ -1003,7 +904,7 @@ angular.module('yemd').directive('canvas',$canvas);
             }
           }) 
         } 
-        $rootScope.$emit('showSnackbar', 'El forumlario es incorrecto' ) ;  
+        $rootScope.$emit('showSnackbar', 'El formulario es incorrecto' ) ;  
         return { status: false, errors: errors, message : "el formulario es incorrecto" };
       }else{  
         return {status:true,message:'El formulario es correcto'};  
@@ -1011,174 +912,11 @@ angular.module('yemd').directive('canvas',$canvas);
     };
   }]);
 })(angular,yemd);
-(function(yemd){  
+(function(yemd, verge){  
+	
 	'use strict'; 
-	yemd.service('$verge', ['$rootScope','$window','$document', function($rootScope,$window,$document){
-		//this.viewport="viewport";
-
-		/*!
-		 * verge 1.9.1+201402130803
-		 * https://github.com/ryanve/verge
-		 * MIT License 2013 Ryan Van Etten
-		 */
-		 //console.log($document,$document[0],document);
-		(function(root, name, make) { 
-		  if (typeof module !== 'undefined' && module['exports']) module['exports'] = make();
-		  else root[name] = make();
-		}(this, 'verge', function() {
-
-		  var xports = {}
-		    , win = typeof $window !== 'undefined' && $window
-		    , doc = typeof $document[0] !== 'undefined' && $document[0]
-		    , docElem = doc && doc.documentElement
-		    , matchMedia = win['matchMedia'] || win['msMatchMedia']
-		    , mq = matchMedia ? function(q) {
-		        return !!matchMedia.call(win, q).matches;
-		      } : function() {
-		        return false;
-		      }
-		    , viewportW = xports['viewportW'] = function() {
-		        var a = docElem['clientWidth'], b = win['innerWidth'];
-		        return a < b ? b : a;
-		      }
-		    , viewportH = xports['viewportH'] = function() {
-		        var a = docElem['clientHeight'], b = win['innerHeight'];
-		        return a < b ? b : a;
-		      };
-		  
-		  /** 
-		   * Test if a media query is active. Like Modernizr.mq
-		   * @since 1.6.0
-		   * @return {boolean}
-		   */  
-		  xports['mq'] = mq;
-
-		  /** 
-		   * Normalized matchMedia
-		   * @since 1.6.0
-		   * @return {MediaQueryList|Object}
-		   */ 
-		  xports['matchMedia'] = matchMedia ? function() {
-		    // matchMedia must be binded to window
-		    return matchMedia.apply(win, arguments);
-		  } : function() {
-		    // Gracefully degrade to plain object
-		    return {};
-		  };
-
-		  /**
-		   * @since 1.8.0
-		   * @return {{width:number, height:number}}
-		   */
-		  function viewport() {
-		    return {'width':viewportW(), 'height':viewportH()};
-		  }
-		  xports['viewport'] = viewport;
-		  
-		  /** 
-		   * Cross-browser window.scrollX
-		   * @since 1.0.0
-		   * @return {number}
-		   */
-		  xports['scrollX'] = function() {
-		    return win.pageXOffset || docElem.scrollLeft; 
-		  };
-
-		  /** 
-		   * Cross-browser window.scrollY
-		   * @since 1.0.0
-		   * @return {number}
-		   */
-		  xports['scrollY'] = function() {
-		    return win.pageYOffset || docElem.scrollTop; 
-		  };
-
-		  /**
-		   * @param {{top:number, right:number, bottom:number, left:number}} coords
-		   * @param {number=} cushion adjustment
-		   * @return {Object}
-		   */
-		  function calibrate(coords, cushion) {
-		    var o = {};
-		    cushion = +cushion || 0;
-		    o['width'] = (o['right'] = coords['right'] + cushion) - (o['left'] = coords['left'] - cushion);
-		    o['height'] = (o['bottom'] = coords['bottom'] + cushion) - (o['top'] = coords['top'] - cushion);
-		    return o;
-		  }
-
-		  /**
-		   * Cross-browser element.getBoundingClientRect plus optional cushion.
-		   * Coords are relative to the top-left corner of the viewport.
-		   * @since 1.0.0
-		   * @param {Element|Object} el element or stack (uses first item)
-		   * @param {number=} cushion +/- pixel adjustment amount
-		   * @return {Object|boolean}
-		   */
-		  function rectangle(el, cushion) {
-		    el = el && !el.nodeType ? el[0] : el;
-		    if (!el || 1 !== el.nodeType) return false;
-		    return calibrate(el.getBoundingClientRect(), cushion);
-		  }
-		  xports['rectangle'] = rectangle;
-
-		  /**
-		   * Get the viewport aspect ratio (or the aspect ratio of an object or element)
-		   * @since 1.7.0
-		   * @param {(Element|Object)=} o optional object with width/height props or methods
-		   * @return {number}
-		   * @link http://w3.org/TR/css3-mediaqueries/#orientation
-		   */
-		  function aspect(o) {
-		    o = null == o ? viewport() : 1 === o.nodeType ? rectangle(o) : o;
-		    var h = o['height'], w = o['width'];
-		    h = typeof h == 'function' ? h.call(o) : h;
-		    w = typeof w == 'function' ? w.call(o) : w;
-		    return w/h;
-		  }
-		  xports['aspect'] = aspect;
-
-		  /**
-		   * Test if an element is in the same x-axis section as the viewport.
-		   * @since 1.0.0
-		   * @param {Element|Object} el
-		   * @param {number=} cushion
-		   * @return {boolean}
-		   */
-		  xports['inX'] = function(el, cushion) {
-		    var r = rectangle(el, cushion);
-		    return !!r && r.right >= 0 && r.left <= viewportW();
-		  };
-
-		  /**
-		   * Test if an element is in the same y-axis section as the viewport.
-		   * @since 1.0.0
-		   * @param {Element|Object} el
-		   * @param {number=} cushion
-		   * @return {boolean}
-		   */
-		  xports['inY'] = function(el, cushion) {
-		    var r = rectangle(el, cushion);
-		    return !!r && r.bottom >= 0 && r.top <= viewportH();
-		  };
-
-		  /**
-		   * Test if an element is in the viewport.
-		   * @since 1.0.0
-		   * @param {Element|Object} el
-		   * @param {number=} cushion
-		   * @return {boolean}
-		   */
-		  xports['inViewport'] = function(el, cushion) {
-		    // Equiv to `inX(el, cushion) && inY(el, cushion)` but just manually do both 
-		    // to avoid calling rectangle() twice. It gzips just as small like this.
-		    var r = rectangle(el, cushion);
-		    return !!r && r.bottom >= 0 && r.right >= 0 && r.top <= viewportH() && r.left <= viewportW();
-		  };
-
-		  return xports;
-		}));
-
- 		return this.verge;
+	yemd.service('$verge', [ function() {
+		return verge;
 	}]); 
 	
-})(yemd);
+})(yemd, verge);

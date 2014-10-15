@@ -38,8 +38,9 @@ gulp.task('scripts',function(){
 
 gulp.task('watch',function(){
 	gulp.watch('app/js/*.js',['lint', 'scripts']);
-	gulp.watch('app/scss/*.scss', ['sass']);
+	gulp.watch(['app/scss/*.scss', 'app/scss/**/*.scss'], ['sass']);
 	gulp.watch('app/*.html');
 });
 
 gulp.task('default', ['webserver', 'lint', 'sass', 'scripts', 'watch'] );
+gulp.task('build', ['webserver', 'lint', 'sass', 'scripts', 'watch'] );

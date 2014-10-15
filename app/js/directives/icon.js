@@ -38,7 +38,7 @@
 
         		//element.on('touchstart',clickTouch );
 	        	element.on('click',clickTouch);
-	        	/*
+	        	
 	        	$rootScope.$on('changeIcon',function(e,data){
 	        		if (scope.action === data.oldAction) {
 	        			scope.action = data.newAction ;
@@ -48,7 +48,8 @@
 	        			element.append( injectSvg( scope.icon, element) ); 
 	        		};
 	        	});
-
+	        	
+						/*
  						$rootScope.$on('removeFormSearch',function(){  
  							$rootScope.$emit('cleanFormSearch');  
 		          $rootElement.find('header').children('form').remove();  

@@ -23,7 +23,7 @@
 
       $rootElement.find('body').append( overlay );  
       $rootElement.find('body').append( snackbar ); 
-      $rootElement.find('header').append( action ); 
+      $rootElement.find('header').eq(0).append( action ); 
 
   	  return {
   	  	folderIcons: folderIcons

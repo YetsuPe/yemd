@@ -23,7 +23,7 @@
             }
           }) 
         } 
-        $rootScope.$emit('showSnackbar', 'El forumlario es incorrecto' ) ;  
+        $rootScope.$emit('showSnackbar', 'El formulario es incorrecto' ) ;  
         return { status: false, errors: errors, message : "el formulario es incorrecto" };
       }else{  
         return {status:true,message:'El formulario es correcto'};  

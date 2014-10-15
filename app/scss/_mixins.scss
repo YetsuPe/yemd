@@ -22,7 +22,7 @@
     @include box-shadow( 0 15px 6px rgba(0,0,0,0.22) ,0 19px 19px rgba(0,0,0,0.30) );
   }
 }
-@mixin fix_sidenav_width(){ 
+@mixin fix_sidenav_position(){ 
   @each $prefix in webkit moz ms o {
     -#{$prefix}-transform: translateX( calc( -1 * ( 100% ) ) );
   }
@@ -47,7 +47,7 @@
   from { @include transform(scale( 1 )); } 
   to   { @include transform(scale( 0 )); }
 }
-
+//Sidenav
 @include keyframes( showSidenavLeft ) { 
   to   { 
     @include zDepth($z_depth:5);
@@ -61,7 +61,7 @@
   }  
   to   { 
     @include zDepth($z_depth:0);
-    @include fix_sidenav_width;  
+    @include fix_sidenav_position;
   }
 }
 /*** labels ***/

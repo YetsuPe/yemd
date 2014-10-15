@@ -58,6 +58,7 @@
       compile: function(){
         return {
           pre: function preLink(scope, element, iAttrs, vm) {
+            $rootScope.$emit('changeIcon',{oldAction:'back', newAction:'sidenavLeft', newIcon:'menu'});
             if ( scope.items.length === 0 ) {
               element.append($rootScope.element("<h2 class='sub-title'> No hay registros de "+scope.title+" </h2> "));
             };  
@@ -80,7 +81,7 @@
   }; 
 
 
-  yemd.directive('yemdList',list);    
+  yemd.directive('list',list);    
 
 })(yemd);
  

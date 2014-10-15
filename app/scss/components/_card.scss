@@ -25,17 +25,26 @@
 	margin  : em(8px);
 	padding : em(16);
 } 
+
 .card--full { 
 	@extend %card; 
 	padding : em(16);
 }
-.card--full-padding-0 {
+.card--full-padding-0, 
+.card--full-list, {
 	@extend %card; 
 }
 .card--figure {
 	@extend %card; 
+	@extend %display--flex;
 	margin  : em(8px);
-	@extend %clearfix;  
+
+	img {
+		flex-grow: 1;
+	}
+	div {
+		flex-grow: 3;
+	}
 }
 .card--list {
 	@extend %card; 

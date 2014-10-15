@@ -17,8 +17,14 @@
 						$rootScope.$on('changeSidenavLeft', function(event) { 
 				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
 				   	}); 
+				   	
+				   	$rootScope.$on('changeSidenavRight', function(event) { 
+				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+				   	}); 
+
 				   	element.on('click',function(){ 
-				   		$rootScope.$emit('changeSidenavLeft'); 
+				   		$rootScope.$emit('closeSidenav'); 
+				   		element.removeClass('show').addClass('hide'); 
 				   	});
 				  }
 	      };

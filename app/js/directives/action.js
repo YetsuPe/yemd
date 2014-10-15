@@ -1,9 +1,9 @@
 (function(angular, yemd){  
 	'use strict';  
 
-	action.$inject=['$rootScope', 'injectSvg', '$timeout','$state'];
+	action.$inject=['$rootScope', 'injectSvg', '$timeout'];
 
-	function action($rootScope, injectSvg, $timeout,$state){
+	function action($rootScope, injectSvg, $timeout){
 		return {
 			scope: {},  
 			restrict:'C', 
@@ -25,9 +25,9 @@
 		 				});
 
 		 				element.on('click',function(){ 
-		 					var state= $state.current.name.split('.'); 
-		 					if ( state[1] ==='list' ) { $state.go('^.new') };
-		 					//$rootScope.$emit('clickAction');
+		 					//var state= $state.current.name.split('.'); 
+		 					//if ( state[1] ==='list' ) { $state.go('^.new') };
+		 					$rootScope.$emit('clickAction');
 		 				});
 
 	        }
