@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     webserver = require('gulp-webserver');
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('webserver', function() {
   gulp.src('app')
@@ -32,8 +33,11 @@ gulp.task('scripts',function(){
 		.pipe(concat('yemd.js'))
 		.pipe(gulp.dest('dist/js/'))
 		.pipe(rename('yemd.min.js'))
+		.pipe(ngAnnotate())
 		.pipe(uglify())
-		.pipe(gulp.dest('dist/js/'));
+    .pipe(gulp.dest('dist/js'));
+		//.pipe(uglify())
+		//.pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('watch',function(){
