@@ -1,0 +1,25 @@
+.modal {
+	@extend %border-radius--card ;
+	@extend %zDepth-4 ;
+	display: flex;
+	flex-direction: column;
+
+	background-color: white;
+	width: 80%;
+	position: fixed;
+	z-index: 4;
+	left: 10%;
+	top: 20%;
+}
+
+.modal__title {
+	font-size: em(20);
+	font-weight: 400;
+}
+.modal__content {
+	text-align: justify;
+}
+
+.modal__controls {
+	display: flex;
+}
