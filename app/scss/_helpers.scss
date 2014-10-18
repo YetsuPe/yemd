@@ -1,6 +1,9 @@
 .margin-top--0 {
 	@extend %margin-top--0 ;
 }
+.margin-right {
+	margin-right: 1em;
+}
 //Backgrounds 
 .bg-primary {
 	background-color: $color-primary;

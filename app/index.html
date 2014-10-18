@@ -22,17 +22,22 @@
 	</header>
 
 	<!-- Sidenav -->
-	<nav yemd-sidenav data-type="left">
+	<nav sidenav data-type="left" >
+
 		<figure data-src="assets/images/cover.jpg" class="card--head-sidenav">
 			<img src="assets/images/logo-yetsu.svg" alt="logo"/>
 			<figcaption>
 				<a href="#"> hello@yetsu.com </a>
 			</figcaption>
 		</figure>
-		<section class="list--single-line" data-items="" data-type="">
-			<a href="#"> Home </a>
-			<a href="#"> Contact </a>
+
+		<section class="sidenav__content">
+			<section class="list--single-line" data-items="" data-type="">
+				<a href="#"> Home </a>
+				<a href="#"> Contact </a>
+			</section>
 		</section>
+			
 	</nav>
 
 	<main>
@@ -122,10 +127,14 @@
 
 <!--Dependencies
 <script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic -->
+
 <script src="vendor/angular/angular.min.js"></script>
 <script src="vendor/verge/verge.min.js"></script>
 <script src="vendor/svg-injector/dist/svg-injector.min.js"></script>
 
+<script src="yemd.min.js"></script>
+
+<!--
 <script src="js/yemd.js"></script>
 
 <script src="js/services/verge.js"></script>
@@ -139,7 +148,8 @@
 <script src="js/directives/input.js"></script>
 <script src="js/directives/snackbar.js"></script>
 <script src="js/directives/action.js"></script>
-<script src="js/directives/form.js"></script>
-
+<script src="js/directives/modal.js"></script>
+<script src="js/directives/tooltip.js"></script>
+-->
 </body>
 <html>

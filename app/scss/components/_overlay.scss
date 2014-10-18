@@ -5,7 +5,7 @@
   @extend %height--100percent;
   @extend %pointer-events--none;
   @extend %opacity--0;
-	//@extend %display--none; 
+  @extend %z-index--2;
   background: $bg-overlay;
 
   &.show { 

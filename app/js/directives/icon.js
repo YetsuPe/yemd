@@ -19,10 +19,12 @@
 	        	
 	        	function clickTouch (e){ 
 	        		if (scope.action ==='sidenavLeft')  { $rootScope.$emit('changeSidenavLeft') };
+	        		if (scope.action ==='closeSidenavRight')  { $rootScope.$emit('closeSidenavRight') };
 	        		if (scope.action ==='refreshState') { $rootScope.$emit('refreshState') };
 	        		if (scope.action ==='back')         { $rootScope.$emit('backState') };
 	        		if (scope.action ==='backSearch')   { $rootScope.$emit('removeFormSearch') };
-	        		if (scope.action ==='edit')         { $rootScope.$emit('editState') };
+	        		if (scope.action ==='edit')         { $rootScope.$emit('edit') };
+	        		if (scope.action ==='delete')         { $rootScope.$emit('delete') };
 	        		if (scope.action ==='search') {  
 	        			var searchForm= angular.element("<form name='form' novalidate><input type='search' autofocus placeholder='Buscar...' data-special='searchAppbar' ng-model='search' name='search'/></form>")  ;
 		        		$compile(searchForm)(scope); 
@@ -39,6 +41,7 @@
         		//element.on('touchstart',clickTouch );
 	        	element.on('click',clickTouch);
 	        	
+	        	/*
 	        	$rootScope.$on('changeIcon',function(e,data){
 	        		if (scope.action === data.oldAction) {
 	        			scope.action = data.newAction ;
@@ -48,7 +51,7 @@
 	        			element.append( injectSvg( scope.icon, element) ); 
 	        		};
 	        	});
-	        	
+
 						/*
  						$rootScope.$on('removeFormSearch',function(){  
  							$rootScope.$emit('cleanFormSearch');  

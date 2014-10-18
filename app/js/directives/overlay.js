@@ -13,13 +13,22 @@
 				return {
 	        pre: function preLink(scope, element, iAttrs) {   
 	        },  
-	        post: function postLink(scope, element, iAttrs) {  
+	        post: function postLink(scope, element, iAttrs) { 
+
+	        	function toggleOverlay(){
+	        		element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+	        	}
+
+	        	$rootScope.$on('changeModal', function(){
+	        		//toggleOverlay();
+						})
+
 						$rootScope.$on('changeSidenavLeft', function(event) { 
-				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+							toggleOverlay();
 				   	}); 
 				   	
 				   	$rootScope.$on('changeSidenavRight', function(event) { 
-				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+				   		toggleOverlay();
 				   	}); 
 
 				   	element.on('click',function(){ 

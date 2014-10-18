@@ -16,17 +16,17 @@
  						element.css('display','none');
 	        }, 
 	        post: function postLink(scope, element, attrs) {
+
  						$rootScope.$on('showAction',function(e,className){
  							element.css('display','block');
 		 					element.removeClass('hide').addClass('show action--'+className);
 		 				});
+
 		 				$rootScope.$on('hideAction',function(e){
 		 					element.removeClass('show').addClass('hide');
 		 				});
 
 		 				element.on('click',function(){ 
-		 					//var state= $state.current.name.split('.'); 
-		 					//if ( state[1] ==='list' ) { $state.go('^.new') };
 		 					$rootScope.$emit('clickAction');
 		 				});
 

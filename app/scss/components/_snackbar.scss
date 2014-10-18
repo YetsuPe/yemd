@@ -9,6 +9,7 @@
   position: fixed;
   bottom:0;
   width: 100%;
+  @extend %z-index--3;
   @include transform( translateY(em(56px)) );
   //@include transition ( transform $time-animation $mode-animation-enter-leave-canvas );
   p{

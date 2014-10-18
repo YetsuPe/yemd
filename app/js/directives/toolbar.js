@@ -12,7 +12,7 @@
 			restrict:'EC', 
 			controller: function  ($scope, $element, $attrs,$rootScope){
 				var vm= this;
-				vm.isAppbar= $scope.isAppbar || false ;
+				vm.isAppbar= ($scope.isAppbar !== undefined) ? true : false ;
 				vm.type= $scope.type || 'default'; 
 			},
 			controllerAs:'toolbarController',

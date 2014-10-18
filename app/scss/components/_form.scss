@@ -198,4 +198,113 @@ label {
 .switch-green > .switch-input:checked ~ .switch-label {
   background: $color-success;
 }
+/********** venta  **************/
+.venta {
+  display: block;
+  position: relative;
+}
 
+.venta__controls {
+  display: flex;
+  align-items: flex-end;
+  padding: 1em ;
+}
+.venta__form {
+  display: flex;
+  flex-direction: column ;
+  flex-wrap: wrap;
+  border-top: em(2) solid $color-divider;
+  padding: 1em;
+}
+
+.venta__form__buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.venta__form__cancel {
+  svg{
+    fill: $color-error;
+    stroke: $color-error;
+  }
+}
+.venta__form__save {
+  svg ,
+  [stroke]{
+    fill: $color-success;
+    stroke: $color-success;
+  }
+}
+
+
+
+.venta__total {
+  display: flex;
+  padding: 1em;
+  border-top: em(2) solid $color-divider;
+  justify-content: space-between;
+}
+
+.venta__total__number {
+  font-size: em(24);
+  color: $color-primary;
+
+}
+
+/****** buttons ****/
+%button {
+  height: em(36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: em(88);
+  @extend %border-radius--card;
+  @extend %zDepth-1; 
+}
+
+
+.button--success {
+  @extend %button;
+  background-color: $color-success;
+  color: $color-white;
+  &:hover {
+    background-color: darken( $color-success, 5% );
+  }
+}
+
+.button--primary {
+  @extend %button;
+  background-color: $color-primary;
+  color: $color-white;
+  &:hover {
+    background-color: darken( $color-primary, 5% );
+  }
+}
+
+.button--default {
+  @extend %button;
+  background-color: $color-default;
+  color: $color-black;
+  &:hover {
+    background-color: darken( $color-default, 5% );
+  }
+}
+
+.button--error { 
+  @extend %button;
+  background-color: $color-error;
+  color: $color-white;
+  &:hover {
+    background-color: darken( $color-error, 5% );
+  }
+}
+
+/***** show Item ****/
+.module__item {
+  display: flex;
+  padding: .5em 1em;
+  justify-content: space-between;
+  dt {
+    font-weight: 400;
+  }
+}

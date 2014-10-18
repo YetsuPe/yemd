@@ -19,9 +19,11 @@
 
       var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
           overlay  = angular.element("<div class='overlay'></div>"),
+          modal  = angular.element("<div class='modal'></div>"),
           action   = angular.element("<a class='action'><icon data-icon='plus'></icon></a>");  
 
       $rootElement.find('body').append( overlay );  
+      $rootElement.find('body').append( modal );  
       $rootElement.find('body').append( snackbar ); 
       $rootElement.find('header').eq(0).append( action ); 
 
@@ -55,17 +57,17 @@
  						element.css('display','none');
 	        }, 
 	        post: function postLink(scope, element, attrs) {
+
  						$rootScope.$on('showAction',function(e,className){
  							element.css('display','block');
 		 					element.removeClass('hide').addClass('show action--'+className);
 		 				});
+
 		 				$rootScope.$on('hideAction',function(e){
 		 					element.removeClass('show').addClass('hide');
 		 				});
 
 		 				element.on('click',function(){ 
-		 					//var state= $state.current.name.split('.'); 
-		 					//if ( state[1] ==='list' ) { $state.go('^.new') };
 		 					$rootScope.$emit('clickAction');
 		 				});
 
@@ -77,22 +79,27 @@
 
 	yemd.directive('action',action);
 })(angular, yemd);
-$canvas.$inject = ['$rootScope'];
-function $canvas($rootScope){
-	return {
-		restrict:'E',
-		require: 'uiView',
-		compile:function(tElement){
-			return {
-				pre: function preLink(scope, element, attrs) {   
-	      },  
-	      post: function postLink(scope, element, attrs) {   
+(function(angular, yemd){  
+
+	$canvas.$inject = ['$rootScope'];
+	function $canvas($rootScope){
+		return {
+			restrict:'E',
+			require: 'uiView',
+			compile:function(tElement){
+				return {
+					pre: function preLink(scope, element, attrs) {   
+		      },  
+		      post: function postLink(scope, element, attrs) {   
+					}
 				}
 			}
-		}
+		};
 	};
-};
-angular.module('yemd').directive('canvas',$canvas);
+
+	yemd.directive('canvas',$canvas);
+
+})(angular, yemd);
 (function(angular, yemd){  
 	'use strict';  
 
@@ -130,133 +137,6 @@ angular.module('yemd').directive('canvas',$canvas);
 	yemd.directive('yemdCard',card);
 
 })(angular, yemd);
-(function(yemd){  
-	'use strict'; 
-	
-	form.$inject=['$rootScope','$compile','validForm','rest','$state'];
-	function form($rootScope, $compile,validForm,rest,$state){
-		return {
-			scope: {
-				inputs:'=',
-				models: '=',
-				module: '=',
-				type  : '@',
-				iditem: '='
-			},  
-			restrict:'A', 
-			require:'form',
-			controller:  function($scope,$element,$attrs,$rootScope,$compile,validForm ){ 
-				$scope.submit={};
-
-				if ($scope.type==='update') $scope.submit.value='Actualizar'
-				if ($scope.type==='new')    $scope.submit.value='Registrar'
-				if ( typeof($scope.type)==='undefined' ) $scope.submit.value='Registrar' //default
-
-				if (!$scope.inputs.status){
-					$scope.template= $scope.inputs.message ;
-				}else {
-					var template='';
-					$scope.options={};
-					angular.forEach($scope.inputs.respond, function(value,index){
-						switch (value.type){
-							case 'textarea':
-								var required = (value.required)? 'required' : '' ;
-								template += "<textarea name='"+value.name+"' "+required+" placeholder='"+value.name+"' ng-model='models."+value.name+"'></textarea>";
-							break;
-							case 'switch': 
-								template +="<label class='switch switch-green'><input type='checkbox' ng-true-value='1' ng-false-value='0' placeholder='"+value.name+"' data-special='switch' class='switch-input' name='"+value.name+"' ng-model='models."+value.name+"'><span class='switch-label'></span><span class='switch-handle'></span></label>";
-							break;
-							case 'select': 
-								var required = (value.required)? 'required' : '' ;
-								template += "<select name='"+value.name+"' yemd-select  "+required+" placeholder='"+value.name+"' ng-model='models."+value.name+"' ng-options='model."+value.name+" as model.nombres for model in options."+value.name+"'><option value=''>Seleccione "+value.name.substr(3)+"</option></select>";
-								$scope.options[value.name] = value.options;
-							break;
-							default:
-								//$scope.models[value.name] = ($scope.type==='update')? value.value : '' ;
-								var required = (value.required)? 'required' : '' ;  /*max='"+value.max+"'*/
-								template += "<input type='"+value.type+"' name='"+value.name+"' "+required+"  placeholder='"+value.name+"' ng-model='models."+value.name+"'/>";
-							break;
-						}
-					}); 
-					template += "<input type='submit' value='"+ $scope.submit.value +"' ng-model='models.submit' ng-click='submit()' />";
-				} 
-				$scope.template=angular.element( template ); 
- 
-				// fill modles if type === update
-				if ($scope.type==='update'){
-					angular.forEach($scope.inputs.respond, function(value,index){
-						if ( value.type==='number' ) {
-							console.log(value.value);
-							$scope.models[value.name]= parseFloat(value.value) ;
-						} else{
-							$scope.models[value.name]=value.value;
-						};
-						
-					});
-					console.log($scope.models);
-				} 
-
-			},
-			compile: function(){
-				return {
-	        pre: function preLink(scope, element, attrs, require) {  
-
-	        	element.append( scope.template );
-						var elementI = $compile(scope.template)(scope);
- 						
-						var titleAppbar= (scope.type==='update')? 'Editar '+scope.module :'Nuevo '+scope.module;
-
-						$rootScope.$emit('changeTitleAppbar', titleAppbar ); 
-
-						$rootScope.$emit('changeAppbar', 'default' );
-            $rootScope.$emit('hideActionNew'); 
-            $rootScope.$emit('hideSearch'); 
-            
-						$rootScope.$emit('changeIcon',{oldAction:'sidenavLeft', newAction:'back', newIcon:'arrow-left'});
-	        },  
-	        post: function postLink(scope, element, attrs, require) {   
-
-	        	scope.submit  = function(){ 
-
-	        		if ( scope.type==='new' ) {
-	        			var validFormResult = validForm(require) ; 
-					 			if ( validFormResult.status ) {
-					 				rest( scope.module+'/new' ,'POST', scope.models).then(function(respond){  
-		                console.log(respond);
-		                if (respond.status) { 
-		                  $state.go('^.list');
-		                }else{ 
-		                  $rootScope.$emit('showSnackbar', respond.message ) ;
-		                };
-		              });
-					 			}else{
-					 				console.log("display the error messages",validFormResult);
-					 			}; 
-	        		}else if(scope.type==='update'){
-	        			console.log(scope.module+'/'+scope.iditem);
-	        			rest( scope.module+'/'+scope.iditem ,'PUT', scope.models).then(function(respond){  
-		              console.log(respond);
-		              if (respond.status) { 
-		                $state.go('^.list');
-		              }else{ 
-		                $rootScope.$emit('showSnackbar', respond.message ) ;
-		              };
-		            });
-	        		}
-
-			         
-				 		}
-
-				  }
-	      };
-			}
-		};
-	};
-
-	yemd.directive('yemdForm',form);
-})(yemd);
-
-
 	'use strict';  
 
 	icon.$inject=['$rootScope', 'injectSvg', '$timeout','$rootElement','$compile'];
@@ -278,10 +158,12 @@ angular.module('yemd').directive('canvas',$canvas);
 	        	
 	        	function clickTouch (e){ 
 	        		if (scope.action ==='sidenavLeft')  { $rootScope.$emit('changeSidenavLeft') };
+	        		if (scope.action ==='closeSidenavRight')  { $rootScope.$emit('closeSidenavRight') };
 	        		if (scope.action ==='refreshState') { $rootScope.$emit('refreshState') };
 	        		if (scope.action ==='back')         { $rootScope.$emit('backState') };
 	        		if (scope.action ==='backSearch')   { $rootScope.$emit('removeFormSearch') };
-	        		if (scope.action ==='edit')         { $rootScope.$emit('editState') };
+	        		if (scope.action ==='edit')         { $rootScope.$emit('edit') };
+	        		if (scope.action ==='delete')         { $rootScope.$emit('delete') };
 	        		if (scope.action ==='search') {  
 	        			var searchForm= angular.element("<form name='form' novalidate><input type='search' autofocus placeholder='Buscar...' data-special='searchAppbar' ng-model='search' name='search'/></form>")  ;
 		        		$compile(searchForm)(scope); 
@@ -298,6 +180,7 @@ angular.module('yemd').directive('canvas',$canvas);
         		//element.on('touchstart',clickTouch );
 	        	element.on('click',clickTouch);
 	        	
+	        	/*
 	        	$rootScope.$on('changeIcon',function(e,data){
 	        		if (scope.action === data.oldAction) {
 	        			scope.action = data.newAction ;
@@ -307,7 +190,7 @@ angular.module('yemd').directive('canvas',$canvas);
 	        			element.append( injectSvg( scope.icon, element) ); 
 	        		};
 	        	});
-	        	
+
 						/*
  						$rootScope.$on('removeFormSearch',function(){  
  							$rootScope.$emit('cleanFormSearch');  
@@ -524,93 +407,32 @@ angular.module('yemd').directive('canvas',$canvas);
 
 
 (function(yemd){  
-  'use strict'; 
+	'use strict'; 
+	yemd.directive('modal',modal);
 
-  function list($rootScope,$compile,$rootElement,$filter,$state,$document){
-    return {
-      scope: {
-        items: '=',
-        module: '='
-      }, 
-      restrict:'E',  
-      controller: function  ($scope, $element, $attrs,$rootScope,$compile,$rootElement,$filter,$state){
-        var vm =this ; 
-        vm.field=function(field){
-          if ( field.indexOf('_')!==-1  ) { return field.replace(/_/g,' ')}
-          else if( field.toLowerCase()==='area' ){ return 'Área'}
-          else if( field.toLowerCase()==='descripcion' ){ return 'descripción'}
-          else{ return field }; 
-        };
-        vm.value=function(field,value){
-          if ( field==='precio_puesto_en_planta'  ) { return 'S/. '+value  } 
-          else{ return value }; 
-        };
-        $scope.title = $state.current.name.split('.');  $scope.title = $scope.title[0]; 
+	function modal () {
 
-        angular.forEach($scope.items, function(value,index){
-          angular.forEach(value, function(valueField,field){
-            if ( field.indexOf('id_')!== -1 && field !== 'id_'+$scope.module ) {  
-              delete $scope.items[index][field] ;
-            };
-            if (field === 'id_'+$scope.module) { delete $scope.items[index][field] ; $scope.items[index].id= valueField ; };
-            if (field.indexOf('estado')!== -1) { 
-              $scope.items[index][field] = (valueField==='1')?'Activo':'No ctivo';
-            };
-          });
-        }); 
-        console.log($scope.items,$scope.module);
-        $scope.search=''; 
-        $filter('orderBy')($scope.items, 'Nombres');  
-        $scope.selectItem= function(){ 
-          $rootScope.$emit('removeFormSearch');
-          $rootScope.$emit('removeIconSearch');
-        }
-        // Order
-        $scope.order=function(field){
-          console.log('Order by '+field);
-          $scope.orderBy= [field];
-        }
-        $rootScope.$on('createFormSearch',function(e){
-          var iconSearch   = $rootScope.element("<icon data-icon='search' data-action='search' data-search='search'></icon>"); 
-          $compile(iconSearch)($scope); 
-          $rootScope.$emit('removeIconSearch');
-          $rootScope.$emit('changeIcon',{oldAction:'back', newAction:'sidenavLeft', newIcon:'menu'});
-          $rootElement.find('header').find('icon').eq(0).after( iconSearch );   
-        }) 
-      },
-      controllerAs:'vm',
-      templateUrl: 'yemd/list.html',
-      compile: function(){
-        return {
-          pre: function preLink(scope, element, iAttrs, vm) {
-            $rootScope.$emit('changeIcon',{oldAction:'back', newAction:'sidenavLeft', newIcon:'menu'});
-            if ( scope.items.length === 0 ) {
-              element.append($rootScope.element("<h2 class='sub-title'> No hay registros de "+scope.title+" </h2> "));
-            };  
-            element.addClass( scope.className );
-            $rootScope.$emit('changeAppbar', 'extend' );
-            $rootScope.$emit('showAction','embed'); 
-            $rootScope.$emit('removeIconEdit');  
-            $rootScope.$emit('createFormSearch');
-            $rootScope.$emit('changeTitleAppbar', scope.title );  
-          }, 
-          post: function postLink(scope, element, iAttrs, vm) {
-            $rootScope.$on('cleanFormSearch',function(e){
-              scope.search=''; 
-            });  
-            
-          }
-        };
-      }
-    };
-  }; 
+	return {
+		scope: {},
+		restrict: 'A',
+		//template: "<div class='morph-button morph-button-modal morph-button-modal-1 morph-button-fixed'>{{content}}</div>",
+		controller: function($scope, $element, $rootScope){
+			$element.wrap( angular.element( "<div class='modal'> ddd {{ content }} </div>" )  )
+			
+			$rootScope.$on('changeModal', function(){
+				
+			})
+		},
+		compile: function(tElement, tAttrs){
 
+			return {
 
-  yemd.directive('list',list);    
+			}
+		}
+	}
+}
 
 })(yemd);
- 
-
 (function(yemd){  
 	'use strict'; 
 	yemd.directive('overlay',overlay);
@@ -626,12 +448,27 @@ angular.module('yemd').directive('canvas',$canvas);
 				return {
 	        pre: function preLink(scope, element, iAttrs) {   
 	        },  
-	        post: function postLink(scope, element, iAttrs) {  
+	        post: function postLink(scope, element, iAttrs) { 
+
+	        	function toggleOverlay(){
+	        		element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+	        	}
+
+	        	$rootScope.$on('changeModal', function(){
+	        		//toggleOverlay();
+						})
+
 						$rootScope.$on('changeSidenavLeft', function(event) { 
-				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+							toggleOverlay();
 				   	}); 
+				   	
+				   	$rootScope.$on('changeSidenavRight', function(event) { 
+				   		toggleOverlay();
+				   	}); 
+
 				   	element.on('click',function(){ 
-				   		$rootScope.$emit('changeSidenavLeft'); 
+				   		$rootScope.$emit('closeSidenav'); 
+				   		element.removeClass('show').addClass('hide'); 
 				   	});
 				  }
 	      };
@@ -641,62 +478,6 @@ angular.module('yemd').directive('canvas',$canvas);
 
 })(yemd);
 
-
-(function(yemd){  
-  'use strict'; 
-
-  function showItem($rootScope,$compile,$rootElement,$state,$stateParams){
-    return {
-      scope: {
-        item: '=', 
-        module: '=',
-        title: '='
-      }, 
-      restrict:'E',  
-      controller: function  ($scope, $element, $attrs,$rootScope,$compile,$rootElement,$state,$stateParams){
-        var vm =this ;
-
-          angular.forEach($scope.item, function(valueField,field){
-            if ( field.indexOf('id_')!== -1 ) {  
-              delete $scope.item[field] ;
-            }; 
-            if (field.indexOf('estado')!== -1) {  $scope.item[field] = (valueField==='1')?'Activo':'No ctivo'; };
-          });
-
-        $rootScope.$on('createIconEdit',function(e){
-          var iconEdit   = $rootScope.element("<icon data-icon='pencil' data-action='edit'></icon>"); 
-          $compile(iconEdit)($scope); 
-          $rootScope.$emit('removeIconEdit'); 
-          $rootElement.find('header').find('icon').eq(0).after( iconEdit );   
-        });
-          
-        $rootScope.$on('editState',function(e){
-          $state.go('^.edit',{id:$stateParams.id});
-        });
-      },
-      controllerAs:'vm',
-      templateUrl: 'views/show.html',
-      compile: function(){
-        return { 
-          pre: function preLink(scope, element, iAttrs, vm) {  
-            $rootScope.$emit('changeIcon',{oldAction:'sidenavLeft', newAction:'back', newIcon:'arrow-left'}); 
-            $rootScope.$emit('changeAppbar', 'default' );
-            $rootScope.$emit('hideActionNew'); 
-            $rootScope.$emit('changeTitleAppbar', scope.module.toUpperCase()+': '+scope.title.toUpperCase() ); 
-            $rootScope.$emit('createIconEdit');   
-          }, 
-          post: function postLink(scope, element, iAttrs, vm) {
-            
-          }
-        };
-      }
-    };
-  }; 
-
-
-  yemd.directive('showItem',showItem);    
-})(yemd);
- 
 
 (function(yemd){  
 	'use strict'; 
@@ -715,7 +496,7 @@ angular.module('yemd').directive('canvas',$canvas);
 				vm.className= 'sidenav--'+vm.type ; 
 
 				vm.getHeightSidenav=  function(element){
-					var height = (vm.type==='left')? vm.getHeightToHeadValue() + element.children('section')[0].clientHeight: $element.children('section')[0].clientHeight ;  
+					var height = 50;//(vm.type==='left')? vm.getHeightToHeadValue() + element.children('section')[0].clientHeight: $element.children('section')[0].clientHeight ;  
 					//console.log( $verge.viewportH() , vm.getHeightToHeadValue(), element.children('section').eq(0).height() );
 					return ($verge.viewportH() > height )? { 'height':'100%' } : {'height': (vm.getHeightToHeadValue() + height) +'px', 'overflow-y': scroll };
 				}; 
@@ -740,19 +521,40 @@ angular.module('yemd').directive('canvas',$canvas);
 
 	        	element.css( vm.getHeightSidenav(element) );
 
+	        	/*
 	        	element.find('a').on('click',function(e){
 	        		e.preventDefault();
 	        		$rootScope.$emit('changeSidenavLeft'); 
 	        	});
+						*/
 	        	
 	        	$rootScope.$on('changeSidenavLeft', function(event) { 
-				      element.hasClass('show')? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+	        		if ( scope.type === "left" ) {
+	        			element.hasClass('show')  ? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+	        		};
 				   	});
+	        	$rootScope.$on('changeSidenavRight', function(event) { 
+	        		if ( scope.type === "right" ) {
+	        			element.hasClass('show')  ? element.removeClass('show').addClass('hide'):element.removeClass('hide').addClass('show'); 
+	        		};
+				   	});
+
+	        	$rootScope.$on('closeSidenav', function(event) { 
+	        		if ( scope.type === "left" ) {
+	        			if ( element.hasClass('show') ) { element.removeClass('show').addClass('hide'); } ; 
+	        		}else if(scope.type === "right"){
+	        			if ( element.hasClass('show') ) { 
+	        				$rootScope.$emit('closeSidenavRight'); 
+	        				element.removeClass('show').addClass('hide'); 
+	        			} ; 
+	        		};
+	        	});
+
+
 
 	        	//responsive
 	        	$window.onresize= function(event){   
 	        		element.find('figure').css( vm.getHeightToHead() );
-	        		//element.css( vm.getHeightSidenav(element) ); 
 	        	};
 
 	        }
@@ -806,7 +608,7 @@ angular.module('yemd').directive('canvas',$canvas);
 			restrict:'EC', 
 			controller: function  ($scope, $element, $attrs,$rootScope){
 				var vm= this;
-				vm.isAppbar= $scope.isAppbar || false ;
+				vm.isAppbar= ($scope.isAppbar !== undefined) ? true : false ;
 				vm.type= $scope.type || 'default'; 
 			},
 			controllerAs:'toolbarController',
@@ -879,39 +681,6 @@ angular.module('yemd').directive('canvas',$canvas);
 	}]);
 
 })(angular, yemd, SVGInjector);
-(function(angular,yemd){
-	"use strict";
-	yemd
-  .factory('validForm', ['$rootScope', function($rootScope){ 
-    return function(form){ 
- 
-      if (form.$pristine){ 
-        $rootScope.$emit('showSnackbar', 'Debe llenar los campos solicitados' ) ; 
-        return {status:false,message:'Debe llenar los campos solicitados'};
-      }else if( form.$invalid ){
-      	var errors=[];
-        if(angular.isObject(form.$error)){
-          angular.forEach(form.$error, function(value,key){
-            if (key==='required') {
-              angular.forEach(value, function(valueRequired, index){//requireds
-                this.push({error:'required', input: valueRequired.$name, message:'El campo '+valueRequired.$name+" es obligatorio" });
-              }, errors);
-            }
-            if (key==='pattern') {
-              angular.forEach(value, function(valueFailed, index){//Faileds
-                this.push({error:'pattern', input: valueFailed.$name, message:'El formato de '+valueFailed.$name+" ingresado es incorrecto" });
-              }, errors);
-            }
-          }) 
-        } 
-        $rootScope.$emit('showSnackbar', 'El formulario es incorrecto' ) ;  
-        return { status: false, errors: errors, message : "el formulario es incorrecto" };
-      }else{  
-        return {status:true,message:'El formulario es correcto'};  
-      } 
-    };
-  }]);
-})(angular,yemd);
 (function(yemd, verge){  
 	
 	'use strict'; 

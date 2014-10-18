@@ -1,7 +1,9 @@
 %sidenav {
 	@extend %position--fixed;
 	@extend %top--0; 
+	@extend %z-index--3;
 	overflow-y: scroll;
+	height: 100%;
 }
 %sidenav--left { 
 	@extend %sidenav; 
@@ -10,7 +12,6 @@
 	//max-width:em(400);
 	//@extend %animation-hideSidenavLeft; /** problem firefox os */
 	@include fix_sidenav_position; 
-	z-index: 1;
 	&.show{ 
 		@extend %animation-showSidenavLeft;
 	}
@@ -69,8 +70,8 @@
 .sidenav--right { 
 	@extend %sidenav;
 	right: -100%;
-	z-index: 1;
 	width: 100%;
+	background-color: white ;
 	&.show{ 
 		right: 0;
 	}

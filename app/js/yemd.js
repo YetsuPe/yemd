@@ -19,9 +19,11 @@
 
       var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
           overlay  = angular.element("<div class='overlay'></div>"),
+          modal  = angular.element("<div class='modal'></div>"),
           action   = angular.element("<a class='action'><icon data-icon='plus'></icon></a>");  
 
       $rootElement.find('body').append( overlay );  
+      $rootElement.find('body').append( modal );  
       $rootElement.find('body').append( snackbar ); 
       $rootElement.find('header').eq(0).append( action ); 
 
