@@ -1,89 +1,157 @@
 %card {
   @extend %zDepth-1;
   @extend %border-radius--card; 
-  @extend %position--relative;
-  @extend %bg--white;    
+  @extend %position--relative;  
+  @extend %display--flex; 
+  margin  : em(8px); 
 }
+	%card__cover--height {
+		width: 100%;
+		@include calc('height', ' ( 100vw - 1em ) * #{ (9/16) } ');
+	}
  
-
-//components
-%card__title { 
-	@extend %font-weight--400 ;
-	@extend %line-height--1 ;
-	@extend %color--primary;
-	font-size:em(24px);
-
-	margin-bottom: em(8,24); 
-}
-
-
-// end placeholders
-
-//card
 .card {
-	@extend %card; 
-	margin  : em(8px);
-	padding : em(16);
-} 
-
-.card--full { 
-	@extend %card; 
-	padding : em(16);
+	@extend %card;
+	@extend %flex-direction--column;
+	background-color: $color-white;
+	.card__cover {
+		border-radius: em(2) em(2) 0 0 ;
+		@extend %card__cover--height;
+	}
 }
-.card--full-padding-0, 
-.card--full-list, {
-	@extend %card; 
+.card--avatar {
+	@extend %card;
+	background-color: $color-white;
+	.card__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.card__title {
+			margin: 0;
+			color: $color-primary;
+		}
+	}
+	.card__photo {
+		width: em(100);
+	}
+}
+.card--frame {
+	@extend %card;
+	flex-direction: column;
+	background-color: $color-white;
+	width: calc(50% - 0.5em);
+	margin-bottom: 1em;
+	.card__content {
+		margin: 0;
+		padding: .5em;
+		display: flex;
+		justify-content: space-between;
+		.card__title {
+			margin: 0;
+			font-size: 1em;
+			/** text verflow **/
+			text-overflow: ellipsis;
+			overflow-x: hidden;
+		}
+	}
 }
 .card--figure {
-	@extend %card; 
-	@extend %display--flex;
-	margin  : em(8px);
+	@extend %card;
+	.card__cover {
+		border-radius: em(2);
+		@extend %card__cover--height;
+	}
+	.card__content {
+		border-radius: 0 0 em(2) em(2);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		background-color: rgba(0,0,0,.4);
+		line-height: 1;
+		.card__title {
+			margin: 0;
+			color: $color-white;
+		}
+		.card__sub-title {
+			font-weight: 400;
+			color: lighten($color-secondary, 40%);
+		}
+	}
+}
+.card--full {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin: 0;
+	background-color: $color-white;
+	padding: 1em;
+}
+	.card__content {
+		padding: 1em;
+		p {
+			margin: 0;
+			color: lighten($color-black, 40%);
+		}
+	}
+	%card__cover {
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		img {
+			display: none;
+		}
+	}
+	.card__cover {
+		@extend %card__cover;
+		border-radius: em(2) em(2) 0 0 ;
+	}
+	.card__photo {
+		@extend %card__cover;
+		border-radius: em(2) 0 0 em(2) ;
+	}
+	.card__cover--frame img {
+		border-radius: em(2) em(2) 0 0;
+		width: 100%;
+	}
+	.card__link {
+		color: lighten($color-black, 40%);
+	}
+	.card__logo {
+		position: absolute;
+		width: em(56);
+		bottom: em((32+16+18)/2);
+		right: 1em;
+		border-radius: 50%;
+	}
+	.card__item--icon {
+		width: 150px;
+		padding: .5em;
 
-	img {
-		flex-grow: 1;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
 	}
-	div {
-		flex-grow: 3;
+		.card__item__photo {
+			max-width: 100%;
+			border-radius: 50%;
+		}
+		.card__item__link {
+			color: $color-primary;
+		}
+		.card__item__title {
+			margin: .5em 0;
+			font-size: 1em;
+			font-weight: 400;
+			text-align: center;
+		}
+	.card__title {
+		margin: em(16, 18) em(16, 18) 0 em(16, 18);
+		font-size: em(18);
+		font-weight: 400;
 	}
-}
-.card--list {
-	@extend %card; 
-	margin  : em(8px); 
-	.card__title,
-	.card__title--center {
-		@extend %clearfix; 
-		padding: em(16,24) 0 0 0;
-		margin: 0;
+	.card__sub-title {
+		color: lighten($color-primary, 20%);
 	}
-}
-//Card components
-
-.card__title { 
-	@extend %card__title;
-} 
-.card__title--center { 
-	@extend %card__title;
-	@extend %text-align--center; 
-}
-.card__image {
-	background-size: cover;
-	background-position: center center ;
-	border-radius:em(2px ) 0 0 em(2); 
-}
-.card__description {
-	padding : em(16);
-	p {
-		margin-bottom: em(8);
-	}
-}
-.card__logo--main {
-	position: relative;
-	width: 60px;
-	height: 60px;
-	margin: 0 auto em(8) auto;
-	@extend %padding--0 ; 
-	svg {
-		@extend %width--100percent;
-		@extend %height--100percent;
-	}
-}
