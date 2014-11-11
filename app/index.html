@@ -7,39 +7,120 @@
 	<meta name="description" content="Yemd by @YetsuPe" />
 	<meta name="author" content="@YetsuPe" />
 	<link rel="stylesheet" href="css/yemd.css" />
+	<link rel="stylesheet" href="vendor/material-design-fonticons/styles/mdfi.css" />
 </head>
 <body>
 
 	<!-- Appbar -->
-	<header class="toolbar">
+	<header class="appbar">
 
-		<h1>Yemd</h1>
-		
-		<icon data-icon="menu"    data-action='sidenavLeft'></icon>
-		<icon data-icon="refresh" data-action='refreshState'></icon>
-		<icon data-icon="menu2"   data-action='about'></icon>
+		<h1 class="appbar__title">Yemd</h1>
 
 	</header>
 
 	<!-- Sidenav -->
-	<nav sidenav data-type="left" >
+	<nav class="sidenav--left" data-sidenav>
 
-		<figure data-src="assets/images/cover.jpg" class="card--head-sidenav">
-			<img src="assets/images/logo-yetsu.svg" alt="logo"/>
-			<figcaption>
-				<a href="#"> hello@yetsu.com </a>
+		<figure class="sidenav__cover">
+			<img src="assets/images/logo-yetsu.png" alt="logo" class="sidenav__cover__logo"/>
+			<figcaption class="sidenav__cover__text">
+				hello@yetsu.com
 			</figcaption>
 		</figure>
 
 		<section class="sidenav__content">
-			<section class="list--single-line" data-items="" data-type="">
-				<a href="#"> Home </a>
-				<a href="#"> Contact </a>
-			</section>
+			<a href="#" class="sidenav__content__link"> Home </a>
+			<a href="#" class="sidenav__content__link"> Contact </a>
 		</section>
 			
 	</nav>
 
+	<!-- Sidenav Right-->
+	<section class="sidenav--right" data-sidenav>
+
+		<header class="toolbar" data-type="extend">
+			<h1 class="toolbar__title"> Toolbar </h1>
+		</header>
+
+		<section class="sidenav__content"> 
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi harum voluptas commodi, illo assumenda ipsam perferendis necessitatibus vitae neque quisquam porro doloremque voluptatem cum numquam eligendi, asperiores ipsum amet? Fugiat! 
+		</section>
+
+	</section>	
+	
+	<main class="canvas">
+
+		<article class="card">
+
+					<div class="card__cover">
+						<img src="assets/images/plane.jpg" alt="" class="card__cover__image"/>
+					</div>
+
+					<h3 class="card__title">Title</h3>
+
+					<div class="card__content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In adipisci doloremque, illum aspernatur quo autem. Inventore temporibus maxime id sed excepturi suscipit qui, vitae, aut nihil aliquam debitis aperiam pariatur.</p>
+					</div>
+						
+		</article>
+		
+		<div class="card--avatar" data-card>
+			<div class="card__photo">
+				<img src="assets/images/plane.jpg" alt="" class="card__photo__image" />
+			</div>
+			<div class="card__content">
+				<h3 class="card__title">Title</h3>
+				<h4 class="card__sub-title">Sub title</h4>
+				<a href="#" class="card__link">Link</a>
+			</div>
+		</div>
+
+		<article class="card--figure" data-card>
+			<div class="card__cover">
+				<img src="assets/images/plane.jpg" alt="" class="card__cover__image"/>
+			</div>
+			<div class="card__content">
+				<h3 class="card__title">Title</h3>
+				<a href="#" class="card__sub-title"> sub title</a>
+				<img class="card__logo" src="assets/images/logo-yetsu.png" alt="">
+			</div>
+		</article>
+
+		<article class="card--frame" data-card>
+			<div class="card__cover--frame">
+				<img src="assets/images/plane.jpg" alt="" class="card__cover__image"/>
+			</div>
+			<div class="card__content">
+				<h3 class="card__title"> Name </h3>
+				<span class="mdfi_communication_message"></span>
+			</div>
+		</article>
+
+		<section class='list--figure'> 
+						
+			<article class="list__item" >
+				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
+				<div class="list__item__content" >
+					<h3 class="list__item__content__title">Title</h3>
+					<h4 class="list__item__content__sub-title">Sub title</h4>
+				</div>
+			</article>  
+			
+			<article class="list__item" >
+				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
+				<div class="list__item__content" >
+					<h3 class="list__item__content__title">Title</h3>
+					<h4 class="list__item__content__sub-title">Sub title</h4>
+				</div>
+			</article>  
+			
+			
+
+		</section> 
+
+	</main>
+
+	<!--
 	<main>
 
 		<article class="card--full">
@@ -122,28 +203,24 @@
 			</section>
 			
 		</article>
-		<!--<h2 class="sub-title"> Cards  </h2>-->
-	</main>
+	</main>-->
 
-<!--Dependencies
-<script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic -->
-
+<!--Dependencies -->
+<script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic--> 
 <script src="vendor/angular/angular.min.js"></script>
 <script src="vendor/verge/verge.min.js"></script>
-<script src="vendor/svg-injector/dist/svg-injector.min.js"></script>
 
-<script src="yemd.min.js"></script>
-
-<!--
 <script src="js/yemd.js"></script>
 
 <script src="js/services/verge.js"></script>
-<script src="js/services/svg_injector.js"></script>
+
 
 <script src="js/directives/toolbar.js"></script>
-<script src="js/directives/icon.js"></script>
 <script src="js/directives/sidenav.js"></script>
 <script src="js/directives/card.js"></script>
+<!--
+<script src="js/directives/icon.js"></script>
+
 <script src="js/directives/overlay.js"></script>
 <script src="js/directives/input.js"></script>
 <script src="js/directives/snackbar.js"></script>
