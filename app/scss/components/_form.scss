@@ -1,310 +1,163 @@
-form{
-	@extend %clearfix;
-	padding:0 em(16px);
+form {
+  @extend %display--flex;
+  @extend %flex-direction--column;
+  padding: 1em;
 }
-.form--strech {
-  @extend %padding--0;
+
+%labels {
+  height: em(16, 14);
+  font-size: em(14);
+  line-height: 1;
 }
-input[type="text"],
-input[type="date"],
-input[type="number"],
-input[type="tel"],
-input[type="email"],
-input[type="password"],
-select, 
-textarea {
-	@extend %display--block;
-	@extend %width--100percent; 
-	@extend %line-height--1; 
-	@extend %font-size--base; 
 
-	padding: 0 0 em(8) 0; 
-  background:transparent; 
-  height: em(16);
-  border-bottom:1px solid $color-divider;
-  border-top:0;
-  border-left:0;
-  border-right:0;
-  @include box-sizing( content-box );
-  @include transition ( border $time-animation ease );
-  //@include zDepth($z_depth:1);
-  &:focus {
-    outline-color: transparent;  
-    border-bottom-color:$color-primary ;
-    border-bottom-width:em(2);
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="search"]{
+    //@extend %display--flex;
+    //@extend %align-items--center;
+    @extend %line-height--1; 
+      height: em(21); //Fix later
+      //height: em(48);
+    &::-webkit-input-placeholder {
+      color:$color-secondary-text;
+      opacity: 0;
+      @include animation( fadeIn $time-animation ease forwards); 
+    }
+    &:-moz-placeholder {
+      color:$color-secondary-text;
+      opacity: 0;
+      @include animation( fadeIn $time-animation ease forwards); 
+    }
   }
-  &.ng-dirty.ng-valid {
-    border-bottom-color:$color-success;
-    border-bottom-width:em(2);
-  }
-  &.ng-dirty.ng-invalid {
-    border-bottom-color:$color-error;
-    border-bottom-width:em(2);
-  }
-  //placeholder
-  &::-webkit-input-placeholder {
-  	color:$color-secondary-text;
-  	opacity: 0;
-		@include animation( fadeIn $time-animation ease forwards); 
-  }
-	&:-moz-placeholder {
-		color:$color-secondary-text;
-  	opacity: 0;
-		@include animation( fadeIn $time-animation ease forwards); 
-	}
-} 
 
+fieldset {
+  padding: em(16) 0;
+  height: em(48);
+  @include transition( height $start_animation );
+  &.focus {
+    height: em(72);
+  }
+  @extend %position--relative;
+  @extend %display--flex;
+  @extend %flex-direction--column;
+  label:first-of-type {
+    @extend %labels;
+    display: none;
+    color: $color-secondary-text;
+    margin-bottom: em(4);
+    &.enter{  
+      @extend %animation-labelIn;
+      & ~ input {
+        @extend %animation-moveInputDown;
+      }
+    }
+    &.leave{ 
+      @extend %animation-labelOut;
+      & ~ input {
+        @extend %animation-moveInputUp;
+      }
+    }
+    &.showD{
+      @extend %display--block;
+    }
+  }
+  label:nth-of-type(2) {
+    display: none;
+    @extend %labels;
+    color: $color-error;
+    margin-top: em(4);
+  }
+
+  
+  &:after {
+    content:'';
+    position: absolute;
+    bottom: em(7.5);
+    width: 100%;
+    border-bottom: em(1) solid lighten($color-secondary-text, 50%);
+  }
+  &.open {
+    height: em(72);
+    label:first-of-type {
+      display: block;
+    }
+    &:after {
+      border-bottom: 0;
+    }
+  }
+  &.open--all {
+    height: em(72);
+    label:first-of-type {
+      display: block;
+    }
+  }
+}
 select {
-  height: em(18);
+  border: 0 ;
+  outline: 0;
 }
-
-
 input[type="submit"],
 button{
-	display:block;
-	background: $color-primary ;
-	height: em(32);
-	min-width: em(88);
-	width: auto;
+  display:block;
+  background: $color-primary ;
+  height: em(32);
+  width: em(88);
+  max-width: 100%;
   line-height: 2; 
   text-transform: uppercase;
   color:$color-text-white ;
+  margin: em(8) 0 ;
   @include zDepth($z_depth:1); 
   border-bottom: 0; 
   @include box-sizing( border-box );
-}
-
-fieldset {
-	height: em(48px); 
-	overflow-y:hidden;
-	padding: em(16px) 0;  
-	@include transition ( height $time-animation $mode-animation );
-	&.focus {
-		height: em(72px);
-	}
-	&.submit {
-		padding:0;
-		margin-top: em(16px);
+  &:hover {
+    cursor: pointer;
   }
 }
-
-label {
-	color:$color-secondary-text;
-	font-size:12px;
-	position: relative;
-	display:none;
-	line-height:1.333;
-	height:em(16,12); 
-	&.valid{
-		margin-bottom:em(8,12);
-    font-weight: 500;
-    text-transform: capitalize;
-		&.enter{  
-			@extend %animation-labelIn;
-			& ~ input {
-				@extend %animation-moveInputDown;
-			}
-		}
-		&.leave{ 
-			@extend %animation-labelOut;
-			& ~ input {
-				@extend %animation-moveInputUp;
-			}
-		}
-	}
-	&.invalid{ 
-		color:$color-error; 
-		&.enter{  
-			@extend %animation-labelErrorIn;
-			& ~ input {
-				@extend %animation-moveInputUp;
-			}
-		}
-		&.leave{ 
-			@extend %animation-labelErrorOut;
-			& ~ input {
-				@extend %animation-moveInputDown;
-			}
-		}
-	}
-	
-	&.showD{
-		@extend %display--block;
-	}
+button {
+  border: 0;
 }
 
 
-
-/** switch**/
-
-.switch {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-  width: 32px;
-  height: 2px;
-  padding: 12px 3px 3px 3px;
-}
-
-.switch-input {
- position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+input[type=range] {
+ -webkit-appearance: none;
   width: 100%;
-  height: 16px;
-  z-index: 2;
-  margin: 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+  top: - em(7);
+  height: em(16);
+  width: em(16);
+  border-radius: 50%;
+  background: #c7c7c7;
   cursor: pointer;
+  -webkit-appearance: none;
+  @include transition( all .2s $mode-animation );
+  //margin-top: -14px;
 }
 
-.switch-label {
-  position: relative;
-  top: -5px;
-  display: block;
-  height: inherit;
-  background: $color-divider;
-  border-radius: inherit;
-  @include transition ( 0.15s ease-out );
-  @include transition-property( opacity background );
-}
-.switch-input:checked ~ .switch-label {
-  background: $color-divider;
-}
-.switch-input:checked ~ .switch-label:before {
-  opacity: 0;
-}
-.switch-input:checked ~ .switch-label:after {
-  opacity: 1;
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: em(3);
+  cursor: pointer;
+  @include transition( all .2s $mode-animation );
+  background: lighten($color-secondary-text, 60%);
+  border-radius: 1px;
 }
 
-.switch-handle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  background: $color-white;
-  border: 2px solid $color-divider ;
-  border-radius: 10px;
-  @include transition ( all 0.15s ease-out );
-}
-.switch-input:checked ~ .switch-handle {
-  left: 16px;
-  border: 2px solid $color-success;
+input[type=range]:focus::-webkit-slider-runnable-track,
+input[type=range]:focus::-webkit-slider-thumb {
   background: $color-success;
 }
 
-.switch-green > .switch-input:checked ~ .switch-label {
-  background: $color-success;
-}
-/********** venta  **************/
-.venta {
-  display: block;
-  position: relative;
-}
-
-.venta__controls {
-  display: flex;
-  align-items: flex-end;
-  padding: 1em ;
-}
-.venta__form {
-  display: flex;
-  flex-direction: column ;
-  flex-wrap: wrap;
-  border-top: em(2) solid $color-divider;
-  padding: 1em;
-}
-
-.venta__form__buttons {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.venta__form__cancel {
-  svg{
-    fill: $color-error;
-    stroke: $color-error;
-  }
-}
-.venta__form__save {
-  svg ,
-  [stroke]{
-    fill: $color-success;
-    stroke: $color-success;
-  }
-}
-
-
-
-.venta__total {
-  display: flex;
-  padding: 1em;
-  border-top: em(2) solid $color-divider;
-  justify-content: space-between;
-}
-
-.venta__total__number {
-  font-size: em(24);
-  color: $color-primary;
-
-}
-
-/****** buttons ****/
-%button {
-  height: em(36);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: em(88);
-  @extend %border-radius--card;
-  @extend %zDepth-1; 
-}
-
-
-.button--success {
-  @extend %button;
-  background-color: $color-success;
-  color: $color-white;
-  &:hover {
-    background-color: darken( $color-success, 5% );
-  }
-}
-
-.button--primary {
-  @extend %button;
-  background-color: $color-primary;
-  color: $color-white;
-  &:hover {
-    background-color: darken( $color-primary, 5% );
-  }
-}
-
-.button--default {
-  @extend %button;
-  background-color: $color-default;
-  color: $color-black;
-  &:hover {
-    background-color: darken( $color-default, 5% );
-  }
-}
-
-.button--error { 
-  @extend %button;
-  background-color: $color-error;
-  color: $color-white;
-  &:hover {
-    background-color: darken( $color-error, 5% );
-  }
-}
-
-/***** show Item ****/
-.module__item {
-  display: flex;
-  padding: .5em 1em;
-  justify-content: space-between;
-  dt {
-    font-weight: 400;
-  }
+input[type=range]:focus::-webkit-slider-thumb {
+  height: em(24);
+  width: em(24);
+  top: - em(11);
 }

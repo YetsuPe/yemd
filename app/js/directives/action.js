@@ -1,14 +1,23 @@
-(function(angular, yemd){  
-	'use strict';  
+'use strict';  
 
-	action.$inject=['$rootScope', 'injectSvg', '$timeout'];
+angular.module('yemd')
+	.directive('action',action);
 
-	function action($rootScope, injectSvg, $timeout){
+	function action($yemd, $rootScope){
 		return {
-			scope: {},  
-			restrict:'C', 
-			controller:function($scope,$element,$attrs,$rootScope){
-				
+			scope: {},
+			controller:function($scope, $element, $attrs, $yemd, $rootScope){
+				$element.addClass( 'action--'+$yemd.action.type );
+				$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
+			
+				$rootScope.$on('showAction', function ( e, obj ) {
+					$element.css('display','block');
+					$element.attr('class', 'action--' + obj.type );
+					$element.html(angular.element('<span class="'+ obj.icon +'"></span>'));
+					$element.appendTo( obj.nodeClose );
+					$element.addClass( obj.classSpecial );
+				});
+
 			},
 			compile: function(){
 				return {
@@ -36,5 +45,4 @@
 		};
 	}; 
 
-	yemd.directive('action',action);
-})(angular, yemd);
+	

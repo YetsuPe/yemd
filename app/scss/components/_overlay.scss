@@ -7,7 +7,6 @@
   @extend %opacity--0;
   @extend %z-index--2;
   background: $bg-overlay;
-
   &.show { 
     @extend %pointer-events--auto;
     @extend %animation-overlayIn;
@@ -17,4 +16,7 @@
     @extend %pointer-events--none;
     @extend %animation-overlayOut;
 	}
+  &.special {
+    z-index: 3;
+  }
 }

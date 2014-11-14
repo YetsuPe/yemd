@@ -14,14 +14,14 @@
 	<!-- Appbar -->
 	<header class="appbar">
 
-		<h1 class="appbar__title">Yemd</h1>
+		<h1 class="appbar__title"> Yemd </h1>
 
 	</header>
 
 	<!-- Sidenav -->
-	<nav class="sidenav--left" data-sidenav>
+	<nav class="sidenav--left" data-sidenav="left">
 
-		<figure class="sidenav__cover">
+		<figure class="sidenav__cover" data-cover="assets/images/cover.jpg">
 			<img src="assets/images/logo-yetsu.png" alt="logo" class="sidenav__cover__logo"/>
 			<figcaption class="sidenav__cover__text">
 				hello@yetsu.com
@@ -35,10 +35,10 @@
 			
 	</nav>
 
-	<!-- Sidenav Right-->
-	<section class="sidenav--right" data-sidenav>
+	<!-- Sidenav Right --> 
+	<section class="sidenav--right" data-sidenav="right">
 
-		<header class="toolbar" data-type="extend">
+		<header class="toolbar">
 			<h1 class="toolbar__title"> Toolbar </h1>
 		</header>
 
@@ -47,7 +47,7 @@
 		</section>
 
 	</section>	
-	
+	 
 	<main class="canvas">
 
 		<article class="card">
@@ -62,6 +62,34 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In adipisci doloremque, illum aspernatur quo autem. Inventore temporibus maxime id sed excepturi suscipit qui, vitae, aut nihil aliquam debitis aperiam pariatur.</p>
 					</div>
 						
+		</article>
+
+		<article class="card">
+			<form name="form">
+				<input type="text" placeholder="Text" ng-model="text">
+				<input type="number" placeholder="Number" ng-model="number">
+				<input type="email" placeholder="Mail" ng-model="email">
+				<input type="tel" placeholder="Phone" ng-model="phone">
+				<input type="search" placeholder="Search" ng-model="search">
+				
+				<input type="range" placeholder="Range" ng-model="range">
+				<input type="date" placeholder="Date">
+				<input type="month" placeholder="Month">
+				<input type="week" placeholder="Week">
+				<input type="time" placeholder="Time">
+				<input type="datetime" placeholder="Datetime">
+				<input type="datetime-local" placeholder="Datetime-local">
+				<input type="color" placeholder="Color">
+				<select > 
+					<option>XDXD</option>
+					<option>XDXD</option>
+					<option>XDXD</option>
+					<option>XDXD</option>
+				</select>
+				<button>Enviar</button>
+				<input type="submit" value="send">
+				
+			</form>
 		</article>
 		
 		<div class="card--avatar" data-card>
@@ -82,7 +110,7 @@
 			<div class="card__content">
 				<h3 class="card__title">Title</h3>
 				<a href="#" class="card__sub-title"> sub title</a>
-				<img class="card__logo" src="assets/images/logo-yetsu.png" alt="">
+				<img class="card__logo" src="assets/images/logo-yetsu.jpg" alt="">
 			</div>
 		</article>
 
@@ -97,9 +125,28 @@
 		</article>
 
 		<section class='list--figure'> 
+
+			<nav class="list__header">
+				<a class="list__header__name"> Field 1 </a> 
+				<a class="list__header__name"> Field 2 </a> 
+				<a class="list__header__name"> Field 3 </a> 
+			</nav>
 						
 			<article class="list__item" >
 				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
+				<div class="list__item__content--multiple" >
+					<h3 class="list__item__content__title">Title 1</h3>
+					<h3 class="list__item__content__title">Title 2</h3>
+					<h3 class="list__item__content__title">Title 3</h3>
+				</div>
+			</article>  
+			
+		</section> 
+
+		<section class='list--figure'> 
+
+			<article class="list__item" >
+				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
 				<div class="list__item__content" >
 					<h3 class="list__item__content__title">Title</h3>
 					<h4 class="list__item__content__sub-title">Sub title</h4>
@@ -114,96 +161,9 @@
 				</div>
 			</article>  
 			
-			
-
 		</section> 
 
 	</main>
-
-	<!--
-	<main>
-
-		<article class="card--full">
-			<icon data-icon="logo-yetsu" class='card__logo--main'></icon>
-			<h2 class="card__title--center">"build beautiful webapps"</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolo </p>
-		</article>
-
-		<article class="card">
-
-			<div class="countdown">
-				<div class="countdown__item">
-          <em>  10  </em>
-          <span>Days</span>
-        </div>
-        <div class="countdown__item">
-          <em>  13  </em>
-          <span>Hours</span>
-        </div>
-        <div class="countdown__item">
-          <em>  59     </em>
-          <span>Minutes</span>
-        </div>
-			</div>
-		</article>
-
-		<article yemd-card class="card--figure">
-			<img src="assets/images/plane.jpg" class="card__image col-30" />
-			<div class="card__description col-70">
-				<h2 class="card__title">
-					Title
-				</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				</p>
-
-				<form name="suscription" no-validate class="form--strech">
-					<input type="email" placeholder="Tú email" name='email' ng-model="email" required/>
-				</form>
-				
-			</div>
-		</article>
-
-		<article class="card--list">
-
-			<h2 class="card__title--center">Title</h2>
-
-			<section class='list--figure'>
-
-				<article class="list__item" >
-					<icon data-icon="Social_networks/facebook" class='list__item__icon'></icon>
-			    <div class="list__item__head" >
-			      <div class="list__item__head__text">  Item </div>
-			    </div>
-			  </article>
-			  <article class="list__item" > 
-			    <icon data-icon="Social_networks/twitter" class='list__item__icon'></icon>
-			    <div class="list__item__head" >
-			      <div class="list__item__head__text">  Item </div>  
-			    </div>
-			  </article>  
-			  <article class="list__item" > 
-			    <icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
-			    <div class="list__item__head" >
-			      <div class="list__item__head__text">  Item </div>  
-			    </div>
-			  </article>  
-			</section> 
-
-		</article>
-
-		<article class="card--full">
-
-			<h2 class="card__title--center">Title</h2>
-			<section class="list--social">
-				<icon data-icon="Social_networks/facebook" class='list__item__icon color'></icon>
-				<icon data-icon="Social_networks/twitter" class='list__item__icon'></icon>
-				<icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
-				<icon data-icon="Social_networks/pinterest" class='list__item__icon'></icon>
-			</section>
-			
-		</article>
-	</main>-->
 
 <!--Dependencies -->
 <script src="vendor/jquery/dist/jquery.min.js"></script>  <!--fix it will shoud agnostic--> 
@@ -212,17 +172,15 @@
 
 <script src="js/yemd.js"></script>
 
-<script src="js/services/verge.js"></script>
-
-
 <script src="js/directives/toolbar.js"></script>
 <script src="js/directives/sidenav.js"></script>
 <script src="js/directives/card.js"></script>
+<script src="js/directives/overlay.js"></script>
+<script src="js/directives/input.js"></script>
+
 <!--
 <script src="js/directives/icon.js"></script>
 
-<script src="js/directives/overlay.js"></script>
-<script src="js/directives/input.js"></script>
 <script src="js/directives/snackbar.js"></script>
 <script src="js/directives/action.js"></script>
 <script src="js/directives/modal.js"></script>

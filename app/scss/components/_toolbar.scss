@@ -1,110 +1,102 @@
 %toolbar {
-  @extend %display--block;
+  @extend %display--flex;
+  @extend %align-items--center ;
+
   @extend %position--relative;
   @extend %zDepth-1;
-  @extend %bg--primary ;
+  @extend %background-color--primary ;
 
 	@include transition ( height $time-animation $mode-animation );
-	> icon { 
+	
+	> [class^="mdfi_"], 
+	> [class*=" mdfi_"] {
 		@extend %position--absolute;
-		top:em(4); 
-
+		@extend %display--flex;
+		@extend %align-items--center;
+		@extend %justify-content--center;
+		top: em(4, 24);
+		width:em(48, 24);
+		height:em(48, 24);
+		font-size: 24px;
+		color: $color-white;
+		&:first-of-type {
+			left: 0;
+			right: em(4, 24);
+		}
 		&:nth-last-of-type(1) {
 			@extend %left--auto;
-			right: em(4);
+			right: em(4, 24);
 		}
-
 		&:nth-last-of-type(2) {
 			@extend %left--auto;
-			right: em(56);
+			right: em(56, 24);
 		}
 
 		&:nth-last-of-type(3) {
 			@extend %left--auto;
-			right: em(108);
+			right: em(108, 24);
 		}
 
 		&:nth-last-of-type(4) {
 			@extend %left--auto;
-			right: em(160);
+			right: em(160, 24);
 		}
 
 		&:nth-last-of-type(5) {
 			@extend %left--auto;
-			right: em(212);
-		}//+52
-
-		&:first-of-type {
-			left:em(4);
-			@extend %right--auto;
+			right: em(212, 24);
 		}
-	}
-	
-	&.static {
-		@extend %position--fixed;
-		@extend %top--0	 ;
-		@extend %width--100percent	 ; 
-	}
-	form {
-		@extend %width--100percent;
-		@extend %position--absolute;
-		@extend %padding--base;
-		input {
-			@extend %width--100percent;
-			@extend %color--white;
-			@extend %bg--transparent;
-			@extend %box-sizing--border-box;
-			padding-left: em(56);
-			border-bottom: em(1px) solid white;
 
-			&::-webkit-input-placeholder {
-		  	@extend %color--white;
-				@extend %animation-fadeIn; 
-		  }
-			&:-moz-placeholder {
-				@extend %color--white;
-				@extend %animation-fadeIn; 
-			}
-		}
 	}
+
 }
 
-%toolbar__title {
-	@extend %position--relative;
-	@extend %line-height--1; 
-	@extend %text-transform--uppercase; 
-
-	@include transition ( all $time-animation $mode-animation );
-}
-
-.toolbar--default {
+.appbar,
+.toolbar {
 	@extend %toolbar;
 	height: em(56); 
 
-	h1 { 
+	&.extend {
+		@extend %toolbar--extend;
+	}
+}
+	.appbar__title,
+	.toolbar__title { 
 		color: white; //Bug
-		@extend %toolbar__title;
+		//@extend %color--white ; 
 		@extend %text-overflow--ellipsis; 
 		@extend %overflow--hidden;
 		@extend %font-size--base;  
-		@extend %pointer-events--none; 
+		//@extend %pointer-events--none; 
+		@extend %line-height--1; 
+		@extend %text-transform--uppercase; 
 
-		@include transform( translateY( em(20) ) );
-		@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
-		
+		//@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
+		//@include transition ( all $time-animation $mode-animation );
+
 		margin-left: em(72); 
+		
 	}
-}
 
-.toolbar--extend {
-	@extend %toolbar;
+%toolbar--extend {
 	height: em(128);
-	h1 {
-		@extend %toolbar__title; 
-		@include transform( translateY( em(82,20) ) ); 
+
+	.appbar__content {
+		align-self: flex-end;
+	}
+
+	.appbar__title,
+	.toolbar__title {
+		//@include transform( translateY( em(82,20) ) ); 
 		font-size: em(20);
 		margin-left: em(72,20);
 		color: white;
+		margin-bottom: 26px;
 	}
 }
 
+.appbar--extend,
+.toolbar--extend {
+	@extend %toolbar;
+	@extend %toolbar--extend;
+}

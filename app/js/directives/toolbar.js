@@ -1,75 +1,55 @@
-(function(yemd){  
-	'use strict'; 
-	
-	toolbar.$inject=['$rootScope','$compile'];
+'use strict'; 
 
-	function toolbar($rootScope,$compile){
-		return {
+angular.module('yemd')
+	.directive('toolbar',toolbar)
+	.directive('appbar',toolbar);
+
+function toolbar($yemd, $rootScope){
+		
+	return {
 			scope: {
-				type:'@', //extend,normal
-				isAppbar: '@'
+				type:'@' //extend,normal'
 			}, 
-			restrict:'EC', 
-			controller: function  ($scope, $element, $attrs,$rootScope){
-				var vm= this;
-				vm.isAppbar= ($scope.isAppbar !== undefined) ? true : false ;
-				vm.type= $scope.type || 'default'; 
+			transclude: true,
+			restrict:'C', 
+			templateUrl: 'templates/toolbar.html',
+			controller: function  ($scope, $element, $attrs, $transclude, $yemd, $rootScope){
+				
+				if ( $attrs.class.indexOf('appbar') !== -1 ) {
+					$scope.menu = $yemd.sidenav.left.show; 
+					$scope.menuRight = $yemd.sidenav.right.show;
+				};
+				 
+
+				$scope.openMenu = function(side) {
+					$rootScope.$emit('toggleSidenav', side, true);
+				}
+
+				$rootScope.$on('changeTitleAppbar',function(event,newTitle){ 
+	      	if ( $attrs.class.indexOf('appbar') !== -1 ) {
+						$element.find('.appbar__title').text(newTitle); 
+					};
+	      });
+	        	
+	      $rootScope.$on('changeAppbar', function(e, className){ 
+	      	if ( $attrs.class.indexOf('appbar') !== -1 ) {
+						$element.addClass( className );
+					};
+				});
+
 			},
-			controllerAs:'toolbarController',
 			compile: function(){
 				return {
-	        pre: function preLink(scope, element, iAttrs, toolbarController) {  
-	        	element.addClass('toolbar--'+toolbarController.type);  
+	        pre: function preLink(scope, element, iAttrs, toolbarController) { 
+
 	        }, 
 	        post: function postLink(scope, element, iAttrs, toolbarController) {
 
-	        	$rootScope.$on('changeTitleAppbar',function(event,newTitle){ 
-	        		if ( scope.isAppbar!== undefined ) { element.find('h1').text(newTitle);  };
-	        	});
 	        	
-	        	$rootScope.$on('changeAppbar', function(e,className){ 
-	        		element.attr('class', 'toolbar--'+className);
-						});
 
-	        	/*
-	        	$rootScope.$on('injectIcon', function(event,icon,action){ 
-	        		var linkIcon = $compile(icon); 
-	        		scope.search = action;
-              linkIcon(scope); 
-	        		element.find('icon').eq(0).after(icon) 
-	        	});
-	        	/*
-	        	$rootScope.$on('injectActionNew', function(event,icon,action,node){ 
-	        		var linkIcon = $compile(icon); 
-	        		scope.actionNew = action;
-              linkIcon(scope);
-              node.append(icon).addClass('show') ;
-	        	});
-						*/
-	        	
-	        	/*
-	        	$rootScope.$on('showActionNew', function(e,menu,stateName){ 
-	        		angular.forEach(menu, function(value,index){
-	        			if ( value.nombre===stateName ) {  
-	        				var className=( element.hasClass('toolbar--default') )? 'float' : 'embed' ;
-	        				this.append( $rootScope.element( "<a class='action--"+className+"'> </a>"   ) );
-	        				var node = element.find('a').eq(-1);
-	        				var icon = $rootScope.$emit('injectActionNew', angular.element("<icon data-src='actionNew' ui-sref='^.new'> </icon>"), {icon:'plus', involve:'actionNew' },node );
-	        				//this.append( $rootScope.element( "<a class='action--"+className+"'> "+icon+" </a>"   ) );
-	        			};
-	        		}, element);
-	        	});
-						*/
-	        	$rootScope.$on('hideActionNew', function(e,menu){
-	        		element.find('a').removeClass('show').addClass('hide');
-	        	});
-						
 	        }
 	      };
 			}
-		};
 	};
 
-	yemd.directive('toolbar',toolbar);
-
-})(yemd);
+};

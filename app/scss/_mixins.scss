@@ -64,6 +64,23 @@
     @include fix_sidenav_position;
   }
 }
+//Sidenav right
+@include keyframes( showSidenavRight ) { 
+  to   { 
+    @include zDepth($z_depth:5);
+    @include transform( translateX(0) ); 
+  }
+}
+@include keyframes( hideSidenavRight ) {
+  from   { 
+    @include zDepth($z_depth:5);
+    @include transform( translateX(0) ); 
+  }  
+  to   { 
+    @include zDepth($z_depth:0);
+    @include transform( translateX(460px) ); 
+  }
+}
 /*** labels ***/
 @include keyframes( labelIn ) {
   from {@include transform(translateY( -1 * em(24,12) )); } 

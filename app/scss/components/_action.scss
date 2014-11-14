@@ -1,26 +1,15 @@
 %action {
-  @extend %display--block;
+  @extend %display--flex;
   @extend %zDepth-2;
   @extend %border-radius--50percent;  
-  @extend %z-index--1;
-  @extend %bg--secondary;
+  @extend %background-color--secondary;
 
   @include transition (all $time-animation $mode-animation);
 
-  icon,
-  .icon { 
-    @extend %position--absolute;
-    @extend %top--0;
-    @extend %left--0; 
-    @extend %width--100percent;
-    width: em(40px);
-    height: em(40px);
-    padding: em(8px); 
-     
-    line {
-      fill: $color-white;
-      stroke: $color-white;
-    }
+  [class^="mdfi_"], 
+  [class*=" mdfi_"] { 
+    font-size: 24px;
+    color: $color-white;
   }
 
   &.show {
@@ -44,7 +33,7 @@
   @extend %position--absolute;
   @extend %left--base;
 
-  bottom: -1* em(20px);
+  //
   padding: em(8px);
   width : em(40px);
   height: em(40px); 
@@ -54,11 +43,16 @@
   @extend %action;
   @extend %position--fixed;
   @extend %z-index--2;
-  @extend %top--base;
+  @extend %bottom--base;
   @extend %right--base;
   @extend %padding--base;
   
   @include transform(scale(1));
   width: em(56px);
   height: em(56px); 
+}
+
+/***** special ***/
+.action--in-appbar {
+  bottom: -1* em(20px);
 }

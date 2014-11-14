@@ -2,7 +2,7 @@
 	@extend %position--fixed;
 	@extend %top--0; 
 	@extend %zDepth-2;
-	@extend %z-index--2;
+	@extend %z-index--3;
 	@extend %height--100percent;
 	@include calc( "width", " 100% - #{ em(56px) } " );
 }
@@ -28,10 +28,6 @@
 	}
 	&.hide{ 
 		@extend %animation-hideSidenavRight;
-	}
-
-	.toolbar {
-		@extend %zDepth-0;
 	}
 		.toolbar__title {
 			margin-left: 1em;

@@ -1,6 +1,10 @@
-main {
-	@extend %position--relative;
+.canvas {
+	//@extend %position--relative;
+	//@extend %display--flex;
 }
+
+
+
 /*
 @media screen and (min-width: $media-lg) {
 

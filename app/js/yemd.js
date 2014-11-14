@@ -1,41 +1,43 @@
-(function(angular,global){ 
-  'use strict';  
+'use strict';  
 
-  /**
-  * 
-  * yemd Module
-  *
-  * Description: directives for ui inspired in material design
-  */
+angular.module('yemd', []);
 
-  global.yemd = angular.module('yemd', []);
+angular.module('yemd')
+  .provider('$yemd', $yemdProvider )
+  .run(initYemd);
 
-  yemd.provider('$yemd', function $yemdProvider(){
+function $yemdProvider(){
 
-  	this.folderIcons = 'icons8/' ; //Icon's by VisualPharm
-
-  	this.$get = ['$rootElement',function($rootElement){
-      var folderIcons= this.folderIcons;
-
-      var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
-          overlay  = angular.element("<div class='overlay'></div>"),
-          modal  = angular.element("<div class='modal'></div>"),
-          action   = angular.element("<a class='action'><icon data-icon='plus'></icon></a>");  
-
-      $rootElement.find('body').append( overlay );  
-      $rootElement.find('body').append( modal );  
-      $rootElement.find('body').append( snackbar ); 
-      $rootElement.find('header').eq(0).append( action ); 
-
-  	  return {
-  	  	folderIcons: folderIcons
-  	  };
-  	}];
-
-    this.setFolderIcons = function(dir){
-        this.folderIcons = dir;
+  this.$get = function(){
+    return { 
+      sidenav: {
+        left: {
+          show : false,
+          toggle: false,
+          icon: 'mdfi_navigation_menu'
+        },
+        right :{
+          show : false,
+          toggle: false,
+          icon: 'mdfi_navigation_menu'
+        }
+      },
+      action: {
+        show: false,
+        type: 'float',
+        icon: 'mdfi_content_add'
+      }
     };
+  }
 
-  }); 
+}
 
-})(angular, window);
+function initYemd ($rootElement) {
+  var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
+      overlay = angular.element("<div class='overlay'> </div>"),  
+      action = angular.element("<div data-action> </div>");  
+
+  $rootElement.find('body').append( action );
+  $rootElement.find('body').append( overlay );   
+  $rootElement.find('body').append( snackbar ); 
+}

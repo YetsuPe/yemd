@@ -1,37 +1,32 @@
-(function(angular, yemd){  
-	'use strict';  
+'use strict';  
 
-	card.$inject=['$rootScope', '$timeout'];
+angular.module('yemd')
+		.directive('card',card);
 
 	function card($rootScope, $timeout){
 		return {
 			scope: {},  
-			restrict:'EA',  
-			//template:"<dl ng-repeat='(field,value) in item' ng-hide=\" field==='id' \" ><dt>{{field}}</dt><dd>{{value}}</dd></dl>",
+			restrict:'AC',  
 			controller:function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
 			},
 			compile: function(){
 				return {
 	        pre: function preLink(scope, element, attrs ) {  
-	        	
+
+	        		element.find('.card__cover').css({
+								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
+							});
+
+	        		element.find('.card__photo').css({
+								'background-image': "url('"+ element.find('.card__photo__image').attr('src')+"')" 
+							});
+
 	        }, 
-	        post: function postLink(scope, element, attrs) {
- 						if ( attrs.class='card--figure' ) {
-	        		var image = element.find('img').eq(0);
-	        		var blockImage=angular.element("<div></div>"); 
-	        		//console.log( "url('"+image.attr('src')+"'')" );
-	        		blockImage.css({ 'background-image': "url('"+image.attr('src')+"')", height: element[0].clientHeight+"px" });
-	        		blockImage.addClass(image.attr('class'));
-	        		image.remove();
-	        		element.prepend(blockImage);
-	        	};
+	        post: function postLink(scope, element, attrs, $verge) {
+
 	        }
 	      };
 			}
 		};
 	}; 
-
-	yemd.directive('yemdCard',card);
-
-})(angular, yemd);
