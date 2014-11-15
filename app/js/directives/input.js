@@ -1,5 +1,9 @@
 'use strict'; 
-	
+
+angular.module('yemd')
+	.directive('input',input)
+	.directive('yemdSelecto', select);
+
 	function input($rootScope, $timeout){
 		return {
 			scope: {},
@@ -19,17 +23,30 @@
 		 					element.wrap(fieldset); 
 		 					element.parent('fieldset').prepend(label);
 		 					element.parent('fieldset').addClass('open');
-		 				}else if(attrs.type==="date" || attrs.type==="month"|| attrs.type==="week" || attrs.type==="time" || attrs.type==="datetime" || attrs.type==="datetime-local"  ){
+		 				}else if(attrs.type==="date" || attrs.type==="month"|| attrs.type==="week" || attrs.type==="time" || attrs.type==="datetime" || attrs.type==="datetime-local"   ){
 		 					element.wrap(fieldset); 
 		 					element.parent('fieldset').prepend(label);
 		 					element.parent('fieldset').addClass('open--all');
-		 				}else if(attrs.type==="submit" || element[0].tagName==="button"  ){
-		 				}else{
+		 				}else if(attrs.type==="submit" || element[0].tagName==="button" || attrs.type==="radio" ){
+
+		 				}else if( attrs.type==="checkbox" ){
+		 					element.wrap( angular.element("<label class='switch switch-green'></label>") ); 
+		 					element.addClass('switch-input');
+		 					element.after( angular.element("<span class='switch-track'></span><span class='switch-thumb'></span>") );
+
+		 					element.parent('label').wrap(fieldset); 
+		 					element.parent('label').parent('fieldset').prepend(label);
+		 					element.parent('label').parent('fieldset').addClass('open');
+
+		 				} else{
 		 					element.wrap(fieldset); 
 		 					element.parent('fieldset').prepend(label);
 		          element.parent('fieldset').append(error);
 		 				}
 						
+
+
+
 	        },  
 	        post: function postLink(scope, element, attrs,requires) {    
 	        	/*
@@ -108,6 +125,44 @@
 		};
 	};
 
-	angular.module('yemd')
-		.directive('input',input);
+	function select($rootScope, $compile){
+		return {
+			scope: {},
+			require:['?ngModel', '^form', 'select'] , 
+			controller:  function($scope,$element,$attrs,$rootScope ){
+
+				$scope.secondAction =function(name) {
+					$rootScope.$emit('secondActionNew', name);
+				}
+
+			},
+			compile: function(){
+				return {
+	        pre: function preLink(scope, element, attrs, requires) {   
+	        	var error    = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+            		fieldset = angular.element("<fieldset></fieldset>");
+
+		 				if( typeof(attrs.secondAction) !== 'undefined' ) {
+
+		 					element.wrap(fieldset); 
+		 					element.parent('fieldset').addClass('open--select-w-second-action');
+
+		 					var secondAction = angular.element( "<span ng-click=secondAction('"+element.attr('name')+"') class='  "+attrs.secondAction+"'></span>");
+		 					element.parent('fieldset').append( secondAction );
+		 					
+		 					$compile( secondAction )(scope);
+
+		 				}else {
+		 					element.wrap(fieldset); 
+		 					element.parent('fieldset').addClass('open--select');
+		 				}
+
+	        },  
+	        post: function postLink(scope, element, attrs,requires) {    
+						
+					}
+	      };
+			}
+		};
+	};
 
