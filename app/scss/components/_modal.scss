@@ -10,21 +10,22 @@
 	z-index: 4;
 	left: 10%;
 	top: 20%;
-	&.open {
+	&.show {
 		display: flex;
 	}
 }
 
 .modal__title {
-	font-size: em(20);
+	font-size: 20px;
 	font-weight: 400;
-	padding: em(24) em(24) em(0) em(24);
+	padding: em(24, 20);
 }
 .modal__content {
 	text-align: justify;
+	padding: 0 em(24) em(16) em(24);
 }
 
-.modal__controls {
+.modal__controls { // same picker controls
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -34,6 +35,10 @@
 		color: $color-primary;
 		font-weight: 400;
 		padding: 0 1em;
+		height: em(36);
+		display: flex;
+		align-items: center;
+		margin-right: em(8);
 	}
 
 @media screen and (min-width: 800px) {

@@ -5,6 +5,17 @@
 	@extend %z-index--3;
 	@extend %height--100percent;
 	@include calc( "width", " 100% - #{ em(56px) } " );
+	@include transition (all $time-animation $mode-animation);
+	&.opacity {
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.25);
+			position: absolute;
+			top: 0;
+		}
+	}
 }
 
 .sidenav--left{
@@ -29,9 +40,6 @@
 	&.hide{ 
 		@extend %animation-hideSidenavRight;
 	}
-		.toolbar__title {
-			margin-left: 1em;
-		}
 }
 	.sidenav__cover {
 		@include calc( "height", "( 100vw - #{ em(56px) } ) * #{ 9/16 } " );

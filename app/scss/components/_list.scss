@@ -4,6 +4,22 @@
   flex-direction: column;
   @extend %zDepth-1;
 }
+  %list__item__field {
+    &:hover { cursor: pointer; }
+    display: none;
+    flex-grow: 1;
+    flex-basis: 220px;
+    line-height: 1.25;
+    @extend %text-overflow--ellipsis ;
+    height: 20px;
+    overflow: hidden;
+    padding-right: .5em;
+    font-size: 16px;
+    align-self: center;
+    &:first-child { display: block; flex-grow: 2; }
+    &:nth-child(2) { display: block; }
+  }
+
 .list--figure {
   @extend %list;
   margin: em(8) 0;
@@ -39,13 +55,7 @@
     .list__header__name {
       @extend %color--secondary;
       @extend %text-transform--capitalize;
-      &:hover { cursor: pointer; }
-      display: none;
-      flex-grow: 1;
-      flex-basis: 180px;
-      align-self: center;
-      &:first-child { display: block; flex-grow: 2; }
-      &:nth-child(2) { display: block; }
+      @extend %list__item__field;
     }
 
   .list__item {
@@ -71,20 +81,14 @@
     .list__item__content {
       padding: em(20) 0 ;
       @extend %display--flex;
-      @extend %flex-direction--column;
-      //   
+      @extend %flex-direction--column; 
     }
     .list__item__content--multiple {
       padding: em(20) 0 ;
       @extend %display--flex;
       @include calc('width', ' 100% - #{em(72)} ');
       .list__item__content__title {
-        display: none;
-        flex-grow: 1;
-        flex-basis: 180px;
-        align-self: center;
-        &:first-child { display: block; flex-grow: 2; }
-        &:nth-child(2) { display: block; }
+        @extend %list__item__field;
       }
     }
       .list__item__content__title {
