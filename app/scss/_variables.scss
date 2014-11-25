@@ -2,6 +2,7 @@ $base-font : 16px;
 
 $bg-body : #cfcfcf;
 
+//App colors
 $color-primary         : #03a9f4 !default; 
 $color-secondary       : #009688 !default;
 
@@ -9,7 +10,6 @@ $color-secondary       : #009688 !default;
 $color-default : #DDDDDD;
 $color-black : #000;
 $color-white : #fff; 
-$color-divider         : rgba($color-black, .12);
 $color-hint-text       : rgba($color-black, .26);
 $color-text            : rgba($color-black, .87);
 $color-text-white      : $color-white;
@@ -36,26 +36,26 @@ $enter_animation: 0.5625s cubic-bezier(0,0,.5,1) 0.1875s ;
 $leave_animation: 0.5625s cubic-bezier(0,.5,1,1) ; 
 /**** components ****/
 //card
-$bg-card : $color-white;
+$bg-card : $color-white !default;
 //list
-$bg-list : $color-white;
+$bg-list : $color-white !default;
 //datalist
-$bg-datalist : $color-white;
+$bg-datalist : $color-white !default;
 //appbar
-$appbar-height:56px;
+$appbar-height:56px !default;
 //overlay
-$bg-overlay:rgba(0,0,0,.5);
+$bg-overlay:rgba(0,0,0,.5) !default;
 //snackbar
-$bg-snackbar: #323232 ;
+$bg-snackbar: #323232  !default;
 //tooltip
-$bg-tooltip:rgba(0,0,0,.9);
+$bg-tooltip:rgba(0,0,0,.9) !default;
 //sidenav
-$bg-sidenav:$color-white ;
+$bg-sidenav:$color-white  !default;
 //form 
-$color-success: #259b24;
-$color-error: #e51c23;
+$color-success: #259b24 !default;
+$color-error: #e51c23 !default;
 
 
 //media querys
-$media-md:768px;
-$media-lg:1024px;
+$media-md:768px !default;
+$media-lg:1024px !default;

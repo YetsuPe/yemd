@@ -49,6 +49,10 @@
 
 	}
 
+	&.hide {
+		display: none;
+	}
+
 }
 
 .appbar,
@@ -81,10 +85,6 @@
 %toolbar--extend {
 	height: em(128);
 
-	.appbar__content {
-		align-self: flex-end;
-	}
-
 	.appbar__title,
 	.toolbar__title {
 		//@include transform( translateY( em(82,20) ) ); 
@@ -92,6 +92,7 @@
 		margin-left: em(72,20);
 		color: white;
 		margin-bottom: 26px;
+		align-self: flex-end;
 	}
 }
 

@@ -21,7 +21,8 @@ module.exports = function(grunt){
 		    	base:'app/',
 		     	livereload: 1330
 		    }
-		  }		},
+		  }		
+		},
 	  sass: {
 	      dist: {
 	        files: {

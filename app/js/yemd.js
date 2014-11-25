@@ -35,9 +35,11 @@ function $yemdProvider(){
 function initYemd ($rootElement) {
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  
-      action = angular.element("<div data-action> </div>");  
+      modal = angular.element("<div class='modal'> </div>"),  
+      action = angular.element("<div data-action></div>");  
 
   $rootElement.find('body').append( action );
+  $rootElement.find('body').append( modal );   
   $rootElement.find('body').append( overlay );   
   $rootElement.find('body').append( snackbar ); 
 }

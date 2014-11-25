@@ -1,7 +1,7 @@
 form {
   @extend %display--flex;
   @extend %flex-direction--column;
-  padding: 1em;
+  //padding: 1em;
 }
 
 %labels {
@@ -11,14 +11,17 @@ form {
 }
 
   input[type="text"],
+  input[type="password"],
   input[type="number"],
   input[type="email"],
   input[type="tel"],
   input[type="search"]{
     //@extend %display--flex;
     //@extend %align-items--center;
+    width: 100%;
     @extend %line-height--1; 
-      height: em(21); //Fix later
+    padding: 0;
+    height: em(21); //Fix later
       //height: em(48);
     &::-webkit-input-placeholder {
       color:$color-secondary-text;
@@ -32,16 +35,21 @@ form {
     }
   }
 
-fieldset {
-  padding: em(16) 0;
+.wrapper {
+  display: block;
+  padding: em(16);
   height: em(48);
   @include transition( height $start_animation );
+
   &.focus {
     height: em(72);
   }
+  &.hide {
+    display: none;
+  }
   @extend %position--relative;
-  @extend %display--flex;
-  @extend %flex-direction--column;
+  //@extend %display--flex;
+  //@extend %flex-direction--column;
   .valid {
     @extend %labels;
     display: none;
@@ -68,6 +76,21 @@ fieldset {
     @extend %labels;
     color: $color-error;
     margin-top: em(4);
+    &.enter{  
+      @extend %animation-labelErrorIn;
+      & ~ input {
+        @extend %animation-moveInputUp;
+      }
+    }
+    &.leave{ 
+      @extend %animation-labelErrorOut;
+      & ~ input {
+        @extend %animation-moveInputDown;
+      }
+    }
+    &.showD{
+      @extend %display--block;
+    }
   }
 
   
@@ -75,8 +98,15 @@ fieldset {
     content:'';
     position: absolute;
     bottom: em(7.5);
-    width: 100%;
+    left: 1em;
+    @include calc('width', '100% - 2em' );
     border-bottom: em(1) solid lighten($color-secondary-text, 50%);
+    @include transition( all $start_animation );
+  }
+  &.error {
+    &:after {
+      bottom: em(31);
+    }
   }
   &.open {
     height: em(72);
@@ -85,6 +115,24 @@ fieldset {
     }
     &:after {
       border-bottom: 0;
+    }
+  }
+  &.open--image {
+    height: auto;
+    padding: 0;
+    input {
+      position: absolute;
+      opacity: .2;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    &:after {
+      border-bottom: 0;
+    }
+    img {
+      width: 100%;
     }
   }
   &.open--all {
@@ -119,40 +167,55 @@ fieldset {
   }
 
   &.open--checkbox {
-    display: block;
-    @extend %clearfix;
+    display: flex;
+    flex-wrap: wrap;
     height: em(72);
     .valid {
+      width: 100%;
       display: block;
     }
     &:after {
       border-bottom: 0;
     }
-    flex-direction: row;
   }
 }
 select {
   border: 0 ;
   outline: 0;
 }
-input[type="submit"],
-button{
+%button {
   display:block;
-  background: $color-primary ;
   height: em(32);
   width: em(88);
   max-width: 100%;
   line-height: 2; 
   text-transform: uppercase;
-  color:$color-text-white ;
-  margin: em(8) 0 ;
+  margin: em(8) em(16) em(8) 0;
   @include zDepth($z_depth:1); 
+  text-align: center;
   border-bottom: 0; 
   @include box-sizing( border-box );
   &:hover {
     cursor: pointer;
   }
+  &:nth-of-type {
+    margin: em(8) 0 ;
+  }
 }
+
+input[type="submit"],
+button,
+.button {
+  @extend %button;
+  color:$color-text-white ;
+  background-color: $color-primary ;
+}
+.button--second {
+  @extend %button;
+  color: $color-text ;
+  background-color: $color-default ;
+}
+
 button {
   border: 0;
 }
@@ -266,7 +329,6 @@ input[type=range]:focus::-webkit-slider-thumb {
 /****** radio  ****/
 
 .checkbox {
-  float: left;
   @extend %display--flex;
   height: em(20);
   label {

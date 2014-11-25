@@ -63,13 +63,29 @@
     height: em(72);
     align-items: center;
   } 
-    .list__item__img {
+    %list__item__picture {
       width:  em(40);
       height: em(40); 
-      border-radius: 50%;
       margin-left: em(16);
       margin-right: em(16);
+    }
+    .list__item__img {
+      @extend %list__item__picture;
+
+      border-radius: 50%;
     } 
+    .list__item__icon {
+      color: $color-icon ;
+      width:  em(40, 24);
+      height: em(40, 24); 
+      margin-left: em(16, 24);
+      margin-right: em(16, 24);
+      font-size: 24px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     .list__item__controls {
       display: flex;
       flex-basis: em(56, 24);
@@ -79,9 +95,12 @@
       align-items: center;
     }
     .list__item__content {
-      padding: em(20) 0 ;
       @extend %display--flex;
       @extend %flex-direction--column; 
+      @include calc('width', ' 100% - #{em(72)}  ' );
+      height: em(72);
+      justify-content: center;
+      line-height: 1.3;
     }
     .list__item__content--multiple {
       padding: em(20) 0 ;
@@ -92,10 +111,17 @@
       }
     }
       .list__item__content__title {
+        text-transform: capitalize;
+        @extend %overflow--hidden;
+        @extend %text-overflow--ellipsis ;
+        padding-right: em(16);
         font-weight: 300;
         &:hover { cursor: pointer; }
       }
       .list__item__content__sub-title {
+        @extend %overflow--hidden;
+        @extend %text-overflow--ellipsis ;
+        padding-right: em(16);
         &:hover { cursor: pointer; }
         font-weight: 300;
         font-size: em(14);

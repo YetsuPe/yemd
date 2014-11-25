@@ -7,16 +7,33 @@ angular.module('yemd')
 		return {
 			scope: {},
 			controller:function($scope, $element, $attrs, $yemd, $rootScope){
-				$element.addClass( 'action--'+$yemd.action.type );
-				$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
+
+				//$element.addClass( 'action--'+$yemd.action.type );
+				//$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
 			
 				$rootScope.$on('showAction', function ( e, obj ) {
-					$element.css('display','block');
-					$element.attr('class', 'action--' + obj.type );
+
+					//if ( 'action--'+obj.type !==  ) {};
+
+					if ( !$element.hasClass('show') )  {
+						$element.css('display','block');
+						$element.attr('class', 'action--' + obj.type );
+						$element.addClass('show');
+					}
+						
 					$element.html(angular.element('<span class="'+ obj.icon +'"></span>'));
 					$element.appendTo( obj.nodeClose );
-					$element.addClass( obj.classSpecial );
+					$element.addClass( obj.classSpecial ); 
+					
 				});
+
+				$rootScope.$on('hideAction',function(e){
+		 			$element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+		 		});
+
+		 		$element.on('click',function(){ 
+		 			$rootScope.$emit('clickAction');
+		 		});
 
 			},
 			compile: function(){
@@ -25,19 +42,6 @@ angular.module('yemd')
  						element.css('display','none');
 	        }, 
 	        post: function postLink(scope, element, attrs) {
-
- 						$rootScope.$on('showAction',function(e,className){
- 							element.css('display','block');
-		 					element.removeClass('hide').addClass('show action--'+className);
-		 				});
-
-		 				$rootScope.$on('hideAction',function(e){
-		 					element.removeClass('show').addClass('hide');
-		 				});
-
-		 				element.on('click',function(){ 
-		 					$rootScope.$emit('clickAction');
-		 				});
 
 	        }
 	      };

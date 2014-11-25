@@ -30,29 +30,6 @@
 	        pre: function preLink(scope, element, iAttrs) {   
 	        },  
 	        post: function postLink(scope, element, iAttrs) { 
-	        	/*
-	        	function toggleOverlay(band){
-	        		if (band) {
-								element.hasClass('hide')?element.removeClass('hide').addClass('show'): element.addClass('show');
-	        		}else{
-								element.hasClass('show')?element.removeClass('show').addClass('hide'): element.addClass('hide');
-	        		};
-	        	}
-	        	function closeOverlay(){
-	        		$rootScope.$emit('toggleSidenav', 'right', false) ;
-				   		$rootScope.$emit('toggleSidenav', 'left', false) ;
-				   		$rootScope.$emit('toggleModal', false) ;
-				   		
-				   		toggleOverlay(false);
-				   		$rootScope.$emit('clickOverlay' ) ;
-	        	}
-	        	$rootScope.$on('toggleOverlay', function(e, band){
-	        		toggleOverlay(band);
-						})
-
-				   	element.on('click',function(){  closeOverlay(); });
-				   	$rootScope.$on('closeOverlay',function(e){ closeOverlay(); });
-				   	*/
 				  }
 	      };
 			}

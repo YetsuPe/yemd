@@ -35,9 +35,11 @@ function $yemdProvider(){
 function initYemd ($rootElement) {
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  
-      action = angular.element("<div data-action> </div>");  
+      modal = angular.element("<div class='modal'> </div>"),  
+      action = angular.element("<div data-action></div>");  
 
   $rootElement.find('body').append( action );
+  $rootElement.find('body').append( modal );   
   $rootElement.find('body').append( overlay );   
   $rootElement.find('body').append( snackbar ); 
 }
@@ -52,16 +54,33 @@ angular.module('yemd')
 		return {
 			scope: {},
 			controller:['$scope', '$element', '$attrs', '$yemd', '$rootScope', function($scope, $element, $attrs, $yemd, $rootScope){
-				$element.addClass( 'action--'+$yemd.action.type );
-				$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
+
+				//$element.addClass( 'action--'+$yemd.action.type );
+				//$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
 			
 				$rootScope.$on('showAction', function ( e, obj ) {
-					$element.css('display','block');
-					$element.attr('class', 'action--' + obj.type );
+
+					//if ( 'action--'+obj.type !==  ) {};
+
+					if ( !$element.hasClass('show') )  {
+						$element.css('display','block');
+						$element.attr('class', 'action--' + obj.type );
+						$element.addClass('show');
+					}
+						
 					$element.html(angular.element('<span class="'+ obj.icon +'"></span>'));
 					$element.appendTo( obj.nodeClose );
-					$element.addClass( obj.classSpecial );
+					$element.addClass( obj.classSpecial ); 
+					
 				});
+
+				$rootScope.$on('hideAction',function(e){
+		 			$element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+		 		});
+
+		 		$element.on('click',function(){ 
+		 			$rootScope.$emit('clickAction');
+		 		});
 
 			}],
 			compile: function(){
@@ -70,19 +89,6 @@ angular.module('yemd')
  						element.css('display','none');
 	        }, 
 	        post: function postLink(scope, element, attrs) {
-
- 						$rootScope.$on('showAction',function(e,className){
- 							element.css('display','block');
-		 					element.removeClass('hide').addClass('show action--'+className);
-		 				});
-
-		 				$rootScope.$on('hideAction',function(e){
-		 					element.removeClass('show').addClass('hide');
-		 				});
-
-		 				element.on('click',function(){ 
-		 					$rootScope.$emit('clickAction');
-		 				});
 
 	        }
 	      };
@@ -99,7 +105,10 @@ angular.module('yemd')
 
 	function card($rootScope, $timeout){
 		return {
-			scope: {},  
+			scope: {
+				photo: '@',
+				cover: '='
+			},  
 			restrict:'AC',  
 			controller:['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
@@ -108,17 +117,24 @@ angular.module('yemd')
 				return {
 	        pre: function preLink(scope, element, attrs ) {  
 
-	        		element.find('.card__cover').css({
-								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
-							});
-
-	        		element.find('.card__photo').css({
-								'background-image': "url('"+ element.find('.card__photo__image').attr('src')+"')" 
-							});
+	        		
 
 	        }, 
 	        post: function postLink(scope, element, attrs, $verge) {
 
+	        	if ( typeof( scope.photo ) !== 'undefined' ) {
+	        		element.find('.card__photo').css({
+								'background-image': "url('"+ scope.photo +"')" 
+							});
+	        	};
+
+	        	element.find('.card__cover').css({
+							'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
+						});
+
+	        	//element.find('.card__photo').css({
+							//'background-image': "url('"+ element.find('.card__photo__image').attr('src')+"')" 
+						//});
 	        }
 	      };
 			}
@@ -127,106 +143,127 @@ angular.module('yemd')
 	card.$inject = ['$rootScope', '$timeout'];; 
 
 'use strict'; 
-	
-	function input($rootScope, $timeout){
+
+angular.module('yemd')
+	.directive('input',input)
+	.directive('yemdSelecto', select);
+
+	function input($rootScope, $timeout, $compile){
 		return {
-			scope: {},
+			scope: {
+				hide: '='
+			},
 			restrict:'E', 
-			require:['?ngModel','^form'] , 
+			require:['?ngModel','?^form'] , 
 			controller:  ['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope ){
 
+				$scope.$watch('hide', function(){
+	        $scope.hide?$element.closest('.wrapper').addClass('hide'):$element.closest('.wrapper').removeClass('hide');
+	      });
+
 			}],
-			compile: function(){
+			compile: function(tElement, tAttrs){
 				return {
-	        pre: function preLink(scope, element, attrs, requires) {   
-	        	var label    = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
-            		error    = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
-            		fieldset = angular.element("<fieldset></fieldset>");
+	        pre: function preLink(scope, element, attrs, requires ) { 
+
+	        	var label = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
+            		error = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+            		wrapper = angular.element('<div class="wrapper"></div>') ;
 
 		 				if ( attrs.type==="range" || attrs.type==="color" ) { 
-		 					element.wrap(fieldset); 
-		 					element.parent('fieldset').prepend(label);
-		 					element.parent('fieldset').addClass('open');
-		 				}else if(attrs.type==="date" || attrs.type==="month"|| attrs.type==="week" || attrs.type==="time" || attrs.type==="datetime" || attrs.type==="datetime-local"  ){
-		 					element.wrap(fieldset); 
-		 					element.parent('fieldset').prepend(label);
-		 					element.parent('fieldset').addClass('open--all');
-		 				}else if(attrs.type==="submit" || element[0].tagName==="button"  ){
-		 				}else{
-		 					element.wrap(fieldset); 
-		 					element.parent('fieldset').prepend(label);
-		          element.parent('fieldset').append(error);
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').prepend(label);
+		 					element.parent('.wrapper').addClass('open');
+		 				}else if(attrs.type==="date" || attrs.type==="month"|| attrs.type==="week" || attrs.type==="time" || attrs.type==="datetime" || attrs.type==="datetime-local"   ){
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').prepend(label);
+		 					element.parent('.wrapper').addClass('open--all');
+		 				}else if(attrs.type==="submit" || element[0].tagName==="button" || attrs.type==="file" ){
+
+		 				}else if( attrs.type==="radio" ){
+		 								
+		 					element.wrap( angular.element("<div class='checkbox'></div>") ); 
+					 		//element.prependTo( element.closest('.checkbox') );
+					 		element.closest('.checkbox').append(angular.element("<div class='check'><div class='inside'></div></div><label> "+element.data('option')+" </label>"));
+
+
+
+		 				}else if( attrs.type==="checkbox" ){
+		 					element.wrap( angular.element("<label class='switch switch-green'></label>") ); 
+		 					element.addClass('switch-input');
+		 					element.after( angular.element("<span class='switch-track'></span><span class='switch-thumb'></span>") );
+
+		 					element.parent('label').wrap(wrapper); 
+		 					element.parent('label').parent('.wrapper').prepend(label);
+		 					element.parent('label').parent('.wrapper').addClass('open');
+
+		 				} else{
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').prepend(label);
+		          element.parent('.wrapper').append(error);
 		 				}
+
+		 				//if ( scope.hide ) {
+		 					//element.closest('.wrapper').css('display', 'none');
+		 				//}
 						
 	        },  
 	        post: function postLink(scope, element, attrs,requires) {    
-	        	/*
+
+
+
+
+		 				element.bind('change', function () {
+
+		 					if (attrs.type==="file"){
+		 						scope.$apply(function () {
+				          requires[0].$setViewValue( element.val() );
+				        });
+		 					}
+				        
+				    }); 
+
 		        element.on('keyup',function(){
 		        	
 		          if ( requires[0].$dirty ) {   
-		          	element.parent('fieldset').addClass("focus");  
-		            element.parent('fieldset').find('label').eq(1).removeClass('enter').addClass("leave");
+		          	element.parent('.wrapper').addClass("focus");  
+		            element.parent('.wrapper').find('label').eq(1).removeClass('enter').addClass("leave");
 		            $timeout(function(){  
-		            	element.parent('fieldset').find('label').eq(1).removeClass('showD');   
+		            	element.parent('.wrapper').find('label').eq(1).removeClass('showD');   
 		            }, 750); 
-		            element.parent('fieldset').find('label').eq(0).removeClass('leave').addClass("showD enter");  
+		            element.parent('.wrapper').find('label').eq(0).removeClass('leave').addClass("showD enter");  
 		          }
 
 		        }); 
-						*/
-		        /*
-		        element.on('keydown',function(event){
-		        	if ( attrs.type === 'search' && event.which == 27 ) { 
-		        		$rootScope.$emit('cleanFormSearch') ;
-		        		$rootScope.$emit('removeFormSearch');  
-		        	}
-		        });
-						*/
-				
+
 						element.on('blur',function(){ 
- 
+ 							//console.log(requires[0]);
 							if ( requires[0].$dirty && attrs.type!=="range" ) {
-								if( !element.parent('fieldset').hasClass("focus") ) {element.parent('fieldset').addClass("focus");};
-								element.parent('fieldset').find('label').eq(0).removeClass('leave').addClass("showD enter");
+								if( !element.parent('.wrapper').hasClass("focus") ) {element.parent('.wrapper').addClass("focus");};
+								element.parent('.wrapper').find('label').eq(0).removeClass('leave').addClass("showD enter");
 							}
-							/*
 
-							}
-								//console.log(requires[0]);
 							if ( requires[0].$dirty && requires[0].$invalid ) {
-								//console.log(requires[0].$error);
-								if      (  requires[0].$error.required ) element.parent('fieldset').find('label').eq(1).text("Este campo es obligatorio")
-								else if ( requires[0].$error.email ) element.parent('fieldset').find('label').eq(1).text( "Debe ingresar un email valido" )
-								else if ( requires[0].$error.pattern ) element.parent('fieldset').find('label').eq(1).text( "el formato ingresado es incorrecto" )
 
-								element.parent('fieldset').find('label').eq(0).removeClass('enter').addClass("leave");
+								
+								if ( requires[0].$error.email ) element.parent('.wrapper').find('label').eq(1).text( "Debe ingresar un email valido" )
+								else if ( requires[0].$error.number ) element.parent('.wrapper').find('label').eq(1).text( "El campo solo acepta números" )
+								else if ( requires[0].$error.tel ) element.parent('.wrapper').find('label').eq(1).text( "Ingrese un número teléfonico" )
+								else if ( requires[0].$error.pattern ) element.parent('.wrapper').find('label').eq(1).text( attrs.title || "el formato ingresado es incorrecto" )
+								else if ( requires[0].$error.required ) element.parent('.wrapper').find('label').eq(1).text("Este campo es obligatorio");
+								
+								element.parent('.wrapper').find('label').eq(0).removeClass('enter').addClass("leave");
 
 		            $timeout(function(){  
-		            	element.parent('fieldset').find('label').eq(0).removeClass('showD'); 
-		            	element.parent('fieldset').find('label').eq(1).removeClass('leave').addClass("showD enter");
+		            	element.parent('.wrapper').find('label').eq(0).removeClass('showD'); 
+		            	element.parent('.wrapper').addClass('error');
+		            	element.parent('.wrapper').find('label').eq(1).removeClass('leave').addClass("showD enter");
 		            }, 750); 
 								
-							}*/
-							/*	 
-							if ( ngModel.$invalid ) {   
-								if (ngModel.$pristine) { ngModel }; 
-								console.log(ngModel);
-								var result ="";
-								angular.forEach(ngModel.$error, function(value,key){
-			            if (key==='required') {
-			              result = 'Este campo es obligatorio'; 
-			            }else if (key==='pattern') {
-			             	result = attrs.title ;
-			            }
-			          })  
+							}else if(  (requires[0].$dirty && requires[0].$valid) || requires[0].$modelValue==="" ){
+								element.parent('.wrapper').removeClass('error');
+							}
 
-								element.parent('fieldset').find('label').eq(1).text(result); 
-
-								element.parent('fieldset').find('label').eq(0).removeClass('enter').addClass("leave"); 
-								$timeout(function(){  element.parent('fieldset').find('label').eq(0).removeClass('showD');  }, 750);
-								element.parent('fieldset').find('label').eq(1).removeClass("leave").addClass('showD enter');  
-		          };  
-		          */
 						});
 
 						
@@ -235,12 +272,87 @@ angular.module('yemd')
 			}
 		};
 	}
-	input.$inject = ['$rootScope', '$timeout'];;
+	input.$inject = ['$rootScope', '$timeout', '$compile'];;
 
+	function select($rootScope, $compile){
+		return {
+			scope: {},
+			require:['?ngModel', '^form', 'select'] , 
+			controller:  ['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope ){
+
+				$scope.secondAction =function(name) {
+					$rootScope.$emit('secondActionNew', name);
+				}
+
+			}],
+			compile: function(){
+				return {
+	        pre: function preLink(scope, element, attrs, requires) {   
+	        	var error    = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+            		wrapper = angular.element("<div class='wrapper'></div>");
+
+		 				if( typeof(attrs.secondAction) !== 'undefined' ) {
+
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').addClass('open--select-w-second-action');
+
+		 					var secondAction = angular.element( "<span ng-click=secondAction('"+element.attr('name')+"') class='  "+attrs.secondAction+"'></span>");
+		 					element.parent('.wrapper').append( secondAction );
+		 					
+		 					$compile( secondAction )(scope);
+
+		 				}else {
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').addClass('open--select');
+		 				}
+
+	        },  
+	        post: function postLink(scope, element, attrs,requires) {    
+						
+					}
+	      };
+			}
+		};
+	}
+	select.$inject = ['$rootScope', '$compile'];;
+
+'use strict'; 
 	angular.module('yemd')
-		.directive('input',input);
+		.directive('modal',modal);
 
+	function modal () {
 
+	return {
+		scope: {
+
+		},
+		restrict: 'C',
+		//template: "jojo ds dfsfsfsfsffsj",
+		controller: ['$scope', '$element', '$rootScope', '$compile', function($scope, $element, $rootScope, $compile){
+			//$element.wrap( angular.element( "<div class='modal'> ddd {{ content }} </div>" )  )
+			
+			$rootScope.$on('toggleModal', function(e, toggle, html){
+				//$rootScope.$emit('toggleOverlay', toggle);
+				if (toggle) {
+					$element.addClass('show');
+					$element.html(html);
+
+				}
+			});
+
+			$rootScope.$on('clickOverlay',function(e){
+				if ($element.hasClass('show')) {$element.removeClass('show')};
+			});
+
+		}],
+		compile: function(tElement, tAttrs){
+
+			return {
+
+			}
+		}
+	}
+}
 'use strict'; 
 	
 	angular.module('yemd')
@@ -273,29 +385,6 @@ angular.module('yemd')
 	        pre: function preLink(scope, element, iAttrs) {   
 	        },  
 	        post: function postLink(scope, element, iAttrs) { 
-	        	/*
-	        	function toggleOverlay(band){
-	        		if (band) {
-								element.hasClass('hide')?element.removeClass('hide').addClass('show'): element.addClass('show');
-	        		}else{
-								element.hasClass('show')?element.removeClass('show').addClass('hide'): element.addClass('hide');
-	        		};
-	        	}
-	        	function closeOverlay(){
-	        		$rootScope.$emit('toggleSidenav', 'right', false) ;
-				   		$rootScope.$emit('toggleSidenav', 'left', false) ;
-				   		$rootScope.$emit('toggleModal', false) ;
-				   		
-				   		toggleOverlay(false);
-				   		$rootScope.$emit('clickOverlay' ) ;
-	        	}
-	        	$rootScope.$on('toggleOverlay', function(e, band){
-	        		toggleOverlay(band);
-						})
-
-				   	element.on('click',function(){  closeOverlay(); });
-				   	$rootScope.$on('closeOverlay',function(e){ closeOverlay(); });
-				   	*/
 				  }
 	      };
 			}
@@ -304,29 +393,65 @@ angular.module('yemd')
 	overlay.$inject = ['$rootScope'];;
 
 
+'use strict';
+
+angular.module('yemd')
+	.directive(picker);
+
+	function picker(){
+		return {
+			scope:{},
+			controller: function($scope, $element, $attrs){
+
+			}
+		}
+	}
 'use strict'; 
 
 angular.module('yemd')
 	.directive('sidenav',sidenav);
 
-function sidenav($yemd, $rootScope){
+function sidenav($yemd, $rootScope, $verge){
 		return {
 			scope: {},
-			//transclude: true,
-			//templateUrl: 'templates/sidenav.html',
-			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function  ($scope, $element, $attrs, $yemd, $rootScope ){
+			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function ($scope, $element, $attrs, $yemd, $rootScope ){
 
 				$yemd.sidenav.left.show = true;//show icon sidenav left
 				$yemd.sidenav.right.show = true;//show icon sidenav right
 
 				$rootScope.$on('toggleSidenav',function(e, type, toggle){ 
 
-					if ( $attrs.sidenav === type ) { (toggle)? $element.removeClass('hide').addClass('show') : $element.removeClass('show').addClass('hide') ; }
+					if ( $attrs.sidenav === type ) { 
+						if ( toggle ) {
+							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
+
+						}else {
+							( $element.hasClass('show') )? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+
+						};
+						 
+					}
+
+					if ( $element.hasClass('opacity') ) $element.removeClass('opacity') ;
 
 				});
 
 				$rootScope.$on('clickOverlay',function(e){
 					if ($element.hasClass('show')) {$element.removeClass('show').addClass('hide')};
+				});
+
+				$rootScope.$on('toggleModal', function(e, toggle, html){
+					if ($element.hasClass('show'))  $element.addClass('opacity');
+				});
+
+				$rootScope.$on('specialWidthSidenav', function(e, type, className){
+
+					if ( $attrs.sidenav === type ) { 
+						//if ( $ ) {
+							$element.addClass( className ) ;
+						//};
+						 
+					}
 				});
 				
 			}],
@@ -335,22 +460,55 @@ function sidenav($yemd, $rootScope){
 
 				return {
 	        pre: function preLink(scope, element, attrs, vm) {
-
-	        	if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
-							var cover = element.find('.sidenav__cover');
-		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
-	        	}
 		        	
 	        },  
 	        post: function postLink(scope, element, attrs, vm) {
+						
+						if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
+							var cover = element.find('.sidenav__cover');
+		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
+	        	}
+	        	
+	        	//if ( element.hight() > $verge.viewportH() ) {
+	        		//element.css('overflow-y', 'srool');
+	        	//}
 
 	        }
 	      };
 			}
 		};
 }
-sidenav.$inject = ['$yemd', '$rootScope'];;
+sidenav.$inject = ['$yemd', '$rootScope', '$verge'];;
 
+
+'use strict';
+angular.module('yemd')
+	.directive('snackbar', snackbar);
+
+function snackbar ($rootScope,$timeout){
+
+    return {
+      scope:{}, 
+      restrict: 'C',
+      compile:function(){
+        return {
+          post: function postLink(scope,element,attrs){
+
+            $rootScope.$on('showSnackbar',function(event,message){
+              element.removeClass('hide').addClass('show'); 
+              element.find('p').text(message);  
+              $timeout(function(){
+                element.removeClass('show').addClass('hide'); 
+              }, 1750); 
+            });
+
+          }
+        }
+      } 
+    };
+
+  }
+  snackbar.$inject = ['$rootScope', '$timeout']; 
 'use strict'; 
 
 angular.module('yemd')
@@ -361,34 +519,31 @@ function toolbar($yemd, $rootScope){
 		
 	return {
 			scope: {
-				type:'@' //extend,normal'
-			}, 
-			transclude: true,
+				type:'@', //extend,normal'
+				name: '@'
+			},
 			restrict:'C', 
-			templateUrl: 'templates/toolbar.html',
 			controller: ['$scope', '$element', '$attrs', '$transclude', '$yemd', '$rootScope', function  ($scope, $element, $attrs, $transclude, $yemd, $rootScope){
-				
-				if ( $attrs.class.indexOf('appbar') !== -1 ) {
-					$scope.menu = $yemd.sidenav.left.show; 
-					$scope.menuRight = $yemd.sidenav.right.show;
-				};
-				 
-
-				$scope.openMenu = function(side) {
-					$rootScope.$emit('toggleSidenav', side, true);
-				}
-
-				$rootScope.$on('changeTitleAppbar',function(event,newTitle){ 
-	      	if ( $attrs.class.indexOf('appbar') !== -1 ) {
-						$element.find('.appbar__title').text(newTitle); 
-					};
+			
+				$rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
+					if ( $scope.name === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
 	      });
 	        	
-	      $rootScope.$on('changeAppbar', function(e, className){ 
-	      	if ( $attrs.class.indexOf('appbar') !== -1 ) {
-						$element.addClass( className );
-					};
+	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
+
+	      	if ( $scope.name === name ) { 
+	      		$element.attr( 'class', 'toolbar '+ className  );
+	      	};
+
 				});
+
+	      $rootScope.$on('hideToolbar', function(e, name){
+	      	if ( $scope.name === name ) {
+	      		$element.addClass('hide');
+	      	};
+	      	
+	      });
+
 
 			}],
 			compile: function(){
@@ -445,3 +600,10 @@ function validForm ($rootScope){
     };
 }
 validForm.$inject = ['$rootScope'];
+'use strict'; 
+
+angular.module('yemd')
+	.service('$verge', [ function() {
+		return verge;
+	}]); 
+	
