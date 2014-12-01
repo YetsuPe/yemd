@@ -1,5 +1,3 @@
-'use strict';  
-
 angular.module('yemd', []);
 
 angular.module('yemd')
@@ -32,7 +30,16 @@ function $yemdProvider(){
 
 }
 
-function initYemd ($rootElement) {
+function initYemd ($rootElement, $rootScope) {
+
+  $rootScope.yemd = {
+    sidenav: {
+      toggle: function(name, toggle){
+        $rootScope.$emit('toggleSidenav', name, toggle);
+      }
+    }
+  };
+
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  
       modal = angular.element("<div class='modal'> </div>"),  
@@ -42,4 +49,7 @@ function initYemd ($rootElement) {
   $rootElement.find('body').append( modal );   
   $rootElement.find('body').append( overlay );   
   $rootElement.find('body').append( snackbar ); 
+
+
 }
+

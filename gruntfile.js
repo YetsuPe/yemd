@@ -2,8 +2,14 @@ module.exports = function(grunt){
 	// config
 	grunt.initConfig({
 		watch:{ 
+			htmlAndCss: {
+				files: ['app/*.html','app/**/*.html','app/css/*.css'],
+        options: {
+         	livereload: 1330
+        },
+			},
 			scripts:{
-        files:['app/*.html', 'app/scss/*.scss', 'app/js/*.js', 'app/js/**/*.js', 'app/css/*.css'],
+        files:['app/js/*.js', 'app/js/**/*.js'],
         options: {
          	livereload: 1330
         },
@@ -13,6 +19,9 @@ module.exports = function(grunt){
 				files:['app/scss/*.scss', 'app/scss/components/*.scss'],
 				tasks:['sass']
 			}
+		},
+		jshint: {
+			all: ['app/js/yemd.full.js']
 		},
 		connect: {
 		  server: {
@@ -56,6 +65,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	
 	grunt.loadNpmTasks('grunt-ng-annotate');
 

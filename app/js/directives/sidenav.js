@@ -1,19 +1,16 @@
-'use strict'; 
+
 
 angular.module('yemd')
 	.directive('sidenav',sidenav);
 
-function sidenav($yemd, $rootScope, $verge){
+function sidenav($yemd, $rootScope){
 		return {
 			scope: {},
 			controller: function ($scope, $element, $attrs, $yemd, $rootScope ){
 
-				$yemd.sidenav.left.show = true;//show icon sidenav left
-				$yemd.sidenav.right.show = true;//show icon sidenav right
+				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
-				$rootScope.$on('toggleSidenav',function(e, type, toggle){ 
-
-					if ( $attrs.sidenav === type ) { 
+					if ( $attrs.sidenav === name ) { 
 						if ( toggle ) {
 							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
 

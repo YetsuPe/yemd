@@ -7,6 +7,8 @@
   @extend %background-color--primary ;
 
 	@include transition ( height $time-animation $mode-animation );
+
+	font-size: $base-font;
 	
 	> [class^="mdfi_"], 
 	> [class*=" mdfi_"] {
@@ -14,37 +16,37 @@
 		@extend %display--flex;
 		@extend %align-items--center;
 		@extend %justify-content--center;
-		top: em(4, 24);
-		width:em(48, 24);
-		height:em(48, 24);
-		font-size: 24px;
+		top:  ($base-font-icon - 0.5) * 0.166666667 ;//em(4, 24);
+		width: ($base-font-icon - 0.5) * 2 ;//em(48, 24);
+		height: ($base-font-icon - 0.5) * 2 ;//em(48, 24);
+		font-size: $base-font-icon;
 		color: $color-white;
 		&:first-of-type {
 			left: 0;
-			right: em(4, 24);
+			right: ($base-font-icon - 0.5) * 0.166666667  ;//em(4, 24);
 		}
 		&:nth-last-of-type(1) {
 			@extend %left--auto;
-			right: em(4, 24);
+			right: ($base-font-icon - 0.5) * 0.166666667  ;//em(4, 24);
 		}
 		&:nth-last-of-type(2) {
 			@extend %left--auto;
-			right: em(56, 24);
+			right: ($base-font-icon - 0.5) * 2.333333333 ;//em(56, 24);
 		}
 
 		&:nth-last-of-type(3) {
 			@extend %left--auto;
-			right: em(108, 24);
+			right: ($base-font-icon - 0.5) * 4.5 ;//em(108, 24);
 		}
 
 		&:nth-last-of-type(4) {
 			@extend %left--auto;
-			right: em(160, 24);
+			right: ($base-font-icon - 0.5) * 6.666666667 ;//em(160, 24);
 		}
 
 		&:nth-last-of-type(5) {
 			@extend %left--auto;
-			right: em(212, 24);
+			right: ($base-font-icon - 0.5) * 8.833333333 ;//em(212, 24);
 		}
 
 	}
@@ -58,7 +60,7 @@
 .appbar,
 .toolbar {
 	@extend %toolbar;
-	height: em(56); 
+	height: $base-font * 3.5 ; //56dp; 
 
 	&.extend {
 		@extend %toolbar--extend;
@@ -78,20 +80,20 @@
 		//@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
 		//@include transition ( all $time-animation $mode-animation );
 
-		margin-left: em(72); 
+		margin-left: $base-font * 4.5 ;//em(72); 
 		
 	}
 
 %toolbar--extend {
-	height: em(128);
+	height: $base-font * 8; //em(128);
 
 	.appbar__title,
 	.toolbar__title {
 		//@include transform( translateY( em(82,20) ) ); 
-		font-size: em(20);
-		margin-left: em(72,20);
-		color: white;
-		margin-bottom: 26px;
+		font-size: $base-font * 1.25;
+		margin-left: $base-font * 4.5; //72
+		color: $color-white;
+		margin-bottom: $base-font * 1.625;
 		align-self: flex-end;
 	}
 }
@@ -100,4 +102,14 @@
 .toolbar--extend {
 	@extend %toolbar;
 	@extend %toolbar--extend;
+}
+
+@media screen and ( min-width: $media-md ) {
+	
+	.appbar,
+	.toolbar {
+		font-size: $base-font * 1.142857143;
+
+	}
+	
 }

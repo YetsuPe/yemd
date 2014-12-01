@@ -1,4 +1,4 @@
-node_modules
-vendor
-.sass-cache
+node_modules/
+vendor/
+.sass-cache/
 index.html~RF*

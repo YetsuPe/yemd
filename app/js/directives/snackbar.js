@@ -1,4 +1,4 @@
-'use strict';
+
 angular.module('yemd')
 	.directive('snackbar', snackbar);
 

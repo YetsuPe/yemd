@@ -1,5 +1,4 @@
-'use strict'; 
-	
+
 	angular.module('yemd')
 	.directive('overlay',overlay);
 

@@ -1,5 +1,3 @@
-'use strict';  
-
 angular.module('yemd', []);
 
 angular.module('yemd')
@@ -32,7 +30,16 @@ function $yemdProvider(){
 
 }
 
-function initYemd ($rootElement) {
+function initYemd ($rootElement, $rootScope) {
+
+  $rootScope.yemd = {
+    sidenav: {
+      toggle: function(name, toggle){
+        $rootScope.$emit('toggleSidenav', name, toggle);
+      }
+    }
+  };
+
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  
       modal = angular.element("<div class='modal'> </div>"),  
@@ -42,10 +49,12 @@ function initYemd ($rootElement) {
   $rootElement.find('body').append( modal );   
   $rootElement.find('body').append( overlay );   
   $rootElement.find('body').append( snackbar ); 
-}
-initYemd.$inject = ['$rootElement'];
 
-'use strict';  
+
+}
+initYemd.$inject = ['$rootElement', '$rootScope'];
+
+
 
 angular.module('yemd')
 	.directive('action',action);
@@ -98,7 +107,44 @@ angular.module('yemd')
 	action.$inject = ['$yemd', '$rootScope'];; 
 
 	
-'use strict';  
+angular.module('yemd')
+	
+	.directive('bottomSheet', bottomSheet);
+
+function bottomSheet ($rootScope) {
+
+
+	return {
+		scope : {
+			name:'=',
+			type: '@'
+		},
+		controller: ['$scope', '$attrs', '$element', '$rootScope', function($scope, $attrs, $element, $rootScope){
+			
+			$element.addClass('bottom-sheet--'+$scope.type+" hide");
+
+			$rootScope.$on('toggleBottomSheet', function(e, name, toggle){
+
+					if ( $attrs.bottomSheet === name ) { 
+						if ( toggle ) {
+							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
+
+						}else {
+							( $element.hasClass('show') )? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+
+						};
+						 
+					}
+
+
+			});
+
+		}]
+	};
+
+}
+bottomSheet.$inject = ['$rootScope'];
+
 
 angular.module('yemd')
 		.directive('card',card);
@@ -109,7 +155,7 @@ angular.module('yemd')
 				photo: '@',
 				cover: '='
 			},  
-			restrict:'AC',  
+			restrict:'C',  
 			controller:['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
 			}],
@@ -142,7 +188,6 @@ angular.module('yemd')
 	}
 	card.$inject = ['$rootScope', '$timeout'];; 
 
-'use strict'; 
 
 angular.module('yemd')
 	.directive('input',input)
@@ -316,7 +361,7 @@ angular.module('yemd')
 	}
 	select.$inject = ['$rootScope', '$compile'];;
 
-'use strict'; 
+
 	angular.module('yemd')
 		.directive('modal',modal);
 
@@ -353,8 +398,7 @@ angular.module('yemd')
 		}
 	}
 }
-'use strict'; 
-	
+
 	angular.module('yemd')
 	.directive('overlay',overlay);
 
@@ -393,7 +437,6 @@ angular.module('yemd')
 	overlay.$inject = ['$rootScope'];;
 
 
-'use strict';
 
 angular.module('yemd')
 	.directive(picker);
@@ -406,22 +449,19 @@ angular.module('yemd')
 			}
 		}
 	}
-'use strict'; 
+
 
 angular.module('yemd')
 	.directive('sidenav',sidenav);
 
-function sidenav($yemd, $rootScope, $verge){
+function sidenav($yemd, $rootScope){
 		return {
 			scope: {},
 			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function ($scope, $element, $attrs, $yemd, $rootScope ){
 
-				$yemd.sidenav.left.show = true;//show icon sidenav left
-				$yemd.sidenav.right.show = true;//show icon sidenav right
+				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
-				$rootScope.$on('toggleSidenav',function(e, type, toggle){ 
-
-					if ( $attrs.sidenav === type ) { 
+					if ( $attrs.sidenav === name ) { 
 						if ( toggle ) {
 							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
 
@@ -478,10 +518,10 @@ function sidenav($yemd, $rootScope, $verge){
 			}
 		};
 }
-sidenav.$inject = ['$yemd', '$rootScope', '$verge'];;
+sidenav.$inject = ['$yemd', '$rootScope'];;
 
 
-'use strict';
+
 angular.module('yemd')
 	.directive('snackbar', snackbar);
 
@@ -509,7 +549,6 @@ function snackbar ($rootScope,$timeout){
 
   }
   snackbar.$inject = ['$rootScope', '$timeout']; 
-'use strict'; 
 
 angular.module('yemd')
 	.directive('toolbar',toolbar)
@@ -563,7 +602,6 @@ function toolbar($yemd, $rootScope){
 }
 toolbar.$inject = ['$yemd', '$rootScope'];;
 
-'use strict';
 
 angular.module('yemd')
   .factory('validForm', validForm );
@@ -600,7 +638,6 @@ function validForm ($rootScope){
     };
 }
 validForm.$inject = ['$rootScope'];
-'use strict'; 
 
 angular.module('yemd')
 	.service('$verge', [ function() {

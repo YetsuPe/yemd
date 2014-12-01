@@ -1,9 +1,11 @@
-%list{
+//Placeholders
+%list {
   display: flex;
-  background-color: $color-white;
+  //background-color: $color-white;
   flex-direction: column;
   @extend %zDepth-1;
 }
+
   %list__item__field {
     &:hover { cursor: pointer; }
     display: none;
@@ -20,20 +22,38 @@
     &:nth-child(2) { display: block; }
   }
 
-.list--figure {
+%list--figure {
   @extend %list;
-  margin: em(8) 0;
-  &:first-of-type {
-    margin: 0;
-  }
+  padding: em(8) 0;
+  //&:first-of-type {
+    //margin: 0;
+  //}
+}
+
+//Selectors
+.list--figure {
+  @extend %list--figure;
+}
+
+
+
+.list--figure-multiples {
+
+  @extend %list--figure;
+
+    .list__item__content {
+      padding: em(20) 0 ;
+      @extend %display--flex;
+      @include calc('width', ' 100% - #{em(72)} ');
+      flex-direction: row;
+      .list__item__content__title {
+        @extend %list__item__field;
+      }
+    }
 }
 
 .list--figure-controls {
-  @extend %list;
-  margin: em(8) 0;
-  &:first-of-type {
-    margin: 0;
-  }
+  @extend %list--figure;
   
   .list__item__content--multiple {
     @include calc('width', ' 100% - #{em(72 + 32 + 24 ) } ');
@@ -43,7 +63,15 @@
   }
 
 }
-  
+
+.list--icon {
+  @extend %list--figure;
+}
+
+.list--letter {
+  @extend %list--figure;
+}
+
   .list__header{
     @extend %display--flex;
     height: em(48);
@@ -60,7 +88,7 @@
 
   .list__item {
     display: flex;
-    height: em(72);
+    height: em(48);
     align-items: center;
   } 
     %list__item__picture {
@@ -74,7 +102,8 @@
 
       border-radius: 50%;
     } 
-    .list__item__icon {
+    .list__item__icon,
+    .list__item__letter {
       color: $color-icon ;
       width:  em(40, 24);
       height: em(40, 24); 
@@ -85,6 +114,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: $color-secondary;
+      color: $color-white;
+      border-radius: 100%;
     }
     .list__item__controls {
       display: flex;
@@ -102,14 +134,7 @@
       justify-content: center;
       line-height: 1.3;
     }
-    .list__item__content--multiple {
-      padding: em(20) 0 ;
-      @extend %display--flex;
-      @include calc('width', ' 100% - #{em(72)} ');
-      .list__item__content__title {
-        @extend %list__item__field;
-      }
-    }
+    
       .list__item__content__title {
         text-transform: capitalize;
         @extend %overflow--hidden;
@@ -154,90 +179,3 @@
     display: block; 
   }
 }
-
-
-
-/****** List ****
-//list
-%list{
-  font-size:em(16px); 
-}
-
-.list--single-line {
-  @extend %list;   
-  a {
-    @extend %display--block;
-    @extend %line-height--1;
-    @extend %color--secondary;
-    @extend %overflow--hidden;
-    @extend %text-overflow--ellipsis ;
-    height: em(48);
-    padding: em(16); 
-  }
-}
-
-.list--figure {
-  @extend %list;  
-}
-  .list__header {
-    border-bottom: em(2) solid $color-secondary;
-  }
-  .list__header,
-  .list__item__head {
-    @extend %display--flex;
-    height: em(48);
-    margin-left: em(72);
-    align-items: center;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  
-  .list__header__name {
-    @extend %color--secondary;
-    @extend %text-transform--capitalize;
-  }
-  .list__item__head__text {
-    @extend %color--black;
-  }
-  .list__header__name,
-  .list__item__head__text {
-    flex-grow: 1;
-    width: 1px; //Bug
-    &:first-child {
-      flex-grow: 2;
-    }
-  }
-
-  .list__item {
-    @extend %clearfix;
-    height: em(56);
-  } 
-  .list__item__img,
-  .list__item__icon { //wrapper image
-    padding: em(8px) em(16px);
-    width: em(72px);
-    height: em(56px);
-    @extend %float--left;
-    img,
-    svg {
-      @extend %display--block;
-      @extend %border-radius--50percent;
-      width: em(40px);
-      height: em(40px); 
-    }
-  } 
-  .list__item__icon svg {
-    padding: em(8); 
-    background-color: $color-primary;  
-  }
-  
-.list--social {
-  @extend %text-align--center;
-  .list__item__icon{
-    @extend %float--none;
-    display: inline-block;
-    padding: em(8);
-    width: em(56);
-  }
-}*/

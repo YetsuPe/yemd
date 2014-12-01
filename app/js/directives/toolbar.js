@@ -1,4 +1,3 @@
-'use strict'; 
 
 angular.module('yemd')
 	.directive('toolbar',toolbar)

@@ -1,4 +1,3 @@
-'use strict';  
 
 angular.module('yemd')
 		.directive('card',card);
@@ -9,7 +8,7 @@ angular.module('yemd')
 				photo: '@',
 				cover: '='
 			},  
-			restrict:'AC',  
+			restrict:'C',  
 			controller:function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
 			},
