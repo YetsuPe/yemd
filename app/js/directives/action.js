@@ -14,9 +14,10 @@ angular.module('yemd')
 
 					//if ( 'action--'+obj.type !==  ) {};
 
+					$element.attr('class', 'action--' + obj.type );
+
 					if ( !$element.hasClass('show') )  {
 						$element.css('display','block');
-						$element.attr('class', 'action--' + obj.type );
 						$element.addClass('show');
 					}
 						

@@ -3,12 +3,13 @@
   @extend %zDepth-2;
   @extend %border-radius--50percent;  
   @extend %background-color--secondary;
+  @extend %font-size--base;  
 
   @include transition (all $time-animation $mode-animation);
 
   [class^="mdfi_"], 
   [class*=" mdfi_"] { 
-    font-size: 24px;
+    font-size: $base-font-icon ;
     color: $color-white;
   }
 
@@ -34,9 +35,9 @@
   @extend %left--base;
 
   //
-  padding: em(8px);
-  width : em(40px);
-  height: em(40px); 
+  padding: $base-font  * 0.5 ;//em(8px);;
+  width : $base-font  * 2.5 ;//em(40px);
+  height: $base-font  * 2.5 ;//em(40px); 
 }
 
 .action--float {
@@ -47,12 +48,12 @@
   @extend %right--base;
   @extend %padding--base;
   
-  @include transform(scale(1));
-  width: em(56px);
-  height: em(56px); 
+  @include transform(scale(1)); 
+  width: $base-font  * 3.5;//em(56px);;
+  height: $base-font  * 3.5;//em(56px);; 
 }
 
 /***** special ***/
 .action--in-appbar {
-  bottom: -1* em(20px);
+  bottom: -1 * ( $base-font  * 1.25 ) ;// em(20px);
 }

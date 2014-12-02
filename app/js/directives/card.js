@@ -7,8 +7,7 @@ angular.module('yemd')
 			scope: {
 				photo: '@',
 				cover: '='
-			},  
-			restrict:'C',  
+			},
 			controller:function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
 			},
@@ -20,7 +19,7 @@ angular.module('yemd')
 
 	        }, 
 	        post: function postLink(scope, element, attrs, $verge) {
-
+	        	
 	        	if ( typeof( scope.photo ) !== 'undefined' ) {
 	        		element.find('.card__photo').css({
 								'background-image': "url('"+ scope.photo +"')" 
@@ -30,10 +29,7 @@ angular.module('yemd')
 	        	element.find('.card__cover').css({
 							'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
 						});
-
-	        	//element.find('.card__photo').css({
-							//'background-image': "url('"+ element.find('.card__photo__image').attr('src')+"')" 
-						//});
+						
 	        }
 	      };
 			}

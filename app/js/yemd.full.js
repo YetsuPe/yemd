@@ -71,9 +71,10 @@ angular.module('yemd')
 
 					//if ( 'action--'+obj.type !==  ) {};
 
+					$element.attr('class', 'action--' + obj.type );
+
 					if ( !$element.hasClass('show') )  {
 						$element.css('display','block');
-						$element.attr('class', 'action--' + obj.type );
 						$element.addClass('show');
 					}
 						
@@ -154,8 +155,7 @@ angular.module('yemd')
 			scope: {
 				photo: '@',
 				cover: '='
-			},  
-			restrict:'C',  
+			},
 			controller:['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope){
 				//$scope.hide = ()?:;
 			}],
@@ -167,7 +167,7 @@ angular.module('yemd')
 
 	        }, 
 	        post: function postLink(scope, element, attrs, $verge) {
-
+	        	
 	        	if ( typeof( scope.photo ) !== 'undefined' ) {
 	        		element.find('.card__photo').css({
 								'background-image': "url('"+ scope.photo +"')" 
@@ -177,10 +177,7 @@ angular.module('yemd')
 	        	element.find('.card__cover').css({
 							'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
 						});
-
-	        	//element.find('.card__photo').css({
-							//'background-image': "url('"+ element.find('.card__photo__image').attr('src')+"')" 
-						//});
+						
 	        }
 	      };
 			}

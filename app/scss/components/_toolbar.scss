@@ -1,3 +1,4 @@
+
 %toolbar {
   @extend %display--flex;
   @extend %align-items--center ;
@@ -5,6 +6,7 @@
   @extend %position--relative;
   @extend %zDepth-1;
   @extend %background-color--primary ;
+  @extend %font-size--base;  
 
 	@include transition ( height $time-animation $mode-animation );
 
@@ -16,9 +18,9 @@
 		@extend %display--flex;
 		@extend %align-items--center;
 		@extend %justify-content--center;
-		top:  ($base-font-icon - 0.5) * 0.166666667 ;//em(4, 24);
-		width: ($base-font-icon - 0.5) * 2 ;//em(48, 24);
-		height: ($base-font-icon - 0.5) * 2 ;//em(48, 24);
+		top:  $base-font-icon  * 0.111111111111;//em(4, 24);
+		width: $base-font-icon * 1.33333333333 ;//em(48, 24);
+		height: $base-font-icon * 1.33333333333 ;//em(48, 24);
 		font-size: $base-font-icon;
 		color: $color-white;
 		&:first-of-type {
@@ -63,9 +65,20 @@
 	height: $base-font * 3.5 ; //56dp; 
 
 	&.extend {
-		@extend %toolbar--extend;
+		height: $base-font * 8; //em(128);
+
+		.appbar__title,
+		.toolbar__title {
+			$toolbar-title : $base-font * 1.25;
+			font-size: $toolbar-title;
+			margin-left: $toolbar-title * 2.88; //72
+			margin-bottom: $toolbar-title * 1.04; // 26
+			align-self: flex-end;
+		}
+
 	}
 }
+
 	.appbar__title,
 	.toolbar__title { 
 		color: white; //Bug
@@ -73,36 +86,11 @@
 		@extend %text-overflow--ellipsis; 
 		@extend %overflow--hidden;
 		@extend %font-size--base;  
-		//@extend %pointer-events--none; 
 		@extend %line-height--1; 
 		@extend %text-transform--uppercase; 
-
-		//@include calc("width","100% - #{ em(72) + em(48*2+4*3) } ");
-		//@include transition ( all $time-animation $mode-animation );
-
 		margin-left: $base-font * 4.5 ;//em(72); 
 		
 	}
-
-%toolbar--extend {
-	height: $base-font * 8; //em(128);
-
-	.appbar__title,
-	.toolbar__title {
-		//@include transform( translateY( em(82,20) ) ); 
-		font-size: $base-font * 1.25;
-		margin-left: $base-font * 4.5; //72
-		color: $color-white;
-		margin-bottom: $base-font * 1.625;
-		align-self: flex-end;
-	}
-}
-
-.appbar--extend,
-.toolbar--extend {
-	@extend %toolbar;
-	@extend %toolbar--extend;
-}
 
 @media screen and ( min-width: $media-md ) {
 	
@@ -111,5 +99,6 @@
 		font-size: $base-font * 1.142857143;
 
 	}
+		
 	
 }
