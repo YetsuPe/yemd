@@ -31,12 +31,13 @@
 			.state('404',{
 	      url:'/404',
 	      templateUrl:'js/components/views/404.html',
-	      controller: ['$scope','$rootScope', '$state',function($scope,$rootScope, $state){ 
-	        var vm = this; 
-	        $rootScope.$emit('changeTitleAppbar', '404 Error' );
-	        $rootScope.$emit('changeAppbar', 'default' );
-	      }],
-	      controllerAs:'vm'
+	      controller: function($scope,$rootScope, $state){ 
+
+	        $rootScope.$emit('changeTitleToolbar', 'appbar', '404 Error' );
+	        $rootScope.$emit('changeAppbar','appbar' , 'default' );
+
+	      }
+
 	  	});
 
 		$stateProvider

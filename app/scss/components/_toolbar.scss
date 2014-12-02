@@ -60,6 +60,7 @@
 }
 
 .appbar,
+.toolbar--default,
 .toolbar {
 	@extend %toolbar;
 	height: $base-font * 3.5 ; //56dp; 

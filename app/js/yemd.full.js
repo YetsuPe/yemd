@@ -555,7 +555,7 @@ function toolbar($yemd, $rootScope){
 		
 	return {
 			scope: {
-				type:'@', //extend,normal'
+				type:'@', //extend, default'
 				name: '@'
 			},
 			restrict:'C', 
@@ -568,7 +568,7 @@ function toolbar($yemd, $rootScope){
 	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
 
 	      	if ( $scope.name === name ) { 
-	      		$element.attr( 'class', 'toolbar '+ className  );
+	      		$element.attr( 'class', 'toolbar--'+ className  );
 	      	};
 
 				});
