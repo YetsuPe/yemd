@@ -1,10 +1,9 @@
-
 %toolbar {
   @extend %display--flex;
   @extend %align-items--center ;
 
   @extend %position--relative;
-  @extend %zDepth-1;
+  @extend %zDepth-2;
   @extend %background-color--primary ;
   @extend %font-size--base;  
 
@@ -18,18 +17,15 @@
 		@extend %display--flex;
 		@extend %align-items--center;
 		@extend %justify-content--center;
-		top:  $base-font-icon  * 0.111111111111;//em(4, 24);
-		width: $base-font-icon * 1.33333333333 ;//em(48, 24);
-		height: $base-font-icon * 1.33333333333 ;//em(48, 24);
-		font-size: $base-font-icon;
+		top:  em(4, 24);//em(4, 24);
 		color: $color-white;
 		&:first-of-type {
-			left: 0;
+			left: em(4, 24);
 			right: ($base-font-icon - 0.5) * 0.166666667  ;//em(4, 24);
 		}
 		&:nth-last-of-type(1) {
 			@extend %left--auto;
-			right: ($base-font-icon - 0.5) * 0.166666667  ;//em(4, 24);
+			right: em(4, 24)  ;//em(4, 24);
 		}
 		&:nth-last-of-type(2) {
 			@extend %left--auto;
@@ -60,25 +56,43 @@
 }
 
 .appbar,
-.toolbar--default,
-.toolbar {
+.toolbar,
+.appbar--default, 
+.toolbar--default {
 	@extend %toolbar;
-	height: $base-font * 3.5 ; //56dp; 
-
-	&.extend {
-		height: $base-font * 8; //em(128);
-
-		.appbar__title,
-		.toolbar__title {
-			$toolbar-title : $base-font * 1.25;
-			font-size: $toolbar-title;
-			margin-left: $toolbar-title * 2.88; //72
-			margin-bottom: $toolbar-title * 1.04; // 26
-			align-self: flex-end;
-		}
-
-	}
+	height: em(56) ; //56dp; 
 }
+
+.toolbar--extend {
+	@extend %toolbar;
+	height: em(128); //em(128);
+
+	.appbar__title,
+	.toolbar__title {
+			font-size: 20px;
+			margin-left: em(72, 20); //72
+			margin-bottom: em(26, 20); // 26
+			align-self: flex-end;
+	}
+
+}
+
+.toolbar--2rows {
+	@extend %toolbar;
+	height: em(56*2) ; 
+}
+
+.toolbar--3rows {
+	@extend %toolbar;
+	height: em(56*3) ; 
+}
+
+.toolbar--4rows {
+	@extend %toolbar;
+	height: em(56*4) ; 
+}
+
+
 
 	.appbar__title,
 	.toolbar__title { 
@@ -89,17 +103,57 @@
 		@extend %font-size--base;  
 		@extend %line-height--1; 
 		@extend %text-transform--uppercase; 
-		margin-left: $base-font * 4.5 ;//em(72); 
+		margin-left: em(72) ;//em(72); 
 		
 	}
 
 @media screen and ( min-width: $media-md ) {
 	
+	@mixin icon-on-appbar(){ 
+	  > [class^="mdfi_"], 
+		> [class*=" mdfi_"] {
+			top: em(8, 24);
+			&:first-of-type {
+				left: em(8, 24);
+			}
+			&:nth-last-of-type(1) {
+				right: em(8, 24)  ;
+			}
+			
+		}
+	}
+
 	.appbar,
-	.toolbar {
-		font-size: $base-font * 1.142857143;
+	.appbar--default,
+	.toolbar,
+	.toolbar--default {
+		height: em(64);
+		@include icon-on-appbar;
+		
+	}
+	
+	.appbar__title,
+	.toolbar__title {
+		margin-left: em(80);
+	}
+
+	@for $i from 1 through 5 {
+
+		.toolbar--#{$i}rows{
+			@include icon-on-appbar;
+			height: em( 64* $i ) ; 
+
+			.appbar__title,
+			.toolbar__title {
+				align-self: flex-start;
+				top: em(24);
+				position: relative;
+			}
+
+		}
+
 
 	}
-		
+
 	
 }

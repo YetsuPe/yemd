@@ -6,16 +6,6 @@
 
 		.config( routes );
 
-
-	function yemdCtrl($scope, $rootScope){
-
-	  $scope.openBottomSheet= function() {
-	  	
-	    $rootScope.$emit('toggleBottomSheet', 'bsList', true);
-	  };
-
-	}
-
 	function routes ( $stateProvider, $urlRouterProvider ) {
 
 		$urlRouterProvider 

@@ -8,6 +8,10 @@ function $yemdProvider(){
 
   this.$get = function(){
     return { 
+      
+      mqMedium: 768,
+      mqLarge: 1200,
+
       sidenav: {
         left: {
           show : false,
@@ -24,6 +28,9 @@ function $yemdProvider(){
         show: false,
         type: 'float',
         icon: 'mdfi_content_add'
+      },
+      canvas: {
+        className: ''
       }
     };
   }

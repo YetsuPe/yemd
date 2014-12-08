@@ -184,6 +184,7 @@ select {
   outline: 0;
 }
 %button {
+  @extend %zDepth-1;
   display:block;
   height: em(32);
   width: em(88);
@@ -194,7 +195,6 @@ select {
   @include zDepth($z_depth:1); 
   text-align: center;
   border-bottom: 0; 
-  @include box-sizing( border-box );
   &:hover {
     cursor: pointer;
   }

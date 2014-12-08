@@ -1,36 +1,28 @@
-.canvas {
-	//@extend %position--relative;
+.canvas,
+.canvas--block,
+.canvas--default {
+	@extend %position--relative;
 	//@extend %display--flex;
 }
 
-
-
-/*
-@media screen and (min-width: $media-lg) {
-
-	$base-font: 18.2857px;
-
-	body {
-		font-size: $base-font;
-	}
-
-	main { 
-		width: 768px;
-		margin: 0 auto;
-		top: -1 * em( 64 *2 );
+@media screen and (min-width: $media-md) {
+	.canvas--block {
 		background-color: $color-white;
-		border-radius: em(4);
-		@include zDepth($z_depth:2);
-		overflow: hidden;
+		width: 66.66666%;
+		margin-left: auto;
+		margin-right: auto;
+		top: em( 64 * 2) * -1 ;
+		@include zDepth(2);
+		border-radius: em(2);
+		@include calc('min-height', ' 100vh  - 8em ');
+		
+		[class^="card"], 
+		[class*=" card"] {
+			@include zDepth(0);
+			margin: 0;
+		}
+
 	}
+
 	
-	.toolbar--default {  
-		height: em( 64 *3);
-	}
-	
-	[class*="card"] {
-		@include zDepth($z_depth:0);
-		border-radius: 0;
-	}
 }
-*/

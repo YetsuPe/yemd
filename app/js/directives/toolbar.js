@@ -1,7 +1,6 @@
 
 angular.module('yemd')
-	.directive('toolbar',toolbar)
-	.directive('appbar',toolbar);
+	.directive('toolbar',toolbar);
 
 function toolbar($yemd, $rootScope){
 		
@@ -9,16 +8,19 @@ function toolbar($yemd, $rootScope){
 			scope: {
 				type:'@', //extend, default'
 				name: '@'
-			},
-			restrict:'C', 
+			}, 
 			controller: function  ($scope, $element, $attrs, $transclude, $yemd, $rootScope){
-			
+				
+				//$scope.name = $scope.name || $attrs.toolbar ;
+				//console.log($scope.name );
+				$element.attr('class','toolbar--default');
+
 				$rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
 					if ( $scope.name === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
 	      });
 	        	
 	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
-
+	      	
 	      	if ( $scope.name === name ) { 
 	      		$element.attr( 'class', 'toolbar--'+ className  );
 	      	};
@@ -32,19 +34,6 @@ function toolbar($yemd, $rootScope){
 	      	
 	      });
 
-
-			},
-			compile: function(){
-				return {
-	        pre: function preLink(scope, element, iAttrs, toolbarController) { 
-
-	        }, 
-	        post: function postLink(scope, element, iAttrs, toolbarController) {
-
-	        	
-
-	        }
-	      };
 			}
 	};
 

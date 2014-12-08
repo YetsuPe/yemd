@@ -36,9 +36,23 @@
 			color: $color-primary;
 		}
 	}
-	.card__photo {
+	.card__photo,
+	.card__icon {
 		width: em(100);
 	}
+
+	.card__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $color-secondary;
+		> [class^="mdfi_"], 
+		> [class*=" mdfi_"] {
+			color: $color-white;
+			font-size: $base-font-icon * 2 ;
+		}
+	}
+
 }
 .card--frame {
 	@extend %card;

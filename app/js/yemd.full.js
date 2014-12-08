@@ -8,6 +8,10 @@ function $yemdProvider(){
 
   this.$get = function(){
     return { 
+      
+      mqMedium: 768,
+      mqLarge: 1200,
+
       sidenav: {
         left: {
           show : false,
@@ -24,6 +28,9 @@ function $yemdProvider(){
         show: false,
         type: 'float',
         icon: 'mdfi_content_add'
+      },
+      canvas: {
+        className: ''
       }
     };
   }
@@ -145,6 +152,45 @@ function bottomSheet ($rootScope) {
 
 }
 bottomSheet.$inject = ['$rootScope'];
+
+
+angular.module('yemd')
+	.directive('canvas', canvas);
+
+	function canvas($rootScope, $verge, $yemd, $window){
+		return {
+			scope:{
+				name: '@'
+			},
+			restrict: 'C',
+			controller: ['$scope', '$element', '$attrs', '$rootScope', '$verge', '$yemd', '$window', function($scope, $element, $attrs, $rootScope, $verge, $yemd, $window){
+				
+				$element.attr('class','canvas--default');
+				$scope.className = 'default';
+				
+				$rootScope.$on('changeTypeCanvas', function(e, name, className){ 
+	      	$scope.className = className;
+	      	resizeWindow();
+				});
+
+				function resizeWindow() {
+					if ( $verge.viewportW() >= $yemd.mqMedium && $scope.className !== 'default' ) {
+						$rootScope.$emit('changeTypeToolbar','appbar', '3rows');
+						$element.attr( 'class', 'canvas--'+ $scope.className  );
+					} else if( $verge.viewportW() < $yemd.mqMedium && $scope.className !== 'default' ) {
+						$rootScope.$emit('changeTypeToolbar','appbar', 'default');
+						$element.attr( 'class', 'canvas--default' );
+					};
+				}
+
+				$window.onresize = function(event) {
+					resizeWindow();
+				};
+
+			}]
+		}
+	}
+	canvas.$inject = ['$rootScope', '$verge', '$yemd', '$window'];
 
 
 angular.module('yemd')
@@ -436,14 +482,14 @@ angular.module('yemd')
 
 
 angular.module('yemd')
-	.directive(picker);
+	.directive('picker', picker);
 
 	function picker(){
 		return {
 			scope:{},
-			controller: function($scope, $element, $attrs){
+			controller: ['$scope', '$element', '$attrs', function($scope, $element, $attrs){
 
-			}
+			}]
 		}
 	}
 
@@ -548,8 +594,7 @@ function snackbar ($rootScope,$timeout){
   snackbar.$inject = ['$rootScope', '$timeout']; 
 
 angular.module('yemd')
-	.directive('toolbar',toolbar)
-	.directive('appbar',toolbar);
+	.directive('toolbar',toolbar);
 
 function toolbar($yemd, $rootScope){
 		
@@ -557,16 +602,19 @@ function toolbar($yemd, $rootScope){
 			scope: {
 				type:'@', //extend, default'
 				name: '@'
-			},
-			restrict:'C', 
+			}, 
 			controller: ['$scope', '$element', '$attrs', '$transclude', '$yemd', '$rootScope', function  ($scope, $element, $attrs, $transclude, $yemd, $rootScope){
-			
+				
+				//$scope.name = $scope.name || $attrs.toolbar ;
+				//console.log($scope.name );
+				$element.attr('class','toolbar--default');
+
 				$rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
 					if ( $scope.name === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
 	      });
 	        	
 	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
-
+	      	
 	      	if ( $scope.name === name ) { 
 	      		$element.attr( 'class', 'toolbar--'+ className  );
 	      	};
@@ -580,20 +628,7 @@ function toolbar($yemd, $rootScope){
 	      	
 	      });
 
-
-			}],
-			compile: function(){
-				return {
-	        pre: function preLink(scope, element, iAttrs, toolbarController) { 
-
-	        }, 
-	        post: function postLink(scope, element, iAttrs, toolbarController) {
-
-	        	
-
-	        }
-	      };
-			}
+			}]
 	};
 
 }

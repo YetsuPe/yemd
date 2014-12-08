@@ -18,9 +18,8 @@
   "devDependencies": {
     "jquery": "2.1.1",
     "angular": "1.2.20",
-    "angular-animate": "1.2.20",
-    "svg-injector": "1.1.0",
     "angular-ui-router": "0.2.11",
-    "verge": "1.9.1"
+    "verge": "1.9.1",
+    "material-design-fonticons": "~1.0.0"
   }
 }

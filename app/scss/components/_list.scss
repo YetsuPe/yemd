@@ -35,9 +35,7 @@
   @extend %list--figure;
 }
 
-
-
-.list--figure-multiples {
+.list--figure-multiline {
 
   @extend %list--figure;
 
@@ -66,6 +64,15 @@
 
 .list--icon {
   @extend %list--figure;
+}
+
+.list--icon-colored {
+  @extend %list--figure;
+  .list__item__icon,
+  .list__item__letter {
+    color: $color-white;
+    background-color: $color-secondary;
+  }
 }
 
 .list--letter {
@@ -114,8 +121,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $color-secondary;
-      color: $color-white;
+      color: $color-icon ;
       border-radius: 100%;
     }
     .list__item__controls {
@@ -151,13 +157,14 @@
         font-weight: 300;
         font-size: em(14);
         color: lighten($color-black, 40%);
+        text-transform: capitalize;
       }
 
 @media screen and (min-width: 600px) {
   .list__header__name:nth-child(3),
   .list__header__name:nth-child(4),
-  .list__item__content--multiple .list__item__content__title:nth-child(3),
-  .list__item__content--multiple .list__item__content__title:nth-child(4) { 
+  .list--figure-multiline .list__item__content__title:nth-child(3),
+  .list--figure-multiline .list__item__content__title:nth-child(4) { 
     display: block; 
   }
 }
@@ -165,8 +172,8 @@
 @media screen and (min-width: 900px) {
   .list__header__name:nth-child(5),
   .list__header__name:nth-child(6),
-  .list__item__content--multiple .list__item__content__title:nth-child(5),
-  .list__item__content--multiple .list__item__content__title:nth-child(6) { 
+  .list--figure-multiline .list__item__content__title:nth-child(5),
+  .list--figure-multiline .list__item__content__title:nth-child(6) { 
     display: block; 
   }
 }
@@ -174,8 +181,8 @@
 @media screen and (min-width: 1200px) {
   .list__header__name:nth-child(7),
   .list__header__name:nth-child(8),
-  .list__item__content--multiple .list__item__content__title:nth-child(7),
-  .list__item__content--multiple .list__item__content__title:nth-child(8) { 
+  .list--figure-multiline .list__item__content__title:nth-child(7),
+  .list--figure-multiline .list__item__content__title:nth-child(8) { 
     display: block; 
   }
 }

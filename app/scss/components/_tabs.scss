@@ -1,3 +1,23 @@
 %tabs {
+	@extend %zDepth-2;
+	position: relative;
 	display: flex;
+	font-size: $base-font;
+	height: $base-font * 3;
+	background-color: $color-primary;
+}
+
+.tabs {
+	@extend %tabs;
+}
+
+.tabs__item {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	justify-content: center;
+	color: $color-white;
+	&.selected {
+		border-bottom: $base-font * 0.25 solid $color-secondary;
+	}
 }

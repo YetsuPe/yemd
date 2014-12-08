@@ -1,6 +1,6 @@
 
 angular.module('yemd')
-	.directive(picker);
+	.directive('picker', picker);
 
 	function picker(){
 		return {

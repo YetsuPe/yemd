@@ -4,7 +4,7 @@
 	@extend %zDepth-2;
 	@extend %z-index--3;
 	@extend %height--100percent;
-	
+	overflow-y: scroll;
 	@include transition (all $time-animation $mode-animation);
 	
 	&.opacity {
@@ -31,6 +31,7 @@
 		@extend %animation-hideSidenavLeft;
 	}
 }
+
 .sidenav--right { 
 	width: 100%;
 	@extend %sidenav;
@@ -178,4 +179,3 @@ $sidenav-breakpoint: 320px ;
 	}
 
 }
-
