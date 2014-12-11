@@ -1,6 +1,7 @@
 
 angular.module('yemd')
 	.directive('input',input)
+	.directive('textarea', textarea)
 	.directive('yemdSelecto', select);
 
 	function input($rootScope, $timeout, $compile){
@@ -168,3 +169,31 @@ angular.module('yemd')
 			}
 		};
 	};
+
+	function textarea($rootScope, $compile){
+		return {
+			scope: {},
+			restrict:'E',
+			require:['?ngModel', '^form'] , 
+			controller:  function($scope,$element,$attrs,$rootScope ){
+
+			},
+			compile: function(){
+				return {
+	        pre: function preLink(scope, element, attrs, requires) {   
+	        	var error    = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+            		wrapper = angular.element("<div class='wrapper'></div>");
+
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').addClass('open--select');
+
+	        },  
+	        post: function postLink(scope, element, attrs,requires) {    
+						
+					}
+	      };
+			}
+		};
+	};
+
+

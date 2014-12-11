@@ -175,10 +175,10 @@ angular.module('yemd')
 
 				function resizeWindow() {
 					if ( $verge.viewportW() >= $yemd.mqMedium && $scope.className !== 'default' ) {
-						$rootScope.$emit('changeTypeToolbar','appbar', '3rows');
+						if ( $scope.className ==='block' ) { $rootScope.$emit('changeTypeToolbar','appbar', '2rows'); };
 						$element.attr( 'class', 'canvas--'+ $scope.className  );
-					} else if( $verge.viewportW() < $yemd.mqMedium && $scope.className !== 'default' ) {
-						$rootScope.$emit('changeTypeToolbar','appbar', 'default');
+					}else if( $scope.className === 'default' ) {
+						//$rootScope.$emit('changeTypeToolbar','appbar', 'default');
 						$element.attr( 'class', 'canvas--default' );
 					};
 				}
@@ -233,7 +233,32 @@ angular.module('yemd')
 
 
 angular.module('yemd')
+	.directive('icon', icon);
+
+	function icon($rootScope){
+		return {
+			scope:{
+				icon: '='
+			},
+			controller: ['$scope', '$element', '$attrs', '$rootScope', function($scope, $element, $attrs, $rootScope){
+
+				$element.on('click', function(){
+					$scope.icon.click();
+				});
+
+				$scope.$watch('icon.figure', function(){ $element.attr('class', $scope.icon.figure);});
+				$scope.$watch('icon.click', function(){ $element.attr('class', $scope.icon.figure);});
+				$scope.$watch('icon.show', function(){ if( !$scope.icon.show ){ $element.addClass('hide'); }else{ $element.removeClass('hide'); }; });
+
+			}]
+		}
+	}
+	icon.$inject = ['$rootScope'];
+
+
+angular.module('yemd')
 	.directive('input',input)
+	.directive('textarea', textarea)
 	.directive('yemdSelecto', select);
 
 	function input($rootScope, $timeout, $compile){
@@ -404,6 +429,35 @@ angular.module('yemd')
 	}
 	select.$inject = ['$rootScope', '$compile'];;
 
+	function textarea($rootScope, $compile){
+		return {
+			scope: {},
+			restrict:'E',
+			require:['?ngModel', '^form'] , 
+			controller:  ['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope ){
+
+			}],
+			compile: function(){
+				return {
+	        pre: function preLink(scope, element, attrs, requires) {   
+	        	var error    = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+            		wrapper = angular.element("<div class='wrapper'></div>");
+
+		 					element.wrap(wrapper); 
+		 					element.parent('.wrapper').addClass('open--select');
+
+	        },  
+	        post: function postLink(scope, element, attrs,requires) {    
+						
+					}
+	      };
+			}
+		};
+	}
+	textarea.$inject = ['$rootScope', '$compile'];;
+
+
+
 
 	angular.module('yemd')
 		.directive('modal',modal);
@@ -502,6 +556,8 @@ function sidenav($yemd, $rootScope){
 			scope: {},
 			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function ($scope, $element, $attrs, $yemd, $rootScope ){
 
+				$scope.defaultClassName= $element.attr('class');
+
 				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
 					if ( $attrs.sidenav === name ) { 
@@ -527,14 +583,16 @@ function sidenav($yemd, $rootScope){
 					if ($element.hasClass('show'))  $element.addClass('opacity');
 				});
 
-				$rootScope.$on('specialWidthSidenav', function(e, type, className){
+				$rootScope.$on('specialWidthSidenav', function(e, name, className){
 
-					if ( $attrs.sidenav === type ) { 
-						//if ( $ ) {
-							$element.addClass( className ) ;
-						//};
-						 
-					}
+					if ( $attrs.sidenav === name ) { $element.addClass( className ) ; }
+
+				});
+
+				$rootScope.$on('resetSpecialWidthSidenav', function(e, name){
+
+					if ( $attrs.sidenav === name ) { $element.attr('class', $scope.defaultClassName ) ; }
+					
 				});
 				
 			}],
@@ -661,7 +719,7 @@ function validForm ($rootScope){
             }
           }) 
         } 
-        $rootScope.$emit('showSnackbar', 'El forumlario es incorrecto' ) ;  
+        $rootScope.$emit('showSnackbar', 'El formulario es incorrecto' ) ;  
         return { status: false, errors: errors, message : "el formulario es incorrecto" };
       }else{  
         return { status:true,message:'El formulario es correcto'};  

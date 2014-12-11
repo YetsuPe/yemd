@@ -8,6 +8,8 @@ function sidenav($yemd, $rootScope){
 			scope: {},
 			controller: function ($scope, $element, $attrs, $yemd, $rootScope ){
 
+				$scope.defaultClassName= $element.attr('class');
+
 				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
 					if ( $attrs.sidenav === name ) { 
@@ -33,14 +35,16 @@ function sidenav($yemd, $rootScope){
 					if ($element.hasClass('show'))  $element.addClass('opacity');
 				});
 
-				$rootScope.$on('specialWidthSidenav', function(e, type, className){
+				$rootScope.$on('specialWidthSidenav', function(e, name, className){
 
-					if ( $attrs.sidenav === type ) { 
-						//if ( $ ) {
-							$element.addClass( className ) ;
-						//};
-						 
-					}
+					if ( $attrs.sidenav === name ) { $element.addClass( className ) ; }
+
+				});
+
+				$rootScope.$on('resetSpecialWidthSidenav', function(e, name){
+
+					if ( $attrs.sidenav === name ) { $element.attr('class', $scope.defaultClassName ) ; }
+					
 				});
 				
 			},

@@ -20,10 +20,10 @@ angular.module('yemd')
 
 				function resizeWindow() {
 					if ( $verge.viewportW() >= $yemd.mqMedium && $scope.className !== 'default' ) {
-						$rootScope.$emit('changeTypeToolbar','appbar', '3rows');
+						if ( $scope.className ==='block' ) { $rootScope.$emit('changeTypeToolbar','appbar', '2rows'); };
 						$element.attr( 'class', 'canvas--'+ $scope.className  );
-					} else if( $verge.viewportW() < $yemd.mqMedium && $scope.className !== 'default' ) {
-						$rootScope.$emit('changeTypeToolbar','appbar', 'default');
+					}else if( $scope.className === 'default' ) {
+						//$rootScope.$emit('changeTypeToolbar','appbar', 'default');
 						$element.attr( 'class', 'canvas--default' );
 					};
 				}
