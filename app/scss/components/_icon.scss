@@ -5,13 +5,8 @@
 	width: em(48, 24) ;//em(48, 24);
 	height: em(48, 24) ;//em(48, 24);
 
-	//.ripple--radial {
-		//background: rgba(255,255,255,.75); 
-	//}
-	// animations
-	//&.enterNewIcon {
-		//@include animation( enterNewIcon $time-animation $mode-animation ); 
-	//} 
+	&.hide { display: none; }
+	//&.show {}
 }
 
 .icon,

@@ -92,6 +92,7 @@
 		}
 	.sidenav__content {
 		@extend %display--flex;
+		@extend %position--relative;
 		@extend %flex-direction--column;
 		background-color: $bg-sidenav; 
 		min-height: 100%;
@@ -115,11 +116,11 @@
  	}
 }
 
-$sidenav-min-width: 264px; 
+$sidenav-min-width: 320px; 
 $sidenav-width: 20%; 
 $sidenav-max-width: 400px; 
 
-$sidenav-breakpoint: 320px ;
+$sidenav-breakpoint: 376px ;
 
 @media only screen and ( min-width: $sidenav-breakpoint ) {
 	.sidenav--left { 

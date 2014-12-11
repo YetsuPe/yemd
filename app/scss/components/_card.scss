@@ -34,6 +34,8 @@
 		.card__title {
 			margin: 0;
 			color: $color-primary;
+			padding: 0;
+			height: auto;
 		}
 	}
 	.card__photo,
@@ -50,6 +52,8 @@
 		> [class*=" mdfi_"] {
 			color: $color-white;
 			font-size: $base-font-icon * 2 ;
+			width: auto;
+			height: auto;
 		}
 	}
 
@@ -110,6 +114,7 @@
 	background-color: $color-white;
 	padding: 1em;
 }
+
 	.card__content {
 		padding: 1em;
 		p {
@@ -170,9 +175,15 @@
 			text-align: center;
 		}
 	.card__title {
-		margin: em(16, 18) em(16, 18) 0 em(16, 18);
+		//margin: em(16, 18) em(16, 18) 0 em(16, 18);
 		font-size: em(18);
 		font-weight: 400;
+
+		height: em(48, 18);
+		padding: 0 em(16, 18);
+		display: flex;
+		align-items: center;
+
 	}
 	.card__sub-title {
 		color: lighten($color-primary, 20%);

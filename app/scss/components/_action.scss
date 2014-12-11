@@ -4,13 +4,16 @@
   @extend %border-radius--50percent;  
   @extend %background-color--secondary;
   @extend %font-size--base;  
-
+  z-index: 1;
   @include transition (all $time-animation $mode-animation);
 
   [class^="mdfi_"], 
   [class*=" mdfi_"] { 
-    font-size: $base-font-icon ;
+    font-size: 24px ;
     color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
   }
 
   &.show {
@@ -34,10 +37,17 @@
   @extend %position--absolute;
   @extend %left--base;
 
-  //
-  padding: $base-font  * 0.5 ;//em(8px);;
-  width : $base-font  * 2.5 ;//em(40px);
-  height: $base-font  * 2.5 ;//em(40px); 
+  //padding: $base-font  * 0.5 ;//em(8px);
+  width : em(40) ;//em(40px);
+  height: em(40) ;//em(40px); 
+
+  [class^="mdfi_"], 
+  [class*=" mdfi_"] { 
+    width : em(40, 24) ;
+    height: em(40, 24) ;
+  }
+
+    
 }
 
 .action--float {
@@ -56,4 +66,25 @@
 /***** special ***/
 .action--in-appbar {
   bottom: -1 * ( $base-font  * 1.25 ) ;// em(20px);
+}
+
+@media screen and (min-width: $media-md) {
+  .action--embed {
+    width : em(56) ;
+    height: em(56) ; 
+    left: em(24);
+
+    [class^="mdfi_"], 
+    [class*=" mdfi_"] { 
+      font-size: 24px ;
+      color: $color-white;
+      width : em(56, 24) ;
+      height: em(56, 24) ;
+    }
+
+  }
+  .action--in-appbar {
+    bottom: -1 * em(28)  ;
+  }
+  
 }

@@ -41,9 +41,14 @@
 		margin-right: em(8);
 	}
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: $media-md) {
 	.modal {
 		width: 600px;
 		@include calc('left','50% - 300px ');
 	}
+
+	.modal__controls { 
+		height: em(64);
+	}
+
 }

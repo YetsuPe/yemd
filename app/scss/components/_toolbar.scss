@@ -63,16 +63,19 @@
 	height: em(56) ; //56dp; 
 }
 
+.appbar--extend,
 .toolbar--extend {
 	@extend %toolbar;
 	height: em(128); //em(128);
 
 	.appbar__title,
 	.toolbar__title {
-			font-size: 20px;
-			margin-left: em(72, 20); //72
-			margin-bottom: em(26, 20); // 26
-			align-self: flex-end;
+		font-size: 24px;
+		//text-transform: capitalize;
+		font-weight: 400;
+		margin-left: em(72, 24);
+		padding-bottom: 1em; 
+		align-self: flex-end;
 	}
 
 }
@@ -80,11 +83,17 @@
 .toolbar--2rows {
 	@extend %toolbar;
 	height: em(56*2) ; 
+	.action--in-appbar {
+		left: auto;
+		@include calc('right', ' 8.333335% - #{em(20)}' );
+	}
 }
 
 .toolbar--3rows {
 	@extend %toolbar;
 	height: em(56*3) ; 
+	
+		
 }
 
 .toolbar--4rows {
@@ -102,7 +111,7 @@
 		@extend %overflow--hidden;
 		@extend %font-size--base;  
 		@extend %line-height--1; 
-		@extend %text-transform--uppercase; 
+		//@extend %text-transform--uppercase; 
 		margin-left: em(72) ;//em(72); 
 		
 	}
@@ -131,6 +140,16 @@
 		@include icon-on-appbar;
 		
 	}
+
+	.appbar--extend,
+	.toolbar--extend {
+		height: em(144);
+		.appbar__title,
+		.toolbar__title {
+			font-size: 26.6666px;
+			margin-left: em(104, 26.6666);
+		}
+	}
 	
 	.appbar__title,
 	.toolbar__title {
@@ -153,6 +172,12 @@
 		}
 
 
+	}
+
+	.toolbar--2rows {; 
+		.action--in-appbar {
+			@include calc('right', ' 8.333335% - #{em(28)}' );
+		}
 	}
 
 	
