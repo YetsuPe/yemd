@@ -164,7 +164,7 @@
         font-weight: 400;
         &:hover { cursor: pointer; }
       }
-      .list__item__content__sub-title {
+      .list__item__content__subtitle {
         @extend %overflow--hidden;
         @extend %text-overflow--ellipsis ;
         padding-right: em(16);

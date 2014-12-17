@@ -73,7 +73,7 @@
 		font-size: 24px;
 		//text-transform: capitalize;
 		font-weight: 400;
-		margin-left: em(72, 24);
+		////margin-left: em(72, 24);
 		padding-bottom: 1em; 
 		align-self: flex-end;
 	}
@@ -112,7 +112,7 @@
 		@extend %font-size--base;  
 		@extend %line-height--1; 
 		//@extend %text-transform--uppercase; 
-		margin-left: em(72) ;//em(72); 
+		//margin-left: em(72) ;//em(72); 
 		
 	}
 
@@ -144,16 +144,17 @@
 	.appbar--extend,
 	.toolbar--extend {
 		height: em(144);
+		@include icon-on-appbar;
 		.appbar__title,
 		.toolbar__title {
 			font-size: 26.6666px;
-			margin-left: em(104, 26.6666);
+			//margin-left: em(104, 26.6666);
 		}
 	}
 	
 	.appbar__title,
 	.toolbar__title {
-		margin-left: em(80);
+		//margin-left: em(80);
 	}
 
 	@for $i from 1 through 5 {

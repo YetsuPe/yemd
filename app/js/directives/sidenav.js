@@ -8,7 +8,7 @@ function sidenav($yemd, $rootScope){
 			scope: {},
 			controller: function ($scope, $element, $attrs, $yemd, $rootScope ){
 
-				$scope.defaultClassName= $element.attr('class');
+				$element.attr('class','sidenav--'+$attrs.sidenav);
 
 				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
@@ -60,7 +60,12 @@ function sidenav($yemd, $rootScope){
 						if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
 							var cover = element.find('.sidenav__cover');
 		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
-	        	}
+	        	};
+
+	        	element.find('.sidenav__content__link').on('click', function(){
+	        		console.log('click');
+	        		$rootScope.$emit('toggleSidenav', attrs.sidenav, false);
+	        	});
 	        	
 	        	//if ( element.hight() > $verge.viewportH() ) {
 	        		//element.css('overflow-y', 'srool');

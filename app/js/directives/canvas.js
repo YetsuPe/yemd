@@ -30,6 +30,7 @@ angular.module('yemd')
 
 				$window.onresize = function(event) {
 					resizeWindow();
+					$rootScope.$emit('resizeWindow');
 				};
 
 			}

@@ -6,12 +6,13 @@ angular.module('yemd')
 
 function $yemdProvider(){
 
-  this.$get = function(){
+  this.$get = function($rootScope){
     return { 
       
       mqMedium: 768,
       mqLarge: 1200,
 
+      /*
       sidenav: {
         left: {
           show : false,
@@ -31,6 +32,11 @@ function $yemdProvider(){
       },
       canvas: {
         className: ''
+      },
+      */
+      //function 
+      toggleSidenav: function( sidenav, toggle ){
+        $rootScope.$emit('toggleSidenav', sidenav, toggle)
       }
     };
   }
@@ -38,14 +44,6 @@ function $yemdProvider(){
 }
 
 function initYemd ($rootElement, $rootScope) {
-
-  $rootScope.yemd = {
-    sidenav: {
-      toggle: function(name, toggle){
-        $rootScope.$emit('toggleSidenav', name, toggle);
-      }
-    }
-  };
 
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  

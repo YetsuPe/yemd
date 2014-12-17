@@ -189,21 +189,17 @@ input {
 }
 
 %button {
-  @extend %zDepth-1;
-  display:block;
-  height: em(32);
-  width: em(88);
+  display: inline-block;
+  font-size: 16px;
+  min-width: em(88);
   max-width: 100%;
-  line-height: 2; 
+
   text-transform: uppercase;
-  margin: em(8) em(16);
-  @include zDepth($z_depth:1); 
+  //margin: em(8) em(16);
   text-align: center;
   border-bottom: 0; 
-  &:hover {
-    cursor: pointer;
-  }
-  &:nth-of-type {
+  &:hover { cursor: pointer;}
+  &:nth-of-type(2) {
     margin: em(8) 0 ;
   }
 }
@@ -212,13 +208,29 @@ input[type="submit"],
 button,
 .button {
   @extend %button;
+  @extend %zDepth-1;
   color:$color-text-white ;
   background-color: $color-primary ;
+  padding: em(8) 1em;
 }
 .button--second {
   @extend %button;
+  @extend %zDepth-1;
   color: $color-text ;
-  background-color: $color-default ;
+  background-color: $color-secondary ;
+  padding: em(8) 1em;
+}
+.button--flat {
+  @extend %button;
+  display: flex;
+  justify-content: flex-end;
+  color: $color-primary ;
+}
+.button--flat-second {
+  @extend %button;
+  display: flex;
+  justify-content: flex-end;
+  color: $color-secondary ;
 }
 
 button {

@@ -6,12 +6,13 @@ angular.module('yemd')
 
 function $yemdProvider(){
 
-  this.$get = function(){
+  this.$get = ['$rootScope', function($rootScope){
     return { 
       
       mqMedium: 768,
       mqLarge: 1200,
 
+      /*
       sidenav: {
         left: {
           show : false,
@@ -31,21 +32,18 @@ function $yemdProvider(){
       },
       canvas: {
         className: ''
+      },
+      */
+      //function 
+      toggleSidenav: function( sidenav, toggle ){
+        $rootScope.$emit('toggleSidenav', sidenav, toggle)
       }
     };
-  }
+  }]
 
 }
 
 function initYemd ($rootElement, $rootScope) {
-
-  $rootScope.yemd = {
-    sidenav: {
-      toggle: function(name, toggle){
-        $rootScope.$emit('toggleSidenav', name, toggle);
-      }
-    }
-  };
 
   var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
       overlay = angular.element("<div class='overlay'> </div>"),  
@@ -185,6 +183,7 @@ angular.module('yemd')
 
 				$window.onresize = function(event) {
 					resizeWindow();
+					$rootScope.$emit('resizeWindow');
 				};
 
 			}]
@@ -203,26 +202,30 @@ angular.module('yemd')
 				cover: '='
 			},
 			controller:['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope){
-				//$scope.hide = ()?:;
+				
+				var type = ($attrs.card==='')?'':'--'+$attrs.card;
+				$element.addClass('card'+type);
+
 			}],
 			compile: function(){
 				return {
 	        pre: function preLink(scope, element, attrs ) {  
 
-	        		
-
 	        }, 
 	        post: function postLink(scope, element, attrs, $verge) {
 	        	
-	        	if ( typeof( scope.photo ) !== 'undefined' ) {
-	        		element.find('.card__photo').css({
-								'background-image': "url('"+ scope.photo +"')" 
+
+	        	if ( attrs.card === 'square-picture' ) {
+	        		element.css({
+								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
 							});
 	        	};
 
-	        	element.find('.card__cover').css({
-							'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
-						});
+	        	if ( element.find('.card__cover') ) {
+	        		element.find('.card__cover').css({
+								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
+							});
+	        	};
 						
 	        }
 	      };
@@ -556,7 +559,7 @@ function sidenav($yemd, $rootScope){
 			scope: {},
 			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function ($scope, $element, $attrs, $yemd, $rootScope ){
 
-				$scope.defaultClassName= $element.attr('class');
+				$element.attr('class','sidenav--'+$attrs.sidenav);
 
 				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
 
@@ -608,7 +611,12 @@ function sidenav($yemd, $rootScope){
 						if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
 							var cover = element.find('.sidenav__cover');
 		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
-	        	}
+	        	};
+
+	        	element.find('.sidenav__content__link').on('click', function(){
+	        		console.log('click');
+	        		$rootScope.$emit('toggleSidenav', attrs.sidenav, false);
+	        	});
 	        	
 	        	//if ( element.hight() > $verge.viewportH() ) {
 	        		//element.css('overflow-y', 'srool');
@@ -654,43 +662,102 @@ function snackbar ($rootScope,$timeout){
 angular.module('yemd')
 	.directive('toolbar',toolbar);
 
-function toolbar($yemd, $rootScope){
+function toolbar($yemd, $rootScope, $verge){
 		
 	return {
 			scope: {
 				type:'@', //extend, default'
 				name: '@'
 			}, 
-			controller: ['$scope', '$element', '$attrs', '$transclude', '$yemd', '$rootScope', function  ($scope, $element, $attrs, $transclude, $yemd, $rootScope){
+			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', '$verge', function  ($scope, $element, $attrs, $yemd, $rootScope, $verge){
 				
-				//$scope.name = $scope.name || $attrs.toolbar ;
-				//console.log($scope.name );
+				var vm =this;
+
 				$element.attr('class','toolbar--default');
 
 				$rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
-					if ( $scope.name === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
+					if ( $attrs.toolbar === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
 	      });
 	        	
 	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
 	      	
-	      	if ( $scope.name === name ) { 
+	      	if ( $attrs.toolbar === name ) { 
 	      		$element.attr( 'class', 'toolbar--'+ className  );
 	      	};
 
 				});
 
 	      $rootScope.$on('hideToolbar', function(e, name){
-	      	if ( $scope.name === name ) {
+	      	if ( $attrs.toolbar === name ) {
 	      		$element.addClass('hide');
 	      	};
 	      	
 	      });
 
-			}]
+	      
+
+	      this.resizeWindow =  function() {
+	      	var icons = $element.find('[data-icon]'),
+	      			title = $element.find('.toolbar__title');
+
+	      	var marginLeft = ( $verge.viewportW() < $yemd.mqMedium)? 16: 24,
+	      			width= ( $verge.viewportW() < $yemd.mqMedium)?$verge.viewportW() - 16 :$verge.viewportW() - 24;
+
+	      	marginLeft += 'px';
+	      	width += 'px';
+
+	      	if ( icons.length > 0 ){
+
+	      		if( $verge.viewportW() < $yemd.mqMedium && $element.attr('class') === 'toolbar--default' ){ 
+	      		 	marginLeft =72;
+	      		}else if( $verge.viewportW() >= $yemd.mqMedium && $element.attr('class') === 'toolbar--default' ){
+	      			marginLeft =80;
+	      		}else if( $verge.viewportW() < $yemd.mqMedium && $element.attr('class') === 'toolbar--extend' ){ 
+	      		 	marginLeft =72;
+	      		}else if( $verge.viewportW() >= $yemd.mqMedium && $element.attr('class') === 'toolbar--extend' ){
+	      			marginLeft = 104;
+	      		};
+
+	      		width = (icons.length === 1)? $verge.viewportW()  - marginLeft : ( $verge.viewportW() - ( 48 *  (icons.length - 1 ) ) ) - marginLeft;
+
+	      		width += 'px';
+	      		marginLeft += 'px';
+
+	      	}
+
+	      	title.css({
+	      		'padding-right': ( $verge.viewportW() < $yemd.mqMedium)?16:24,
+	      		'width': width ,
+	      		'margin-left' : marginLeft
+	      		} 
+	      	);
+	      	
+	      };
+
+	      this.resizeWindow();
+
+	      $rootScope.$on('resizeWindow', function(e){
+	      	vm.resizeWindow();
+	      	
+	      });
+
+			}],
+			compile: function(tElement, tAttrs){
+
+				return {
+	        pre: function preLink(scope, element, attrs, vm) {
+		      	
+	        },  
+	        post: function postLink(scope, element, attrs, vm) {
+						
+
+	        }
+	      };
+			}
 	};
 
 }
-toolbar.$inject = ['$yemd', '$rootScope'];;
+toolbar.$inject = ['$yemd', '$rootScope', '$verge'];;
 
 
 angular.module('yemd')

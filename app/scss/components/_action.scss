@@ -2,7 +2,7 @@
   @extend %display--flex;
   @extend %zDepth-4;
   @extend %border-radius--50percent;  
-  @extend %background-color--secondary;
+  @extend %background-color--primary;
   @extend %font-size--base;  
   z-index: 1;
   @include transition (all $time-animation $mode-animation);
@@ -56,11 +56,17 @@
   @extend %z-index--2;
   @extend %bottom--base;
   @extend %right--base;
-  @extend %padding--base;
   
   @include transform(scale(1)); 
-  width: $base-font  * 3.5;//em(56px);;
-  height: $base-font  * 3.5;//em(56px);; 
+  width: em(56);//em(56px);
+  height: em(56);//em(56px);
+
+  [class^="mdfi_"], 
+  [class*=" mdfi_"] { 
+    width : em(56, 24) ;
+    height: em(56, 24) ;
+  }
+
 }
 
 /***** special ***/

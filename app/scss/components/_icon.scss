@@ -6,11 +6,11 @@
 	height: em(48, 24) ;//em(48, 24);
 
 	&.hide { display: none; }
-	//&.show {}
 }
 
 .icon,
 [class^="mdfi_"], 
 [class*=" mdfi_"] {
 	@extend %icon;
+	@include transition ( all $time-animation $mode-animation );
 }

@@ -95,7 +95,8 @@
 		@extend %position--relative;
 		@extend %flex-direction--column;
 		background-color: $bg-sidenav; 
-		min-height: 100%;
+		@include calc( "min-height", "100% - ( ( 100vw - #{ em(56px) } ) * #{ 9/16 } ) " );
+		//min-height: 100%;
 	}
 		.sidenav__content__link {
 			@extend %display--block;
