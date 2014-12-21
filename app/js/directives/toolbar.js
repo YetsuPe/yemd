@@ -43,9 +43,6 @@ function toolbar($yemd, $rootScope, $verge){
 	      	var marginLeft = ( $verge.viewportW() < $yemd.mqMedium)? 16: 24,
 	      			width= ( $verge.viewportW() < $yemd.mqMedium)?$verge.viewportW() - 16 :$verge.viewportW() - 24;
 
-	      	marginLeft += 'px';
-	      	width += 'px';
-
 	      	if ( icons.length > 0 ){
 
 	      		if( $verge.viewportW() < $yemd.mqMedium && $element.attr('class') === 'toolbar--default' ){ 
@@ -58,15 +55,28 @@ function toolbar($yemd, $rootScope, $verge){
 	      			marginLeft = 104;
 	      		};
 
-	      		width = (icons.length === 1)? $verge.viewportW()  - marginLeft : ( $verge.viewportW() - ( 48 *  (icons.length - 1 ) ) ) - marginLeft;
-
-	      		width += 'px';
-	      		marginLeft += 'px';
+	      		width = (icons.length === 1)? $verge.viewportW()  - marginLeft :  ($verge.viewportW() - marginLeft) - ( (48 + 4 ) *  (icons.length - 1 ) )  ;
 
 	      	}
 
+	      	angular.forEach(icons , function(value, index){
+	      		if ( index === 0 ) {
+	      			$(value).css({
+	      				left:  ( $verge.viewportW() < $yemd.mqMedium)? 4 : 8 
+	      			});
+	      		}else{
+	      			var rightB = ( $verge.viewportW() < $yemd.mqMedium)? 4 : 8 ;
+	      			$(value).css({
+	      				left: 'auto',
+	      				right: index * rightB + ( (index -1) * 48 )
+	      			});
+
+	      		};
+	      		
+	      	});
+
 	      	title.css({
-	      		'padding-right': ( $verge.viewportW() < $yemd.mqMedium)?16:24,
+	      		'padding-right': 4 ,//( $verge.viewportW() < $yemd.mqMedium)?16:24,
 	      		'width': width ,
 	      		'margin-left' : marginLeft
 	      		} 
@@ -81,18 +91,6 @@ function toolbar($yemd, $rootScope, $verge){
 	      	
 	      });
 
-			},
-			compile: function(tElement, tAttrs){
-
-				return {
-	        pre: function preLink(scope, element, attrs, vm) {
-		      	
-	        },  
-	        post: function postLink(scope, element, attrs, vm) {
-						
-
-	        }
-	      };
 			}
 	};
 
