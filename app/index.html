@@ -5,7 +5,7 @@
 	<title> Yemd </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Yemd by @YetsuPe" />
-	<meta name="author" content="@YetsuPe" />
+	<meta name="author" content="@Skeiter9 & @YetsuPe" />
 	<link rel="stylesheet" href="css/yemd.css" />
 	<link rel="stylesheet" href="vendor/material-design-fonticons/styles/mdfi.css" />
 </head>
@@ -13,17 +13,15 @@
 
 	<!-- Appbar -->
 	<header data-toolbar="appbar">
-		
-		<span class="mdfi_navigation_menu" ng-click="yemd.sidenav.toggle('left',true)"></span>
-		
-		<span class="mdfi_navigation_apps" ng-click="yemd.sidenav.toggle('right',true)"></span>
 
-		<h1 class="appbar__title"> Yemd </h1>
+		<span data-icon="ui.icons.appbarLeft"></span>
+
+		<h1 class="toolbar__title" appbar-title="app.toState.name"> Yemd </h1>
 
 	</header>
 
 	<!-- Sidenav -->
-	<nav class="sidenav--left" data-sidenav="left">
+	<nav data-sidenav="left">
 
 		<figure class="sidenav__cover" data-cover="assets/images/cover.jpg">
 			<img src="assets/images/logo-yetsu.png" alt="logo" class="sidenav__cover__logo"/>
@@ -56,7 +54,7 @@
 			<a href="#" class="sidenav__content__link"> Text fields </a>
 			<a href="#" class="sidenav__content__link"> Tooltips </a>
 
-			<a href="#" class="sidenav__content__link"> Contact </a>
+			<a href="#" class="sidenav__content__link"> Contact Us </a>
 		</section>
 			
 	</nav>
