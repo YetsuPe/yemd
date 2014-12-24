@@ -1,6 +1,6 @@
 
 angular.module('yemd')
-	.service('$verge', [ function() {
+	.service('$verge', function() {
 		return verge;
-	}]); 
+	}); 
 	

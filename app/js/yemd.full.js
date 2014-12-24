@@ -6,102 +6,137 @@ angular.module('yemd')
 
 function $yemdProvider(){
 
-  this.$get = ['$rootScope', function($rootScope){
+  var isWebPageTo = false,
+      isWebPageMobile = false,
+      forceYemd = false,
+      webPageStartMQ = 1024;
+      leaveBehaviorComponents = [];
+
+  this.setWebPage = function(band){ isWebPageTo = band; };
+  this.setWebPageMobile = function(band){ isWebPageMobile = band };
+  this.setWebPageStartMQ = function(bp){ webPageStartMQ = bp; };
+  this.setLeaveBehaviorComponents = function(components){ leaveBehaviorComponents = components; };
+
+  this.$get = ['$rootScope', '$verge', function($rootScope, $verge){
+
     return { 
       
       mqMedium: 768,
       mqLarge: 1200,
 
-      /*
-      sidenav: {
-        left: {
-          show : false,
-          toggle: false,
-          icon: 'mdfi_navigation_menu'
-        },
-        right :{
-          show : false,
-          toggle: false,
-          icon: 'mdfi_navigation_menu'
-        }
-      },
-      action: {
-        show: false,
-        type: 'float',
-        icon: 'mdfi_content_add'
-      },
-      canvas: {
-        className: ''
-      },
-      */
+      
+      classMaster: 'yemd', 
+      forceYemd: forceYemd, // default : false
+
+      //Usefull  for hibrid apps
+      webPage: isWebPageTo, // default : false
+      webPageMobile: isWebPageMobile,
+      webPageStartMQ: webPageStartMQ,
+      webPageClass: 'no-yemd',
+      leaveBehaviorComponents: leaveBehaviorComponents,
+
+      //Toolbar
+      toolbarIsExtend: false,
+
+      viewportW : function() { return $verge.viewportW(); } ,
+      viewportH : function() { return $verge.viewportH(); } ,
+
       //function 
-      toggleSidenav: function( sidenav, toggle ){
-        $rootScope.$emit('toggleSidenav', sidenav, toggle)
-      }
+      toggleSidenav: function( sidenav, toggle ){ $rootScope.$emit('toggleSidenav', sidenav, toggle); }
     };
+
   }]
 
 }
 
-function initYemd ($rootElement, $rootScope) {
+function initYemd ( $yemd, $rootScope, checkVersionApp, $window ) {
 
-  var snackbar = angular.element("<div class='snackbar'><p></p></div>"), 
-      overlay = angular.element("<div class='overlay'> </div>"),  
-      modal = angular.element("<div class='modal'> </div>"),  
-      action = angular.element("<div data-action></div>");  
+  checkVersionApp();
 
-  $rootElement.find('body').append( action );
-  $rootElement.find('body').append( modal );   
-  $rootElement.find('body').append( overlay );   
-  $rootElement.find('body').append( snackbar ); 
+  $rootScope.$on('resizeWindow', function(e){
 
+    checkVersionApp();
+
+  });
+
+  $window.onresize = function(event) {
+    $rootScope.$emit('resizeWindow');
+  }
 
 }
-initYemd.$inject = ['$rootElement', '$rootScope'];
+initYemd.$inject = ['$yemd', '$rootScope', 'checkVersionApp', '$window'];
 
 
 
 angular.module('yemd')
 	.directive('action',action);
 
-	function action($yemd, $rootScope){
+	function action($yemd, $rootScope, $log){
 		return {
-			scope: {},
+			scope: {
+				container: '@',
+				x:'@', // left, right
+				y: '@' //	top, bottom
+			},
 			controller:['$scope', '$element', '$attrs', '$yemd', '$rootScope', function($scope, $element, $attrs, $yemd, $rootScope){
 
-				//$element.addClass( 'action--'+$yemd.action.type );
-				//$element.html(angular.element('<span class="'+$yemd.action.icon+'"></span>'));
-			
-				$rootScope.$on('showAction', function ( e, obj ) {
+				if ( $scope.container ==='appbar' ) {
+					$element.attr('class', 'action' );
+					$rootScope.$emit('addAction','appbar', $element); 
+				}else if ($attrs.action === 'embed'){
+					$element.attr('class', 'action--embed' );
+					$element.appendTo( $('#'+$scope.container) );
+					var css = {};
+					css[$scope.x]= 16;
+					css[$scope.y]= -1* ( 56/2) ;
 
-					//if ( 'action--'+obj.type !==  ) {};
+					$element.css(css);
+				}else {
+					$element.attr('class', 'action--float' );
+				};
 
-					$element.attr('class', 'action--' + obj.type );
+				/*
+					$rootScope.$on('showAction', function ( e, obj ) {
 
-					if ( !$element.hasClass('show') )  {
-						$element.css('display','block');
-						$element.addClass('show');
-					}
+						//if ( 'action--'+obj.type !==  ) {};
+
+						$element.attr('class', 'action--' + obj.type );
+
+						if ( !$element.hasClass('show') )  {
+							$element.css('display','block');
+							$element.addClass('show');
+						}
+							
+						$element.html(angular.element('<span class="'+ obj.icon +'"></span>'));
+						$element.appendTo( obj.nodeClose );
+						$element.addClass( obj.classSpecial ); 
 						
-					$element.html(angular.element('<span class="'+ obj.icon +'"></span>'));
-					$element.appendTo( obj.nodeClose );
-					$element.addClass( obj.classSpecial ); 
-					
-				});
+					});
 
-				$rootScope.$on('hideAction',function(e){
-		 			$element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
-		 		});
+					$rootScope.$on('hideAction',function(e){
+			 			$element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+			 		});
 
-		 		$element.on('click',function(){ 
-		 			$rootScope.$emit('clickAction');
-		 		});
+			 		$element.on('click',function(){ 
+			 			$rootScope.$emit('clickAction');
+			 		});
+			 	*/
 
 			}],
-			compile: function(){
+			compile: function(tElement, tAttrs){
+
+				var type = tAttrs.action || 'float';
+
+				if ( type !=='embed' && type !== 'float' ) { 
+					tElement.remove();
+					return $log.warn('Only can use "embed" or "float" for action '); 
+				};
+
+				
+
 				return {
 	        pre: function preLink(scope, element, attrs ) {   
- 						element.css('display','none');
+ 						//element.css('display','none');
 	        }, 
 	        post: function postLink(scope, element, attrs) {
 
@@ -110,7 +145,7 @@ angular.module('yemd')
 			}
 		};
 	}
-	action.$inject = ['$yemd', '$rootScope'];; 
+	action.$inject = ['$yemd', '$rootScope', '$log'];; 
 
 	
 angular.module('yemd')
@@ -155,108 +190,185 @@ bottomSheet.$inject = ['$rootScope'];
 angular.module('yemd')
 	.directive('canvas', canvas);
 
-	function canvas($rootScope, $verge, $yemd, $window){
+	function canvas($rootScope, checkWebpage, $yemd, $window){
+		var componentName = 'canvas';
 		return {
 			scope:{
 				name: '@'
 			},
 			restrict: 'C',
-			controller: ['$scope', '$element', '$attrs', '$rootScope', '$verge', '$yemd', '$window', function($scope, $element, $attrs, $rootScope, $verge, $yemd, $window){
-				
-				$element.attr('class','canvas--default');
-				$scope.className = 'default';
-				
-				$rootScope.$on('changeTypeCanvas', function(e, name, className){ 
-	      	$scope.className = className;
-	      	resizeWindow();
-				});
+			controller: ['$scope', '$element', '$attrs', '$rootScope', 'checkWebpage', '$yemd', '$window', function($scope, $element, $attrs, $rootScope, checkWebpage, $yemd, $window){
 
-				function resizeWindow() {
-					if ( $verge.viewportW() >= $yemd.mqMedium && $scope.className !== 'default' ) {
-						if ( $scope.className ==='block' ) { $rootScope.$emit('changeTypeToolbar','appbar', '2rows'); };
-						$element.attr( 'class', 'canvas--'+ $scope.className  );
-					}else if( $scope.className === 'default' ) {
-						//$rootScope.$emit('changeTypeToolbar','appbar', 'default');
-						$element.attr( 'class', 'canvas--default' );
-					};
+				$element.attr('class','canvas--default');
+
+				var canvas = this;
+
+				canvas.resizeWindow =function() {
+
+					if ( !checkWebpage(componentName) ) { return false; };
+
+					if ( $yemd.viewportW() >= $yemd.mqMedium) {
+
+						if ( $yemd.toolbarIsExtend  ) { 
+							$element.removeClass('canvas--block').addClass('canvas--default');
+						}else {
+
+							$rootScope.$emit('changeTypeToolbar','appbar', '2rows');
+							$element.removeClass('canvas--default').addClass('canvas--block');
+						};
+						
+					} else {
+						if ( !$yemd.toolbarIsExtend  ) { 
+							$rootScope.$emit('changeTypeToolbar','appbar', 'default');
+						}
+						$element.removeClass('canvas--block').addClass('canvas--default');
+						
+					}
+
 				}
 
-				$window.onresize = function(event) {
-					resizeWindow();
-					$rootScope.$emit('resizeWindow');
-				};
+				canvas.resizeWindow();
+
+				$rootScope.$on('resizeWindow', function(e){
+					canvas.resizeWindow();
+				});
+
+				$rootScope.$on('toolbarIsExtend', function(e){
+					canvas.resizeWindow();
+				});
 
 			}]
 		}
 	}
-	canvas.$inject = ['$rootScope', '$verge', '$yemd', '$window'];
+	canvas.$inject = ['$rootScope', 'checkWebpage', '$yemd', '$window'];
 
 
 angular.module('yemd')
 		.directive('card',card);
 
-	function card($rootScope, $timeout){
-		return {
-			scope: {
-				photo: '@',
-				cover: '='
-			},
-			controller:['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope){
-				
-				var type = ($attrs.card==='')?'':'--'+$attrs.card;
-				$element.addClass('card'+type);
+function card($rootScope, $yemd, checkWebpage){
+	var componentName = 'card';
+	return {
+		scope: {
 
-			}],
-			compile: function(){
-				return {
-	        pre: function preLink(scope, element, attrs ) {  
+		},
+		controller: ['$element', '$attrs', '$yemd', 'checkWebpage', function($element, $attrs, $yemd, checkWebpage){
 
-	        }, 
-	        post: function postLink(scope, element, attrs, $verge) {
-	        	
+			var type = ($attrs.card==='')?'':'--'+$attrs.card;
+			$element.addClass('card'+type);
 
-	        	if ( attrs.card === 'square-picture' ) {
-	        		element.css({
-								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
-							});
-	        	};
+			this.figures = function (marginPics) {
 
-	        	if ( element.find('.card__cover') ) {
-	        		element.find('.card__cover').css({
-								'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
-							});
-	        	};
+				if ( !checkWebpage(componentName) ) { return false; };
+
+	    	$element.find('.card__content').children('div').remove(); //reset
+	    	$element.find('.card__content').css('display', 'flex'); 
+
+	    	var pics = $element.find('img');
+	    	var widthContainer = $element.find('.card__content').width() - marginPics ;
+	    	var row = parseInt($element.data('columns')) || 3 ; //default 3 columns
+
+	    	angular.forEach( pics , function(value, index){
+
+	    		var image = $('<div> <span>'+ $(value).attr('alt') +'</span> </div>');
+
+	    		image.css({
+	    			backgroundImage: 'url('+$(value).attr('src')+')',
+	    			backgroundSize: 'cover',
+	    			width : ( widthContainer / row ) + 'px',
+	    			height: ( widthContainer / row ) + 'px'
+	    		});
+
+	    		$element.find('.card__content').append( image )  ;
+	    		
+	    	});
+
+	    	$element.find('img').hide();
+	    }
+
+	    this.cover = function() {
+
+	    	if ( !checkWebpage(componentName) ) { return false; };
+	    	console.log($element.width());
+	    	$element.find('.card__cover').css({
+	    		height: $element.width() * (9/16),
+	    		backgroundSize: 'cover',
+					'background-image': "url('"+ $element.find('.card__cover__image').attr('src')+"')" 
+				});
+				$element.find('.card__cover__image').hide();
+	    }
+
+	    this.avatar = function(){
+
+	    	if ( !checkWebpage(componentName) ) { return false; };
+
+	    	$element.find('.card__photo').css({ 
+	    		backgroundSize: 'cover',
+	    		backgroundImage: "url('"+ $element.find('.card__photo__image').attr('src')+"')"  
+	    	});
+
+	    	$element.find('.card__photo__image').hide();
+	    }
+	    
+		}],
+		link: function (scope, element, attrs, cardCtrl ) {
+
+	    if ( attrs.card === 'square-picture' ) {
+	      element.css({
+					'background-image': "url('"+ element.find('.card__cover__image').attr('src')+"')" 
+				});
+	    };
+
+	    if ( attrs.card === 'figures' ) { cardCtrl.figures(24); };
+
+	    if ( attrs.card === 'cover' ) { cardCtrl.cover(); };
+
+	    if ( attrs.card === 'figure' ) { cardCtrl.cover(); };
+
+	    if ( attrs.card === 'avatar' ) { cardCtrl.avatar(); };
+
+	    $rootScope.$on('resizeWindow', function(e) {
+        if ( attrs.card === 'figures' ) { cardCtrl.figures(8); };
+        if ( attrs.card === 'cover' || attrs.card === 'figure'  ) { cardCtrl.cover(); };
+        if ( attrs.card === 'avatar' ) { cardCtrl.avatar(); };
+      });
 						
-	        }
-	      };
-			}
-		};
+	  }
 	}
-	card.$inject = ['$rootScope', '$timeout'];; 
+}
+card.$inject = ['$rootScope', '$yemd', 'checkWebpage'];; 
 
 
 angular.module('yemd')
 	.directive('icon', icon);
 
-	function icon($rootScope){
+	function icon($rootScope, $log){
 		return {
 			scope:{
 				icon: '='
 			},
-			controller: ['$scope', '$element', '$attrs', '$rootScope', function($scope, $element, $attrs, $rootScope){
+			controller: ['$scope', '$element', '$attrs', '$rootScope', '$log', function($scope, $element, $attrs, $rootScope, $log){
 
-				$element.on('click', function(){
-					$scope.icon.click();
+				if ( typeof($scope.icon) === 'undefined' || typeof($scope.icon) !== 'object' ) {
+					return $log.warn( "Shoud pass an object to the icon directive"," (Type: "+ typeof($scope.icon)+')' );
+				}
+
+				$element.on('click', function(event){ 
+					if ( typeof( $scope.icon.click ) === 'function'  ) { $scope.icon.click(event) ; };
 				});
-
-				$scope.$watch('icon.figure', function(){ $element.attr('class', $scope.icon.figure);});
-				$scope.$watch('icon.click', function(){ $element.attr('class', $scope.icon.figure);});
-				$scope.$watch('icon.show', function(){ if( !$scope.icon.show ){ $element.addClass('hide'); }else{ $element.removeClass('hide'); }; });
+				
+				$scope.$watch('icon.icon', function(){ $element.attr('class', $scope.icon.icon || 'mdfi_image_timer_auto' );});
+				
+				$scope.$watch('icon.show', function(){ 
+					if ( typeof($scope.icon.show) === 'undefined' ) { $scope.icon.show = true };
+					if ( $scope.icon.show && $element.hasClass('hide') ){ $element.removeClass('hide'); }
+					if ( !$scope.icon.show && !$element.hasClass('hide') ) { $element.addClass('hide'); };
+				});
 
 			}]
 		}
 	}
-	icon.$inject = ['$rootScope'];
+	icon.$inject = ['$rootScope', '$log'];
 
 
 angular.module('yemd')
@@ -272,19 +384,21 @@ angular.module('yemd')
 			restrict:'E', 
 			require:['?ngModel','?^form'] , 
 			controller:  ['$scope', '$element', '$attrs', '$rootScope', function($scope,$element,$attrs,$rootScope ){
-
+				/*
 				$scope.$watch('hide', function(){
 	        $scope.hide?$element.closest('.wrapper').addClass('hide'):$element.closest('.wrapper').removeClass('hide');
 	      });
-
+				*/
 			}],
 			compile: function(tElement, tAttrs){
 				return {
 	        pre: function preLink(scope, element, attrs, requires ) { 
 
-	        	var label = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
-            		error = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+	        	var label   = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
+            		error   = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
             		wrapper = angular.element('<div class="wrapper"></div>') ;
+
+            element.attr('placeholder', '');
 
 		 				if ( attrs.type==="range" || attrs.type==="color" ) { 
 		 					element.wrap(wrapper); 
@@ -301,8 +415,6 @@ angular.module('yemd')
 		 					element.wrap( angular.element("<div class='checkbox'></div>") ); 
 					 		//element.prependTo( element.closest('.checkbox') );
 					 		element.closest('.checkbox').append(angular.element("<div class='check'><div class='inside'></div></div><label> "+element.data('option')+" </label>"));
-
-
 
 		 				}else if( attrs.type==="checkbox" ){
 		 					element.wrap( angular.element("<label class='switch switch-green'></label>") ); 
@@ -322,14 +434,12 @@ angular.module('yemd')
 		 				//if ( scope.hide ) {
 		 					//element.closest('.wrapper').css('display', 'none');
 		 				//}
-						
+
 	        },  
 	        post: function postLink(scope, element, attrs,requires) {    
 
 
-
-
-		 				element.bind('change', function () {
+		 				element.on('change', function () {
 
 		 					if (attrs.type==="file"){
 		 						scope.$apply(function () {
@@ -339,6 +449,11 @@ angular.module('yemd')
 				        
 				    }); 
 
+		 				element.on('focus',function(){
+		 					element.parent('.wrapper').addClass("focus current");
+		 				});
+
+		 				/*
 		        element.on('keyup',function(){
 		        	
 		          if ( requires[0].$dirty ) {   
@@ -351,9 +466,12 @@ angular.module('yemd')
 		          }
 
 		        }); 
-
+						*/
 						element.on('blur',function(){ 
+							element.parent('.wrapper').removeClass("current");
+							if ( requires[0].$pristine ) { element.parent('.wrapper').removeClass("focus"); }
  							//console.log(requires[0]);
+ 							/*
 							if ( requires[0].$dirty && attrs.type!=="range" ) {
 								if( !element.parent('.wrapper').hasClass("focus") ) {element.parent('.wrapper').addClass("focus");};
 								element.parent('.wrapper').find('label').eq(0).removeClass('leave').addClass("showD enter");
@@ -379,6 +497,7 @@ angular.module('yemd')
 							}else if(  (requires[0].$dirty && requires[0].$valid) || requires[0].$modelValue==="" ){
 								element.parent('.wrapper').removeClass('error');
 							}
+							*/
 
 						});
 
@@ -462,79 +581,96 @@ angular.module('yemd')
 
 
 
+angular.module('yemd')
+	.directive('list',list);
+
+function list( $rootScope, $compile, $timeout){
+
+	return function link ( scope, element, attrs ){
+		var type = '--'+attrs.list || '';
+		element.addClass('list'+ type);
+
+		$rootScope.$on('resizeWindow', function(e) {
+
+		});
+
+	}
+
+}
+list.$inject = ['$rootScope', '$compile', '$timeout'];
+
 	angular.module('yemd')
 		.directive('modal',modal);
 
 	function modal () {
 
 	return {
-		scope: {
-
-		},
+		scope: {},
 		restrict: 'C',
-		//template: "jojo ds dfsfsfsfsffsj",
 		controller: ['$scope', '$element', '$rootScope', '$compile', function($scope, $element, $rootScope, $compile){
-			//$element.wrap( angular.element( "<div class='modal'> ddd {{ content }} </div>" )  )
-			
-			$rootScope.$on('toggleModal', function(e, toggle, html){
-				//$rootScope.$emit('toggleOverlay', toggle);
-				if (toggle) {
-					$element.addClass('show');
-					$element.html(html);
 
-				}
+			$rootScope.$on('toggleModal', function(e, toggle, html){
+				$rootScope.$emit('toggleOverlay', toggle);
+				$element.html(html);
+
+				if (toggle) { if (!$element.hasClass('show')) {$element.addClass('show')};
+				} else { if ($element.hasClass('show')) {$element.removeClass('show')}; }
+
 			});
 
 			$rootScope.$on('clickOverlay',function(e){
 				if ($element.hasClass('show')) {$element.removeClass('show')};
 			});
 
-		}],
-		compile: function(tElement, tAttrs){
-
-			return {
-
-			}
-		}
+		}]
 	}
 }
 
 	angular.module('yemd')
 	.directive('overlay',overlay);
 
-	function overlay($rootScope){
+	function overlay($rootScope, $timeout){
 		return {
 			scope: {},
-			restrict:'C',
-			controller: ['$scope', '$element', '$attrs', '$rootScope', function($scope, $element, $attrs, $rootScope){
-
-				$rootScope.$on('toggleSidenav',function(e, type, toggle){  
+			controller: ['$scope', '$element', '$attrs', '$rootScope', '$timeout', function($scope, $element, $attrs, $rootScope, $timeout){
+				/*
+				$rootScope.$on('toggleSidenav', toggleSidenav);
+				*/
+				$rootScope.$on('toggleOverlay', toggleOverlay);
+				
+				$element.on('click', closeOverlay );
+				/*
+				function toggleSidenav(e, type, toggle){
+					toggleOverlay(e, toggle);
+				}
+				*/
+				function toggleOverlay(e, toggle){
 					if ( toggle ) {
 						$element.hasClass('hide') ? $element.removeClass('hide').addClass('show') : $element.addClass('show');
 	        }else{
 						$element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide');
 	        };
-				});
-
-				$element.on('click', closeOverlay );
-
+				}
+				
 				function closeOverlay(){
 				  $rootScope.$emit('clickOverlay');
-				  $element.hasClass('show') ? $element.removeClass('show').addClass('hide') : $element.addClass('hide');
+				  $element.removeClass('show').addClass('hide');
+
+				  $timeout(function(){
+				  	$element.removeClass('hide');
+				  	$element.remove();
+				  }, 750);
+
 	      }
 
-			}],   
-			compile: function(){
-				return {
-	        pre: function preLink(scope, element, iAttrs) {   
-	        },  
-	        post: function postLink(scope, element, iAttrs) { 
-				  }
-	      };
+			}],
+			compile: function(tElement, tAttrs){
+
+				tElement.addClass('overlay');
 			}
 		};
 	}
-	overlay.$inject = ['$rootScope'];;
+	overlay.$inject = ['$rootScope', '$timeout'];;
 
 
 
@@ -554,80 +690,56 @@ angular.module('yemd')
 angular.module('yemd')
 	.directive('sidenav',sidenav);
 
-function sidenav($yemd, $rootScope){
-		return {
-			scope: {},
-			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', function ($scope, $element, $attrs, $yemd, $rootScope ){
+function sidenav( $rootScope, $compile, $timeout){
 
-				$element.attr('class','sidenav--'+$attrs.sidenav);
+	return function link (scope, element, attrs) {
 
-				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
+		var type = attrs.sidenav || 'left',
+				overlay = angular.element('<div data-overlay></div>'),
+				defaultClassName = attrs.class,
+				toggleSidenav = function(toggle){
 
-					if ( $attrs.sidenav === name ) { 
-						if ( toggle ) {
-							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
+					if ( toggle  ) { 
 
-						}else {
-							( $element.hasClass('show') )? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+						$compile( overlay )(scope);
+						$rootScope.$emit('toggleOverlay', true);
+						element.after(overlay);
 
-						};
+						( element.hasClass('hide') )? element.removeClass('hide').addClass('show') : element.addClass('show') ;
 						 
+					} else {
+						
+						( element.hasClass('show') )? element.removeClass('show').addClass('hide') : element.addClass('hide') ;
+						$rootScope.$emit('toggleOverlay', false);
+						$timeout(function(){
+							overlay.remove();
+						}, 750);
+
 					}
 
-					if ( $element.hasClass('opacity') ) $element.removeClass('opacity') ;
+				};
 
-				});
+		element.attr('class','sidenav--'+ type);
 
-				$rootScope.$on('clickOverlay',function(e){
-					if ($element.hasClass('show')) {$element.removeClass('show').addClass('hide')};
-				});
+		element.find('.sidenav__cover').css( 'background-image', "url('"+element.find('.sidenav__cover').data('cover')+"')");
 
-				$rootScope.$on('toggleModal', function(e, toggle, html){
-					if ($element.hasClass('show'))  $element.addClass('opacity');
-				});
+		element.find('.sidenav__content__link').on('click', function(){
+			toggleSidenav(false);
+	    $rootScope.$emit('toggleSidenav', attrs.sidenav, false);
+	  });
 
-				$rootScope.$on('specialWidthSidenav', function(e, name, className){
+		$rootScope.$on('toggleSidenav', function(e, name, toggle){ if ( attrs.sidenav === name ) { toggleSidenav(toggle); } });
 
-					if ( $attrs.sidenav === name ) { $element.addClass( className ) ; }
+	  $rootScope.$on('clickOverlay', function(e){ if (element.hasClass('show')) {element.removeClass('show').addClass('hide')}; });
 
-				});
+	  $rootScope.$on('specialWidthSidenav', function(e, name, className){ if ( attrs.sidenav === name ) { element.addClass( className ) ; } });
 
-				$rootScope.$on('resetSpecialWidthSidenav', function(e, name){
+		$rootScope.$on('resetSpecialWidthSidenav', function(e, name){ if ( attrs.sidenav === name ) { element.attr('class', defaultClassName) ; } });
 
-					if ( $attrs.sidenav === name ) { $element.attr('class', $scope.defaultClassName ) ; }
-					
-				});
-				
-			}],
-			controllerAs:'vm',
-			compile: function(tElement, tAttrs){
+	};
 
-				return {
-	        pre: function preLink(scope, element, attrs, vm) {
-		        	
-	        },  
-	        post: function postLink(scope, element, attrs, vm) {
-						
-						if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
-							var cover = element.find('.sidenav__cover');
-		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
-	        	};
-
-	        	element.find('.sidenav__content__link').on('click', function(){
-	        		console.log('click');
-	        		$rootScope.$emit('toggleSidenav', attrs.sidenav, false);
-	        	});
-	        	
-	        	//if ( element.hight() > $verge.viewportH() ) {
-	        		//element.css('overflow-y', 'srool');
-	        	//}
-
-	        }
-	      };
-			}
-		};
 }
-sidenav.$inject = ['$yemd', '$rootScope'];;
+sidenav.$inject = ['$rootScope', '$compile', '$timeout'];;
 
 
 
@@ -662,103 +774,150 @@ function snackbar ($rootScope,$timeout){
 angular.module('yemd')
 	.directive('toolbar',toolbar);
 
-function toolbar($yemd, $rootScope, $verge){
-		
-	return {
-			scope: {
-				type:'@', //extend, default'
-				name: '@'
-			}, 
-			controller: ['$scope', '$element', '$attrs', '$yemd', '$rootScope', '$verge', function  ($scope, $element, $attrs, $yemd, $rootScope, $verge){
-				
-				var vm =this;
+function toolbar($yemd, $rootScope){
+	
+	return function link (scope, element, attrs){
 
-				$element.attr('class','toolbar--default');
+		element.attr('class','toolbar--default');
 
-				$rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
-					if ( $attrs.toolbar === name ) { $element.find('.toolbar__title').text(newTitle);  }; 
-	      });
-	        	
-	      $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
-	      	
-	      	if ( $attrs.toolbar === name ) { 
-	      		$element.attr( 'class', 'toolbar--'+ className  );
-	      	};
+		var resizeWindow =  function() {
 
-				});
+	      	var icons = element.find('[data-icon]'),
+	      			title = element.find('.toolbar__title');
 
-	      $rootScope.$on('hideToolbar', function(e, name){
-	      	if ( $attrs.toolbar === name ) {
-	      		$element.addClass('hide');
-	      	};
-	      	
-	      });
-
-	      
-
-	      this.resizeWindow =  function() {
-	      	var icons = $element.find('[data-icon]'),
-	      			title = $element.find('.toolbar__title');
-
-	      	var marginLeft = ( $verge.viewportW() < $yemd.mqMedium)? 16: 24,
-	      			width= ( $verge.viewportW() < $yemd.mqMedium)?$verge.viewportW() - 16 :$verge.viewportW() - 24;
-
-	      	marginLeft += 'px';
-	      	width += 'px';
+	      	var marginLeft = ( $yemd.viewportW() < $yemd.mqMedium)? 16: 24,
+	      			width= ( $yemd.viewportW() < $yemd.mqMedium)?$yemd.viewportW() - 16 :$yemd.viewportW() - 24;
 
 	      	if ( icons.length > 0 ){
 
-	      		if( $verge.viewportW() < $yemd.mqMedium && $element.attr('class') === 'toolbar--default' ){ 
+	      		if( $yemd.viewportW() < $yemd.mqMedium && element.attr('class') === 'toolbar--default' ){ 
 	      		 	marginLeft =72;
-	      		}else if( $verge.viewportW() >= $yemd.mqMedium && $element.attr('class') === 'toolbar--default' ){
+	      		}else if( $yemd.viewportW() >= $yemd.mqMedium && element.attr('class') === 'toolbar--default' ){
 	      			marginLeft =80;
-	      		}else if( $verge.viewportW() < $yemd.mqMedium && $element.attr('class') === 'toolbar--extend' ){ 
+	      		}else if( $yemd.viewportW() >= $yemd.mqMedium && element.attr('class') === 'toolbar--2rows' ){
+	      			marginLeft =80;
+	      		}else if( $yemd.viewportW() < $yemd.mqMedium && element.attr('class') === 'toolbar--extend' ){ 
 	      		 	marginLeft =72;
-	      		}else if( $verge.viewportW() >= $yemd.mqMedium && $element.attr('class') === 'toolbar--extend' ){
+	      		}else if( $yemd.viewportW() >= $yemd.mqMedium && element.attr('class') === 'toolbar--extend' ){
 	      			marginLeft = 104;
 	      		};
 
-	      		width = (icons.length === 1)? $verge.viewportW()  - marginLeft : ( $verge.viewportW() - ( 48 *  (icons.length - 1 ) ) ) - marginLeft;
-
-	      		width += 'px';
-	      		marginLeft += 'px';
+	      		width = (icons.length === 1)? $yemd.viewportW()  - marginLeft :  ($yemd.viewportW() - marginLeft) - ( (48 + 4 ) *  (icons.length - 1 ) )  ;
 
 	      	}
 
+	      	angular.forEach(icons , function(value, index){
+	      		if ( index === 0 ) {
+	      			$(value).css({
+	      				left:  ( $yemd.viewportW() < $yemd.mqMedium)? 4 : 8 
+	      			});
+	      		}else{
+	      			var rightB = ( $yemd.viewportW() < $yemd.mqMedium)? 4 : 8 ;
+	      			$(value).css({
+	      				left: 'auto',
+	      				right: index * rightB + ( (index -1) * 48 )
+	      			});
+
+	      		};
+	      		
+	      	});
+
 	      	title.css({
-	      		'padding-right': ( $verge.viewportW() < $yemd.mqMedium)?16:24,
+	      		'padding-right': 4 ,//( $yemd.viewportW() < $yemd.mqMedium)?16:24,
 	      		'width': width ,
 	      		'margin-left' : marginLeft
 	      		} 
 	      	);
 	      	
-	      };
+	  };
 
-	      this.resizeWindow();
+	  resizeWindow();
 
-	      $rootScope.$on('resizeWindow', function(e){
-	      	vm.resizeWindow();
-	      	
-	      });
+	  $rootScope.$on('resizeWindow', function(e){
+	   resizeWindow();
+	  });
 
-			}],
-			compile: function(tElement, tAttrs){
+	  $rootScope.$on('changeTitleToolbar',function(event, name, newTitle){ 
+			if ( attrs.toolbar === name ) { element.find('.toolbar__title').text(newTitle);  }; 
+	  });
+	        	
+	  $rootScope.$on('changeTypeToolbar', function(e, name, className){ 
+	    if ( attrs.toolbar === name ) {  element.attr( 'class', 'toolbar--'+ className  ); };
+		});
 
-				return {
-	        pre: function preLink(scope, element, attrs, vm) {
-		      	
-	        },  
-	        post: function postLink(scope, element, attrs, vm) {
-						
+	  $rootScope.$on('hideToolbar', function(e, name){
+	    if ( attrs.toolbar === name ) { element.addClass('hide'); }; 	
+	  });
+	      
+	  $rootScope.$on('addAction', function(e, name, action){
+      if ( attrs.toolbar === name ) {
+	      element.attr( 'class', 'toolbar--extend'  );
+	      element.append(action);
+	      $yemd.toolbarIsExtend = true;
+	      $rootScope.$emit('toolbarIsExtend');
+	    };
+	  });
 
-	        }
-	      };
-			}
+	  $rootScope.$on('removeAction', function(e, name){
+			if ( attrs.toolbar === name && $yemd.toolbarIsExtend ) {
+	      element.find('.action').remove(); 
+	      element.attr( 'class', 'toolbar--default'  );
+	      $yemd.toolbarIsExtend = false;
+	      $rootScope.$emit('toolbarIsExtend');
+	    };
+	  });
+
 	};
 
 }
-toolbar.$inject = ['$yemd', '$rootScope', '$verge'];;
+toolbar.$inject = ['$yemd', '$rootScope'];;
 
+
+angular.module('yemd')
+	.factory('checkWebpage', ['$yemd', function( $yemd ) {
+
+		return function(component){
+
+			if ( $yemd.webPage && $yemd.viewportW() >= $yemd.webPageStartMQ && $yemd.leaveBehaviorComponents.indexOf(component)!== -1 ) {
+		  	return true;
+		  }else if($yemd.viewportW() < $yemd.webPageStartMQ){
+		  	return true;
+		  }else{
+		  	return false;
+		  };
+
+		};
+
+	}])
+
+	.factory('checkVersionApp', ['$yemd', function( $yemd ) {
+
+		return function(component){
+
+			if ( $yemd.webPage ) {
+
+				if ( $yemd.viewportW() >= $yemd.webPageStartMQ || $yemd.webPageMobile ) {
+					angular.element('body').removeClass($yemd.classMaster );
+      		angular.element('body').addClass( $yemd.webPageClass );
+				} else {
+					angular.element('body').removeClass( $yemd.webPageClass );
+      		angular.element('body').addClass( $yemd.classMaster  );
+				}
+
+				if ($yemd.forceYemd) {
+					angular.element('body').removeClass( $yemd.webPageClass );
+      		angular.element('body').addClass( $yemd.classMaster  );
+				};
+
+			} else {
+				angular.element('body').removeClass( $yemd.webPageClass );
+      	angular.element('body').addClass( $yemd.classMaster  );
+			}
+
+		};
+
+	}]); 
+	
 
 angular.module('yemd')
   .factory('validForm', validForm );
@@ -797,7 +956,7 @@ function validForm ($rootScope){
 validForm.$inject = ['$rootScope'];
 
 angular.module('yemd')
-	.service('$verge', [ function() {
+	.service('$verge', function() {
 		return verge;
-	}]); 
+	}); 
 	

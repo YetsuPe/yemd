@@ -3,77 +3,53 @@
 angular.module('yemd')
 	.directive('sidenav',sidenav);
 
-function sidenav($yemd, $rootScope){
-		return {
-			scope: {},
-			controller: function ($scope, $element, $attrs, $yemd, $rootScope ){
+function sidenav( $rootScope, $compile, $timeout){
 
-				$element.attr('class','sidenav--'+$attrs.sidenav);
+	return function link (scope, element, attrs) {
 
-				$rootScope.$on('toggleSidenav',function(e, name, toggle){ 
+		var type = attrs.sidenav || 'left',
+				overlay = angular.element('<div data-overlay></div>'),
+				defaultClassName = attrs.class,
+				toggleSidenav = function(toggle){
 
-					if ( $attrs.sidenav === name ) { 
-						if ( toggle ) {
-							( $element.hasClass('hide') )? $element.removeClass('hide').addClass('show') : $element.addClass('show') ;
+					if ( toggle  ) { 
 
-						}else {
-							( $element.hasClass('show') )? $element.removeClass('show').addClass('hide') : $element.addClass('hide') ;
+						$compile( overlay )(scope);
+						$rootScope.$emit('toggleOverlay', true);
+						element.after(overlay);
 
-						};
+						( element.hasClass('hide') )? element.removeClass('hide').addClass('show') : element.addClass('show') ;
 						 
+					} else {
+						
+						( element.hasClass('show') )? element.removeClass('show').addClass('hide') : element.addClass('hide') ;
+						$rootScope.$emit('toggleOverlay', false);
+						$timeout(function(){
+							overlay.remove();
+						}, 750);
+
 					}
 
-					if ( $element.hasClass('opacity') ) $element.removeClass('opacity') ;
+				};
 
-				});
+		element.attr('class','sidenav--'+ type);
 
-				$rootScope.$on('clickOverlay',function(e){
-					if ($element.hasClass('show')) {$element.removeClass('show').addClass('hide')};
-				});
+		element.find('.sidenav__cover').css( 'background-image', "url('"+element.find('.sidenav__cover').data('cover')+"')");
 
-				$rootScope.$on('toggleModal', function(e, toggle, html){
-					if ($element.hasClass('show'))  $element.addClass('opacity');
-				});
+		element.find('.sidenav__content__link').on('click', function(){
+			toggleSidenav(false);
+	    $rootScope.$emit('toggleSidenav', attrs.sidenav, false);
+	  });
 
-				$rootScope.$on('specialWidthSidenav', function(e, name, className){
+		$rootScope.$on('toggleSidenav', function(e, name, toggle){ if ( attrs.sidenav === name ) { toggleSidenav(toggle); } });
 
-					if ( $attrs.sidenav === name ) { $element.addClass( className ) ; }
+	  $rootScope.$on('clickOverlay', function(e){ if (element.hasClass('show')) {element.removeClass('show').addClass('hide')}; });
 
-				});
+	  $rootScope.$on('specialWidthSidenav', function(e, name, className){ if ( attrs.sidenav === name ) { element.addClass( className ) ; } });
 
-				$rootScope.$on('resetSpecialWidthSidenav', function(e, name){
+		$rootScope.$on('resetSpecialWidthSidenav', function(e, name){ if ( attrs.sidenav === name ) { element.attr('class', defaultClassName) ; } });
 
-					if ( $attrs.sidenav === name ) { $element.attr('class', $scope.defaultClassName ) ; }
-					
-				});
-				
-			},
-			controllerAs:'vm',
-			compile: function(tElement, tAttrs){
+	};
 
-				return {
-	        pre: function preLink(scope, element, attrs, vm) {
-		        	
-	        },  
-	        post: function postLink(scope, element, attrs, vm) {
-						
-						if ( element.find('.sidenav__cover') && typeof(element.find('.sidenav__cover').data('cover')) !== 'undefined'   ){
-							var cover = element.find('.sidenav__cover');
-		        	cover.css( 'background-image', "url('"+cover.data('cover')+"')");
-	        	};
-
-	        	element.find('.sidenav__content__link').on('click', function(){
-	        		console.log('click');
-	        		$rootScope.$emit('toggleSidenav', attrs.sidenav, false);
-	        	});
-	        	
-	        	//if ( element.hight() > $verge.viewportH() ) {
-	        		//element.css('overflow-y', 'srool');
-	        	//}
-
-	        }
-	      };
-			}
-		};
 };
 

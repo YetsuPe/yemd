@@ -12,19 +12,21 @@ angular.module('yemd')
 			restrict:'E', 
 			require:['?ngModel','?^form'] , 
 			controller:  function($scope,$element,$attrs,$rootScope ){
-
+				/*
 				$scope.$watch('hide', function(){
 	        $scope.hide?$element.closest('.wrapper').addClass('hide'):$element.closest('.wrapper').removeClass('hide');
 	      });
-
+				*/
 			},
 			compile: function(tElement, tAttrs){
 				return {
 	        pre: function preLink(scope, element, attrs, requires ) { 
 
-	        	var label = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
-            		error = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
+	        	var label   = angular.element("<label class='valid'>"+attrs.placeholder+"</label>"),
+            		error   = angular.element("<label class='invalid'>"+(attrs.error || 'error')+"</label>"),
             		wrapper = angular.element('<div class="wrapper"></div>') ;
+
+            element.attr('placeholder', '');
 
 		 				if ( attrs.type==="range" || attrs.type==="color" ) { 
 		 					element.wrap(wrapper); 
@@ -41,8 +43,6 @@ angular.module('yemd')
 		 					element.wrap( angular.element("<div class='checkbox'></div>") ); 
 					 		//element.prependTo( element.closest('.checkbox') );
 					 		element.closest('.checkbox').append(angular.element("<div class='check'><div class='inside'></div></div><label> "+element.data('option')+" </label>"));
-
-
 
 		 				}else if( attrs.type==="checkbox" ){
 		 					element.wrap( angular.element("<label class='switch switch-green'></label>") ); 
@@ -62,14 +62,12 @@ angular.module('yemd')
 		 				//if ( scope.hide ) {
 		 					//element.closest('.wrapper').css('display', 'none');
 		 				//}
-						
+
 	        },  
 	        post: function postLink(scope, element, attrs,requires) {    
 
 
-
-
-		 				element.bind('change', function () {
+		 				element.on('change', function () {
 
 		 					if (attrs.type==="file"){
 		 						scope.$apply(function () {
@@ -79,6 +77,11 @@ angular.module('yemd')
 				        
 				    }); 
 
+		 				element.on('focus',function(){
+		 					element.parent('.wrapper').addClass("focus current");
+		 				});
+
+		 				/*
 		        element.on('keyup',function(){
 		        	
 		          if ( requires[0].$dirty ) {   
@@ -91,9 +94,12 @@ angular.module('yemd')
 		          }
 
 		        }); 
-
+						*/
 						element.on('blur',function(){ 
+							element.parent('.wrapper').removeClass("current");
+							if ( requires[0].$pristine ) { element.parent('.wrapper').removeClass("focus"); }
  							//console.log(requires[0]);
+ 							/*
 							if ( requires[0].$dirty && attrs.type!=="range" ) {
 								if( !element.parent('.wrapper').hasClass("focus") ) {element.parent('.wrapper').addClass("focus");};
 								element.parent('.wrapper').find('label').eq(0).removeClass('leave').addClass("showD enter");
@@ -119,6 +125,7 @@ angular.module('yemd')
 							}else if(  (requires[0].$dirty && requires[0].$valid) || requires[0].$modelValue==="" ){
 								element.parent('.wrapper').removeClass('error');
 							}
+							*/
 
 						});
 
