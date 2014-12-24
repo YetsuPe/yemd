@@ -15,6 +15,7 @@
 	<header data-toolbar="appbar">
 
 		<span data-icon="ui.icons.appbarLeft"></span>
+		<span data-icon="ui.icons.appbarRight"></span>
 
 		<h1 class="toolbar__title" appbar-title="app.toState.name"> Yemd </h1>
 
@@ -34,25 +35,25 @@
 			<a href="#" class="sidenav__content__link"> Home </a>
 
 			<!-- components -->
-			<a href="#" class="sidenav__content__link"> Bottom Sheets </a>
-			<a href="#" class="sidenav__content__link"> Buttons </a>
-			<a href="#" class="sidenav__content__link"> Cards </a>
-			<a href="#" class="sidenav__content__link"> chips </a>
-			<a href="#" class="sidenav__content__link"> Dialogs </a>
-			<a href="#" class="sidenav__content__link"> Dividers </a>
-			<a href="#" class="sidenav__content__link"> Grids </a>
-			<a href="#" class="sidenav__content__link"> Lists </a>
-			<a href="#" class="sidenav__content__link"> List controls </a>
-			<a href="#" class="sidenav__content__link"> Menus </a>
-			<a href="#" class="sidenav__content__link"> Pickers </a>
-			<a href="#" class="sidenav__content__link"> Progress & activity </a>
-			<a href="#" class="sidenav__content__link"> Sliders </a>
-			<a href="#" class="sidenav__content__link"> Snackbars & toasts </a>
-			<a href="#" class="sidenav__content__link"> Subheaders </a>
-			<a href="#" class="sidenav__content__link"> Switches </a>
-			<a href="#" class="sidenav__content__link"> Tabs </a>
-			<a href="#" class="sidenav__content__link"> Text fields </a>
-			<a href="#" class="sidenav__content__link"> Tooltips </a>
+			<a ui-sref='bottom-sheets' class="sidenav__content__link"> Bottom Sheets </a>
+			<a ui-sref='buttons' class="sidenav__content__link"> Buttons </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Cards </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Chips </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Dialogs </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Dividers </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Grids </a>
+			<a ui-sref='lists' class="sidenav__content__link"> Lists </a>
+			<a ui-sref='cards' class="sidenav__content__link"> List controls </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Menus </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Pickers </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Progress & activity </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Sliders </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Snackbars & toasts </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Subheaders </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Switches </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Tabs </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Text fields </a>
+			<a ui-sref='cards' class="sidenav__content__link"> Tooltips </a>
 
 			<a href="#" class="sidenav__content__link"> Contact Us </a>
 		</section>
@@ -60,9 +61,10 @@
 	</nav>
 
 	<!-- Sidenav Right --> 
-	<section class="sidenav--right" data-sidenav="right">
+	<section data-sidenav="right">
 
-		<header class="toolbar">
+		<header data-toolbar="toolbarRight">
+			<span data-icon="ui.icons.toolbarRight1"></span>
 			<h1 class="toolbar__title"> Toolbar </h1>
 		</header>
 
@@ -71,7 +73,10 @@
 		</section>
 
 	</section>	
-	 
+	
+	<main ui-view class="canvas"></main>
+
+	<!--
 	<main class="canvas" ui-view>
 
 		<article class="card">
@@ -81,189 +86,39 @@
 			</div>
 		</article>
 
-		
-		<!--
-	<section data-picker="date" class="picker--date">
-		<header class="picker__header">
-			Sabado
-		</header>
-		<section class="picker__date-select">
-			<span class="picker__date-select__month">Nov</span>
-			<span class="picker__date-select__day">11</span>
-			<span class="picker__date-select__year">2014</span>
-		</section>
-		<section class="picker__calendar">
-			<span class="picker__calendar__header">Marzo 2014</span>
-			<table class="picker__calendar__table">
-				<tr class="picker__calendar__table__days">
-					<td>D</td><td>L</td><td>M</td><td>M</td><td>J</td><td>V</td><td>S</td>
-				</tr>
-				<tr class="picker__calendar__table__numbers">
-					<td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
-				</tr>
-				<tr class="picker__calendar__table__numbers">
-					<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>1</td>
-				</tr>
-				
-			</table>
-		</section>
-		<section class='picker__controls'> 
-			<a class='picker__controls__option'>Cancelar</a> 
-			<a class='picker__controls__option'>Ok</a>  
-		</section>
-	</section>
--->
-		<article class="card">
-			<form name="form">
-				<input type="text" placeholder="Text" ng-model="text">
-				<input type="number" placeholder="Number" ng-model="number">
-				<input type="email" placeholder="Mail" ng-model="email">
-				<input type="tel" placeholder="Phone" ng-model="phone">
-				<input type="search" placeholder="Search" ng-model="search">
-				
-				<input type="range" placeholder="Range" ng-model="range">
-				<input type="date" placeholder="Date">
-				<input type="month" placeholder="Month">
-				<input type="week" placeholder="Week">
-				<input type="time" placeholder="Time">
-				<input type="datetime" placeholder="Datetime">
-				<input type="datetime-local" placeholder="Datetime-local">
-				<input type="color" placeholder="Color">
-				<select > 
-					<option>XDXD</option>
-					<option>XDXD</option>
-					<option>XDXD</option>
-					<option>XDXD</option>
-				</select>
-				<button>Enviar</button>
-				<input type="submit" value="send">
-				
-			</form>
-		</article>
-		
-		<div class="card--avatar" data-card>
-			<div class="card__photo">
-				<img src="assets/images/plane.jpg" alt="" class="card__photo__image" />
-			</div>
-			<div class="card__content">
-				<h3 class="card__title">Title</h3>
-				<h4 class="card__sub-title">Sub title</h4>
-				<a href="#" class="card__link">Link</a>
-			</div>
-		</div>
-
-		
-
-		<article class="card--figure" data-card>
-			<div class="card__cover">
-				<img src="assets/images/plane.jpg" alt="" class="card__cover__image"/>
-			</div>
-			<div class="card__content">
-				<h3 class="card__title">Title</h3>
-				<a href="#" class="card__sub-title"> sub title</a>
-				<img class="card__logo" src="assets/images/logo-yetsu.jpg" alt="">
-			</div>
-		</article>
-
-		<article class="card--frame" data-card>
-			<div class="card__cover--frame">
-				<img src="assets/images/plane.jpg" alt="" class="card__cover__image"/>
-			</div>
-			<div class="card__content">
-				<h3 class="card__title"> Name </h3>
-				<span class="mdfi_communication_message"></span>
-			</div>
-		</article>
-
-		<h2>List Multiple</h2>
-
-		<section class='list--figure-multiples'> 
-
-			<nav class="list__header">
-				<a class="list__header__name"> Field 1 </a> 
-				<a class="list__header__name"> Field 2 </a> 
-				<a class="list__header__name"> Field 3 </a> 
-			</nav>
-						
-			<article class="list__item" >
-				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title 1</h3>
-					<h3 class="list__item__content__title">Title 2</h3>
-					<h3 class="list__item__content__title">Title 3</h3>
-				</div>
-			</article>  
-			
-		</section> 
-		
-		<h2>List Figure</h2>
-
-		<section class='list--figure'> 
-
-			<article class="list__item" >
-				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-					<h4 class="list__item__content__sub-title">Sub title</h4>
-				</div>
-			</article>  
-			
-			<article class="list__item" >
-				<img src="assets/images/menber.jpg" alt="" class="list__item__img" />
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-					<h4 class="list__item__content__sub-title">Sub title</h4>
-				</div>
-			</article>  
-			
-		</section> 
-
-		<h2>List Icon</h2>
-
-		<section class='list--icon'> 
-
-			<article class="list__item" ng-click="openBottomSheet()">
-
-				<span class="list__item__icon mdfi_navigation_menu"></span>
-		
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-				</div>
-			</article>  
-
-			<article class="list__item" ng-click="openBottomSheet()">
-
-				<span class="list__item__icon mdfi_navigation_menu"></span>
-		
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-				</div>
-			</article>  
-			
+		<section data-picker="date" class="picker--date">
+			<header class="picker__header">
+				Sabado
+			</header>
+			<section class="picker__date-select">
+				<span class="picker__date-select__month">Nov</span>
+				<span class="picker__date-select__day">11</span>
+				<span class="picker__date-select__year">2014</span>
+			</section>
+			<section class="picker__calendar">
+				<span class="picker__calendar__header">Marzo 2014</span>
+				<table class="picker__calendar__table">
+					<tr class="picker__calendar__table__days">
+						<td>D</td><td>L</td><td>M</td><td>M</td><td>J</td><td>V</td><td>S</td>
+					</tr>
+					<tr class="picker__calendar__table__numbers">
+						<td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
+					</tr>
+					<tr class="picker__calendar__table__numbers">
+						<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>1</td>
+					</tr>
+					
+				</table>
+			</section>
+			<section class='picker__controls'> 
+				<a class='picker__controls__option'>Cancelar</a> 
+				<a class='picker__controls__option'>Ok</a>  
+			</section>
 		</section>
 
 		
-		<section class='list--letter'> 
 
-			<article class="list__item" >
-
-				<span class="list__item__letter">Y</span>
 		
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-				</div>
-			</article>
-
-			<article class="list__item" >
-
-				<span class="list__item__letter">E</span>
-		
-				<div class="list__item__content" >
-					<h3 class="list__item__content__title">Title</h3>
-				</div>
-			</article>
-			
-		</section> 
 
 		<section data-bottom-sheet="bsList" data-type="list"> 
 
@@ -308,13 +163,10 @@
 				</article>  
 
 			</section>
-
-			
-				
-			
 		</section> 
 
 	</main>
+	-->
 
 <!--Dependencies -->
 <script src="vendor/jquery/dist/jquery.min.js"></script> 
