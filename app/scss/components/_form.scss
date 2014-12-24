@@ -1,14 +1,31 @@
 form {
   @extend %display--flex;
   @extend %flex-direction--column;
-  //padding: 1em;
+}
+
+@mixin style-placeholders () {
+  font-weight: 400;
+  color:$color-secondary-text;
+  opacity: 0;
+  @include animation( fadeIn $time-animation ease forwards); 
 }
 
 %labels {
-  height: em(16, 14);
-  font-size: em(14);
-  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  color: $color-secondary-text;
+  height: 1em;
+  @include transition( all $start_animation );
 }
+
+%placeholder {
+  &::-webkit-input-placeholder,
+  &:-moz-placeholder {
+    @include style-placeholders;
+  }
+}
+
+//reset
 
 select,
 textarea,
@@ -16,53 +33,31 @@ input {
   border: 0 ;
   outline: 0;
 }
+
+textarea {
+  @extend %placeholder;
+  width: 100%;
+  resize: none;
+}
+
   input[type="text"],
   input[type="password"],
   input[type="number"],
   input[type="email"],
   input[type="tel"],
-  input[type="search"]{
-    //@extend %display--flex;
-    //@extend %align-items--center;
+  input[type="search"] {
+    line-height: 1;
     width: 100%;
-    @extend %line-height--1; 
     padding: 0;
-    height: em(21); //Fix later
-      //height: em(48);
-    &::-webkit-input-placeholder {
-      font-weight: 400;
-      color:$color-secondary-text;
-      opacity: 0;
-      @include animation( fadeIn $time-animation ease forwards); 
-    }
-    &:-moz-placeholder {
-      font-weight: 400;
-      color:$color-secondary-text;
-      opacity: 0;
-      @include animation( fadeIn $time-animation ease forwards); 
-    }
+    height: 1em; //Fix later - em(21)
+    @extend %placeholder;
+    
   }
 
-.wrapper {
-  display: block;
-  padding: em(16);
-  height: em(48);
-  @include transition( height $start_animation );
-
-  &.focus {
-    height: em(72);
-  }
-  &.hide {
-    display: none;
-  }
-  @extend %position--relative;
-  //@extend %display--flex;
-  //@extend %flex-direction--column;
-  .valid {
-    @extend %labels;
-    display: none;
-    color: $color-secondary-text;
-    margin-bottom: em(4);
+.valid {
+  @extend %labels;
+    //margin-bottom: em(4);
+    /*
     &.enter{  
       @extend %animation-labelIn;
       & ~ input {
@@ -78,10 +73,11 @@ input {
     &.showD{
       @extend %display--block;
     }
-  }
+    */
+}
+
   .invalid {
     display: none;
-    @extend %labels;
     color: $color-error;
     margin-top: em(4);
     &.enter{  
@@ -101,21 +97,58 @@ input {
     }
   }
 
-  
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: em(16);
+  height: em(48);
+  @include transition( height $start_animation );
+  @extend %position--relative;
+
   &:after {
     content:'';
     position: absolute;
-    bottom: em(7.5);
+    bottom: em(7);
     left: 1em;
     @include calc('width', '100% - 2em' );
-    border-bottom: em(1) solid lighten($color-secondary-text, 50%);
+    border-bottom: em(2) solid lighten($color-secondary-text, 50%);
     @include transition( all $start_animation );
   }
+
+  &.focus {
+    height: em(72);
+    .valid {
+      position: relative;
+      font-size: 14px;
+      height: em(16, 14);
+      margin-bottom: em(8, 14);
+    }
+  }
+  
+  &.current {
+
+    &:after {
+      bottom: em(7);
+      border-bottom: em(2) solid $color-primary;
+    }
+    .valid {
+      color: $color-primary;
+    }
+  }
+
+  /*
+  &.hide {
+    display: none;
+  }
+  
+  
+
   &.error {
     &:after {
       bottom: em(31);
     }
   }
+
   &.open {
     height: em(72);
     .valid {
@@ -125,6 +158,7 @@ input {
       border-bottom: 0;
     }
   }
+
   &.open--image {
     height: auto;
     padding: 0;
@@ -143,18 +177,21 @@ input {
       width: 100%;
     }
   }
+
   &.open--all {
     height: em(72);
     .valid {
       display: block;
     }
   }
+
   &.open--select {
     height: em(52);
     select {
       width: 100%;
     }
   }
+
   &.open--select-w-second-action {
     height: em(52);
     &:after {
@@ -186,56 +223,60 @@ input {
       border-bottom: 0;
     }
   }
+  */
 }
 
 %button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   font-size: 16px;
   min-width: em(88);
   max-width: 100%;
-
   text-transform: uppercase;
-  //margin: em(8) em(16);
   text-align: center;
-  border-bottom: 0; 
+  border: 0; 
+  height: em(36);
+  
   &:hover { cursor: pointer;}
   &:nth-of-type(2) {
     margin: em(8) 0 ;
   }
 }
 
-input[type="submit"],
-button,
 .button {
   @extend %button;
-  @extend %zDepth-1;
+  @extend %zDepth-2;
+  padding: em(8) 1em;
   color:$color-text-white ;
   background-color: $color-primary ;
-  padding: em(8) 1em;
-}
-.button--second {
-  @extend %button;
-  @extend %zDepth-1;
-  color: $color-text ;
-  background-color: $color-secondary ;
-  padding: em(8) 1em;
-}
-.button--flat {
-  @extend %button;
-  display: flex;
-  justify-content: flex-end;
-  color: $color-primary ;
-}
-.button--flat-second {
-  @extend %button;
-  display: flex;
-  justify-content: flex-end;
-  color: $color-secondary ;
+
 }
 
-button {
-  border: 0;
+.button--second {
+  @extend %button;
+  @extend %zDepth-2;
+  padding: em(8) 1em;
+  color: $color-text ;
+  background-color: $color-secondary ;
 }
+
+.button--default {
+  @extend %button;
+  @extend %zDepth-2;
+  padding: em(8) 1em;
+  color: $color-black ;
+  background-color: darken($color-default, 12.5%) ;
+}
+
+.button--flat {
+  @extend %button;
+  @extend %zDepth-0;
+  justify-content: flex-end;
+  color: $color-primary ;
+  background-color: transparent;
+}
+
+
 
 // slider
 input[type=range] {
@@ -334,6 +375,7 @@ input[type=range]:focus::-webkit-slider-thumb {
   @extend %zDepth-1;
   @include transition ( all 0.15s ease-out );
 }
+
 .switch-input:checked ~ .switch-thumb {
   left: 20px;
   background: $color-success;
@@ -407,6 +449,14 @@ input[type=radio]:checked ~ label{
   justify-content: flex-end;
   align-items: center;
   height: em(48);
+  padding-right: 1em;
+
+  > * {
+    margin-right: em(8);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 @media screen and (min-width: $media-md) {
@@ -414,5 +464,6 @@ input[type=radio]:checked ~ label{
   .form__controls { 
     height: em(64);
   }
+
 
 }

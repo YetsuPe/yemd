@@ -27,40 +27,31 @@
 }
 
 .action {
-  @extend %display--none;
+  @extend %action;
+  @extend %position--absolute;
 }
 
-/***directive***/ 
-.action--embed { 
+.action--embed {
   @extend %action;
-  @include transform( scale(1) );
   @extend %position--absolute;
-  @extend %left--base;
-
-  //padding: $base-font  * 0.5 ;//em(8px);
-  width : em(40) ;//em(40px);
-  height: em(40) ;//em(40px); 
-
+  width: em(56);
+  height: em(56);
+  
   [class^="mdfi_"], 
   [class*=" mdfi_"] { 
-    width : em(40, 24) ;
-    height: em(40, 24) ;
+    width : em(56, 24) ;
+    height: em(56, 24) ;
   }
-
-    
 }
 
 .action--float {
   @extend %action;
   @extend %position--fixed;
-  @extend %z-index--2;
   @extend %bottom--base;
   @extend %right--base;
+  width: em(56);
+  height: em(56);
   
-  @include transform(scale(1)); 
-  width: em(56);//em(56px);
-  height: em(56);//em(56px);
-
   [class^="mdfi_"], 
   [class*=" mdfi_"] { 
     width : em(56, 24) ;
@@ -68,29 +59,55 @@
   }
 
 }
+.appbar--extend,
+.toolbar--extend {
+  
+  .action {
+    @extend %left--base;
+    @extend %background-color--secondary;
+    
+    bottom: -1 * em(20) ;// em(20px);
 
-/***** special ***/
-.action--in-appbar {
-  bottom: -1 * ( $base-font  * 1.25 ) ;// em(20px);
-}
-
-@media screen and (min-width: $media-md) {
-  .action--embed {
-    width : em(56) ;
-    height: em(56) ; 
-    left: em(24);
+    width : em(40) ;//em(40px);
+    height: em(40) ;//em(40px); 
 
     [class^="mdfi_"], 
     [class*=" mdfi_"] { 
-      font-size: 24px ;
-      color: $color-white;
-      width : em(56, 24) ;
-      height: em(56, 24) ;
+      width : em(40, 24) ;
+      height: em(40, 24) ;
     }
-
-  }
-  .action--in-appbar {
-    bottom: -1 * em(28)  ;
   }
   
+}
+
+.toolbar--2rows .action { 
+  left: auto;
+  @include calc('right', ' 8.333335% - #{em(20)}' );
+}
+
+@media screen and (min-width: $media-md) {
+  
+  .appbar--extend,
+  .toolbar--extend {
+    .action {
+      width : em(56) ;
+      height: em(56) ; 
+      left: em(24);
+      bottom: -1 * em(28)  ;
+      [class^="mdfi_"], 
+      [class*=" mdfi_"] { 
+        font-size: 24px ;
+        color: $color-white;
+        width : em(56, 24) ;
+        height: em(56, 24) ;
+      }
+
+    }
+  }
+
+  .toolbar--2rows .action { 
+    left: auto;
+    @include calc('right', ' 8.333335% - #{em(28)}' );
+  }
+
 }

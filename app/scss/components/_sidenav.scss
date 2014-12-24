@@ -18,103 +18,108 @@
 		}
 	}
 }
-
-.sidenav--left{
-	@include calc( "width", " 100% - #{ em(56px) } " );
-	@extend %sidenav; 
-	//@extend %animation-hideSidenavLeft; /** problem firefox os */
-	@include fix_sidenav_position; 
-	&.show{ 
-		@extend %animation-showSidenavLeft;
-	}
-	&.hide{ 
-		@extend %animation-hideSidenavLeft;
-	}
-}
-
-.sidenav--right { 
-	width: 100%;
-	@extend %sidenav;
-	@include transform( translateX( 100% ) ); 
-	right: 0;
-	background-color: $bg-sidenav;
-	&.show{ 
-		@include transform( translateX( 0 ) ); 
-		//@extend %animation-showSidenavRight;
-	}
-	&.hide{ 
-		@include transform( translateX( 100% ) ); 
-		//@extend %animation-hideSidenavRight;
-	}
-}
-
 	%sidenav__cover {
 		@extend %position--relative ;
 		@extend %background-repeat--no-repeat;
 		@extend %background-size--cover;
 		background-position: center;
-		//background-image: url("../assets/images/cover.jpg") ;
 		padding:0 em(16px); 
 	}
 
-	.sidenav__cover {
-		@extend %sidenav__cover;
-		@include calc( "height", "( 100vw - #{ em(56px) } ) * #{ 9/16 } " );
-	}
-	.sidenav__cover--4x3 {
-		@extend %sidenav__cover;
-		@include calc( "height", "( 100vw - #{ em(56px) } ) * #{ 3/4 } " );
+.yemd {
+	.sidenav--left {
+		@include calc( "width", " 100% - #{ em(56px) } " );
+		@extend %sidenav; 
+		//@extend %animation-hideSidenavLeft; /** problem firefox os */
+		@include fix_sidenav_position; 
+		&.show { 
+			@extend %animation-showSidenavLeft;
+		}
+		&.hide { 
+			@extend %animation-hideSidenavLeft;
+		}
 	}
 
-		.sidenav__cover__logo {
-			@extend %display--block ;
-			@extend %position--relative ;
-			top: em(16px);
-			width: em(64px);
-			height: em(64px);
-			padding: em(4);
-			background-color: $color-white ; 
-			@extend %border-radius--50percent;
-			@extend %animation-scaleIn;
+	.sidenav--right { 
+		width: 100%;
+		@extend %sidenav;
+		@include transform( translateX( 100% ) ); 
+		right: 0;
+		background-color: $bg-sidenav;
+		&.show{ 
+			@include transform( translateX( 0 ) ); 
+			//@extend %animation-showSidenavRight;
 		}
-		.sidenav__cover__text {
-			@extend %position--absolute ;
-			@extend %bottom--0 ;
-			@extend %left--0 ;
-			@extend %width--100percent;
-			@extend %line-height--3 ;  
-			@extend %overflow--hidden;
-			@extend %text-overflow--ellipsis;
-			color: $color-white;
-			padding: 0 em(16);
-			height:em(48); 
-			
+		&.hide{ 
+			@include transform( translateX( 100% ) ); 
+			//@extend %animation-hideSidenavRight;
 		}
-	.sidenav__content {
-		@extend %display--flex;
-		@extend %position--relative;
-		@extend %flex-direction--column;
-		background-color: $bg-sidenav; 
-		@include calc( "min-height", "100% - ( ( 100vw - #{ em(56px) } ) * #{ 9/16 } ) " );
-		//min-height: 100%;
 	}
-		.sidenav__content__link {
-			@extend %display--block;
-	    @extend %line-height--1;
-	    @extend %color--secondary;
-	    @extend %overflow--hidden;
-	    @extend %text-overflow--ellipsis ;
-	    height: em(48);
-	    padding: em(16); 
+
+		.sidenav__cover {
+			@extend %sidenav__cover;
+			@include calc( "height", "( 100vw - #{ em(56px) } ) * #{ 9/16 } " );
+		}
+		.sidenav__cover--4x3 {
+			@extend %sidenav__cover;
+			@include calc( "height", "( 100vw - #{ em(56px) } ) * #{ 3/4 } " );
 		}
 
-/****** fix overflow-y:scrool when the height sidenav is menor*/ 
+			.sidenav__cover__logo {
+				@extend %display--block ;
+				@extend %position--relative ;
+				top: em(16px);
+				width: em(64px);
+				height: em(64px);
+				padding: em(4);
+				background-color: $color-white ; 
+				@extend %border-radius--50percent;
+				@extend %animation-scaleIn;
+			}
+
+			.sidenav__cover__text {
+				@extend %position--absolute ;
+				@extend %bottom--0 ;
+				@extend %left--0 ;
+				@extend %width--100percent;
+				@extend %line-height--3 ;  
+				@extend %overflow--hidden;
+				@extend %text-overflow--ellipsis;
+				color: $color-white;
+				padding: 0 em(16);
+				height:em(48); 
+				
+			}
+
+		.sidenav__content {
+			@extend %display--flex;
+			@extend %position--relative;
+			@extend %flex-direction--column;
+			background-color: $bg-sidenav; 
+			@include calc( "min-height", "100% - ( ( 100vw - #{ em(56px) } ) * #{ 9/16 } ) " );
+			//min-height: 100%;
+		}
+
+			.sidenav__content__link {
+				@extend %display--block;
+		    @extend %line-height--1;
+		    @extend %color--secondary;
+		    @extend %overflow--hidden;
+		    @extend %text-overflow--ellipsis ;
+		    height: em(48);
+		    padding: em(16); 
+			}
+}
+
 @media only screen and ( max-width: 256px ) {
- .sidenav--left figure img{
- 		//display: none ;
- 		pointer-events: none;
- 		@include animation( scaleOut $time-animation $mode-animation forwards );
- 	}
+
+  .yemd {
+		.sidenav--left figure img {
+	 		pointer-events: none;
+	 		@include animation( scaleOut $time-animation $mode-animation forwards );
+	 	}
+	}
+	 
 }
 
 $sidenav-min-width: 320px; 
@@ -124,60 +129,74 @@ $sidenav-max-width: 400px;
 $sidenav-breakpoint: 376px ;
 
 @media only screen and ( min-width: $sidenav-breakpoint ) {
-	.sidenav--left { 
-		min-width: $sidenav-min-width; 
-		width: $sidenav-width; 
-		max-width: $sidenav-max-width; 
-		.sidenav__cover {
-			@include calc( "min-height", " #{$sidenav-min-width} * #{ 9/16 } " );
-			@include calc( "height", " #{$sidenav-width} * #{ 9/16 } " );
-			@include calc( "max-height", " #{$sidenav-max-width} * #{ 9/16 } " );
+
+	.yemd { 
+
+		.sidenav--left { 
+			min-width: $sidenav-min-width; 
+			width: $sidenav-width; 
+			max-width: $sidenav-max-width; 
+			.sidenav__cover {
+				@include calc( "min-height", " #{$sidenav-min-width} * #{ 9/16 } " );
+				@include calc( "height", " #{$sidenav-width} * #{ 9/16 } " );
+				@include calc( "max-height", " #{$sidenav-max-width} * #{ 9/16 } " );
+			}
+			.sidenav__cover--4x3 {
+				@include calc( "min-height", " #{$sidenav-min-width} * #{ 3/4 } " );
+				@include calc( "height", " #{$sidenav-width} * #{ 3/4 } " );
+				@include calc( "max-height", " #{$sidenav-max-width} * #{ 3/4 } " );
+			}
 		}
-		.sidenav__cover--4x3 {
-			@include calc( "min-height", " #{$sidenav-min-width} * #{ 3/4 } " );
-			@include calc( "height", " #{$sidenav-width} * #{ 3/4 } " );
-			@include calc( "max-height", " #{$sidenav-max-width} * #{ 3/4 } " );
-		}
+
 	}
+
 }
 
 @media only screen and ( min-width: $sidenav-breakpoint * 1.25 ) {
-	.sidenav--right { 
-		$sidenav-min-width: $sidenav-min-width * 1.25;
-		min-width: $sidenav-min-width; 
-		width: $sidenav-width; 
-		max-width: $sidenav-max-width; 
-		.sidenav__cover {
-			@include calc( "min-height", " #{$sidenav-min-width } * #{ 9/16 } " );
-			@include calc( "height", " #{$sidenav-width } * #{ 9/16 } " );
-			@include calc( "max-height", " #{$sidenav-max-width } * #{ 9/16 } " );
-		}
-		.sidenav__cover--4x3 {
-			@include calc( "min-height", " #{$sidenav-min-width } * #{ 3/4 } " );
-			@include calc( "height", " #{$sidenav-width } * #{ 3/4 } " );
-			@include calc( "max-height", " #{$sidenav-max-width } * #{ 3/4 } " );
+
+	.yemd {
+		.sidenav--right { 
+			$sidenav-min-width: $sidenav-min-width * 1.25;
+			min-width: $sidenav-min-width; 
+			width: $sidenav-width; 
+			max-width: $sidenav-max-width; 
+			.sidenav__cover {
+				@include calc( "min-height", " #{$sidenav-min-width } * #{ 9/16 } " );
+				@include calc( "height", " #{$sidenav-width } * #{ 9/16 } " );
+				@include calc( "max-height", " #{$sidenav-max-width } * #{ 9/16 } " );
+			}
+			.sidenav__cover--4x3 {
+				@include calc( "min-height", " #{$sidenav-min-width } * #{ 3/4 } " );
+				@include calc( "height", " #{$sidenav-width } * #{ 3/4 } " );
+				@include calc( "max-height", " #{$sidenav-max-width } * #{ 3/4 } " );
+			}
 		}
 	}
-		
 
 }
 
 @media only screen and ( min-width: $sidenav-breakpoint * 2 ) {
-	.sidenav--left.x2,
-	.sidenav--right.x2 { 
-		min-width: $sidenav-min-width * 2 ; 
-		width: $sidenav-width * 2 ; 
-		max-width: $sidenav-max-width * 2 ; 
-	}
 
+	.yemd {
+		.sidenav--left.x2,
+		.sidenav--right.x2 { 
+			min-width: $sidenav-min-width * 2 ; 
+			width: $sidenav-width * 2 ; 
+			max-width: $sidenav-max-width * 2 ; 
+		}
+	}
+	
 }
 
 @media only screen and ( min-width: $sidenav-breakpoint * 3 ) {
-	.sidenav--left.x3,
-	.sidenav--right.x3 { 
-		min-width: $sidenav-min-width * 3 ; 
-		width: $sidenav-width * 3 ; 
-		max-width: $sidenav-max-width * 3 ; 
+
+	.yemd { 
+		.sidenav--left.x3,
+		.sidenav--right.x3 { 
+			min-width: $sidenav-min-width * 3 ; 
+			width: $sidenav-width * 3 ; 
+			max-width: $sidenav-max-width * 3 ; 
+		}
 	}
 
 }

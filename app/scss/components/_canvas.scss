@@ -1,39 +1,49 @@
-.canvas,
-.canvas--block,
-.canvas--default {
-	@extend %position--relative;
-	@include transition ( all $time-animation $mode-animation ); 
+.yemd {	
+	.canvas,
+	.canvas--block,
+	.canvas--default {
+		@extend %position--relative;
+		@include transition ( all $time-animation $mode-animation ); 
+	}
 }
 
 @media screen and (min-width: $media-md) {
-	.canvas--block-transparent {
-		width: 66.66666%;
-		margin-left: auto;
-		margin-right: auto;
-	}
+	.yemd { 
 
-	.canvas--block {
-		background-color: $color-white;
-		width: 66.66666%;
-		margin-left: auto;
-		margin-right: auto;
-		top: em( 64 * 1) * -1 ;
-		@include zDepth(2);
-		border-radius: em(2);
-		@include calc('min-height', ' #{em(64*3)} ');
-		
-		[class^="card"], 
-		[class*=" card"] {
-			@include zDepth(0);
-			margin: 0;
+		.canvas--block-transparent {
+			width: 66.66666%;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
-		[class^="list"], 
-		[class*=" list"] {
-			@include zDepth(0);
+		.canvas--block {
+			background-color: $color-white;
+			width: 66.66666%;
+			margin-left: auto;
+			margin-right: auto;
+			top: em( 64 * 1) * -1 ;
+			@include zDepth(2);
+			border-radius: em(2);
+			@include calc('min-height', ' #{em(64*3)} ');
+			
+			[class^="card"], 
+			[class*=" card"] {
+				@include zDepth(0);
+				margin: 0;
+				&:first-of-type {
+					border-radius: em(2) em(2) 0 0;
+				}
+				&:last-of-type {
+					border-radius: 0 0 em(2) em(2);
+				}
+			}
+
+			[class^="list"], 
+			[class*=" list"] {
+				@include zDepth(0);
+			}
+
 		}
-
 	}
-
 	
 }

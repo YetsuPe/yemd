@@ -14,9 +14,6 @@
 	> [class^="mdfi_"], 
 	> [class*=" mdfi_"] {
 		@extend %position--absolute;
-		@extend %display--flex;
-		@extend %align-items--center;
-		@extend %justify-content--center;
 		top:  em(4, 24);//em(4, 24);
 		color: $toolbar-icons-color;
 	}
@@ -27,70 +24,51 @@
 
 }
 
-.appbar,
-.toolbar,
-.appbar--default, 
-.toolbar--default {
-	@extend %toolbar;
-	height: em(56) ; //56dp; 
-}
+.yemd {
 
-.appbar--extend,
-.toolbar--extend {
-	@extend %toolbar;
-	height: em(128); //em(128);
-
-	.appbar__title,
-	.toolbar__title {
-		font-size: 24px;
-		//text-transform: capitalize;
-		font-weight: 400;
-		////margin-left: em(72, 24);
-		padding-bottom: 1em; 
-		align-self: flex-end;
+	.appbar,
+	.toolbar,
+	.appbar--default, 
+	.toolbar--default {
+	  @extend %toolbar;
+	  height: em(56);
 	}
 
-}
+	.appbar--extend,
+	.toolbar--extend {
+		@extend %toolbar;
+		height: em(128); 
 
-.toolbar--2rows {
-	@extend %toolbar;
-	height: em(56*2) ; 
-	.action--in-appbar {
-		left: auto;
-		@include calc('right', ' 8.333335% - #{em(20)}' );
+		.appbar__title,
+		.toolbar__title {
+			font-size: 24px;
+			font-weight: 400;
+			padding-bottom: 1em; 
+			align-self: flex-end;
+		}
+
 	}
-}
 
-.toolbar--3rows {
-	@extend %toolbar;
-	height: em(56*3) ; 
-	
-		
-}
-
-.toolbar--4rows {
-	@extend %toolbar;
-	height: em(56*4) ; 
-}
-
-
-
-	.appbar__title,
-	.toolbar__title { 
-		color: white; //Bug
-		//@extend %color--white ; 
-		@extend %text-overflow--ellipsis; 
-		@extend %overflow--hidden;
-		@extend %font-size--base;  
-		@extend %line-height--1; 
-		//@extend %text-transform--uppercase; 
-		//margin-left: em(72) ;//em(72); 
-		
+	.toolbar--2rows {
+		@extend %toolbar;
+		height: em(56*2) ; 
 	}
+
+		.appbar__title,
+		.toolbar__title { 
+			color: white; //Bug
+			@extend %text-overflow--ellipsis; 
+			@extend %overflow--hidden;
+			@extend %font-size--base;  
+			@extend %line-height--1; 
+			
+		}
+
+}
 
 @media screen and ( min-width: $media-md ) {
 	
-	@mixin icon-on-appbar(){ 
+  @mixin icon-on-appbar() { 
 	  > [class^="mdfi_"], 
 		> [class*=" mdfi_"] {
 			top: em(8, 24);
@@ -104,53 +82,38 @@
 		}
 	}
 
-	.appbar,
-	.appbar--default,
-	.toolbar,
-	.toolbar--default {
-		height: em(64);
-		@include icon-on-appbar;
-		
-	}
+  .yemd {
 
-	.appbar--extend,
-	.toolbar--extend {
-		height: em(144);
-		@include icon-on-appbar;
-		.appbar__title,
-		.toolbar__title {
-			font-size: 26.6666px;
-			//margin-left: em(104, 26.6666);
-		}
-	}
-	
-	.appbar__title,
-	.toolbar__title {
-		//margin-left: em(80);
-	}
-
-	@for $i from 1 through 5 {
-
-		.toolbar--#{$i}rows{
+		.appbar,
+		.appbar--default,
+		.toolbar,
+		.toolbar--default {
+			height: em(64);
 			@include icon-on-appbar;
-			height: em( 64* $i ) ; 
-
+			
+		}
+	
+		.appbar--extend,
+		.toolbar--extend {
+			height: em(144);
+			@include icon-on-appbar;
 			.appbar__title,
 			.toolbar__title {
-				align-self: flex-start;
-				top: em(24);
-				position: relative;
+				font-size: 26.6666px;
 			}
-
+		}
+	
+		.toolbar--2rows {
+			height: em(64*2) ; 
+			@include icon-on-appbar;
+			.appbar__title,
+			.toolbar__title {
+				position: relative;
+				align-self: flex-start;
+				top: em( 24 ) ;
+			} 
 		}
 
-
-	}
-
-	.toolbar--2rows {; 
-		.action--in-appbar {
-			@include calc('right', ' 8.333335% - #{em(28)}' );
-		}
 	}
 
 	

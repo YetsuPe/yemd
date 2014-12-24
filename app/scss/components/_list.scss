@@ -5,6 +5,8 @@
   flex-direction: column;
   @extend %zDepth-1;
   padding: em(8) 0;
+  margin: em(8) 0;
+  width: 100%;
 }
 
   %list__item__field {
@@ -23,183 +25,196 @@
     &:nth-child(2) { display: block; }
   }
 
-//Selectors
-.list--figure {
-  @extend %list;
-}
+.yemd {
+  //Selectors
+  .list--figure {
+    @extend %list;
+  }
 
-.list--figure-multiline {
+  .list--figure-multiline {
 
-  @extend %list;
+    @extend %list;
 
-    .list__item__content {
-      padding: em(20) 0 ;
-      @extend %display--flex;
-      @include calc('width', ' 100% - #{em(72)} ');
-      flex-direction: row;
-      .list__item__content__title {
-        @extend %list__item__field;
+      .list__item__content {
+        padding: em(20) 0 ;
+        @extend %display--flex;
+        @include calc('width', ' 100% - #{em(72)} ');
+        flex-direction: row;
+        .list__item__content__title {
+          @extend %list__item__field;
+        }
       }
-    }
-}
-
-.list--figure-controls {
-  @extend %list;
-  
-  .list__item__content--multiple {
-    @include calc('width', ' 100% - #{em(72 + 32 + 24 ) } ');
-  }
-  .list__header {
-    padding-right: em(56);
   }
 
-}
-
-.list--icon {
-  @extend %list;
-}
-
-.list--icon-colored {
-  @extend %list;
-  .list__item__icon,
-  .list__item__letter {
-    color: $color-white;
-    background-color: $color-secondary;
-  }
-}
-
-.list--icon-colored-multiline {
-  @extend .list--icon-colored;
-
-    .list__item__content {
-      padding: em(20) 0 ;
-      @extend %display--flex;
-      @include calc('width', ' 100% - #{em(72)} ');
-      flex-direction: row;
-      .list__item__content__title {
-        @extend %list__item__field;
-      }
-    }
-}
-
-.list--letter {
-  @extend %list;
-}
-  .list__title {
-    font-size: em(18);
-    font-weight: 400;
-
-    height: em(48, 18);
-    padding: 0 em(16, 18);
-    display: flex;
-    align-items: center;
-  }
-  .list__header{
-    @extend %display--flex;
-    height: em(48);
-    margin-left: em(72);
-    align-items: center;
-    border-bottom: em(2) solid $color-secondary;
-    @include calc('width', ' 100% - #{em(72)} ');
-  }
-    .list__header__name {
-      @extend %color--secondary;
-      @extend %text-transform--capitalize;
-      @extend %list__item__field;
-    }
-
-  .list__item {
-    display: flex;
-    height: em(48);
-    align-items: center;
-  } 
+  .list--figure-controls {
+    @extend %list;
     
-    %list__item__picture {
-      width:  em(40);
-      height: em(40); 
-      margin-left: em(16);
-      margin-right: em(16);
+    .list__item__content--multiple {
+      @include calc('width', ' 100% - #{em(72 + 32 + 24 ) } ');
     }
-    .list__item__img {
-      @extend %list__item__picture;
-      border-radius: 50%;
-    } 
+    .list__header {
+      padding-right: em(56);
+    }
+
+  }
+
+  .list--icon {
+    @extend %list;
+    .list__item__icon {
+      color: $color-white;
+      background-color: $color-secondary;
+    }
+  }
+
+  .list--icon-colored {
+    @extend %list;
     .list__item__icon,
     .list__item__letter {
-      color: $color-icon ;
-      width:  em(40, 24);
-      height: em(40, 24); 
-      margin-left: em(16, 24);
-      margin-right: em(16, 24);
-      font-size: 24px;
+      color: $color-white;
+      background-color: $color-secondary;
+    }
+  }
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $color-icon ;
-      border-radius: 100%;
+  .list--icon-colored-multiline {
+    @extend .list--icon-colored;
+
+      .list__item__content {
+        padding: em(20) 0 ;
+        @extend %display--flex;
+        @include calc('width', ' 100% - #{em(72)} ');
+        flex-direction: row;
+        .list__item__content__title {
+          @extend %list__item__field;
+        }
+      }
+  }
+
+  .list--letter {
+    @extend %list;
+    .list__item__letter {
+      color: $color-white;
+      background-color: $color-secondary;
     }
-    .list__item__controls {
+  }
+
+    .list__title {
+      font-size: em(18);
+      font-weight: 400;
+
+      height: em(48, 18);
+      padding: 0 em(16, 18);
       display: flex;
-      flex-basis: em(56, 24);
-      font-size: em(24);
-      justify-content: center;
-      align-self: inherit;
       align-items: center;
     }
-    .list__item__content {
+    .list__header{
       @extend %display--flex;
-      @extend %flex-direction--column; 
-      @include calc('width', ' 100% - #{em(72)}  ' );
-      height: em(72);
-      justify-content: center;
-      line-height: 1.3;
+      height: em(48);
+      margin-left: em(72);
+      align-items: center;
+      border-bottom: em(2) solid $color-secondary;
+      @include calc('width', ' 100% - #{em(72)} ');
     }
-    
-      .list__item__content__title {
-        text-transform: capitalize;
-        @extend %overflow--hidden;
-        @extend %text-overflow--ellipsis ;
-        padding-right: em(16);
-        font-weight: 400;
-        &:hover { cursor: pointer; }
+      .list__header__name {
+        @extend %color--secondary;
+        @extend %text-transform--capitalize;
+        @extend %list__item__field;
       }
-      .list__item__content__subtitle {
-        @extend %overflow--hidden;
-        @extend %text-overflow--ellipsis ;
-        padding-right: em(16);
-        &:hover { cursor: pointer; }
-        font-weight: 300;
-        font-size: em(14);
-        color: lighten($color-black, 40%);
-        //text-transform: capitalize;
+
+    .list__item {
+      display: flex;
+      height: em(48);
+      align-items: center;
+    } 
+      
+      %list__item__picture {
+        width:  em(40);
+        height: em(40); 
+        margin-left: em(16);
+        margin-right: em(16);
       }
+      .list__item__img {
+        @extend %list__item__picture;
+        border-radius: 50%;
+      } 
+      .list__item__icon,
+      .list__item__letter {
+        color: $color-icon ;
+        width:  em(40, 24);
+        height: em(40, 24); 
+        margin-left: em(16, 24);
+        margin-right: em(16, 24);
+        font-size: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-icon ;
+        border-radius: 100%;
+      }
+      .list__item__controls {
+        display: flex;
+        flex-basis: em(56, 24);
+        font-size: em(24);
+        justify-content: center;
+        align-self: inherit;
+        align-items: center;
+      }
+      .list__item__content {
+        @extend %display--flex;
+        @extend %flex-direction--column; 
+        @include calc('width', ' 100% - #{em(72)}  ' );
+        height: em(72);
+        justify-content: center;
+        line-height: 1.3;
+      }
+      
+        .list__item__content__title {
+          text-transform: capitalize;
+          @extend %overflow--hidden;
+          @extend %text-overflow--ellipsis ;
+          padding-right: em(16);
+          font-weight: 400;
+          &:hover { cursor: pointer; }
+        }
+        .list__item__content__subtitle {
+          @extend %overflow--hidden;
+          @extend %text-overflow--ellipsis ;
+          padding-right: em(16);
+          &:hover { cursor: pointer; }
+          font-weight: 300;
+          font-size: em(14);
+          color: lighten($color-black, 40%);
+          //text-transform: capitalize;
+        }
+}
 
 @media screen and (min-width: $media-md) {
-  .list__header {
-    margin-left: em(104);
-    @include calc('width', ' 100% - #{em(104)} ');
-  }
-  .list__item {
-    height: em(64);
-  }
-    @mixin list__item__picture {
-      margin-left: em(32);
-      margin-right: em(32);
-    }
-    .list__item__img {
-      @include list__item__picture;
-    } 
-    .list__item__icon,
-    .list__item__letter {
-      margin-left: em(32, 24);
-      margin-right: em(32, 24);
-    }
-    .list--figure-multiline .list__item__content,
-    .list--icon-multiline .list__item__content,
-    .list--icon-colored-multiline .list__item__content {
+  .yemd {
+    .list__header {
+      margin-left: em(104);
       @include calc('width', ' 100% - #{em(104)} ');
     }
+    .list__item {
+      height: em(64);
+    }
+      @mixin list__item__picture {
+        margin-left: em(32);
+        margin-right: em(32);
+      }
+      .list__item__img {
+        @include list__item__picture;
+      } 
+      .list__item__icon,
+      .list__item__letter {
+        margin-left: em(32, 24);
+        margin-right: em(32, 24);
+      }
+      .list--figure-multiline .list__item__content,
+      .list--icon-multiline .list__item__content,
+      .list--icon-colored-multiline .list__item__content {
+        @include calc('width', ' 100% - #{em(104)} ');
+      }
+  }
 }
 
 @media screen and (min-width: 600px) {

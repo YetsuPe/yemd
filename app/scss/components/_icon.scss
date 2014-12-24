@@ -1,16 +1,21 @@
 
-%icon{
+%icon {
 	@extend %position--relative;
 	font-size: 24px;
 	width: em(48, 24) ;//em(48, 24);
 	height: em(48, 24) ;//em(48, 24);
+	@extend %display--flex;
+	@extend %align-items--center;
+	@extend %justify-content--center;
 
 	&.hide { display: none; }
 }
 
-.icon,
-[class^="mdfi_"], 
-[class*=" mdfi_"] {
-	@extend %icon;
-	@include transition ( all $time-animation $mode-animation );
+.yemd { 
+	.icon,
+	[class^="mdfi_"], 
+	[class*=" mdfi_"] {
+		@extend %icon;
+		@include transition ( all $time-animation $mode-animation );
+	}
 }
