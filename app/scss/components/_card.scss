@@ -358,6 +358,7 @@
 
 		.card__header { //exten for list__item
 			@extend .list__item;
+		  	height: auto !important;
 		}
   			.card__header__image {
 			  @extend .list__item__img;
