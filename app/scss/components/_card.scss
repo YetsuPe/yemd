@@ -1,3 +1,7 @@
+$card-avatar-icon : em(130);
+$card-avatar-photo : em(130);
+$card-post-photo : em(130);
+
 %card {
   @extend %zDepth-1;
   @extend %position--relative;  
@@ -18,15 +22,14 @@
 	%card--square {//Fix later scroolbar in chrome
 		@extend %card;
 		@extend %border-radius--card; 
-		@include calc('width', '( 100vw / 2 ) - #{em(6)} ');
-		@include calc('height', '( 100vw / 2 ) - #{em(6)} ');
-		 
-		
+		//@include calc('width', '( 100vw / 2 ) - #{em(6)} ');
+		//@include calc('height', '( 100vw / 2 ) - #{em(6)} ');
+
 		&:nth-child(odd) {
-			margin: em(4) em(2) 0 em(4);
+			//margin: em(4) em(2) 0 em(4);
 		}
 		&:nth-child(even) {
-			margin: em(4) em(4) 0 em(2);
+			//margin: em(4) em(4) 0 em(2);
 		}
 		
 		.card__title {
@@ -54,8 +57,6 @@
 	}
 
   	.card--avatar {
-
-	  $card-avatar-photo : em(120);
 
 	  @extend %card;
 	  margin  : em(8px);
@@ -94,9 +95,9 @@
 	}
 
 	.card--post {
-	  $card-post-photo : em(120);
+
 	  display: flex;
-	  padding: em(8) em(16);
+	  padding: em(8) em(16) 0 em(16);
 	  background-color: $color-white;
 	  .card__photo {
 		width: $card-post-photo;
@@ -128,16 +129,14 @@
 		margin-bottom: em(2);
 	  }
 	  &:first-of-type {
-		padding: em(16) em(16) em(8) em(16);
+		padding: em(16) em(16) 0 em(16);
 	  }
 	  &:last-of-type {
-		padding: em(8) em(16) em(16) em(16);
+		padding: em(8) em(16) em(8) em(16);
 	  }
 	}
 
 	.card--icon {
-
-		$card-avatar-icon : em(120);
 
 		@extend %card;
 		margin  : em(8px);
@@ -328,9 +327,10 @@
 				padding: 0;
 			}
 			p,
+			.card__description,
 			.card__resume {
 				margin: 1em 0 0 0; 
-				color: $color-text;
+				color: $color-text-secondary;
 				line-height: 1.25;
 				&:first-of-type {
 					margin: 0; 
@@ -433,19 +433,20 @@
 				font-weight: 400;
 				text-align: center;
 			}
+
 		.card__title {
-			//margin: em(16, 18) em(16, 18) 0 em(16, 18);
 			font-size: em(24);
 			font-weight: 400;
-
 			padding: em(16, 24) em(16, 24) 0 em(16, 24);
 			display: flex;
 			align-items: center;
-
+		  	color: $color-text;
 		}
+
 		.card__subtitle {
 			color: lighten($color-primary, 20%);
 		}
+
 }
 
 @media screen and (min-width: $media-md) {
