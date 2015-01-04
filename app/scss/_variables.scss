@@ -11,10 +11,12 @@ $color-secondary       : #009688 !default;
 $color-default : #DDDDDD;
 $color-black : #000;
 $color-white : #fff; 
-$color-hint-text       : rgba($color-black, .26);
+
 $color-text            : rgba($color-black, .87);
+$color-text-secondary  : rgba($color-black, .54);
+$color-text-hint       : rgba($color-black, .26);
+
 $color-text-white      : $color-white;
-$color-secondary-text  : rgba($color-black, .54);
 $color-icon            : rgba($color-black, .54);
 $color-divider         : rgba($color-black, .27);
 $color-divider-low     : rgba($color-black, .13);
