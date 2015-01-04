@@ -1,9 +1,20 @@
 %grid {
 	display: flex;
 	flex-wrap: wrap;
+  	justify-content: space-between;
 }
-	
-.grid {
+
+.yemd {
+
+  .grid {
 	@extend %grid;
-	padding-bottom: em(8);
+	padding: em(8) em(8) 0 em(8);
+  }
+	.grid__item {
+	  @extend %card--square;
+	  background-size: cover;
+	  background-position: center;
+	  margin-bottom: em(8);
+	}
 }
+
